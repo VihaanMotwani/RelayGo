@@ -91,7 +91,7 @@ function createPinEl(color, code, urgency) {
 
 /* ---- Component ---- */
 
-export default function Map({ reports, focusedReport, onReportClick }) {
+export default function Map({ reports, focusedReport, onReportClick, enableBuildingHover }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const mapRef = useRef(null);
@@ -99,6 +99,19 @@ export default function Map({ reports, focusedReport, onReportClick }) {
   const reportsRef = useRef(reports);
   const markersRef = useRef([]); // Will store { id, marker } objects
   const { theme } = useTheme();
+
+  const enableBuildingHoverRef = useRef(enableBuildingHover);
+
+  useEffect(() => {
+    enableBuildingHoverRef.current = enableBuildingHover;
+    const map = mapRef.current;
+    if (map && map.getStyle() && map.getLayer('3d-buildings-highlight')) {
+      if (!enableBuildingHover) {
+        map.getCanvas().style.cursor = '';
+        map.setPaintProperty('3d-buildings-highlight', 'fill-extrusion-opacity', 0);
+      }
+    }
+  }, [enableBuildingHover]);
 
   reportsRef.current = reports;
 
@@ -336,6 +349,7 @@ export default function Map({ reports, focusedReport, onReportClick }) {
     });
 
     map.on('mousemove', '3d-buildings', (e) => {
+      if (!enableBuildingHoverRef.current) return;
       if (e.features.length > 0) {
         map.getCanvas().style.cursor = 'pointer';
         map.setPaintProperty('3d-buildings-highlight', 'fill-extrusion-opacity', 0.9);

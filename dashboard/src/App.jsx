@@ -14,6 +14,7 @@ function Dashboard() {
   const { theme } = useTheme();
   const [tab, setTab] = useState('reports'); // 'reports' | 'directives'
   const [focusedReport, setFocusedReport] = useState(null);
+  const [enableBuildingHover, setEnableBuildingHover] = useState(true);
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -22,7 +23,13 @@ function Dashboard() {
   return (
     <div className="app">
       <div className="app-toolbar">
-        <StatsBar reports={reports} directives={directives} connected={connected} />
+        <StatsBar
+          reports={reports}
+          directives={directives}
+          connected={connected}
+          enableBuildingHover={enableBuildingHover}
+          setEnableBuildingHover={setEnableBuildingHover}
+        />
       </div>
       <div className="app-body">
         <div className="app-map">
@@ -30,6 +37,7 @@ function Dashboard() {
             reports={reports}
             focusedReport={focusedReport}
             onReportClick={setFocusedReport}
+            enableBuildingHover={enableBuildingHover}
           />
         </div>
         <div className="app-sidebar">
