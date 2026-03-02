@@ -14,6 +14,7 @@ class FlutterBridge: ObservableObject {
     // State published to SwiftUI
     @MainActor @Published var isInitialized = false
     @MainActor @Published var isAiReady = false
+    @MainActor @Published var isSttReady = false
     @MainActor @Published var isMeshConnected = false
     @MainActor @Published var peerCount = 0
     @MainActor @Published var initProgress = "Starting..."
@@ -180,9 +181,10 @@ class FlutterBridge: ObservableObject {
         if let state = try await invoke("getState") {
             isInitialized = state["isInitialized"] as? Bool ?? false
             isAiReady = state["isAiReady"] as? Bool ?? false
+            isSttReady = state["isSttReady"] as? Bool ?? false
             isMeshConnected = state["isMeshConnected"] as? Bool ?? false
             peerCount = state["peerCount"] as? Int ?? 0
-            print("[RelayGo] State: initialized=\(isInitialized), aiReady=\(isAiReady), mesh=\(isMeshConnected), peers=\(peerCount)")
+            print("[RelayGo] State: initialized=\(isInitialized), aiReady=\(isAiReady), sttReady=\(isSttReady), mesh=\(isMeshConnected), peers=\(peerCount)")
         }
 
         isInitializing = false
@@ -194,6 +196,7 @@ class FlutterBridge: ObservableObject {
         if let state = try await invoke("getState") {
             isInitialized = state["isInitialized"] as? Bool ?? false
             isAiReady = state["isAiReady"] as? Bool ?? false
+            isSttReady = state["isSttReady"] as? Bool ?? false
             isMeshConnected = state["isMeshConnected"] as? Bool ?? false
             peerCount = state["peerCount"] as? Int ?? 0
         }

@@ -9,15 +9,5 @@
 		<string>fetch</string>
 		<string>location</string>
 	</array>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>RelayGo uses Bluetooth to create a mesh network with nearby devices for。。。 communication</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>RelayGo broadcasts emergency messages to nearby devices via Bluetooth</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>RelayGo needs your location to tag emergency reports and show nearby incidents</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>RelayGo needs background location to relay emergency messages even when the app is closed</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>RelayGo uses the microphone for voice-to-text emergency reporting</string>
 </dict>
 </plist>

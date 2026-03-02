@@ -51,6 +51,7 @@ class BackendConfig {
 /// AI model configuration.
 class AiConfig {
   static const String modelSlug = 'lfm2-1.2b';
+  // lfm2-700m, qwen3-0.6
   static const double temperature = 0.3;
   static const int maxTokens = 256;
 }
