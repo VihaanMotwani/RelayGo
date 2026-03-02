@@ -1,27 +1,42 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 import '../../core/constants.dart';
 import '../../models/mesh_packet.dart';
 
+/// BLE Central — Flood-Then-Dedup with Probabilistic Convergence
+///
+/// Protocol:
+///   1. Scan for RelayGo peers.
+///   2. Connect to each peer and write ALL local packets.
+///   3. Receiver deduplicates via SQLite INSERT OR IGNORE.
+///   4. After 2 quiet cycles (store unchanged), enter CONVERGED state.
+///   5. While converged, each cycle has a 20% chance to re-flood anyway,
+///      preventing local convergence from hiding global inconsistency
+///      (e.g., A↔B converged but B→C hasn't synced yet).
 class BleCentralService {
   Timer? _scanTimer;
   final Set<String> _connectedDeviceIds = {};
   List<MeshPacket> _localPackets = [];
   int _peerCount = 0;
-  bool _syncing = false; // true while a scan+sync cycle is running
+  bool _syncing = false;
 
-  /// Tracks which packet IDs we've already written to each peer.
-  /// Key = peer device ID, Value = set of packet IDs already sent.
-  /// This prevents the gossip "echo" problem where packets bounce
-  /// infinitely between two nodes.
-  final Map<String, Set<String>> _sentToPeer = {};
+  // ── Convergence tracking ──
+  int _lastKnownCount = -1;
+  int _quietCycles = 0;
+  bool _converged = false;
+  static const int _quietCyclesNeeded = 2;
+  static const double _reprobeChance =
+      0.20; // 20% chance to re-flood when converged
+  final _rng = Random();
 
-  /// Optional log callback — wired by InstrumentedMeshService for the tester.
+  /// Optional log callback.
   final void Function(String)? onLog;
 
   int get peerCount => _peerCount;
+  bool get isConverged => _converged;
 
   final _peerCountController = StreamController<int>.broadcast();
   Stream<int> get onPeerCountChanged => _peerCountController.stream;
@@ -31,48 +46,69 @@ class BleCentralService {
   void _log(String msg) => onLog?.call(msg);
 
   void updateLocalPackets(List<MeshPacket> packets) {
+    final n = packets.length;
+    if (n != _lastKnownCount) {
+      if (_converged) {
+        _log('⚡ New data ($n pkts) — convergence broken, resuming flood');
+      }
+      _converged = false;
+      _quietCycles = 0;
+      _lastKnownCount = n;
+    }
     _localPackets = packets;
-    _log('Local packet queue updated: ${packets.length} total packets');
   }
 
   Future<void> start() async {
     _log(
-      'Starting central — scan interval: ${BleConstants.scanInterval.inSeconds}s',
+      'Starting central — interval: ${BleConstants.scanInterval.inSeconds}s',
     );
     _scanTimer = Timer.periodic(
       BleConstants.scanInterval,
       (_) => _scanAndSync(),
     );
-    _scanAndSync(); // Initial scan
+    _scanAndSync();
   }
 
   Future<void> _scanAndSync() async {
-    if (_syncing) {
-      _log('Sync cycle already in progress, skipping');
-      return;
-    }
+    if (_syncing) return;
     _syncing = true;
-    _log('━━━ Scan cycle started ━━━');
+
+    // ── Decide whether to flood this cycle ──
+    bool shouldFlood = !_converged;
+    if (_converged) {
+      final roll = _rng.nextDouble();
+      if (roll < _reprobeChance) {
+        shouldFlood = true;
+        _log(
+          '━━━ Scan cycle (CONVERGED but re-probing, roll=${roll.toStringAsFixed(2)}) ━━━',
+        );
+      } else {
+        _log(
+          '━━━ Scan cycle (CONVERGED — scan only, roll=${roll.toStringAsFixed(2)}) ━━━',
+        );
+      }
+    } else {
+      _log('━━━ Scan cycle (${_localPackets.length} pkts to flood) ━━━');
+    }
 
     try {
-      // ── Phase 1: Scan for RelayGo peers ──
+      // ── Phase 1: Scan ──
       final Map<String, BluetoothDevice> foundPeers = {};
 
-      final subscription = FlutterBluePlus.scanResults.listen((results) {
-        for (final result in results) {
-          final hasRelayGoService = result.advertisementData.serviceUuids.any(
-            (uuid) =>
-                uuid.str.toLowerCase() ==
-                BleConstants.serviceUuid.toLowerCase(),
+      final sub = FlutterBluePlus.scanResults.listen((results) {
+        for (final r in results) {
+          final isRelayGo = r.advertisementData.serviceUuids.any(
+            (u) =>
+                u.str.toLowerCase() == BleConstants.serviceUuid.toLowerCase(),
           );
-          if (hasRelayGoService) {
-            final deviceId = result.device.remoteId.str;
-            if (!foundPeers.containsKey(deviceId)) {
-              final name = result.device.platformName.isNotEmpty
-                  ? result.device.platformName
+          if (isRelayGo) {
+            final id = r.device.remoteId.str;
+            if (!foundPeers.containsKey(id)) {
+              final name = r.device.platformName.isNotEmpty
+                  ? r.device.platformName
                   : 'Unknown';
-              _log('  📡 RelayGo peer: $name ($deviceId) RSSI=${result.rssi}');
-              foundPeers[deviceId] = result.device;
+              _log('  📡 $name ($id) RSSI=${r.rssi}');
+              foundPeers[id] = r.device;
             }
           }
         }
@@ -83,19 +119,41 @@ class BleCentralService {
         timeout: const Duration(seconds: 10),
       );
       await Future.delayed(const Duration(seconds: 11));
-      subscription.cancel();
+      sub.cancel();
 
-      final meshPeers = foundPeers.length;
-      _log('Scan complete: $meshPeers RelayGo peer(s) found');
-      if (_peerCount != meshPeers) {
-        _peerCount = meshPeers;
+      _log('Scan: ${foundPeers.length} peer(s)');
+      if (_peerCount != foundPeers.length) {
+        _peerCount = foundPeers.length;
         _peerCountController.add(_peerCount);
       }
 
-      // ── Phase 2: Sync with each peer (scan is stopped) ──
-      for (final entry in foundPeers.entries) {
-        if (!_connectedDeviceIds.contains(entry.key)) {
-          await _connectAndSync(entry.value);
+      // ── Phase 2: Flood if needed ──
+      if (!shouldFlood) {
+        _log('Flood skipped this cycle');
+      } else if (foundPeers.isEmpty) {
+        _log('No peers — nothing to flood');
+      } else {
+        for (final entry in foundPeers.entries) {
+          if (!_connectedDeviceIds.contains(entry.key)) {
+            await _connectAndFlood(entry.value);
+          }
+        }
+      }
+
+      // ── Phase 3: Update convergence based on store growth ──
+      if (foundPeers.isNotEmpty && !_converged) {
+        final storeGrew = (_localPackets.length != _lastKnownCount);
+        if (storeGrew) {
+          _quietCycles = 0;
+        } else {
+          _quietCycles++;
+          _log('Quiet cycle #$_quietCycles/$_quietCyclesNeeded');
+          if (_quietCycles >= _quietCyclesNeeded) {
+            _converged = true;
+            _log(
+              '✅ CONVERGED — flooding paused (${_reprobeChance * 100}% reprobe chance per cycle)',
+            );
+          }
         }
       }
 
@@ -107,106 +165,104 @@ class BleCentralService {
     }
   }
 
-  Future<void> _connectAndSync(BluetoothDevice device) async {
+  Future<void> _connectAndFlood(BluetoothDevice device) async {
     final deviceId = device.remoteId.str;
     _connectedDeviceIds.add(deviceId);
 
     try {
-      _log('Connecting to $deviceId...');
+      _log('[$deviceId] Connecting...');
       await device.connect(
-        timeout: const Duration(seconds: 8),
+        timeout: const Duration(seconds: 10),
         autoConnect: false,
       );
-      _log('Connected to $deviceId ✅');
+      _log('[$deviceId] Connected ✅');
 
-      // Negotiate larger MTU
       int mtu = BleConstants.fallbackMtu;
       try {
         mtu = await device.requestMtu(BleConstants.requestMtu);
-        _log('MTU negotiated: $mtu bytes');
+        _log('[$deviceId] MTU=$mtu');
       } catch (e) {
-        _log('⚠️ MTU negotiation failed, using ${BleConstants.fallbackMtu}B');
+        _log('[$deviceId] MTU failed → ${BleConstants.fallbackMtu}B');
       }
       final maxPayload = mtu - 3;
 
-      _log('Discovering services on $deviceId...');
       final services = await device.discoverServices();
-
-      bool foundChar = false;
-      for (final service in services) {
-        if (service.uuid.str.toLowerCase() ==
+      BluetoothCharacteristic? packetChar;
+      for (final svc in services) {
+        if (svc.uuid.str.toLowerCase() ==
             BleConstants.serviceUuid.toLowerCase()) {
-          for (final char in service.characteristics) {
+          for (final char in svc.characteristics) {
             if (char.uuid.str.toLowerCase() ==
                 BleConstants.packetCharUuid.toLowerCase()) {
-              foundChar = true;
-
-              // ── Dedup: only send packets this peer hasn't seen ──
-              final alreadySent = _sentToPeer[deviceId] ?? <String>{};
-              final toSend = _localPackets
-                  .where((p) => !alreadySent.contains(p.id))
-                  .toList();
-
-              if (toSend.isEmpty) {
-                _log('Peer $deviceId is up-to-date — 0 new packets to send');
-              } else {
-                _log(
-                  'Sending ${toSend.length} NEW packet(s) to $deviceId (${alreadySent.length} already sent before, ${_localPackets.length} total)',
-                );
-                await _writePackets(char, deviceId, maxPayload, toSend);
-              }
+              packetChar = char;
+              break;
             }
           }
         }
+        if (packetChar != null) break;
       }
 
-      if (!foundChar) {
-        _log('⚠️ RelayGo characteristic NOT found on $deviceId');
+      if (packetChar == null) {
+        _log('[$deviceId] ⚠️ Char not found');
+        await device.disconnect();
+        return;
+      }
+
+      final snapshot = List<MeshPacket>.from(_localPackets);
+      if (snapshot.isEmpty) {
+        _log('[$deviceId] Outbox empty');
+      } else {
+        _log('[$deviceId] Flooding ${snapshot.length} pkt(s)...');
+        await _floodPackets(packetChar, deviceId, maxPayload, snapshot);
       }
 
       await device.disconnect();
-      _log('Disconnected from $deviceId');
+      _log('[$deviceId] Disconnected');
     } catch (e) {
-      _log('❌ Sync with $deviceId failed: $e');
+      _log('[$deviceId] ❌ Failed: $e');
+      try {
+        await device.disconnect();
+      } catch (_) {}
     } finally {
       _connectedDeviceIds.remove(deviceId);
     }
   }
 
-  Future<void> _writePackets(
+  Future<void> _floodPackets(
     BluetoothCharacteristic char,
     String peerId,
     int maxPayload,
-    List<MeshPacket> packetsToSend,
+    List<MeshPacket> packets,
   ) async {
-    // Ensure the sent-set exists for this peer
-    _sentToPeer.putIfAbsent(peerId, () => <String>{});
-
-    int written = 0;
-    int skipped = 0;
-    for (final packet in packetsToSend) {
+    int sent = 0;
+    for (final packet in packets) {
+      final sid = packet.id.substring(0, 8);
       try {
         final bytes = packet.toBytes();
-        if (bytes.length <= maxPayload) {
-          await char.write(bytes, withoutResponse: true);
-          written++;
-          _sentToPeer[peerId]!.add(packet.id); // Mark as sent to this peer
-          _log(
-            '  → Wrote ${packet.kind} ${packet.id.substring(0, 8)}... (${bytes.length}B hops=${packet.hops})',
-          );
-          await Future.delayed(const Duration(milliseconds: 50));
-        } else {
-          skipped++;
-          _log(
-            '  ⚠️ Skipped ${packet.id.substring(0, 8)}... — ${bytes.length}B > ${maxPayload}B',
-          );
+        if (bytes.length > maxPayload) {
+          _log('  [$peerId] ⚠️ $sid ${bytes.length}B > limit — skip');
+          continue;
         }
+
+        try {
+          await char.write(bytes, withoutResponse: true);
+        } catch (e) {
+          _log('  [$peerId] ↻ $sid busy, retry 150ms');
+          await Future.delayed(const Duration(milliseconds: 150));
+          await char.write(bytes, withoutResponse: true);
+        }
+
+        sent++;
+        _log(
+          '  [$peerId] → ${packet.kind} $sid ${bytes.length}B h=${packet.hops}',
+        );
+        await Future.delayed(const Duration(milliseconds: 80));
       } catch (e) {
-        _log('  ❌ Write failed for ${packet.id.substring(0, 8)}...: $e');
+        _log('  [$peerId] ❌ $sid failed: $e — aborting');
         break;
       }
     }
-    _log('Write complete → $peerId: $written sent, $skipped skipped');
+    _log('[$peerId] $sent/${packets.length} sent');
   }
 
   Future<void> stop() async {
