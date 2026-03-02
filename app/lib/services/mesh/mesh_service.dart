@@ -7,6 +7,7 @@ import '../../models/emergency_report.dart';
 import '../../models/mesh_message.dart';
 import '../../models/mesh_packet.dart';
 import '../../models/peer_info.dart';
+import '../ai/ai_event_generator.dart';
 import 'ble_central.dart';
 import 'ble_peripheral.dart';
 import 'packet_store.dart';
@@ -16,6 +17,9 @@ class MeshService {
   final BlePeripheralService _peripheral;
   final BleCentralService _central;
   StreamSubscription? _peripheralSub;
+
+  /// Optional AI event generator for auto-analysis of incoming messages
+  AiEventGenerator? _aiEventGenerator;
 
   /// Optional log callback for observability.
   final void Function(String)? onLog;
@@ -58,6 +62,11 @@ class MeshService {
       _central = BleCentralService(onLog: onLog) {
       _initIdentity();
       }
+
+  /// Set the AI event generator for auto-analysis of incoming messages
+  void setAiEventGenerator(AiEventGenerator generator) {
+    _aiEventGenerator = generator;
+  }
 
   Future<void> _initIdentity() async {
     final prefs = await SharedPreferences.getInstance();
@@ -129,9 +138,37 @@ class MeshService {
       _reportController.add(packet.report!);
       _packetController.add({'kind': 'report', ...packet.report!.toJson()});
     } else if (packet.isMessage && packet.message != null) {
-      _messages.insert(0, packet.message!);
-      _messageController.add(packet.message!);
-      _packetController.add({'kind': 'message', ...packet.message!.toJson()});
+      final msg = packet.message!;
+      _messages.insert(0, msg);
+      _messageController.add(msg);
+      _packetController.add({'kind': 'message', ...msg.toJson()});
+
+      // NEW: Auto-analyze incoming messages for emergency extraction
+      // Only runs if AI event generator is set and message is likely emergency
+      if (_aiEventGenerator != null) {
+        _aiEventGenerator!.analyzeIncomingMessage(msg).then((report) {
+          if (report != null && report.isValidForBroadcast()) {
+            // Check if we haven't already broadcast a similar report
+            final isDuplicate = _reports.any((r) =>
+                r.type == report.type &&
+                r.desc.contains(report.desc.substring(0, 20)) &&
+                DateTime.now().millisecondsSinceEpoch - r.ts * 1000 < 60000);
+
+            if (!isDuplicate) {
+              _log(
+                '[MESH] Auto-extracted emergency from incoming message: ${report.type} urg=${report.urg}',
+              );
+              broadcastReport(report); // Re-broadcast as structured report
+            } else {
+              _log(
+                '[MESH] Skipping duplicate auto-extracted report',
+              );
+            }
+          }
+        }).catchError((e) {
+          _log('[MESH] Auto-analysis failed: $e');
+        });
+      }
     }
 
     // Update central's packet list for forwarding

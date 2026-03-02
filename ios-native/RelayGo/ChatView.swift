@@ -238,7 +238,7 @@ struct MessageBubble: View {
                             .opacity(0.7)
                     }
 
-                    Text(message.text)
+                    Text(verbatim: message.text)
                     if message.isStreaming {
                         TypingCursor()
                     }

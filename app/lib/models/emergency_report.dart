@@ -33,6 +33,46 @@ class EmergencyReport {
     this.ttl = 10,
   }) : id = id ?? PacketHash.computeReportId(src, ts, type, lat, lng, desc);
 
+  /// Factory method for creating EmergencyReport from AI extraction
+  /// This ensures proper schema alignment between AI service and mesh models
+  factory EmergencyReport.fromAiExtraction({
+    required dynamic extraction, // AiExtraction from ai_service.dart
+    required dynamic location, // Position from geolocator
+    required String deviceId,
+    String? sourceMessageId,
+  }) {
+    final ts = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+
+    // Build description - include source message ID if available for deduplication
+    String desc = extraction.description;
+    if (sourceMessageId != null && !desc.contains('[src:')) {
+      desc = '$desc [src:$sourceMessageId]';
+    }
+
+    return EmergencyReport(
+      ts: ts,
+      lat: location.latitude,
+      lng: location.longitude,
+      acc: location.accuracy,
+      type: extraction.type,
+      urg: extraction.urgency,
+      haz: extraction.hazards,
+      desc: desc,
+      src: deviceId,
+      hops: 0,
+      ttl: 10,
+    );
+  }
+
+  /// Validation helper - checks if report is valid for broadcast
+  /// Enforces quality thresholds before sending to mesh network
+  bool isValidForBroadcast() {
+    return urg >= 3 && // Only urgent reports (threshold)
+        desc.length > 10 && // Has meaningful description
+        desc.length < 150 && // Fits in BLE MTU (185B total)
+        type != 'other'; // Has specific category
+  }
+
   /// Full JSON for SQLite storage and backend sync.
   Map<String, dynamic> toJson() => {
     'kind': kind,

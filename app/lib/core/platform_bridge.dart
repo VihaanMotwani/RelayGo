@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../models/emergency_report.dart';
 import '../models/mesh_message.dart';
 import '../services/ai/ai_service.dart';
+import '../services/ai/ai_event_generator.dart';
 import '../services/mesh/mesh_service.dart';
 import '../services/location_service.dart';
 
@@ -19,11 +20,13 @@ class PlatformBridge {
   PlatformBridge._() {
     _setupMethodChannel();
     _setupStreamChannel();
+    _setupAiEventGenerator();
   }
 
   // Services
   final AiService _aiService = AiService();
   final MeshService _meshService = MeshService();
+  late final AiEventGenerator _aiEventGenerator;
 
   // Platform channel for native UI communication
   static const _channel = MethodChannel('com.relaygo/bridge');
@@ -100,35 +103,68 @@ class PlatformBridge {
     _initProgressController.add('Ready');
   }
 
+  /// Setup AI event generator after services are created
+  void _setupAiEventGenerator() {
+    _aiEventGenerator = AiEventGenerator(
+      aiService: _aiService,
+      meshService: _meshService,
+    );
+    // Wire up AI event generator to mesh service for auto-analysis
+    _meshService.setAiEventGenerator(_aiEventGenerator);
+  }
+
   // ============================================================
   // AI METHODS
   // ============================================================
 
   /// Transcribe audio file to text
+  /// Also attempts to extract and broadcast emergency data if detected
   Future<String> transcribe(String audioPath) async {
+    // Fire-and-forget event extraction (runs in background)
+    // Ignore result - we only care about transcription for immediate return
+    _aiEventGenerator.transcribeAndExtractEvent(audioPath).then((_) {
+      // Success - extraction and broadcast completed
+    }).catchError((e) {
+      print('[PlatformBridge] Voice extraction failed: $e');
+    });
+
+    // Return transcription immediately
     return await _aiService.transcribe(audioPath);
   }
 
   /// Send message to AI and get response
   /// If extractAndBroadcast is true and mesh is connected, extracts emergency data and broadcasts it
   Future<Map<String, dynamic>> chat(String text, {bool extractReport = false, bool extractAndBroadcast = false}) async {
-    // Get user location for nearby resources context
+    // Use AI event generator for chat with extraction
+    if (extractAndBroadcast && _meshService.isConnected) {
+      final result = await _aiEventGenerator.chatAndExtractEvent(
+        text,
+        extractAndBroadcast: true,
+      );
+
+      return {
+        'text': result.aiResponse,
+        'confidence': result.confidence.name,
+        'extraction': result.extractedReport != null
+            ? {
+                'type': result.extractedReport!.type,
+                'urgency': result.extractedReport!.urg,
+                'hazards': result.extractedReport!.haz,
+                'description': result.extractedReport!.desc,
+              }
+            : null,
+        'broadcast': result.wasBroadcast,
+      };
+    }
+
+    // Otherwise use AI service directly (no extraction)
     final location = await LocationService.getCurrentLocation();
-
-    // If we should extract and broadcast, force extraction
-    final shouldExtract = extractReport || (extractAndBroadcast && _meshService.isConnected);
-
     final response = await _aiService.chat(
       text,
-      extractReport: shouldExtract,
+      extractReport: extractReport,
       userLat: location?.latitude,
       userLon: location?.longitude,
     );
-
-    // If extraction succeeded and mesh is connected, broadcast the report
-    if (extractAndBroadcast && _meshService.isConnected && response.extraction != null) {
-      await _broadcastExtraction(response.extraction!, location);
-    }
 
     return {
       'text': response.text,
@@ -144,33 +180,6 @@ class PlatformBridge {
     };
   }
 
-  /// Broadcast an extracted emergency report to the mesh network
-  Future<void> _broadcastExtraction(AiExtraction extraction, dynamic location) async {
-    // Only broadcast if urgency is significant (3+)
-    if (extraction.urgency < 3) {
-      print('[PlatformBridge] Skipping broadcast - urgency ${extraction.urgency} below threshold');
-      return;
-    }
-
-    final report = EmergencyReport(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
-      ts: DateTime.now().millisecondsSinceEpoch ~/ 1000,
-      lat: location?.latitude ?? 0,
-      lng: location?.longitude ?? 0,
-      acc: location?.accuracy ?? 0,
-      type: extraction.type,
-      urg: extraction.urgency,
-      haz: extraction.hazards,
-      desc: extraction.description,
-      src: _meshService.deviceId,
-      hops: 0,
-      ttl: 10,
-    );
-
-    await _meshService.broadcastReport(report);
-    print('[PlatformBridge] Broadcast emergency report: ${extraction.type} urg=${extraction.urgency}');
-  }
-
   /// Extract emergency data from text and broadcast if significant
   /// Used for Nearby chat messages to auto-detect emergencies
   Future<Map<String, dynamic>?> extractAndBroadcastFromText(String text) async {
@@ -178,22 +187,17 @@ class PlatformBridge {
       return null;
     }
 
-    final location = await LocationService.getCurrentLocation();
-
-    final response = await _aiService.chat(
+    final result = await _aiEventGenerator.chatAndExtractEvent(
       text,
-      extractReport: true,
-      userLat: location?.latitude,
-      userLon: location?.longitude,
+      extractAndBroadcast: true,
     );
 
-    if (response.extraction != null) {
-      await _broadcastExtraction(response.extraction!, location);
+    if (result.extractedReport != null) {
       return {
-        'type': response.extraction!.type,
-        'urgency': response.extraction!.urgency,
-        'hazards': response.extraction!.hazards,
-        'description': response.extraction!.description,
+        'type': result.extractedReport!.type,
+        'urgency': result.extractedReport!.urg,
+        'hazards': result.extractedReport!.haz,
+        'description': result.extractedReport!.desc,
       };
     }
 
@@ -237,9 +241,12 @@ class PlatformBridge {
 
   /// Generate situational awareness summary from mesh data
   Future<String> generateAwarenessSummary() async {
-    final reports = _meshService.reports;
-    final broadcasts = _meshService.broadcastMessages.map((m) => m.body).toList();
-    return await _aiService.generateAwarenessSummary(reports, broadcasts);
+    final msg = await _aiEventGenerator.generateAwarenessBroadcast();
+    if (msg != null && _meshService.isConnected) {
+      await _meshService.broadcastMessage(msg);
+      return msg.body;
+    }
+    return 'Unable to generate awareness summary';
   }
 
   // ============================================================
