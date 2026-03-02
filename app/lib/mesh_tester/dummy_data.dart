@@ -16,8 +16,8 @@ class DummyData {
     return [
       EmergencyReport(
         ts: now,
-        lat: 37.7749,
-        lng: -122.4194,
+        lat: 1.2830,
+        lng: 103.8520,
         type: 'fire',
         urg: 5,
         desc: 'Building fire 3rd floor',
@@ -25,8 +25,8 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 30,
-        lat: 37.7751,
-        lng: -122.4180,
+        lat: 1.2850,
+        lng: 103.8480,
         type: 'medical',
         urg: 4,
         desc: 'Person collapsed Market St',
@@ -34,8 +34,8 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 60,
-        lat: 37.7730,
-        lng: -122.4200,
+        lat: 1.2810,
+        lng: 103.8550,
         type: 'structural',
         urg: 3,
         desc: 'Wall collapse 5th Ave',
@@ -43,8 +43,8 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 90,
-        lat: 37.7760,
-        lng: -122.4220,
+        lat: 1.2880,
+        lng: 103.8450,
         type: 'flood',
         urg: 3,
         desc: 'Street flooding Main St',
@@ -52,8 +52,8 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 120,
-        lat: 37.7740,
-        lng: -122.4210,
+        lat: 1.2790,
+        lng: 103.8590,
         type: 'hazmat',
         urg: 4,
         desc: 'Gas leak at intersection',

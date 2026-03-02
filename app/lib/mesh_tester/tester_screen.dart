@@ -374,6 +374,27 @@ class _TesterScreenState extends State<TesterScreen> {
                   ),
                 ],
               ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  SizedBox(
+                    width: btnWidth,
+                    child: _ControlButton(
+                      label: 'Force Sync',
+                      icon: Icons.cloud_upload,
+                      color: const Color(0xFF8957E5),
+                      onTap: () async {
+                        _log.info('Manual backend sync triggered...');
+                        final status = await _mesh.forceBackendSync();
+                        _log.info(status);
+                        await _mesh.refreshStoredIds();
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  SizedBox(width: btnWidth), // empty space for symmetry
+                ],
+              ),
             ],
           );
         },

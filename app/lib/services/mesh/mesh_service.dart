@@ -7,6 +7,7 @@ import '../../models/emergency_report.dart';
 import '../../models/mesh_message.dart';
 import '../../models/mesh_packet.dart';
 import '../../models/peer_info.dart';
+import '../backend_sync.dart';
 import 'ble_central.dart';
 import 'ble_peripheral.dart';
 import 'packet_store.dart';
@@ -15,6 +16,7 @@ class MeshService {
   final PacketStore _store;
   final BlePeripheralService _peripheral;
   final BleCentralService _central;
+  final BackendSync _backendSync;
   StreamSubscription? _peripheralSub;
 
   /// Optional log callback for observability.
@@ -29,7 +31,8 @@ class MeshService {
   Stream<MeshMessage> get onNewMessage => _messageController.stream;
   Stream<int> get onPeerCountChanged => _central.onPeerCountChanged;
   Stream<Map<String, dynamic>> get onPacketReceived => _packetController.stream;
-  Stream<String> get onConnectionStatusChanged => _connectionStatusController.stream;
+  Stream<String> get onConnectionStatusChanged =>
+      _connectionStatusController.stream;
 
   int get peerCount => _central.peerCount;
   bool get isConnected => _isConnected;
@@ -49,15 +52,17 @@ class MeshService {
   List<PeerInfo> _peers = [];
 
   List<EmergencyReport> get reports => _reports;
-  List<MeshMessage> get broadcastMessages => _messages.where((m) => m.to == null).toList();
+  List<MeshMessage> get broadcastMessages =>
+      _messages.where((m) => m.to == null).toList();
   List<PeerInfo> get peers => _peers;
 
   MeshService({PacketStore? store, this.onLog})
     : _store = store ?? PacketStore(),
       _peripheral = BlePeripheralService(onLog: onLog),
-      _central = BleCentralService(onLog: onLog) {
-      _initIdentity();
-      }
+      _central = BleCentralService(onLog: onLog),
+      _backendSync = BackendSync(store ?? PacketStore(), onLog: onLog) {
+    _initIdentity();
+  }
 
   Future<void> _initIdentity() async {
     final prefs = await SharedPreferences.getInstance();
@@ -93,9 +98,10 @@ class MeshService {
     // Listen for incoming packets from peripheral
     _peripheralSub = _peripheral.onPacketReceived.listen(_handleIncomingPacket);
 
-    // Start both BLE roles
+    // Start both BLE roles and backend sync
     await _peripheral.start();
     await _central.start();
+    await _backendSync.start();
 
     // Feed existing packets to central for sync
     await refreshOutbox();
@@ -138,6 +144,11 @@ class MeshService {
     await refreshOutbox();
   }
 
+  /// Manually force a sync to the backend. Returns the status message.
+  Future<String> forceBackendSync() async {
+    return await _backendSync.syncNow();
+  }
+
   /// Refresh the central's outbox from the store.
   /// Call after preloading data to ensure the central picks it up.
   Future<void> refreshOutbox() async {
@@ -171,6 +182,7 @@ class MeshService {
     await _peripheralSub?.cancel();
     await _peripheral.stop();
     await _central.stop();
+    _backendSync.stop();
     _isConnected = false;
     _connectionStatusController.add('disconnected');
   }
@@ -179,6 +191,7 @@ class MeshService {
     stop();
     _peripheral.dispose();
     _central.dispose();
+    _backendSync.dispose();
     _reportController.close();
     _messageController.close();
     _packetController.close();
