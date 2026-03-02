@@ -1,226 +1,224 @@
-import { TYPE_COLORS, TYPE_LABELS, TYPE_ICONS } from '../utils/mapStyles';
+import { TYPE_COLORS, TYPE_LABELS } from '../utils/mapStyles';
+import { useTheme } from '../hooks/useTheme';
 
 export default function StatsBar({ reports, connected }) {
+  const { theme, toggle } = useTheme();
+
   const typeCounts = {};
   let totalHops = 0;
   let hopsCount = 0;
-  let maxUrg = 0;
 
   reports.forEach((r) => {
     const t = r.type?.toLowerCase() || 'other';
     typeCounts[t] = (typeCounts[t] || 0) + 1;
     const h = r.hop_count ?? r.hops;
     if (h != null) { totalHops += h; hopsCount++; }
-    const u = r.urgency ?? r.urg ?? 0;
-    if (u > maxUrg) maxUrg = u;
   });
 
-  const avgHops = hopsCount > 0 ? (totalHops / hopsCount).toFixed(1) : '—';
-  const threatLevel = maxUrg >= 4 ? 'CRITICAL' : maxUrg >= 3 ? 'ELEVATED' : maxUrg >= 2 ? 'GUARDED' : 'NOMINAL';
-  const threatColor = maxUrg >= 4 ? 'var(--red-alert)' : maxUrg >= 3 ? 'var(--amber)' : maxUrg >= 2 ? '#FFA843' : 'var(--green-ok)';
+  const avgHops = hopsCount > 0 ? (totalHops / hopsCount).toFixed(1) : '0.0';
 
   return (
-    <div style={styles.bar}>
+    <div style={s.toolbar}>
       {/* Brand */}
-      <div style={styles.left}>
-        <div style={styles.brand}>
-          <div style={styles.sigil}>◇</div>
-          <div>
-            <span style={styles.logo}>RELAY</span>
-            <span style={styles.logoAccent}>GO</span>
-          </div>
-        </div>
+      <span style={s.title}>RelayGo</span>
 
-        <div style={styles.divider} />
+      {/* <div style={s.center}>
+        <ToolbarItem value={reports.length} label="Incidents" />
+        <ToolbarSep />
+        <ToolbarItem value={avgHops} label="Avg Hops" />
+        <ToolbarSep />
+        <ToolbarItem value={Object.keys(typeCounts).length} label="Types" />
+      </div> */}
 
-        {/* Stats */}
-        <div style={styles.statsGroup}>
-          <Stat value={reports.length} label="INCIDENTS" />
-          <Stat value={avgHops} label="AVG HOPS" />
-          <Stat value={Object.keys(typeCounts).length} label="TYPES" />
-        </div>
-      </div>
+      <div style={s.right}>
+        {Object.entries(typeCounts).map(([type, count]) => {
+          const color = TYPE_COLORS[type] || TYPE_COLORS.other;
+          return (
+            <div key={type} style={s.typeChip}>
+              <div style={{ ...s.chipDot, background: color }} />
+              <span style={s.chipText}>{TYPE_LABELS[type] || type}</span>
+              <span style={s.chipCount}>{count}</span>
+            </div>
+          );
+        })}
 
-      {/* Right */}
-      <div style={styles.right}>
-        {/* Active type pills */}
-        <div style={styles.pills}>
-          {Object.entries(typeCounts).map(([type, count]) => {
-            const color = TYPE_COLORS[type] || TYPE_COLORS.other;
-            const icon = TYPE_ICONS[type] || '⚠';
-            return (
-              <span key={type} style={pill(color)}>
-                <span style={{ fontSize: 10 }}>{icon}</span>
-                {TYPE_LABELS[type] || type}
-                <span style={pillCount(color)}>{count}</span>
-              </span>
-            );
-          })}
-        </div>
-
-        <div style={styles.divider} />
-
-        {/* Threat level */}
-        <div style={{ ...styles.threatBadge, borderColor: `${threatColor}30`, background: `${threatColor}10` }}>
-          <span style={{ ...styles.threatDot, backgroundColor: threatColor, boxShadow: `0 0 8px ${threatColor}66` }} />
-          <span style={{ color: threatColor, fontWeight: 700, fontSize: 10, letterSpacing: '0.1em' }}>{threatLevel}</span>
-        </div>
-
-        <div style={styles.divider} />
-
-        {/* Connection */}
-        <div style={styles.connection}>
+        <div style={s.statusPill}>
           <div style={{
-            ...styles.statusDot,
-            backgroundColor: connected ? 'var(--green-ok)' : 'var(--red-alert)',
-            boxShadow: connected ? '0 0 8px var(--green-glow)' : '0 0 8px var(--red-glow)',
-            animation: connected ? 'pulseGlow 2s infinite ease-in-out' : 'none',
+            ...s.statusDot,
+            background: connected ? 'var(--green)' : 'var(--red)',
           }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: connected ? 'var(--green-ok)' : 'var(--red-alert)' }}>
-            {connected ? 'ONLINE' : 'OFFLINE'}
+          <span style={{
+            ...s.statusText,
+            color: connected ? 'var(--text-secondary)' : 'var(--red)',
+          }}>
+            {connected ? 'Connected' : 'Offline'}
           </span>
         </div>
+
+        <ToolbarSep />
+
+        {/* Theme toggle */}
+        <button onClick={toggle} style={s.themeToggle} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>
+          {theme === 'light' ? (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          ) : (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          )}
+        </button>
       </div>
-    </div>
+    </div >
   );
 }
 
-function Stat({ value, label }) {
+function ToolbarItem({ value, label }) {
   return (
-    <div style={styles.stat}>
-      <span style={styles.statValue}>{value}</span>
-      <span style={styles.statLabel}>{label}</span>
+    <div style={s.toolbarItem}>
+      <span style={s.toolbarValue}>{value}</span>
+      <span style={s.toolbarLabel}>{label}</span>
     </div>
   );
 }
 
-const pill = (color) => ({
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: 5,
-  padding: '4px 10px',
-  borderRadius: 6,
-  background: `${color}0D`,
-  border: `1px solid ${color}22`,
-  fontSize: 11,
-  fontWeight: 600,
-  fontFamily: 'var(--font-display)',
-  color: `${color}CC`,
-  letterSpacing: '0.02em',
-  transition: 'all 0.2s',
-});
+function ToolbarSep() {
+  return <div style={s.toolbarSep} />;
+}
 
-const pillCount = (color) => ({
-  fontFamily: 'var(--font-mono)',
-  fontSize: 10,
-  fontWeight: 700,
-  color,
-  marginLeft: 2,
-});
-
-const styles = {
-  bar: {
+const s = {
+  toolbar: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0 20px',
     height: 52,
-    background: 'var(--bg-panel)',
-    backdropFilter: 'blur(20px) saturate(1.4)',
-    borderBottom: '1px solid var(--border-subtle)',
+    padding: '0 16px',
+    background: 'var(--bg-sidebar)',
+    backdropFilter: 'blur(30px) saturate(1.8)',
+    WebkitBackdropFilter: 'blur(30px) saturate(1.8)',
+    borderBottom: '0.5px solid var(--separator)',
     flexShrink: 0,
-    zIndex: 20,
-    position: 'relative',
+    gap: 12,
+    transition: 'background 0.25s',
   },
-  left: {
+  trafficLights: {
+    display: 'flex',
+    gap: 8,
+    alignItems: 'center',
+    paddingRight: 8,
+  },
+  trafficDot: {
+    width: 12,
+    height: 12,
+    borderRadius: '50%',
+    boxShadow: 'inset 0 0 0 0.5px rgba(0,0,0,0.15)',
+  },
+  titleArea: {
+    paddingRight: 16,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: 600,
+    color: 'var(--text-primary)',
+    letterSpacing: '-0.03em',
+  },
+  center: {
     display: 'flex',
     alignItems: 'center',
-    gap: 20,
+    gap: 0,
+    flex: 1,
   },
-  brand: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 10,
-  },
-  sigil: {
-    fontSize: 18,
-    color: 'var(--amber)',
-    fontWeight: 300,
-    opacity: 0.8,
-  },
-  logo: {
-    fontSize: 16,
-    fontWeight: 800,
-    color: '#fff',
-    letterSpacing: '0.06em',
-    fontFamily: 'var(--font-display)',
-  },
-  logoAccent: {
-    color: 'var(--amber)',
-    fontWeight: 800,
-  },
-  divider: {
-    width: 1,
-    height: 22,
-    background: 'var(--border-subtle)',
-  },
-  statsGroup: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 20,
-  },
-  stat: {
+  toolbarItem: {
     display: 'flex',
     alignItems: 'baseline',
-    gap: 6,
+    gap: 4,
+    padding: '0 10px',
   },
-  statValue: {
-    fontSize: 16,
-    fontWeight: 700,
-    fontFamily: 'var(--font-mono)',
-    color: '#fff',
-  },
-  statLabel: {
-    fontSize: 9,
+  toolbarValue: {
+    fontSize: 13,
     fontWeight: 600,
-    color: 'rgba(255,255,255,0.3)',
-    textTransform: 'uppercase',
-    letterSpacing: '0.1em',
-    fontFamily: 'var(--font-mono)',
+    fontFamily: 'var(--mono)',
+    color: 'var(--text-primary)',
+  },
+  toolbarLabel: {
+    fontSize: 11,
+    color: 'var(--text-tertiary)',
+    fontWeight: 400,
+  },
+  toolbarSep: {
+    width: 0.5,
+    height: 16,
+    background: 'var(--separator)',
   },
   right: {
     display: 'flex',
     alignItems: 'center',
-    gap: 16,
+    gap: 8,
+    marginLeft: 'auto',
   },
-  pills: {
-    display: 'flex',
-    gap: 6,
-    flexWrap: 'wrap',
-  },
-  threatBadge: {
+  typeChip: {
     display: 'flex',
     alignItems: 'center',
-    gap: 6,
-    padding: '4px 10px',
-    borderRadius: 6,
-    border: '1px solid',
-    fontFamily: 'var(--font-mono)',
+    gap: 4,
+    padding: '3px 8px',
+    borderRadius: 5,
+    background: 'var(--chip-bg)',
+    border: '0.5px solid var(--chip-border)',
+    fontSize: 11,
   },
-  threatDot: {
+  chipDot: {
     width: 6,
     height: 6,
     borderRadius: '50%',
   },
-  connection: {
+  chipText: {
+    color: 'var(--text-secondary)',
+    fontWeight: 500,
+  },
+  chipCount: {
+    color: 'var(--text-tertiary)',
+    fontFamily: 'var(--mono)',
+    fontSize: 10,
+    fontWeight: 500,
+  },
+  statusPill: {
     display: 'flex',
     alignItems: 'center',
-    gap: 8,
+    gap: 5,
+    padding: '3px 8px',
+    borderRadius: 5,
   },
   statusDot: {
-    width: 7,
-    height: 7,
+    width: 6,
+    height: 6,
     borderRadius: '50%',
-    transition: 'all 0.3s',
+  },
+  statusText: {
+    fontSize: 11,
+    fontWeight: 500,
+  },
+  themeToggle: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 28,
+    height: 28,
+    borderRadius: 6,
+    border: '0.5px solid var(--separator)',
+    background: 'var(--chip-bg)',
+    color: 'var(--text-secondary)',
+    cursor: 'pointer',
+    transition: 'all 0.15s',
+    padding: 0,
+    outline: 'none',
+    WebkitAppRegion: 'no-drag',
   },
 };

@@ -1,4 +1,17 @@
+import { useMemo } from 'react';
 import ReportCard from './ReportCard';
+
+function timeAgo(ts) {
+  if (!ts) return '';
+  const val = typeof ts === 'number' && ts < 1e12 ? ts * 1000 : ts;
+  const d = new Date(val);
+  if (isNaN(d.getTime())) return '';
+  const diff = Math.floor((Date.now() - d) / 1000);
+  if (diff < 60) return 'Just now';
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
 
 export default function ReportList({ reports }) {
   const sorted = [...reports].sort((a, b) => {
@@ -7,32 +20,33 @@ export default function ReportList({ reports }) {
     return tb - ta;
   });
 
+  const lastUpdated = useMemo(() => {
+    if (sorted.length === 0) return null;
+    const latest = sorted[0]?.timestamp || sorted[0]?.ts;
+    return timeAgo(latest);
+  }, [sorted]);
+
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <div style={styles.titleRow}>
-          <div style={styles.titleLeft}>
-            <span style={styles.titleIcon}>◉</span>
-            <h2 style={styles.title}>LIVE FEED</h2>
-          </div>
-          <span style={styles.count}>{reports.length}</span>
+    <div style={s.container}>
+      <div style={s.header}>
+        <div style={s.headerTop}>
+          <span style={s.headerLabel}>Incidents</span>
+          <span style={s.headerCount}>{reports.length}</span>
         </div>
-        <div style={styles.scanLine} />
+        {lastUpdated && (
+          <span style={s.updated}>Updated {lastUpdated}</span>
+        )}
       </div>
-      <div style={styles.list} className="report-list-scroll">
+
+      <div style={s.list}>
         {sorted.length === 0 ? (
-          <div style={styles.empty}>
-            <div style={styles.emptyIcon}>◇</div>
-            <div style={styles.emptyText}>Awaiting incoming signals...</div>
-            <div style={styles.emptyHint}>Reports from the mesh network will appear here</div>
+          <div style={s.empty}>
+            <span style={s.emptyText}>No Incidents</span>
+            <span style={s.emptyHint}>Reports from the mesh network will appear here.</span>
           </div>
         ) : (
           sorted.map((report, idx) => (
-            <ReportCard
-              key={report.id || idx}
-              report={report}
-              style={{ animationDelay: `${idx * 60}ms` }}
-            />
+            <ReportCard key={report.id || idx} report={report} />
           ))
         )}
       </div>
@@ -40,7 +54,7 @@ export default function ReportList({ reports }) {
   );
 }
 
-const styles = {
+const s = {
   container: {
     display: 'flex',
     flexDirection: 'column',
@@ -48,73 +62,53 @@ const styles = {
     overflow: 'hidden',
   },
   header: {
-    padding: '16px 18px 0',
+    padding: '14px 14px 8px',
     flexShrink: 0,
   },
-  titleRow: {
+  headerTop: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 12,
+    marginBottom: 2,
   },
-  titleLeft: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 8,
-  },
-  titleIcon: {
-    color: 'var(--amber)',
+  updated: {
     fontSize: 10,
+    fontFamily: 'var(--mono)',
+    color: 'var(--text-tertiary)',
   },
-  title: {
+  headerLabel: {
     fontSize: 11,
     fontWeight: 700,
-    fontFamily: 'var(--font-mono)',
-    color: 'rgba(255,255,255,0.5)',
-    letterSpacing: '0.12em',
-    margin: 0,
+    color: 'var(--text-secondary)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.04em',
   },
-  count: {
-    fontFamily: 'var(--font-mono)',
-    fontSize: 12,
-    fontWeight: 700,
-    color: 'var(--amber)',
-    background: 'var(--amber-glow)',
-    padding: '2px 8px',
-    borderRadius: 4,
-  },
-  scanLine: {
-    height: 1,
-    background: 'linear-gradient(90deg, transparent, var(--amber-dim), transparent)',
-    opacity: 0.2,
+  headerCount: {
+    fontSize: 11,
+    fontWeight: 500,
+    fontFamily: 'var(--mono)',
+    color: 'var(--text-tertiary)',
   },
   list: {
     flex: 1,
     overflowY: 'auto',
-    padding: '10px 14px',
+    padding: '0 8px 8px',
   },
   empty: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: '48px 24px',
-    gap: 8,
-  },
-  emptyIcon: {
-    fontSize: 28,
-    color: 'var(--amber-dim)',
-    opacity: 0.3,
-    marginBottom: 4,
+    padding: '48px 20px',
+    gap: 4,
   },
   emptyText: {
-    fontFamily: 'var(--font-mono)',
-    fontSize: 12,
-    color: 'rgba(255,255,255,0.3)',
-    letterSpacing: '0.04em',
+    fontSize: 13,
+    fontWeight: 600,
+    color: 'var(--text-secondary)',
   },
   emptyHint: {
     fontSize: 11,
-    color: 'rgba(255,255,255,0.15)',
+    color: 'var(--text-tertiary)',
+    textAlign: 'center',
   },
 };
