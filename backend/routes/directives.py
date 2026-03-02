@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Optional
+
 from fastapi import APIRouter
 
 from database import get_directives, get_pending_directives, insert_directive
@@ -21,12 +23,12 @@ async def create_directive(directive: Directive) -> dict:
 
 
 @router.get("")
-async def list_directives(limit: int = 100) -> list[dict]:
-    """Return all directives (for dashboard display)."""
-    return await get_directives(limit=limit)
+async def list_directives(limit: int = 100, zone: Optional[str] = None) -> list[dict]:
+    """Return all directives (for dashboard display), optionally filtered by zone."""
+    return await get_directives(limit=limit, zone=zone)
 
 
 @router.get("/pending")
-async def pending_directives() -> list[dict]:
-    """Return directives not yet fetched by mobile gateway nodes."""
-    return await get_pending_directives()
+async def pending_directives(zone: Optional[str] = None) -> list[dict]:
+    """Return directives not yet fetched by mobile gateway nodes, optionally filtered by zone."""
+    return await get_pending_directives(zone=zone)

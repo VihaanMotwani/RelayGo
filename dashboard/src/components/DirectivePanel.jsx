@@ -4,6 +4,7 @@ const API_URL = 'http://localhost:8000/api/directives';
 
 export default function DirectivePanel({ onSent }) {
   const [name, setName] = useState('');
+  const [zone, setZone] = useState('');
   const [body, setBody] = useState('');
   const [priority, setPriority] = useState('high');
   const [sending, setSending] = useState(false);
@@ -25,6 +26,7 @@ export default function DirectivePanel({ onSent }) {
           src: `responder-${name.trim().toLowerCase().replace(/\s+/g, '-')}`,
           name: name.trim(),
           to: null,
+          zone: zone.trim() || null,
           body: body.trim(),
           priority,
           hops: 0,
@@ -47,7 +49,7 @@ export default function DirectivePanel({ onSent }) {
     } finally {
       setSending(false);
     }
-  }, [name, body, priority, onSent]);
+  }, [name, zone, body, priority, onSent]);
 
   return (
     <div style={s.container}>
@@ -65,6 +67,14 @@ export default function DirectivePanel({ onSent }) {
         placeholder="Responder name / badge ID"
         value={name}
         onChange={(e) => setName(e.target.value)}
+      />
+
+      <input
+        style={s.input}
+        type="text"
+        placeholder="Zone (e.g. mission-fire)"
+        value={zone}
+        onChange={(e) => setZone(e.target.value)}
       />
 
       <textarea

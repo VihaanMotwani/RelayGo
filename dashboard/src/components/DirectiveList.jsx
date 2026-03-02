@@ -69,12 +69,17 @@ function DirectiveCard({ directive }) {
 
       <div style={s.cardContent}>
         <div style={s.cardTop}>
-          <div style={s.badge}>
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style={{ color: prioColor }}>
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-            </svg>
-            <span style={{ ...s.badgeText, color: prioColor }}>
-              {prio.toUpperCase()}
+          <div style={s.badgeRow}>
+            <div style={s.badge}>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style={{ color: prioColor }}>
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg>
+              <span style={{ ...s.badgeText, color: prioColor }}>
+                {prio.toUpperCase()}
+              </span>
+            </div>
+            <span style={directive.zone ? s.zoneBadge : s.zoneBadgeMuted}>
+              {directive.zone || 'BROADCAST'}
             </span>
           </div>
           <span style={s.cardTime}>{formatTime(directive.ts)}</span>
@@ -170,10 +175,32 @@ const s = {
     justifyContent: 'space-between',
     marginBottom: 3,
   },
+  badgeRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 6,
+  },
   badge: {
     display: 'flex',
     alignItems: 'center',
     gap: 4,
+  },
+  zoneBadge: {
+    fontSize: 9,
+    fontWeight: 600,
+    fontFamily: 'var(--mono)',
+    letterSpacing: '0.03em',
+    padding: '1px 5px',
+    borderRadius: 3,
+    background: 'var(--tint-dim)',
+    color: 'var(--tint)',
+  },
+  zoneBadgeMuted: {
+    fontSize: 9,
+    fontWeight: 500,
+    fontFamily: 'var(--mono)',
+    letterSpacing: '0.03em',
+    color: 'var(--text-tertiary)',
   },
   badgeText: {
     fontSize: 9,

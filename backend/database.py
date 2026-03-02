@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS directives (
     src       TEXT    NOT NULL DEFAULT '',
     name      TEXT    NOT NULL DEFAULT '',
     "to"      TEXT,
+    zone      TEXT,
     body      TEXT    NOT NULL DEFAULT '',
     priority  TEXT    NOT NULL DEFAULT 'high',
     hops      INTEGER NOT NULL DEFAULT 0,
@@ -73,6 +74,11 @@ async def init_db() -> None:
         await db.execute(_CREATE_REPORTS)
         await db.execute(_CREATE_MESSAGES)
         await db.execute(_CREATE_DIRECTIVES)
+        # Migration: add zone column to existing directives table.
+        try:
+            await db.execute("ALTER TABLE directives ADD COLUMN zone TEXT")
+        except Exception:
+            pass  # Column already exists
         await db.commit()
     finally:
         await db.close()
@@ -139,14 +145,15 @@ async def insert_directive(directive: Directive) -> bool:
     try:
         cursor = await db.execute(
             """INSERT OR IGNORE INTO directives
-               (id, ts, src, name, "to", body, priority, hops, ttl)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+               (id, ts, src, name, "to", zone, body, priority, hops, ttl)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 directive.id,
                 directive.ts,
                 directive.src,
                 directive.name,
                 directive.to,
+                directive.zone,
                 directive.body,
                 directive.priority,
                 directive.hops,
@@ -159,13 +166,19 @@ async def insert_directive(directive: Directive) -> bool:
         await db.close()
 
 
-async def get_directives(limit: int = 100) -> list[dict[str, Any]]:
-    """Return all directives."""
+async def get_directives(limit: int = 100, zone: str | None = None) -> list[dict[str, Any]]:
+    """Return all directives, optionally filtered by zone."""
     db = await _get_db()
     try:
-        cursor = await db.execute(
-            "SELECT * FROM directives ORDER BY ts DESC LIMIT ?", (limit,)
-        )
+        if zone:
+            cursor = await db.execute(
+                "SELECT * FROM directives WHERE zone = ? ORDER BY ts DESC LIMIT ?",
+                (zone, limit),
+            )
+        else:
+            cursor = await db.execute(
+                "SELECT * FROM directives ORDER BY ts DESC LIMIT ?", (limit,)
+            )
         rows = await cursor.fetchall()
         results: list[dict[str, Any]] = []
         for row in rows:
@@ -177,13 +190,19 @@ async def get_directives(limit: int = 100) -> list[dict[str, Any]]:
         await db.close()
 
 
-async def get_pending_directives() -> list[dict[str, Any]]:
+async def get_pending_directives(zone: str | None = None) -> list[dict[str, Any]]:
     """Return directives not yet fetched by mobile gateways, and bump their fetch count."""
     db = await _get_db()
     try:
-        cursor = await db.execute(
-            "SELECT * FROM directives WHERE fetched_count = 0 ORDER BY ts ASC"
-        )
+        if zone:
+            cursor = await db.execute(
+                "SELECT * FROM directives WHERE fetched_count = 0 AND (zone IS NULL OR zone = ?) ORDER BY ts ASC",
+                (zone,),
+            )
+        else:
+            cursor = await db.execute(
+                "SELECT * FROM directives WHERE fetched_count = 0 ORDER BY ts ASC"
+            )
         rows = await cursor.fetchall()
         results: list[dict[str, Any]] = []
         ids: list[str] = []

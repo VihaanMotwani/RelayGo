@@ -54,6 +54,7 @@ class Directive(BaseModel):
     src: str = ""
     name: str = ""
     to: Optional[str] = None
+    zone: Optional[str] = None
     body: str = ""
     priority: Literal["high", "medium", "low"] = "high"
     hops: int = 0
