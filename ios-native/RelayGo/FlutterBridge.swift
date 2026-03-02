@@ -24,6 +24,11 @@ class FlutterBridge: ObservableObject {
     var onPeerCountChanged: ((Int) -> Void)?
     var onConnectionStatusChanged: ((String) -> Void)?
 
+    // Streaming callbacks
+    var onStreamToken: ((String) -> Void)?
+    var onStreamDone: ((String) -> Void)?  // confidence level
+    var onStreamError: ((String) -> Void)?
+
     private init() {}
 
     // MARK: - Engine Setup
@@ -93,6 +98,28 @@ class FlutterBridge: ObservableObject {
                    let status = args["status"] as? String {
                     self.isMeshConnected = (status == "connected")
                     self.onConnectionStatusChanged?(status)
+                }
+                result(nil)
+
+            // Streaming events
+            case "onStreamToken":
+                if let args = call.arguments as? [String: Any],
+                   let token = args["token"] as? String {
+                    self.onStreamToken?(token)
+                }
+                result(nil)
+
+            case "onStreamDone":
+                if let args = call.arguments as? [String: Any],
+                   let confidence = args["confidence"] as? String {
+                    self.onStreamDone?(confidence)
+                }
+                result(nil)
+
+            case "onStreamError":
+                if let args = call.arguments as? [String: Any],
+                   let error = args["error"] as? String {
+                    self.onStreamError?(error)
                 }
                 result(nil)
 
@@ -189,6 +216,18 @@ class FlutterBridge: ObservableObject {
             confidence: result["confidence"] as? String ?? "unverified",
             extraction: result["extraction"] as? [String: Any]
         )
+    }
+
+    /// Start streaming chat - tokens arrive via onStreamToken callback
+    func startStreamingChat(_ text: String) async throws {
+        let _ = try await invoke("startStreamingChat", arguments: [
+            "text": text
+        ])
+    }
+
+    /// Cancel ongoing streaming chat
+    func cancelStreamingChat() async throws {
+        let _ = try await invoke("cancelStreamingChat")
     }
 
     func transcribe(audioPath: String) async throws -> String {

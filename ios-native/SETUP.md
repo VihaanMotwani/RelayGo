@@ -208,3 +208,9 @@ PlatformBridge (Dart)
     │
     └──▶ MeshService (BLE central + peripheral)
 ```
+
+
+
+For rebuilding: 
+```bash flutter clean && flutter pub get && flutter build ios-framework --no-debug --no-profile --output=../ios-native/Flutter && flutter build ios --release --no-codesign && cp -R ios/Pods/ObjectBox/ObjectBox.xcframework ../ios-native/Flutter/Release/ && cp -R ~/.pub-cache/hosted/pub.dev/cactus-1.3.0/ios/cactus.xcframework ../ios-native/Flutter/Release/ && cp -R ~/.pub-cache/hosted/pub.dev/cactus-1.3.0/ios/cactus_util.xcframework ../ios-native/Flutter/Release/ && cp -R build/ios/iphoneos/Runner.app/Frameworks/objective_c.framework ../ios-native/Flutter/Release 
+```

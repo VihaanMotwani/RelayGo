@@ -18,6 +18,7 @@ class PlatformBridge {
 
   PlatformBridge._() {
     _setupMethodChannel();
+    _setupStreamChannel();
   }
 
   // Services
@@ -26,6 +27,9 @@ class PlatformBridge {
 
   // Platform channel for native UI communication
   static const _channel = MethodChannel('com.relaygo/bridge');
+
+  // Current streaming state
+  StreamSubscription<String>? _currentStreamSubscription;
 
   // Stream controllers for pushing events to listeners (Flutter UI or native)
   final _initProgressController = StreamController<String>.broadcast();
@@ -127,6 +131,41 @@ class PlatformBridge {
             }
           : null,
     };
+  }
+
+  /// Start streaming chat - tokens sent via MethodChannel push
+  Future<void> startStreamingChat(String text) async {
+    // Cancel any existing stream
+    await _cancelCurrentStream();
+
+    // Get user location
+    final location = await LocationService.getCurrentLocation();
+
+    // Start streaming and forward tokens to native
+    final tokenStream = _aiService.streamChat(
+      text,
+      userLat: location?.latitude,
+      userLon: location?.longitude,
+    );
+
+    _currentStreamSubscription = tokenStream.listen(
+      (token) {
+        _pushTokenToNative(token);
+      },
+      onError: (error) {
+        _pushStreamError(error.toString());
+      },
+      onDone: () {
+        final isVerified = _aiService.lastResponseWasVerified;
+        _pushStreamDone(isVerified ? 'verified' : 'unverified');
+      },
+    );
+  }
+
+  /// Cancel current streaming
+  Future<void> _cancelCurrentStream() async {
+    await _currentStreamSubscription?.cancel();
+    _currentStreamSubscription = null;
   }
 
   /// Generate situational awareness summary from mesh data
@@ -264,6 +303,15 @@ class PlatformBridge {
           final extract = call.arguments['extractReport'] as bool? ?? false;
           return await chat(text, extractReport: extract);
 
+        case 'startStreamingChat':
+          final text = call.arguments['text'] as String;
+          await startStreamingChat(text);
+          return {'success': true};
+
+        case 'cancelStreamingChat':
+          await _cancelCurrentStream();
+          return {'success': true};
+
         case 'generateAwarenessSummary':
           final summary = await generateAwarenessSummary();
           return {'summary': summary};
@@ -332,10 +380,35 @@ class PlatformBridge {
     });
   }
 
+  /// Setup streaming - we use MethodChannel push for simplicity
+  void _setupStreamChannel() {
+    // Streaming uses MethodChannel push (invokeMethod from Dart to Swift)
+    // No EventChannel setup needed since we're pushing tokens
+  }
+
   /// Push event to native side
   void _pushToNative(String method, Map<String, dynamic> arguments) {
     _channel.invokeMethod(method, arguments).catchError((e) {
       // Native side might not be listening - that's OK
+    });
+  }
+
+  /// Stream tokens to native side via method channel push
+  void _pushTokenToNative(String token) {
+    _channel.invokeMethod('onStreamToken', {'token': token}).catchError((e) {
+      // Native side might not be listening
+    });
+  }
+
+  void _pushStreamDone(String confidence) {
+    _channel.invokeMethod('onStreamDone', {'confidence': confidence}).catchError((e) {
+      // Native side might not be listening
+    });
+  }
+
+  void _pushStreamError(String error) {
+    _channel.invokeMethod('onStreamError', {'error': error}).catchError((e) {
+      // Native side might not be listening
     });
   }
 

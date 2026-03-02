@@ -28,18 +28,19 @@ struct ChatView: View {
                                         .id(message.id)
                                 }
 
-                                if relay.isThinking {
+                                // Only show thinking indicator when waiting for first token
+                                if relay.isThinking && !relay.isStreaming {
                                     ThinkingIndicator()
                                 }
                             }
                             .padding()
                         }
                         .onChange(of: relay.chatMessages.count) { _, _ in
-                            if let last = relay.chatMessages.last {
-                                withAnimation {
-                                    proxy.scrollTo(last.id, anchor: .bottom)
-                                }
-                            }
+                            scrollToBottom(proxy: proxy)
+                        }
+                        .onChange(of: relay.chatMessages.last?.text) { _, _ in
+                            // Auto-scroll as streaming text updates
+                            scrollToBottom(proxy: proxy)
                         }
                     }
 
@@ -103,6 +104,14 @@ struct ChatView: View {
 
         Task {
             await relay.sendToAI(text)
+        }
+    }
+
+    private func scrollToBottom(proxy: ScrollViewProxy) {
+        if let last = relay.chatMessages.last {
+            withAnimation(.easeOut(duration: 0.1)) {
+                proxy.scrollTo(last.id, anchor: .bottom)
+            }
         }
     }
 
@@ -217,14 +226,20 @@ struct MessageBubble: View {
             if message.isUser { Spacer(minLength: 60) }
 
             VStack(alignment: message.isUser ? .trailing : .leading, spacing: 4) {
-                Text(message.text)
-                    .padding(12)
-                    .background(message.isUser ? .blue : Color(.systemGray5))
-                    .foregroundStyle(message.isUser ? .white : .primary)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                HStack(spacing: 0) {
+                    Text(message.text)
+                    if message.isStreaming {
+                        TypingCursor()
+                    }
+                }
+                .padding(12)
+                .background(message.isUser ? .blue : Color(.systemGray5))
+                .foregroundStyle(message.isUser ? .white : .primary)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .animation(.none, value: message.text)  // Prevent layout animation
 
-                // Verified badge for AI responses
-                if !message.isUser && message.isVerified {
+                // Verified badge for AI responses (only show when not streaming)
+                if !message.isUser && message.isVerified && !message.isStreaming {
                     HStack(spacing: 4) {
                         Image(systemName: "checkmark.seal.fill")
                             .font(.caption2)
@@ -237,6 +252,22 @@ struct MessageBubble: View {
 
             if !message.isUser { Spacer(minLength: 60) }
         }
+    }
+}
+
+// MARK: - Typing Cursor
+
+struct TypingCursor: View {
+    @State private var opacity: Double = 1.0
+
+    var body: some View {
+        Text("\u{258C}")  // Block cursor character
+            .opacity(opacity)
+            .onAppear {
+                withAnimation(.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {
+                    opacity = 0.2
+                }
+            }
     }
 }
 

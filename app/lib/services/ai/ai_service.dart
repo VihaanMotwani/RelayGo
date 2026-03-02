@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:cactus/cactus.dart';
 
@@ -33,6 +32,17 @@ class AiResponse {
     required this.text,
     required this.confidence,
     this.extraction,
+  });
+}
+
+/// Streaming response that yields tokens as they arrive
+class AiStreamResponse {
+  final Stream<String> tokenStream;
+  final Future<app.ConfidenceLevel> confidence;
+
+  AiStreamResponse({
+    required this.tokenStream,
+    required this.confidence,
   });
 }
 
@@ -318,6 +328,85 @@ class AiService {
 
     return 'AI assistant is currently unavailable. For emergencies, call 911.\n\nBasic tips:\n- Stay calm and assess the situation\n- Move to a safe location if needed\n- Help others if you can do so safely\n- Wait for emergency services\n\n[AI offline - mesh networking and SOS features still work]';
   }
+
+  /// Stream chat response token by token
+  Stream<String> streamChat(
+    String userText, {
+    double? userLat,
+    double? userLon,
+    EmergencyType? emergencyType,
+  }) async* {
+    // If AI not ready, yield fallback response
+    if (!_lmReady || _lm == null) {
+      yield _getFallbackResponse(userText);
+      return;
+    }
+
+    try {
+      // Search RAG for relevant knowledge
+      String ragContext = '';
+      if (_rag != null) {
+        try {
+          ragContext = await KnowledgeLoader.searchKnowledge(_rag!, userText);
+        } catch (e) {
+          print('[AiService] RAG search failed: $e');
+        }
+      }
+
+      // Track RAG usage for confidence level
+      _lastResponseUsedRag = ragContext.isNotEmpty;
+
+      // Get nearby resources if location provided
+      String locationContext = '';
+      if (userLat != null && userLon != null && _locationService.isInitialized) {
+        final eType = emergencyType ?? _inferEmergencyType(userText);
+        locationContext = _locationService.formatForLLM(
+          lat: userLat,
+          lon: userLon,
+          emergencyType: eType,
+          maxPerType: 3,
+        );
+      }
+
+      // Build system prompt with context
+      String fullSystemPrompt = systemPrompt;
+      if (ragContext.isNotEmpty) {
+        fullSystemPrompt += '\n\nRELEVANT VERIFIED PROCEDURES:\n$ragContext';
+      }
+      if (locationContext.isNotEmpty) {
+        fullSystemPrompt += '\n\n$locationContext';
+      }
+
+      final messages = [
+        ChatMessage(content: fullSystemPrompt, role: 'system'),
+        ChatMessage(content: userText, role: 'user'),
+      ];
+
+      final params = CactusCompletionParams(
+        temperature: AiConfig.temperature,
+        maxTokens: AiConfig.maxTokens,
+      );
+
+      // Use streaming API
+      final streamedResult = await _lm!.generateCompletionStream(
+        messages: messages,
+        params: params,
+      );
+
+      // Yield tokens as they arrive
+      await for (final chunk in streamedResult.stream) {
+        yield chunk;
+      }
+    } catch (e) {
+      print('[AiService] Stream chat error: $e');
+      _lastResponseUsedRag = false;
+      yield _getFallbackResponse(userText);
+    }
+  }
+
+  /// Check if last response used RAG (for confidence level)
+  bool _lastResponseUsedRag = false;
+  bool get lastResponseWasVerified => _lastResponseUsedRag;
 
   Future<String> generateAwarenessSummary(
     List<EmergencyReport> reports,
