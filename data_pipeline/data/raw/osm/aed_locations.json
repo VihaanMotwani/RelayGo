@@ -1,0 +1,2427 @@
+[
+  {
+    "osm_id": 3067114706,
+    "osm_type": "node",
+    "lat": 1.3094608,
+    "lon": 103.859881,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 5011771173,
+    "osm_type": "node",
+    "lat": 1.3775257,
+    "lon": 103.8508748,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "level:ref": "1",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 5041208476,
+    "osm_type": "node",
+    "lat": 1.3001283,
+    "lon": 103.852364,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 5209474410,
+    "osm_type": "node",
+    "lat": 1.2863258,
+    "lon": 103.8140265,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 5479235199,
+    "osm_type": "node",
+    "lat": 1.2864759,
+    "lon": 103.8146082,
+    "tags": {
+      "emergency": "defibrillator",
+      "foot": "yes",
+      "indoor": "no",
+      "motor_vehicle": "yes",
+      "name": "AED"
+    }
+  },
+  {
+    "osm_id": 5479282978,
+    "osm_type": "node",
+    "lat": 1.2867487,
+    "lon": 103.8143097,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 5903198168,
+    "osm_type": "node",
+    "lat": 1.2955532,
+    "lon": 103.7795923,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 5903198169,
+    "osm_type": "node",
+    "lat": 1.2940264,
+    "lon": 103.7844851,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 5903198176,
+    "osm_type": "node",
+    "lat": 1.2940766,
+    "lon": 103.7847023,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 5903198177,
+    "osm_type": "node",
+    "lat": 1.2948811,
+    "lon": 103.7825745,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 5971138875,
+    "osm_type": "node",
+    "lat": 1.2952199,
+    "lon": 103.7722295,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6197774743,
+    "osm_type": "node",
+    "lat": 1.3027787,
+    "lon": 103.8351508,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "-1"
+    }
+  },
+  {
+    "osm_id": 6197774754,
+    "osm_type": "node",
+    "lat": 1.3027902,
+    "lon": 103.8349458,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "-2"
+    }
+  },
+  {
+    "osm_id": 6271020486,
+    "osm_type": "node",
+    "lat": 1.2672378,
+    "lon": 103.802192,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6342861006,
+    "osm_type": "node",
+    "lat": 1.3620232,
+    "lon": 103.7765585,
+    "tags": {
+      "access": "yes",
+      "check_date": "2024-11-09",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "location": "Dairy Farm Hut",
+      "wheelchair": "no"
+    }
+  },
+  {
+    "osm_id": 6503750227,
+    "osm_type": "node",
+    "lat": 1.3545974,
+    "lon": 103.7764148,
+    "tags": {
+      "access": "yes",
+      "covered": "yes",
+      "defibrillator:location": "Under the porch, attached to a pillar, at 1.2m height",
+      "emergency": "defibrillator",
+      "image": "https://images.mapillary.com/k8v4hYE5rJawufimelFF3A/thumb-2048.jpg",
+      "mapillary": "468046474500947",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 6538803721,
+    "osm_type": "node",
+    "lat": 1.327386,
+    "lon": 103.8444686,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 6556829967,
+    "osm_type": "node",
+    "lat": 1.3315866,
+    "lon": 103.8447937,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 6578134285,
+    "osm_type": "node",
+    "lat": 1.3753603,
+    "lon": 103.8933247,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6579486886,
+    "osm_type": "node",
+    "lat": 1.376132,
+    "lon": 103.893713,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6583050039,
+    "osm_type": "node",
+    "lat": 1.2923236,
+    "lon": 103.8452191,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6669878085,
+    "osm_type": "node",
+    "lat": 1.4305829,
+    "lon": 103.8386253,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6694821985,
+    "osm_type": "node",
+    "lat": 1.3761393,
+    "lon": 103.8893044,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 6698277821,
+    "osm_type": "node",
+    "lat": 1.3149845,
+    "lon": 103.816297,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Right side past Visitor services desk on the wall",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 6749828850,
+    "osm_type": "node",
+    "lat": 1.3282106,
+    "lon": 103.8441441,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 6749831371,
+    "osm_type": "node",
+    "lat": 1.3363559,
+    "lon": 103.8547906,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6776263397,
+    "osm_type": "node",
+    "lat": 1.2781267,
+    "lon": 103.8133648,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 6861918716,
+    "osm_type": "node",
+    "lat": 1.3175341,
+    "lon": 103.8934448,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6861930120,
+    "osm_type": "node",
+    "lat": 1.302822,
+    "lon": 103.8596144,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 6912998792,
+    "osm_type": "node",
+    "lat": 1.3852691,
+    "lon": 103.8207032,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 6938823543,
+    "osm_type": "node",
+    "lat": 1.3051028,
+    "lon": 103.7721494,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 7049628535,
+    "osm_type": "node",
+    "lat": 1.2817993,
+    "lon": 103.8440134,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 7082557943,
+    "osm_type": "node",
+    "lat": 1.3044151,
+    "lon": 103.9243439,
+    "tags": {
+      "defibrillator:location": "Between male and female toilet entrances",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 7099156285,
+    "osm_type": "node",
+    "lat": 1.3082246,
+    "lon": 103.8710391,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 7100808495,
+    "osm_type": "node",
+    "lat": 1.3169784,
+    "lon": 103.876106,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 7161676124,
+    "osm_type": "node",
+    "lat": 1.3818876,
+    "lon": 103.9518874,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 7161676160,
+    "osm_type": "node",
+    "lat": 1.3761255,
+    "lon": 103.9517863,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 7179141951,
+    "osm_type": "node",
+    "lat": 1.3044522,
+    "lon": 103.846742,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 7195132127,
+    "osm_type": "node",
+    "lat": 1.3222923,
+    "lon": 103.814908,
+    "tags": {
+      "emergency": "defibrillator",
+      "layer": "-1",
+      "level": "-1"
+    }
+  },
+  {
+    "osm_id": 7197718012,
+    "osm_type": "node",
+    "lat": 1.4197199,
+    "lon": 103.7203832,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "opening_hours": "24/7",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 7273720644,
+    "osm_type": "node",
+    "lat": 1.3705014,
+    "lon": 103.8278272,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 7306086334,
+    "osm_type": "node",
+    "lat": 1.416606,
+    "lon": 103.7284873,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 7306087265,
+    "osm_type": "node",
+    "lat": 1.3319694,
+    "lon": 103.8495506,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 7451038243,
+    "osm_type": "node",
+    "lat": 1.360373,
+    "lon": 103.8270009,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 7701092270,
+    "osm_type": "node",
+    "lat": 1.3902834,
+    "lon": 103.8945126,
+    "tags": {
+      "defibrillator:location": "at ground floor lift lobby",
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 7703915318,
+    "osm_type": "node",
+    "lat": 1.3915417,
+    "lon": 103.8953649,
+    "tags": {
+      "defibrillator:location": "inside the Sengkang station platform",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 7765643855,
+    "osm_type": "node",
+    "lat": 1.2851189,
+    "lon": 103.8538755,
+    "tags": {
+      "defibrillator:location": "On the outside wall, next to the Brewerkz entrance",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 7852077236,
+    "osm_type": "node",
+    "lat": 1.3940543,
+    "lon": 103.8967865,
+    "tags": {
+      "defibrillator:location": "at ground floor lift lobby",
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8108592626,
+    "osm_type": "node",
+    "lat": 1.3332081,
+    "lon": 103.7490322,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 8176574517,
+    "osm_type": "node",
+    "lat": 1.3493542,
+    "lon": 103.7631462,
+    "tags": {
+      "defibrillator:location": "Attached to a pillar of a porch outside",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "survey:date": "2020-11-14"
+    }
+  },
+  {
+    "osm_id": 8199112824,
+    "osm_type": "node",
+    "lat": 1.2896004,
+    "lon": 103.8540191,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 8241833318,
+    "osm_type": "node",
+    "lat": 1.3561175,
+    "lon": 103.9870269,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 8374180061,
+    "osm_type": "node",
+    "lat": 1.3889553,
+    "lon": 103.8925964,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8374180082,
+    "osm_type": "node",
+    "lat": 1.387045,
+    "lon": 103.8920091,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 8430485187,
+    "osm_type": "node",
+    "lat": 1.3922978,
+    "lon": 103.904104,
+    "tags": {
+      "defibrillator:location": "inside fairprice, right by the exit",
+      "emergency": "defibrillator",
+      "level": "2"
+    }
+  },
+  {
+    "osm_id": 8448403916,
+    "osm_type": "node",
+    "lat": 1.3866355,
+    "lon": 103.8966489,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8448423018,
+    "osm_type": "node",
+    "lat": 1.3871223,
+    "lon": 103.8976768,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8448501870,
+    "osm_type": "node",
+    "lat": 1.3882611,
+    "lon": 103.8971508,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8463136041,
+    "osm_type": "node",
+    "lat": 1.4023703,
+    "lon": 103.9708898,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 8481691703,
+    "osm_type": "node",
+    "lat": 1.3980241,
+    "lon": 103.8965261,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8481849024,
+    "osm_type": "node",
+    "lat": 1.396624,
+    "lon": 103.8900031,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8481909316,
+    "osm_type": "node",
+    "lat": 1.3957725,
+    "lon": 103.8894976,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8481940620,
+    "osm_type": "node",
+    "lat": 1.3948853,
+    "lon": 103.8880342,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8481940637,
+    "osm_type": "node",
+    "lat": 1.3957059,
+    "lon": 103.8880936,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8482037435,
+    "osm_type": "node",
+    "lat": 1.3975637,
+    "lon": 103.889479,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8482037442,
+    "osm_type": "node",
+    "lat": 1.3985334,
+    "lon": 103.8886135,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8498985169,
+    "osm_type": "node",
+    "lat": 1.3499894,
+    "lon": 103.848958,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8526854688,
+    "osm_type": "node",
+    "lat": 1.2960878,
+    "lon": 103.8462399,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "left side of building between side entrance and security box",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 8548247950,
+    "osm_type": "node",
+    "lat": 1.3778475,
+    "lon": 103.8896958,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8548399937,
+    "osm_type": "node",
+    "lat": 1.3720321,
+    "lon": 103.8867022,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8568609069,
+    "osm_type": "node",
+    "lat": 1.2836699,
+    "lon": 103.7906387,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 8620435934,
+    "osm_type": "node",
+    "lat": 1.3932046,
+    "lon": 103.8913793,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8620558773,
+    "osm_type": "node",
+    "lat": 1.3946746,
+    "lon": 103.8782797,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8620558779,
+    "osm_type": "node",
+    "lat": 1.393907,
+    "lon": 103.8782327,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 8627982671,
+    "osm_type": "node",
+    "lat": 1.3334853,
+    "lon": 103.8504627,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9710736639,
+    "osm_type": "node",
+    "lat": 1.3035826,
+    "lon": 103.902944,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9872240457,
+    "osm_type": "node",
+    "lat": 1.3895326,
+    "lon": 103.9014384,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9872240465,
+    "osm_type": "node",
+    "lat": 1.3904716,
+    "lon": 103.9010896,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9872240479,
+    "osm_type": "node",
+    "lat": 1.3884948,
+    "lon": 103.9014188,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9872403223,
+    "osm_type": "node",
+    "lat": 1.3893588,
+    "lon": 103.897551,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9876421539,
+    "osm_type": "node",
+    "lat": 1.3890299,
+    "lon": 103.7530456,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 9881906301,
+    "osm_type": "node",
+    "lat": 1.2984698,
+    "lon": 103.8519089,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 9885064187,
+    "osm_type": "node",
+    "lat": 1.3000869,
+    "lon": 103.8516822,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9887532396,
+    "osm_type": "node",
+    "lat": 1.2973945,
+    "lon": 103.8495026,
+    "tags": {
+      "access": "customers",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "operator": "SMU"
+    }
+  },
+  {
+    "osm_id": 9890930006,
+    "osm_type": "node",
+    "lat": 1.4462976,
+    "lon": 103.7276359,
+    "tags": {
+      "defibrillator:location": "The AED is inside the bird viewing house, on the platform elevated by 6 steps",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 9890930008,
+    "osm_type": "node",
+    "lat": 1.4464469,
+    "lon": 103.7257748,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "AED is located on ground-level at the bottom of the bird viewing tower near the waste basket.",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9890950225,
+    "osm_type": "node",
+    "lat": 1.4401336,
+    "lon": 103.7351587,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 9893218541,
+    "osm_type": "node",
+    "lat": 1.321862,
+    "lon": 103.7373887,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 9893218557,
+    "osm_type": "node",
+    "lat": 1.2990939,
+    "lon": 103.853559,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9896638330,
+    "osm_type": "node",
+    "lat": 1.3923876,
+    "lon": 103.8978203,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9896638333,
+    "osm_type": "node",
+    "lat": 1.3928302,
+    "lon": 103.8962651,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9897471469,
+    "osm_type": "node",
+    "lat": 1.2987606,
+    "lon": 103.8505366,
+    "tags": {
+      "access": "customers",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9897471474,
+    "osm_type": "node",
+    "lat": 1.2888715,
+    "lon": 103.8461873,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 9903941173,
+    "osm_type": "node",
+    "lat": 1.3970215,
+    "lon": 103.897073,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9904455797,
+    "osm_type": "node",
+    "lat": 1.3775267,
+    "lon": 103.7773974,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 9911554197,
+    "osm_type": "node",
+    "lat": 1.3741485,
+    "lon": 103.8920316,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9930923247,
+    "osm_type": "node",
+    "lat": 1.3920351,
+    "lon": 103.8927611,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9974079576,
+    "osm_type": "node",
+    "lat": 1.3940345,
+    "lon": 103.8954293,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9974079580,
+    "osm_type": "node",
+    "lat": 1.3938638,
+    "lon": 103.8948539,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 9995317016,
+    "osm_type": "node",
+    "lat": 1.3122646,
+    "lon": 103.8120464,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 9995356111,
+    "osm_type": "node",
+    "lat": 1.3644731,
+    "lon": 103.8383961,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10015169408,
+    "osm_type": "node",
+    "lat": 1.2897273,
+    "lon": 103.8550452,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 10016104181,
+    "osm_type": "node",
+    "lat": 1.3024157,
+    "lon": 103.9182168,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 10033938691,
+    "osm_type": "node",
+    "lat": 1.4104953,
+    "lon": 103.832983,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10035312090,
+    "osm_type": "node",
+    "lat": 1.372556,
+    "lon": 103.8289584,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10048982456,
+    "osm_type": "node",
+    "lat": 1.3502682,
+    "lon": 103.7781538,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Outside under the porch attached to a pillar at 1.2 meter above the ground",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 10299683153,
+    "osm_type": "node",
+    "lat": 1.3359394,
+    "lon": 103.7813943,
+    "tags": {
+      "defibrillator:location": "right outside toilet entrance",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10702069367,
+    "osm_type": "node",
+    "lat": 1.3056489,
+    "lon": 103.8672832,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10702069369,
+    "osm_type": "node",
+    "lat": 1.3204654,
+    "lon": 103.8406654,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "note": "Not operational on Feb 23",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 10702091655,
+    "osm_type": "node",
+    "lat": 1.2984001,
+    "lon": 103.905698,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 10763919867,
+    "osm_type": "node",
+    "lat": 1.3634407,
+    "lon": 103.752131,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10771041153,
+    "osm_type": "node",
+    "lat": 1.3186644,
+    "lon": 103.8153384,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10806574824,
+    "osm_type": "node",
+    "lat": 1.2785384,
+    "lon": 103.8619634,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Outside male toilet",
+      "emergency": "defibrillator",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10806576254,
+    "osm_type": "node",
+    "lat": 1.2818027,
+    "lon": 103.8647081,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "On wall next to stairway",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10806670134,
+    "osm_type": "node",
+    "lat": 1.2838723,
+    "lon": 103.8655457,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Next to visitor center, opposite ticket office",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10807163416,
+    "osm_type": "node",
+    "lat": 1.2851622,
+    "lon": 103.8590854,
+    "tags": {
+      "defibrillator:location": "Inside mall, L1, next to elevator",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10809983357,
+    "osm_type": "node",
+    "lat": 1.2551025,
+    "lon": 103.8167922,
+    "tags": {
+      "defibrillator:location": "On level 1 underneath cable car station",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10809983358,
+    "osm_type": "node",
+    "lat": 1.2539962,
+    "lon": 103.8195121,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "On ground floor next to escalator",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10809983359,
+    "osm_type": "node",
+    "lat": 1.2644831,
+    "lon": 103.8186593,
+    "tags": {
+      "defibrillator:location": "On level 15 at cable car station",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "15",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10809983360,
+    "osm_type": "node",
+    "lat": 1.2540809,
+    "lon": 103.8187651,
+    "tags": {
+      "access": "customers",
+      "defibrillator:location": "Next to ticket office on level 2",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 10940110465,
+    "osm_type": "node",
+    "lat": 1.2772189,
+    "lon": 103.8037608,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 10940110480,
+    "osm_type": "node",
+    "lat": 1.2758274,
+    "lon": 103.8161026,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "layer": "1"
+    }
+  },
+  {
+    "osm_id": 10940122731,
+    "osm_type": "node",
+    "lat": 1.3053059,
+    "lon": 103.856982,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 10963604020,
+    "osm_type": "node",
+    "lat": 1.3009681,
+    "lon": 103.866548,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 10984167253,
+    "osm_type": "node",
+    "lat": 1.3769575,
+    "lon": 103.8917403,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 11001177198,
+    "osm_type": "node",
+    "lat": 1.3709082,
+    "lon": 103.8931872,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 11001177200,
+    "osm_type": "node",
+    "lat": 1.3761734,
+    "lon": 103.8912879,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 11001241921,
+    "osm_type": "node",
+    "lat": 1.265466,
+    "lon": 103.8215837,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "level": "-2"
+    }
+  },
+  {
+    "osm_id": 11005482187,
+    "osm_type": "node",
+    "lat": 1.3795943,
+    "lon": 103.8920925,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Other side of elevator wall",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11005482196,
+    "osm_type": "node",
+    "lat": 1.3781654,
+    "lon": 103.8914294,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Beside elevator",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11005490906,
+    "osm_type": "node",
+    "lat": 1.3796385,
+    "lon": 103.8897016,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "In front of elevator.",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11012000730,
+    "osm_type": "node",
+    "lat": 1.3704873,
+    "lon": 103.8822897,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11012000751,
+    "osm_type": "node",
+    "lat": 1.3755413,
+    "lon": 103.8874732,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "In front of elevator.",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11012000773,
+    "osm_type": "node",
+    "lat": 1.371019,
+    "lon": 103.8862633,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11012000775,
+    "osm_type": "node",
+    "lat": 1.3774864,
+    "lon": 103.890206,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "In front of elevator",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11012000798,
+    "osm_type": "node",
+    "lat": 1.3701801,
+    "lon": 103.8831874,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11015790540,
+    "osm_type": "node",
+    "lat": 1.3744782,
+    "lon": 103.8905192,
+    "tags": {
+      "defibrillator:location": "In front of elevator",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11015790615,
+    "osm_type": "node",
+    "lat": 1.3758108,
+    "lon": 103.8919042,
+    "tags": {
+      "defibrillator:location": "In front of elevator",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11015790637,
+    "osm_type": "node",
+    "lat": 1.3758048,
+    "lon": 103.8947627,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "At lift lobby",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11018055026,
+    "osm_type": "node",
+    "lat": 1.3937555,
+    "lon": 103.9183746,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Toilet entrance",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11036967169,
+    "osm_type": "node",
+    "lat": 1.3516863,
+    "lon": 103.8060827,
+    "tags": {
+      "emergency": "defibrillator",
+      "location": "Jelutong Hut",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11037007851,
+    "osm_type": "node",
+    "lat": 1.3103854,
+    "lon": 103.8152363,
+    "tags": {
+      "defibrillator:location": "At a pole right side of visitor services desk",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11051427589,
+    "osm_type": "node",
+    "lat": 1.4538811,
+    "lon": 103.8365795,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11170437620,
+    "osm_type": "node",
+    "lat": 1.3220376,
+    "lon": 103.8153158,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Desk of visitor service",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 11269029555,
+    "osm_type": "node",
+    "lat": 1.3911222,
+    "lon": 103.7524511,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11293429410,
+    "osm_type": "node",
+    "lat": 1.2973502,
+    "lon": 103.8496287,
+    "tags": {
+      "access": "customers",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "-1",
+      "operator": "Gym"
+    }
+  },
+  {
+    "osm_id": 11293429412,
+    "osm_type": "node",
+    "lat": 1.2990697,
+    "lon": 103.8465302,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 11293429417,
+    "osm_type": "node",
+    "lat": 1.2985597,
+    "lon": 103.8494793,
+    "tags": {
+      "access": "customers",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "wheelchair": "no"
+    }
+  },
+  {
+    "osm_id": 11293429419,
+    "osm_type": "node",
+    "lat": 1.2948674,
+    "lon": 103.8493764,
+    "tags": {
+      "access": "customers",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "operator": "SMU",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 11297615918,
+    "osm_type": "node",
+    "lat": 1.357037,
+    "lon": 103.8126581,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Ranger station - entrance to female toilet",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11361641843,
+    "osm_type": "node",
+    "lat": 1.3268421,
+    "lon": 103.7877322,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 11395311864,
+    "osm_type": "node",
+    "lat": 1.2824941,
+    "lon": 103.8630097,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "An der Au\u00dfenseite des Unterstandes",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11402949198,
+    "osm_type": "node",
+    "lat": 1.3926218,
+    "lon": 103.8999291,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "On lift lobby wall",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 11408710043,
+    "osm_type": "node",
+    "lat": 1.315609,
+    "lon": 103.7752674,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11408710053,
+    "osm_type": "node",
+    "lat": 1.3124747,
+    "lon": 103.7801522,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 11425781165,
+    "osm_type": "node",
+    "lat": 1.3559511,
+    "lon": 103.7737019,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "location": "Jungle Fall Hut"
+    }
+  },
+  {
+    "osm_id": 11452266664,
+    "osm_type": "node",
+    "lat": 1.3267127,
+    "lon": 103.8075702,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "In front of the public toilets",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11478839543,
+    "osm_type": "node",
+    "lat": 1.4011254,
+    "lon": 103.8226943,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 11559880271,
+    "osm_type": "node",
+    "lat": 1.3159393,
+    "lon": 103.9144878,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 11563379881,
+    "osm_type": "node",
+    "lat": 1.3048907,
+    "lon": 103.928881,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Between the entrance of the male and female toilets",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 11607138269,
+    "osm_type": "node",
+    "lat": 1.4273296,
+    "lon": 103.8253263,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 11802121089,
+    "osm_type": "node",
+    "lat": 1.3115537,
+    "lon": 103.8637626,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "level": "0",
+      "source": "survey"
+    }
+  },
+  {
+    "osm_id": 11841394936,
+    "osm_type": "node",
+    "lat": 1.3124547,
+    "lon": 103.8643564,
+    "tags": {
+      "access": "private",
+      "defibrillator:location": "Lift lobby ground floor",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 11844394818,
+    "osm_type": "node",
+    "lat": 1.4250636,
+    "lon": 103.7621522,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "Outside the ticketing gates of Kranji MRT station",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 11875497068,
+    "osm_type": "node",
+    "lat": 1.2818073,
+    "lon": 103.8613143,
+    "tags": {
+      "defibrillator:location": "At the wall",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11875497169,
+    "osm_type": "node",
+    "lat": 1.2834434,
+    "lon": 103.866897,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "level": "0",
+      "opening_hours": "09:00-19:00"
+    }
+  },
+  {
+    "osm_id": 11875497173,
+    "osm_type": "node",
+    "lat": 1.2824866,
+    "lon": 103.8634806,
+    "tags": {
+      "defibrillator:location": "on the outside wall of the elevator building to the subway",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11875868238,
+    "osm_type": "node",
+    "lat": 1.2841332,
+    "lon": 103.8657389,
+    "tags": {
+      "access": "customers",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 11877132568,
+    "osm_type": "node",
+    "lat": 1.2976399,
+    "lon": 103.8481475,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0",
+      "operator": "YMCA"
+    }
+  },
+  {
+    "osm_id": 11901146112,
+    "osm_type": "node",
+    "lat": 1.3570131,
+    "lon": 103.7715625,
+    "tags": {
+      "access": "yes",
+      "defibrillator:location": "at post of weather shelter that faces the lake. accessible when gate is open: Mo-Su 08:00-18:30",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "opening_hours": "Mo-Su 08:00-18:30"
+    }
+  },
+  {
+    "osm_id": 11917937516,
+    "osm_type": "node",
+    "lat": 1.3163101,
+    "lon": 103.8439731,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11961020162,
+    "osm_type": "node",
+    "lat": 1.3202656,
+    "lon": 103.8157438,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 11966561181,
+    "osm_type": "node",
+    "lat": 1.3842557,
+    "lon": 103.9461462,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 11975349365,
+    "osm_type": "node",
+    "lat": 1.3807183,
+    "lon": 103.9600596,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12013581357,
+    "osm_type": "node",
+    "lat": 1.2852097,
+    "lon": 103.8622047,
+    "tags": {
+      "access": "permit",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12106452483,
+    "osm_type": "node",
+    "lat": 1.2908298,
+    "lon": 103.781266,
+    "tags": {
+      "emergency": "defibrillator",
+      "fixme": "exact location"
+    }
+  },
+  {
+    "osm_id": 12106452484,
+    "osm_type": "node",
+    "lat": 1.2910801,
+    "lon": 103.7818712,
+    "tags": {
+      "emergency": "defibrillator",
+      "fixme": "exact location"
+    }
+  },
+  {
+    "osm_id": 12106452485,
+    "osm_type": "node",
+    "lat": 1.2913331,
+    "lon": 103.779961,
+    "tags": {
+      "emergency": "defibrillator",
+      "fixme": "exact location"
+    }
+  },
+  {
+    "osm_id": 12106452486,
+    "osm_type": "node",
+    "lat": 1.2902756,
+    "lon": 103.7810416,
+    "tags": {
+      "emergency": "defibrillator",
+      "fixme": "exact location"
+    }
+  },
+  {
+    "osm_id": 12106452487,
+    "osm_type": "node",
+    "lat": 1.2907102,
+    "lon": 103.7810373,
+    "tags": {
+      "emergency": "defibrillator",
+      "fixme": "exact location"
+    }
+  },
+  {
+    "osm_id": 12157252788,
+    "osm_type": "node",
+    "lat": 1.3389013,
+    "lon": 103.8728585,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12206907452,
+    "osm_type": "node",
+    "lat": 1.3784745,
+    "lon": 103.8920957,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "level": "0",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 12241407279,
+    "osm_type": "node",
+    "lat": 1.3409196,
+    "lon": 103.8750442,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12241407280,
+    "osm_type": "node",
+    "lat": 1.3397795,
+    "lon": 103.8742788,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12241407281,
+    "osm_type": "node",
+    "lat": 1.3390188,
+    "lon": 103.873953,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12397106728,
+    "osm_type": "node",
+    "lat": 1.3947036,
+    "lon": 103.8951661,
+    "tags": {
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 12433521001,
+    "osm_type": "node",
+    "lat": 1.2900949,
+    "lon": 103.8462161,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "shop": "ticket"
+    }
+  },
+  {
+    "osm_id": 12435121701,
+    "osm_type": "node",
+    "lat": 1.2807728,
+    "lon": 103.8464104,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12493939440,
+    "osm_type": "node",
+    "lat": 1.3521849,
+    "lon": 103.9845066,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12494009169,
+    "osm_type": "node",
+    "lat": 1.3575124,
+    "lon": 103.9864645,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12553574546,
+    "osm_type": "node",
+    "lat": 1.3037038,
+    "lon": 103.8315757,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "-3-3"
+    }
+  },
+  {
+    "osm_id": 12555938418,
+    "osm_type": "node",
+    "lat": 1.2897107,
+    "lon": 103.7788555,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "1"
+    }
+  },
+  {
+    "osm_id": 12555953812,
+    "osm_type": "node",
+    "lat": 1.2884223,
+    "lon": 103.7795761,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "defibrillator:location:en": "Level 1 Main Lobby, Near Security Counter",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "1"
+    }
+  },
+  {
+    "osm_id": 12555953813,
+    "osm_type": "node",
+    "lat": 1.28929,
+    "lon": 103.776036,
+    "tags": {
+      "access": "private",
+      "check_date": "2025-02-04",
+      "defibrillator:location:en": "Inside the Church",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "1"
+    }
+  },
+  {
+    "osm_id": 12555955315,
+    "osm_type": "node",
+    "lat": 1.2929195,
+    "lon": 103.774402,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "defibrillator:location:en": "Level 1 Library Entrance",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12555955512,
+    "osm_type": "node",
+    "lat": 1.2830541,
+    "lon": 103.7820135,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "defibrillator:location:en": "MRT station",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 12555955606,
+    "osm_type": "node",
+    "lat": 1.2874104,
+    "lon": 103.7831035,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "defibrillator:location:en": "Level 1 Main Lobby, Inside Wall Cabinet",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12555963514,
+    "osm_type": "node",
+    "lat": 1.2923955,
+    "lon": 103.7741793,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "defibrillator:location:en": "Level 1 Outside Fire Command Centre",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12555963627,
+    "osm_type": "node",
+    "lat": 1.2865025,
+    "lon": 103.7841019,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "defibrillator:location:en": "near entrance of west wing",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "1"
+    }
+  },
+  {
+    "osm_id": 12555970501,
+    "osm_type": "node",
+    "lat": 1.288593,
+    "lon": 103.783225,
+    "tags": {
+      "access": "yes",
+      "check_date": "2025-02-04",
+      "defibrillator:location": "Beside The Gemini info counter & Lobby C&D entrance",
+      "defibrillator:location:en": "Level 2 Main Lobby, Beside Security Counter\nLevel 2 Lift Lobby A\nLevel 2 Lift Lobby D",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 12570330432,
+    "osm_type": "node",
+    "lat": 1.3917162,
+    "lon": 103.8801346,
+    "tags": {
+      "defibrillator:location": "beside sheng siong entrance outside",
+      "emergency": "defibrillator",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 12646859230,
+    "osm_type": "node",
+    "lat": 1.3762929,
+    "lon": 103.7455754,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12692523694,
+    "osm_type": "node",
+    "lat": 1.3493425,
+    "lon": 103.7795187,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12692603104,
+    "osm_type": "node",
+    "lat": 1.3531765,
+    "lon": 103.7774223,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12701771253,
+    "osm_type": "node",
+    "lat": 1.3688328,
+    "lon": 103.9472459,
+    "tags": {
+      "defibrillator:location": "Lift lobby 525D",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12701888217,
+    "osm_type": "node",
+    "lat": 1.3697825,
+    "lon": 103.9480327,
+    "tags": {
+      "defibrillator:location": "Lift Lobby 527D",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12701890264,
+    "osm_type": "node",
+    "lat": 1.3688157,
+    "lon": 103.9474022,
+    "tags": {
+      "defibrillator:location": "Lift Lobby 526D",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12704331396,
+    "osm_type": "node",
+    "lat": 1.3676421,
+    "lon": 103.9501315,
+    "tags": {
+      "defibrillator:location": "Lift Lobby Block 562",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12753294268,
+    "osm_type": "node",
+    "lat": 1.3713482,
+    "lon": 103.9474897,
+    "tags": {
+      "defibrillator:location": "Lift Lobby 524A",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12753314995,
+    "osm_type": "node",
+    "lat": 1.3706786,
+    "lon": 103.9475439,
+    "tags": {
+      "defibrillator:location": "Lift Lobby 524C",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 12886517138,
+    "osm_type": "node",
+    "lat": 1.2901219,
+    "lon": 103.8367128,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 12888193454,
+    "osm_type": "node",
+    "lat": 1.3413239,
+    "lon": 103.6921675,
+    "tags": {
+      "access": "yes",
+      "addr:floor": "1",
+      "defibrillator:location": "Next to elevator B",
+      "emergency": "defibrillator",
+      "indoor": "yes",
+      "level": "0"
+    }
+  },
+  {
+    "osm_id": 12894811575,
+    "osm_type": "node",
+    "lat": 1.3462957,
+    "lon": 103.6890416,
+    "tags": {
+      "access": "permissive",
+      "addr:floor": "2",
+      "defibrillator:location": "Near the security counter",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "level": "1",
+      "source": "local knowledge"
+    }
+  },
+  {
+    "osm_id": 12913876241,
+    "osm_type": "node",
+    "lat": 1.3700951,
+    "lon": 103.7650568,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12981895805,
+    "osm_type": "node",
+    "lat": 1.3535152,
+    "lon": 103.7796548,
+    "tags": {
+      "defibrillator:location": "Catchment Hut",
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 12994423812,
+    "osm_type": "node",
+    "lat": 1.2809291,
+    "lon": 103.8465916,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 13061552720,
+    "osm_type": "node",
+    "lat": 1.2805597,
+    "lon": 103.8445488,
+    "tags": {
+      "check_date": "2025-08-10",
+      "emergency": "defibrillator",
+      "indoor": "yes"
+    }
+  },
+  {
+    "osm_id": 13075439186,
+    "osm_type": "node",
+    "lat": 1.400263,
+    "lon": 103.8072215,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 13106017252,
+    "osm_type": "node",
+    "lat": 1.439089,
+    "lon": 103.8268331,
+    "tags": {
+      "access": "yes",
+      "emergency": "defibrillator",
+      "indoor": "no",
+      "opening_hours": "24/7"
+    }
+  },
+  {
+    "osm_id": 13343573304,
+    "osm_type": "node",
+    "lat": 1.3424265,
+    "lon": 103.83493,
+    "tags": {
+      "emergency": "defibrillator"
+    }
+  },
+  {
+    "osm_id": 13380571393,
+    "osm_type": "node",
+    "lat": 1.2525576,
+    "lon": 103.8259547,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 13383349638,
+    "osm_type": "node",
+    "lat": 1.4036965,
+    "lon": 103.9021054,
+    "tags": {
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  },
+  {
+    "osm_id": 13385769505,
+    "osm_type": "node",
+    "lat": 1.4088055,
+    "lon": 103.9893465,
+    "tags": {
+      "defibrillator:location": "On top of the information kiosk under the shelter",
+      "emergency": "defibrillator",
+      "indoor": "no"
+    }
+  }
+]

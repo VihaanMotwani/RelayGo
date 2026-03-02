@@ -1,0 +1,51 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.10 2d4cfc48",
+  "osm3s": {
+    "timestamp_osm_base": "2026-03-02T09:08:30Z",
+    "timestamp_areas_base": "2026-01-23T01:22:35Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 213582725,
+      "center": {
+        "lat": 1.3706767,
+        "lon": 103.9836587
+      },
+      "nodes": [
+        2232575595,
+        2232575591,
+        2232575593,
+        2232575597,
+        2232575595
+      ],
+      "tags": {
+        "building": "yes",
+        "emergency": "ambulance_station",
+        "name": "Casualty Clearance Station 1"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1475366391,
+      "center": {
+        "lat": 1.3207979,
+        "lon": 103.9857609
+      },
+      "nodes": [
+        13535077925,
+        13535077926,
+        13535077927,
+        13535077928,
+        13535077925
+      ],
+      "tags": {
+        "building": "yes",
+        "emergency": "ambulance_station",
+        "name": "Casualty Clearance Station 2"
+      }
+    }
+  ]
+}

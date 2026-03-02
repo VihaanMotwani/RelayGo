@@ -1,0 +1,45 @@
+{
+  "fire": [
+    "fire_station",
+    "hospital",
+    "shelter",
+    "aed"
+  ],
+  "medical": [
+    "hospital",
+    "aed",
+    "clinic",
+    "pharmacy"
+  ],
+  "structural": [
+    "shelter",
+    "hospital",
+    "fire_station"
+  ],
+  "earthquake": [
+    "shelter",
+    "hospital",
+    "fire_station",
+    "aed"
+  ],
+  "flood": [
+    "shelter",
+    "hospital",
+    "police_station"
+  ],
+  "hazmat": [
+    "fire_station",
+    "hospital",
+    "police_station",
+    "shelter"
+  ],
+  "other": [
+    "hospital",
+    "police_station",
+    "fire_station",
+    "shelter",
+    "aed",
+    "clinic",
+    "pharmacy"
+  ]
+}

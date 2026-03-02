@@ -1,0 +1,42 @@
+[
+  {
+    "osm_id": 6938823538,
+    "osm_type": "node",
+    "lat": 1.3052591,
+    "lon": 103.7729234,
+    "tags": {
+      "emergency": "assembly_point",
+      "name": "Emergency Assembly Point",
+      "name:zh": "\u7d27\u6025\u96c6\u4e2d\u70b9"
+    }
+  },
+  {
+    "osm_id": 9890950234,
+    "osm_type": "node",
+    "lat": 1.4459472,
+    "lon": 103.7300715,
+    "tags": {
+      "emergency": "assembly_point"
+    }
+  },
+  {
+    "osm_id": 9891006016,
+    "osm_type": "node",
+    "lat": 1.2994099,
+    "lon": 103.773826,
+    "tags": {
+      "description": "emergency assembly point for Raffles Hall",
+      "emergency": "assembly_point"
+    }
+  },
+  {
+    "osm_id": 10951103543,
+    "osm_type": "node",
+    "lat": 1.3546817,
+    "lon": 103.6879899,
+    "tags": {
+      "assembly_point": "fire",
+      "emergency": "assembly_point"
+    }
+  }
+]

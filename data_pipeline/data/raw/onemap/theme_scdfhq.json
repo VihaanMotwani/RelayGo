@@ -1,0 +1,94 @@
+{
+  "SrchResults": [
+    {
+      "FeatCount": 9,
+      "Theme_Name": "SCDF HQs and Training Establishments",
+      "Category": "Emergency Preparedness",
+      "Owner": "SINGAPORE CIVIL DEFENCE FORCE",
+      "DateTime": "2014-06-05T10:00:32+00:00",
+      "Published_Date": "2013-07-19T00:00:00+00:00",
+      "Formatted_DateTime": "05/06/2014",
+      "Formatted_Published_Date": "19/07/2013"
+    },
+    {
+      "NAME": "SCDF Marine Command HQ",
+      "DESCRIPTION": "Fax: 6376 3747",
+      "ADDRESSPOSTALCODE": "098002",
+      "ADDRESSSTREETNAME": "19 Brani Way",
+      "Type": "Point",
+      "LatLng": "1.25608394800648,103.837569304484",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "HQ Singapore Civil Defence Force",
+      "DESCRIPTION": "Tel: 6280 0000 Fax:6848 1738",
+      "ADDRESSPOSTALCODE": "408827",
+      "ADDRESSSTREETNAME": "91 Ubi Avenue 4 Singapore 408827",
+      "Type": "Point",
+      "LatLng": "1.33422118180791,103.8931095564",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "Civil Defence Academy",
+      "DESCRIPTION": "Tel: 6794 5503/4 Fax:6794 5505",
+      "ADDRESSPOSTALCODE": "649734",
+      "ADDRESSSTREETNAME": "101 Jalan Bahar Singapore 649734",
+      "Type": "Point",
+      "LatLng": "1.36629142418725,103.692207192234",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "National Service Training Institute",
+      "DESCRIPTION": "Tel: 6794 5723/4 Fax:6794 5725",
+      "ADDRESSPOSTALCODE": "649735",
+      "ADDRESSSTREETNAME": "91 Jalan Bahar singapore 649735",
+      "Type": "Point",
+      "LatLng": "1.36489524661018,103.69068752401",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "National Civil Defence Cadet Corp",
+      "ADDRESSPOSTALCODE": "698928",
+      "ADDRESSSTREETNAME": "Blk 12b #02-95 Home Team Academy 501 Old Chua Chu Kang Road Singapore 698928",
+      "Type": "Point",
+      "LatLng": "1.37193280471535,103.720857415308",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "1st SCDF Division HQ",
+      "DESCRIPTION": "Tel: 6471 7421/2 Fax:6471 7492",
+      "ADDRESSPOSTALCODE": "149073",
+      "ADDRESSSTREETNAME": "3 Queensway Singapore 149073",
+      "Type": "Point",
+      "LatLng": "1.28842658223204,103.802829531254",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "2nd SCDF Division HQ",
+      "DESCRIPTION": "Tel: 6587 8347/8",
+      "ADDRESSPOSTALCODE": "528777",
+      "ADDRESSSTREETNAME": "1 Tampines Industrial Avenue 3 #01-01 Singapore 528777",
+      "Type": "Point",
+      "LatLng": "1.3578393274807,103.929352542147",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "3rd SCDF Division HQ",
+      "DESCRIPTION": "Tel: 6852 2888/588 Fax:6852 2988",
+      "ADDRESSPOSTALCODE": "768774",
+      "ADDRESSSTREETNAME": "533 Yishun Industrial Park A #01-01 Singapore 768774",
+      "Type": "Point",
+      "LatLng": "1.44416046130082,103.836857009718",
+      "ICON_NAME": "SCDF.jpg"
+    },
+    {
+      "NAME": "4th SCDF Division HQ",
+      "DESCRIPTION": "Tel: 6314 6906/7 Fax: 6314 6937/8",
+      "ADDRESSPOSTALCODE": "658072",
+      "ADDRESSSTREETNAME": "80 Bukit Batok Road Singapore 658072",
+      "Type": "Point",
+      "LatLng": "1.37296187833206,103.752715585488",
+      "ICON_NAME": "SCDF.jpg"
+    }
+  ]
+}

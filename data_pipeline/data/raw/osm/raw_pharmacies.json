@@ -1,0 +1,2802 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.61.8 b1080abd",
+  "osm3s": {
+    "timestamp_osm_base": "2026-02-15T14:44:30Z",
+    "timestamp_areas_base": "2026-02-15T14:44:30Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 512044820,
+      "lat": 1.3019116,
+      "lon": 103.8395478,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "name:en": "Watsons",
+        "name:zh": "\u5c48\u81e3\u6c0f",
+        "website": "https://www.watsons.com.sg/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 670230414,
+      "lat": 1.2925693,
+      "lon": 103.8107091,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 687602967,
+      "lat": 1.2991162,
+      "lon": 103.7763275,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy"
+      }
+    },
+    {
+      "type": "node",
+      "id": 775915329,
+      "lat": 1.4483697,
+      "lon": 103.8197249,
+      "tags": {
+        "amenity": "pharmacy"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1578145652,
+      "lat": 1.3040836,
+      "lon": 103.7653711,
+      "tags": {
+        "addr:housename": "West Coast Plaza",
+        "addr:street": "Clementi West Street 1",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1699512762,
+      "lat": 1.3874024,
+      "lon": 103.8693722,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "Guardian Health & Beauty",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1704461340,
+      "lat": 1.2976864,
+      "lon": 103.8385412,
+      "tags": {
+        "addr:housenumber": "131",
+        "amenity": "pharmacy",
+        "branch": "Killiney",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "description": "Drugstore",
+        "healthcare": "pharmacy",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3528102355,
+      "lat": 1.3413741,
+      "lon": 103.6915134,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "name": "Guardian",
+        "operator": "Guardian",
+        "website": "https://www.itea.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3684982342,
+      "lat": 1.3174146,
+      "lon": 103.7859506,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "293",
+        "addr:postcode": "278628",
+        "addr:street": "Holland Road",
+        "amenity": "pharmacy",
+        "drive_through": "no",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3814776572,
+      "lat": 1.2792415,
+      "lon": 103.8511856,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "#02-07, Asia Square Tower 1, 8",
+        "addr:postcode": "018960",
+        "addr:street": "Marina View",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "name": "Watsons",
+        "phone": "+65 6636 1029",
+        "shop": "chemist",
+        "website": "https://www.watsons.com.sg/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3814777983,
+      "lat": 1.2810341,
+      "lon": 103.8509412,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:floor": "1",
+        "addr:housenumber": "#01-02, Hong Leong Building, 16",
+        "addr:postcode": "048581",
+        "addr:street": "Raffles Quay",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "check_date": "2024-03-17",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "opening_hours": "Mo-Fr 08:00-19:30; PH,Su off; Sa 08:00-17:30",
+        "opening_hours:covid19": "Mo-Fr 10-18:00; Sa 10:00-14:00",
+        "phone": "+65 6222 2664",
+        "shop": "chemist",
+        "website": "https://www.watsons.com.sg/",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3876293377,
+      "lat": 1.312895,
+      "lon": 103.923476,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3891550928,
+      "lat": 1.3568243,
+      "lon": 103.9896318,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4310577712,
+      "lat": 1.2845415,
+      "lon": 103.8449571,
+      "tags": {
+        "amenity": "pharmacy",
+        "check_date": "2026-01-18",
+        "healthcare": "pharmacy",
+        "name": "Kim Ginseng Chinese Medicine"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4368147021,
+      "lat": 1.3105943,
+      "lon": 103.7956263,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "211, #01-10/11",
+        "addr:postcode": "278967",
+        "addr:street": "Holland Avenue",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "Holland Road Shopping Centre",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "en:Mannings",
+        "check_date": "2024-07",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "opening_hours": "Mo-Th 08:00-23:00; Fr-Su 08:00-00:00",
+        "phone": "+65 64657734",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4560997450,
+      "lat": 1.2911453,
+      "lon": 103.857907,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "6",
+        "addr:postcode": "039594",
+        "addr:street": "Raffles Boulevard",
+        "addr:unit": "#02-212",
+        "amenity": "pharmacy",
+        "branch": "Marina Square",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 6336 9121",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4560997469,
+      "lat": 1.2928333,
+      "lon": 103.8532762,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "#B1-67",
+        "addr:street": "CityLink Mall",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "no",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "phone": "+65 62388116",
+        "shop": "convenience",
+        "website": "https://guardian.com.sg/",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4576972694,
+      "lat": 1.3050006,
+      "lon": 103.8235722,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "163",
+        "addr:postcode": "247933",
+        "addr:street": "Tanglin Road",
+        "air_conditioning": "yes",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "dispensing": "yes",
+        "email": "customerservice@guardian.com.sg",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Guardian",
+        "name:en": "Guardian",
+        "opening_hours": "Mo-Su 09:30-21:30",
+        "phone": "+65 68361146",
+        "source": "local knowledge",
+        "stroller": "limited",
+        "website": "https://www.guardian.com.sg/",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4633998676,
+      "lat": 1.3016444,
+      "lon": 103.7923943,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Takeda Pharmaceuticals Asia Private Limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4703167430,
+      "lat": 1.3783646,
+      "lon": 103.7636844,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4715703938,
+      "lat": 1.3243358,
+      "lon": 103.8655175,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:street": "Serangoon Road",
+        "amenity": "pharmacy",
+        "name": "Vertex Pharmacy",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4723314845,
+      "lat": 1.28295,
+      "lon": 103.8458117,
+      "tags": {
+        "addr:street": "South Bridge Road",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Amber",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4738159967,
+      "lat": 1.3140533,
+      "lon": 103.8550172,
+      "tags": {
+        "addr:street": "Tessensohn Road",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4738318731,
+      "lat": 1.309675,
+      "lon": 103.8557243,
+      "tags": {
+        "addr:street": "Syed Alwi Road",
+        "amenity": "pharmacy",
+        "fixme": "name",
+        "healthcare": "pharmacy",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4756157232,
+      "lat": 1.3540432,
+      "lon": 103.9892831,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Guardian",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5031395922,
+      "lat": 1.2688369,
+      "lon": 103.814787,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "faber health resource center",
+        "name:en": "faber health resource center"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5041208474,
+      "lat": 1.300019,
+      "lon": 103.8512057,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Renxin Traditional Chinese Medicine",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5695960523,
+      "lat": 1.3630511,
+      "lon": 103.7645017,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "4",
+        "addr:postcode": "667979",
+        "addr:street": "Hillview Rise",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2024-07-11",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 09:30-21:30",
+        "opening_hours:pharmacy": "Mon 10:30-19:00,Wed 10:30-19:00,Fri 15:00-19:00,Sat-Sun 10:30-19:00",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5803273232,
+      "lat": 1.3111274,
+      "lon": 103.8567805,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "wheelchair": "limited"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5813931527,
+      "lat": 1.3533826,
+      "lon": 103.9406857,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5850832720,
+      "lat": 1.2934085,
+      "lon": 103.8595169,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5892144289,
+      "lat": 1.333176,
+      "lon": 103.9144833,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "631",
+        "addr:postcode": "470631",
+        "addr:street": "Bedok Reservoir Road",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "no",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5951170497,
+      "lat": 1.3506629,
+      "lon": 103.8725831,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6012281637,
+      "lat": 1.3505214,
+      "lon": 103.8487601,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6012281652,
+      "lat": 1.3508573,
+      "lon": 103.8485457,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Unity",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6016984326,
+      "lat": 1.3948296,
+      "lon": 103.8929535,
+      "tags": {
+        "addr:unit": "03",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "SingHealth Pharmacare",
+        "opening_hours": "Mo-Fr 09:00-19:00; Sa 08:30-12:30; PH,Su closed"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6197774739,
+      "lat": 1.302494,
+      "lon": 103.8344064,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6197774745,
+      "lat": 1.3030615,
+      "lon": 103.8340823,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "391",
+        "addr:postcode": "238872",
+        "addr:street": "Orchard Road",
+        "addr:unit": "#B2-15/20",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "Takashimaya S.C.",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 6836 9382",
+        "website": "https://www.guardian.com.sg/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6267447185,
+      "lat": 1.3003992,
+      "lon": 103.8446332,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "name": "Watsons",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6267447285,
+      "lat": 1.3010042,
+      "lon": 103.8448923,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6271033435,
+      "lat": 1.2649875,
+      "lon": 103.8227771,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Watsons",
+        "shop": "chemist",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6304207415,
+      "lat": 1.309443,
+      "lon": 103.8548514,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Tayka Medical"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6357886872,
+      "lat": 1.3077469,
+      "lon": 103.8850928,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6362350501,
+      "lat": 1.3329443,
+      "lon": 103.8492586,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6364949107,
+      "lat": 1.3539236,
+      "lon": 103.7183616,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "Teck Seng Chinese Physician"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6390805197,
+      "lat": 1.3127107,
+      "lon": 103.8720745,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Yeo Mei Lim Medical Hall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6391185171,
+      "lat": 1.3143079,
+      "lon": 103.8710965,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Wan Seng Tong Traditional Medical Hall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6403503365,
+      "lat": 1.329079,
+      "lon": 103.8868891,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Miao Quan Acupunturist & Chinese Physician"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6403503368,
+      "lat": 1.3291996,
+      "lon": 103.8860965,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Eng Onn Chuan Medical Hall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6437680085,
+      "lat": 1.3343042,
+      "lon": 103.8893864,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "2",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6456690687,
+      "lat": 1.2768194,
+      "lon": 103.8432453,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Tanjong Pagar Medical Hall",
+        "name:en": "Wonder TCM Clinic"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6472864412,
+      "lat": 1.3502754,
+      "lon": 103.7311822,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Hong Kah Chinese Medical Hall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6549175942,
+      "lat": 1.2648898,
+      "lon": 103.8204771,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "1",
+        "addr:postcode": "099253",
+        "addr:street": "Maritime Square",
+        "addr:unit": "#02-111/112",
+        "amenity": "pharmacy",
+        "branch": "HarbourFront Centre",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "en:Mannings",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-21:30",
+        "phone": "+65 6274 8441",
+        "website": "https://www.guardian.com.sg/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6549175947,
+      "lat": 1.2643469,
+      "lon": 103.8204529,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Unity",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6549207788,
+      "lat": 1.2648288,
+      "lon": 103.8201152,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6554678331,
+      "lat": 1.3315632,
+      "lon": 103.8685212,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "en:Mannings",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6554678334,
+      "lat": 1.3314399,
+      "lon": 103.8685179,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6556854614,
+      "lat": 1.3270712,
+      "lon": 103.8466779,
+      "tags": {
+        "addr:floor": "1",
+        "addr:housenumber": "20",
+        "addr:street": "Ah Hood Road",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2023-03-14",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6583001085,
+      "lat": 1.2865496,
+      "lon": 103.8013186,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "Pharmacy"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6583281565,
+      "lat": 1.2911849,
+      "lon": 103.8499574,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Guardian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6618286267,
+      "lat": 1.3924424,
+      "lon": 103.8951582,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "check_date": "2025-10-22",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "opening_hours": "10:00-22:00",
+        "opening_hours:url": "https://compassone.sg/guardian-health-beauty/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6618286280,
+      "lat": 1.3924069,
+      "lon": 103.8951161,
+      "tags": {
+        "addr:unit": "09",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "opening_hours": "10:00-22:00",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6639589409,
+      "lat": 1.4063921,
+      "lon": 103.9022634,
+      "tags": {
+        "amenity": "pharmacy",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Unity",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6639589433,
+      "lat": 1.4065181,
+      "lon": 103.9026066,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "check_date": "2026-01-18",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Watsons",
+        "shop": "chemist",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6743835944,
+      "lat": 1.2996703,
+      "lon": 103.8558609,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6754998591,
+      "lat": 1.3726746,
+      "lon": 103.8938132,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "2",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6832566775,
+      "lat": 1.2994654,
+      "lon": 103.7876586,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "1",
+        "addr:postcode": "138632",
+        "addr:street": "Fusionopolis Way",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "operator": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6846394995,
+      "lat": 1.3110647,
+      "lon": 103.8565091,
+      "tags": {
+        "addr:floor": "B1",
+        "addr:housenumber": "180",
+        "addr:street": "Kitchener Road",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "check_date": "2024-04-19",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6984012228,
+      "lat": 1.3641107,
+      "lon": 103.865514,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "check_date": "2024-11-24",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6988855393,
+      "lat": 1.372586,
+      "lon": 103.8936817,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6988855398,
+      "lat": 1.3722863,
+      "lon": 103.8937958,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2023-06-23",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6991554563,
+      "lat": 1.3018552,
+      "lon": 103.9052333,
+      "tags": {
+        "amenity": "pharmacy",
+        "level": "-1",
+        "name": "Watsons",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7055976423,
+      "lat": 1.3724048,
+      "lon": 103.9322528,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7528488887,
+      "lat": 1.337509,
+      "lon": 103.9219774,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7530395448,
+      "lat": 1.3024933,
+      "lon": 103.9071637,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Imperial TCM Pte. Ltd."
+      }
+    },
+    {
+      "type": "node",
+      "id": 7750360803,
+      "lat": 1.3391645,
+      "lon": 103.7057229,
+      "tags": {
+        "addr:floor": "B1",
+        "addr:housenumber": "1",
+        "addr:street": "Jurong West Central 2",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "check_date": "2025-06-05",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8213732269,
+      "lat": 1.3039815,
+      "lon": 103.8316423,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "2",
+        "addr:postcode": "238801",
+        "addr:street": "Orchard Turn",
+        "addr:unit": "#B4-02",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "ION Orchard",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-4",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 6884 5956",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8213732270,
+      "lat": 1.3035419,
+      "lon": 103.8359113,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "290",
+        "addr:postcode": "238859",
+        "addr:street": "Orchard Road",
+        "addr:unit": "#B1-20/21/22/23/24",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "Paragon",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "phone": "+65 6732 6762",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8288006877,
+      "lat": 1.2919885,
+      "lon": 103.8426623,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "81",
+        "addr:postcode": "239917",
+        "addr:street": "Clemenceau Avenue",
+        "addr:unit": "#02-18",
+        "air_conditioning": "yes",
+        "amenity": "pharmacy",
+        "branch": "UE Square",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2024-10-22",
+        "currency:SGD": "yes",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "payment:american_express": "yes",
+        "payment:coins": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:notes": "yes",
+        "payment:visa": "yes",
+        "phone": "+65 6235 9306",
+        "shop": "chemist",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8288255131,
+      "lat": 1.2954377,
+      "lon": 103.8598264,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:floor": "2",
+        "addr:housenumber": "#02-705/707",
+        "addr:postcode": "038983",
+        "addr:street": "Suntec City",
+        "addr:unit": "#02-328/329",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "New Suntec City",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "level:ref": "2",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 62386439"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8308568316,
+      "lat": 1.3499554,
+      "lon": 103.7490707,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "1",
+        "addr:postcode": "658713",
+        "addr:street": "Bukit Batok Central Link",
+        "addr:unit": "#02-26/27",
+        "amenity": "pharmacy",
+        "branch": "West Mall",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "website": "https://www.watsons.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8308624317,
+      "lat": 1.3498011,
+      "lon": 103.7490967,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "1",
+        "addr:postcode": "658713",
+        "addr:street": "Bukit Batok Central Link",
+        "addr:unit": "#01-27",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "West Mall",
+        "brand": "Guardian",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 6794 0903",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8430485186,
+      "lat": 1.3921619,
+      "lon": 103.9045989,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "shop": "chemist",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8430485188,
+      "lat": 1.3924674,
+      "lon": 103.9043542,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8448240732,
+      "lat": 1.3855595,
+      "lon": 103.9020503,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Unity",
+        "opening_hours": "08:30-21:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8460232066,
+      "lat": 1.2866202,
+      "lon": 103.8268953,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8460232067,
+      "lat": 1.2865252,
+      "lon": 103.8266444,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8463934109,
+      "lat": 1.3033539,
+      "lon": 103.8358132,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "#B1-27/27A",
+        "addr:postcode": "238859",
+        "addr:street": "Paragon",
+        "amenity": "pharmacy",
+        "branch": "Health",
+        "brand": "Watsons",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Watsons Health",
+        "not:brand:wikidata": "Q7974785",
+        "opening_hours": "Mo-Su 09:30-22:00",
+        "operator": "A.S. Watson Group",
+        "phone": "+65 69942834"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8474529315,
+      "lat": 1.3942198,
+      "lon": 103.9128741,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "2",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8474547225,
+      "lat": 1.3943671,
+      "lon": 103.9130855,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8499503082,
+      "lat": 1.3496673,
+      "lon": 103.8500176,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8526971999,
+      "lat": 1.3177085,
+      "lon": 103.8926094,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "10",
+        "addr:postcode": "409057",
+        "addr:street": "Paya Lebar Road",
+        "addr:unit": "#B2-01/35",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "Paya Lebar Quarter",
+        "brand": "Guardian",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-21:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8556164746,
+      "lat": 1.369613,
+      "lon": 103.8488919,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8556333495,
+      "lat": 1.3705653,
+      "lon": 103.8472831,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "ms:Guardian Malaysia",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8566305126,
+      "lat": 1.4025433,
+      "lon": 103.9132787,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8566563493,
+      "lat": 1.3063702,
+      "lon": 103.8285102,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8577798758,
+      "lat": 1.3592975,
+      "lon": 103.8853952,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8577798783,
+      "lat": 1.3597428,
+      "lon": 103.8852613,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8597349725,
+      "lat": 1.3173199,
+      "lon": 103.892642,
+      "tags": {
+        "addr:floor": "2",
+        "addr:unit": "19",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "check_date": "2025-01-23",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "name:en": "Watsons",
+        "name:zh": "\u5c48\u81e3\u6c0f",
+        "opening_hours": "10:00-22:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8597884842,
+      "lat": 1.3146737,
+      "lon": 103.8949352,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8598400964,
+      "lat": 1.3185493,
+      "lon": 103.8941065,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8598400966,
+      "lat": 1.3191001,
+      "lon": 103.8943206,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8620920456,
+      "lat": 1.3916854,
+      "lon": 103.876047,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "ProHealth Medical Group @ Fernvale"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8620920460,
+      "lat": 1.3911897,
+      "lon": 103.8762307,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "shop": "chemist",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8620920488,
+      "lat": 1.3916093,
+      "lon": 103.8760839,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8620920516,
+      "lat": 1.3915673,
+      "lon": 103.8758859,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8627880704,
+      "lat": 1.3328945,
+      "lon": 103.8481446,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8631740078,
+      "lat": 1.2888775,
+      "lon": 103.8465905,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "6",
+        "addr:postcode": "059817",
+        "addr:street": "Eu Tong Sen Street",
+        "addr:unit": "#01-55/56/57",
+        "air_conditioning": "yes",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "en:Mannings",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "name:en": "Guardian",
+        "name:yue": "\u4f73\u5bd5",
+        "name:zh-Hant": "\u4f73\u5bd5",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-21:30",
+        "operator": "Dairy Farm International Holdings",
+        "shop": "chemist",
+        "start_date": "2021-04",
+        "stroller": "yes",
+        "website": "https://www.guardian.com.sg/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8637080327,
+      "lat": 1.3200693,
+      "lon": 103.8436057,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "238",
+        "addr:postcode": "307683",
+        "addr:street": "Thomson Road",
+        "addr:unit": "31",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "en:Mannings",
+        "check_date": "2026-01-17",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "name:en": "Guardian",
+        "name:yue": "\u4f73\u5bd5",
+        "name:zh-Hant": "\u4f73\u5bd5",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "operator": "Dairy Farm International Holdings",
+        "phone": "+65 6252 7019",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8642464797,
+      "lat": 1.2758411,
+      "lon": 103.8461575,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8658867049,
+      "lat": 1.3724014,
+      "lon": 103.9499507,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "1",
+        "addr:postcode": "518457",
+        "addr:street": "Pasir Ris Central Street 3",
+        "amenity": "pharmacy",
+        "branch": "White Sands",
+        "brand": "Guardian",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "not:brand:wikidata": "Q63371124",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8658867051,
+      "lat": 1.3725046,
+      "lon": 103.9499905,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8827366451,
+      "lat": 1.3014748,
+      "lon": 103.8399817,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:floor": "B1",
+        "addr:housenumber": "B1",
+        "addr:street": "The Centrepoint",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "The Centrepoint",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2025-01-16",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "internet_access": "no",
+        "level": "-1",
+        "name": "Guardian",
+        "name:en": "Guardian",
+        "opening_hours": "10:00-22:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "website": "https://www.guardian.com.sg/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8890737152,
+      "lat": 1.2951963,
+      "lon": 103.8599029,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "3",
+        "addr:postcode": "038983",
+        "addr:street": "Temasek Boulevard",
+        "addr:unit": "#01-610/611",
+        "amenity": "pharmacy",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Welcia BHG"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8895494553,
+      "lat": 1.4433012,
+      "lon": 103.8305586,
+      "tags": {
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "Canberra Plaza",
+        "brand": "Guardian",
+        "brand:wikidata": "Q13646560",
+        "brand:wikipedia": "en:Mannings",
+        "dispensing": "yes",
+        "level": "0",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 09:00-22:00",
+        "phone": "+65 6719 8170",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8957618295,
+      "lat": 1.3074723,
+      "lon": 103.8629492,
+      "tags": {
+        "addr:housename": "Lavender MRT Station",
+        "amenity": "pharmacy",
+        "layer": "-1",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9060730903,
+      "lat": 1.3012142,
+      "lon": 103.8383683,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "313",
+        "addr:postcode": "238895",
+        "addr:street": "Orchard Road",
+        "addr:unit": "#B3-13/14",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-3",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 66340991",
+        "website": "https://www.guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9061528617,
+      "lat": 1.2842405,
+      "lon": 103.8525292,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "check_date": "2024-04-30",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9125470570,
+      "lat": 1.4065476,
+      "lon": 103.9017048,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9271315634,
+      "lat": 1.3544305,
+      "lon": 103.8305725,
+      "tags": {
+        "addr:unit": "28",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "2",
+        "name": "Guardian",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9271315653,
+      "lat": 1.354445,
+      "lon": 103.8305445,
+      "tags": {
+        "addr:unit": "100/101",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9271315662,
+      "lat": 1.3542764,
+      "lon": 103.8304262,
+      "tags": {
+        "addr:unit": "30",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "level": "2",
+        "name": "Watsons",
+        "shop": "chemist",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9271817292,
+      "lat": 1.3202555,
+      "lon": 103.8437297,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "check_date": "2026-01-17",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9271817307,
+      "lat": 1.3201525,
+      "lon": 103.8433675,
+      "tags": {
+        "amenity": "pharmacy",
+        "check_date": "2026-01-17",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9331507355,
+      "lat": 1.305803,
+      "lon": 103.8327398,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9396011704,
+      "lat": 1.264681,
+      "lon": 103.8215352,
+      "tags": {
+        "addr:housenumber": "#02-79",
+        "addr:street": "VivoCity",
+        "addr:unit": "#02-111/112",
+        "alt_name": "Mannings",
+        "amenity": "pharmacy",
+        "branch": "HarbourFront Centre",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "brand:wikipedia": "en:Mannings",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Guardian",
+        "name:yue": "\u4f73\u5bd5",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 62614776",
+        "website": "https://www.guardian.com.sg/",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9710870182,
+      "lat": 1.3055003,
+      "lon": 103.9048981,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:postcode": "428802",
+        "addr:street": "East Coast Road",
+        "addr:unit": "#B1-15/16",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Guardian",
+        "phone": "+65 6380 7300"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9710870194,
+      "lat": 1.3052733,
+      "lon": 103.9048197,
+      "tags": {
+        "addr:unit": "17",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9737347777,
+      "lat": 1.4178864,
+      "lon": 103.9012535,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9772174873,
+      "lat": 1.3343361,
+      "lon": 103.9628576,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9787669578,
+      "lat": 1.2796064,
+      "lon": 103.8349441,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Singapore General Hospital"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9798598718,
+      "lat": 1.3794249,
+      "lon": 103.8877603,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9810396722,
+      "lat": 1.3426954,
+      "lon": 103.9532599,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9810396744,
+      "lat": 1.3423836,
+      "lon": 103.9530366,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10095244431,
+      "lat": 1.3754781,
+      "lon": 103.8794441,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "1",
+        "name": "Unity",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10198734802,
+      "lat": 1.3947382,
+      "lon": 103.8934537,
+      "tags": {
+        "amenity": "pharmacy",
+        "description": "pharmacy for patients to collect prescriptions; also has a section of shelves with nonprescription products",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Outpatient Pharmacy"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10292955611,
+      "lat": 1.430565,
+      "lon": 103.8277401,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10692469790,
+      "lat": 1.3629422,
+      "lon": 103.895154,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "name": "Unity"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10772246708,
+      "lat": 1.3440766,
+      "lon": 103.7203853,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10836962358,
+      "lat": 1.3393962,
+      "lon": 103.7054675,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11279549817,
+      "lat": 1.355879,
+      "lon": 103.7408891,
+      "tags": {
+        "amenity": "pharmacy",
+        "branch": "Le Quest Mall",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11323192746,
+      "lat": 1.4173076,
+      "lon": 103.8346265,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11434168630,
+      "lat": 1.3111485,
+      "lon": 103.7940503,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "7, #02-14/15",
+        "addr:postcode": "275748",
+        "addr:street": "Holland Village Way",
+        "amenity": "pharmacy",
+        "branch": "One Holland Village",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "check_date": "2024-07",
+        "dispensing": "yes",
+        "level": "1",
+        "level:ref": "2",
+        "name": "Watsons",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11669078700,
+      "lat": 1.437401,
+      "lon": 103.7951485,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11898833312,
+      "lat": 1.2841853,
+      "lon": 103.8525211,
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2024-12-06",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "opening_hours": "Mo-Fr 08:30-20:00; Sa 08:30-14:30; Su,PH off",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11949558330,
+      "lat": 1.3967608,
+      "lon": 103.8881079,
+      "tags": {
+        "addr:unit": "12",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "drive_through": "no",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11952444698,
+      "lat": 1.3151897,
+      "lon": 103.7647031,
+      "tags": {
+        "addr:floor": "3",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2024-06-01",
+        "healthcare": "pharmacy",
+        "level": "2",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12229313753,
+      "lat": 1.3127004,
+      "lon": 103.8824701,
+      "tags": {
+        "amenity": "pharmacy",
+        "name": "Anteh Dispensary Pte Ltd"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12349654281,
+      "lat": 1.2995747,
+      "lon": 103.8569914,
+      "tags": {
+        "addr:floor": "B2",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "check_date": "2024-11-11",
+        "healthcare": "pharmacy",
+        "level": "-2",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12349670228,
+      "lat": 1.3796894,
+      "lon": 103.7642915,
+      "tags": {
+        "addr:floor": "1",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2024-11-15",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12512601281,
+      "lat": 1.295041,
+      "lon": 103.859115,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:floor": "B1",
+        "addr:housenumber": "#B1-154/155/156",
+        "addr:postcode": "038983",
+        "addr:street": "Suntec City",
+        "amenity": "pharmacy",
+        "branch": "Suntec Fountain",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "level:ref": "B1",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12538608717,
+      "lat": 1.2938658,
+      "lon": 103.8536633,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:floor": "B1",
+        "addr:housenumber": "#B1-01",
+        "addr:street": "Raffles City",
+        "amenity": "pharmacy",
+        "branch": "Raffles City Shopping Centre",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "level": "-1",
+        "level:ref": "B1",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "phone": "+65 63392137",
+        "website": "https://guardian.com.sg/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12573500732,
+      "lat": 1.3524991,
+      "lon": 103.9439101,
+      "tags": {
+        "addr:housenumber": "#B1-01",
+        "addr:street": "Century Square",
+        "amenity": "pharmacy",
+        "branch": "Century Square",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "dispensing": "no",
+        "healthcare": "pharmacy",
+        "name": "Guardian",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+65 62602862"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12761904067,
+      "lat": 1.3221662,
+      "lon": 103.8440259,
+      "tags": {
+        "addr:floor": "1",
+        "addr:housenumber": "38",
+        "addr:street": "Irrawaddy Road",
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "check_date": "2025-04-16",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Guardian",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:nets": "yes",
+        "payment:visa": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12793788735,
+      "lat": 1.3698478,
+      "lon": 103.8888564,
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "opening_hours": "Mo-Fr 08:00-16:00; Sa 08:00-12:30; PH,Su closed"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12835204901,
+      "lat": 1.3185205,
+      "lon": 103.9026697,
+      "tags": {
+        "addr:housenumber": "916",
+        "addr:postcode": "408974",
+        "addr:street": "Sims Avenue",
+        "amenity": "pharmacy",
+        "opening_hours": "Mo-Su 08:30-22:00",
+        "outdoor_seating": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 364429994,
+      "center": {
+        "lat": 1.3578038,
+        "lon": 103.9865229
+      },
+      "nodes": [
+        3684764453,
+        3684764455,
+        3684764454,
+        3684764452,
+        3684764453
+      ],
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "building:levels": "2",
+        "building:part": "yes",
+        "check_date": "2026-01-11",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "way",
+      "id": 364429995,
+      "center": {
+        "lat": 1.3558795,
+        "lon": 103.9857098
+      },
+      "nodes": [
+        3684764335,
+        3684764331,
+        3684764340,
+        3684764343,
+        3684764335
+      ],
+      "tags": {
+        "amenity": "pharmacy",
+        "brand": "Guardian",
+        "brand:wikidata": "Q63371124",
+        "building:levels": "2",
+        "building:part": "yes",
+        "check_date": "2026-01-11",
+        "healthcare": "pharmacy",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "way",
+      "id": 439134471,
+      "center": {
+        "lat": 1.294867,
+        "lon": 103.7831392
+      },
+      "nodes": [
+        4367653400,
+        4367653401,
+        4367653405,
+        4367653404,
+        4367653400
+      ],
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "0"
+      }
+    },
+    {
+      "type": "way",
+      "id": 746050899,
+      "center": {
+        "lat": 1.3015045,
+        "lon": 103.904792
+      },
+      "nodes": [
+        6982012907,
+        6982012836,
+        6982012841,
+        6982012815,
+        6982012816,
+        6982012991,
+        6982012910,
+        6982012837,
+        6982012838,
+        6982012995,
+        6982012834,
+        6982012907
+      ],
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "indoor": "room",
+        "level": "-1",
+        "name": "Guardian",
+        "room": "shop",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 746110634,
+      "center": {
+        "lat": 1.3015586,
+        "lon": 103.9052877
+      },
+      "nodes": [
+        6982430203,
+        6982432922,
+        6982432921,
+        6982432937,
+        6982430203
+      ],
+      "tags": {
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "indoor": "room",
+        "level": "-1",
+        "name": "Vitakids",
+        "room": "shop"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1114929415,
+      "center": {
+        "lat": 1.2900115,
+        "lon": 103.816895
+      },
+      "nodes": [
+        10197293036,
+        8246669097,
+        10197293033,
+        10197293032,
+        10197293037,
+        10197293036
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "12",
+        "addr:postcode": "158736",
+        "addr:street": "Alexandra View",
+        "air_conditioning": "yes",
+        "amenity": "pharmacy",
+        "brand": "Watsons",
+        "brand:wikidata": "Q7974785",
+        "brand:wikipedia": "en:Watsons",
+        "healthcare": "pharmacy",
+        "indoor": "yes",
+        "level": "0",
+        "name": "Watsons",
+        "shop": "chemist"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1395135415,
+      "center": {
+        "lat": 1.4360598,
+        "lon": 103.7857217
+      },
+      "nodes": [
+        12913927063,
+        12913927008,
+        12913927007,
+        12913927006,
+        12913927110,
+        12913927111,
+        12913927062,
+        12913927061,
+        12913927063
+      ],
+      "tags": {
+        "addr:unit": "#B1-28/29/30",
+        "amenity": "pharmacy",
+        "indoor": "room",
+        "level": "-1",
+        "level:ref": "B1",
+        "name": "Guardian"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1395135477,
+      "center": {
+        "lat": 1.4357197,
+        "lon": 103.785801
+      },
+      "nodes": [
+        12913927171,
+        12913927168,
+        12913927169,
+        12913927170,
+        12913927171
+      ],
+      "tags": {
+        "addr:unit": "#B1-14/15",
+        "amenity": "pharmacy",
+        "indoor": "room",
+        "level": "-1",
+        "level:ref": "B1",
+        "name": "Watsons"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1396029713,
+      "center": {
+        "lat": 1.4362012,
+        "lon": 103.7862013
+      },
+      "nodes": [
+        12921702936,
+        12921702935,
+        12921702914,
+        12921702913,
+        12921702912,
+        12921702902,
+        12921702905,
+        12921702911,
+        12921702936
+      ],
+      "tags": {
+        "addr:unit": "#01-33",
+        "amenity": "pharmacy",
+        "indoor": "room",
+        "level": "0",
+        "level:ref": "1",
+        "name": "Unity Pharmacy"
+      }
+    }
+  ]
+}

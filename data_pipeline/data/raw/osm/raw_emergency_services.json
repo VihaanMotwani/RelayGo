@@ -1,0 +1,7042 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.10 2d4cfc48",
+  "osm3s": {
+    "timestamp_osm_base": "2026-03-02T09:08:30Z",
+    "timestamp_areas_base": "2026-01-22T23:45:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1711496363,
+      "lat": 1.3865231,
+      "lon": 103.8619325,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3067114706,
+      "lat": 1.3094608,
+      "lon": 103.859881,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3949845863,
+      "lat": 1.3198734,
+      "lon": 103.7014255,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3979472410,
+      "lat": 1.2815811,
+      "lon": 103.8455722,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3979545051,
+      "lat": 1.2908541,
+      "lon": 103.8408272,
+      "tags": {
+        "check_date": "2025-12-16",
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3979566317,
+      "lat": 1.3042616,
+      "lon": 103.8597928,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3979566338,
+      "lat": 1.3066753,
+      "lon": 103.8586717,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3979598714,
+      "lat": 1.309243,
+      "lon": 103.8554488,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3980001230,
+      "lat": 1.2818486,
+      "lon": 103.853509,
+      "tags": {
+        "check_date": "2022-10-29",
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3980001233,
+      "lat": 1.2821343,
+      "lon": 103.8537583,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4766033755,
+      "lat": 1.2975175,
+      "lon": 103.8470533,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4766034588,
+      "lat": 1.2965829,
+      "lon": 103.8475878,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4766034589,
+      "lat": 1.2973309,
+      "lon": 103.8483532,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5011771173,
+      "lat": 1.3775257,
+      "lon": 103.8508748,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "level:ref": "1",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5041208476,
+      "lat": 1.3001283,
+      "lon": 103.852364,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5055122546,
+      "lat": 1.3779788,
+      "lon": 103.8507912,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5055546974,
+      "lat": 1.3795327,
+      "lon": 103.8493185,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5055546975,
+      "lat": 1.3796909,
+      "lon": 103.8495435,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5055546976,
+      "lat": 1.3804384,
+      "lon": 103.850238,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5066159081,
+      "lat": 1.3771757,
+      "lon": 103.850494,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "25"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5209474410,
+      "lat": 1.2863258,
+      "lon": 103.8140265,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5473002022,
+      "lat": 1.3004568,
+      "lon": 103.8541194,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5473002030,
+      "lat": 1.2991977,
+      "lon": 103.8530299,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479235199,
+      "lat": 1.2864759,
+      "lon": 103.8146082,
+      "tags": {
+        "emergency": "defibrillator",
+        "foot": "yes",
+        "indoor": "no",
+        "motor_vehicle": "yes",
+        "name": "AED"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479238042,
+      "lat": 1.286476,
+      "lon": 103.8145828,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "wall",
+        "ref": "Zone 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479244036,
+      "lat": 1.2864901,
+      "lon": 103.8140248,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "wall",
+        "ref": "Zone 8"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479255770,
+      "lat": 1.2866201,
+      "lon": 103.8141099,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "wall",
+        "ref": "Zone 1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479260196,
+      "lat": 1.2866443,
+      "lon": 103.814627,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "wall"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479263065,
+      "lat": 1.286279,
+      "lon": 103.8146574,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5479282978,
+      "lat": 1.2867487,
+      "lon": 103.8143097,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5728169952,
+      "lat": 1.3237294,
+      "lon": 103.8738948,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198167,
+      "lat": 1.2958004,
+      "lon": 103.7820239,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198168,
+      "lat": 1.2955532,
+      "lon": 103.7795923,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198169,
+      "lat": 1.2940264,
+      "lon": 103.7844851,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198170,
+      "lat": 1.2954934,
+      "lon": 103.7795564,
+      "tags": {
+        "emergency": "fire_hose"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198171,
+      "lat": 1.2964895,
+      "lon": 103.780998,
+      "tags": {
+        "emergency": "fire_alarm_box"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198172,
+      "lat": 1.296516,
+      "lon": 103.7805215,
+      "tags": {
+        "emergency": "fire_hose"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198173,
+      "lat": 1.2957151,
+      "lon": 103.7789967,
+      "tags": {
+        "emergency": "fire_alarm_box"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198174,
+      "lat": 1.295668,
+      "lon": 103.7788671,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198176,
+      "lat": 1.2940766,
+      "lon": 103.7847023,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198177,
+      "lat": 1.2948811,
+      "lon": 103.7825745,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198178,
+      "lat": 1.295663,
+      "lon": 103.779179,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198179,
+      "lat": 1.2957192,
+      "lon": 103.7790359,
+      "tags": {
+        "emergency": "fire_hose"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198180,
+      "lat": 1.2965071,
+      "lon": 103.7810102,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198181,
+      "lat": 1.2955277,
+      "lon": 103.7795129,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198182,
+      "lat": 1.2940946,
+      "lon": 103.7840682,
+      "tags": {
+        "emergency": "fire_hose",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198183,
+      "lat": 1.2963013,
+      "lon": 103.7810734,
+      "tags": {
+        "emergency": "fire_hose",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5903198184,
+      "lat": 1.2964905,
+      "lon": 103.7804867,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5971138865,
+      "lat": 1.2945721,
+      "lon": 103.7725501,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5971138866,
+      "lat": 1.2950774,
+      "lon": 103.7719308,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5971138867,
+      "lat": 1.2949142,
+      "lon": 103.7720865,
+      "tags": {
+        "emergency": "fire_hose"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5971138869,
+      "lat": 1.2945595,
+      "lon": 103.772503,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5971138874,
+      "lat": 1.29493,
+      "lon": 103.7720814,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5971138875,
+      "lat": 1.2952199,
+      "lon": 103.7722295,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6197774743,
+      "lat": 1.3027787,
+      "lon": 103.8351508,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "-1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6197774754,
+      "lat": 1.3027902,
+      "lon": 103.8349458,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "-2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6271020486,
+      "lat": 1.2672378,
+      "lon": 103.802192,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6303633594,
+      "lat": 1.3509929,
+      "lon": 103.6777994,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6303633595,
+      "lat": 1.3500488,
+      "lon": 103.6764026,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6342861006,
+      "lat": 1.3620232,
+      "lon": 103.7765585,
+      "tags": {
+        "access": "yes",
+        "check_date": "2024-11-09",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "location": "Dairy Farm Hut",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6422900048,
+      "lat": 1.3057629,
+      "lon": 103.8613744,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/0voZByXNP2rmvdgjJFUe-A/thumb-2048.jpg",
+        "mapillary": "264719618715876",
+        "name": "9265",
+        "ref": "9265",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6422956253,
+      "lat": 1.3050982,
+      "lon": 103.8654376,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/a77w2WNfvHRbdSh9z7CBBg/thumb-2048.jpg",
+        "mapillary": "522243965605462",
+        "name": "4241",
+        "ref": "4241",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6422972019,
+      "lat": 1.3052997,
+      "lon": 103.8653381,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/458GLCTXRWvv3AF3gF6jSg/thumb-2048.jpg",
+        "mapillary": "472639737125035",
+        "name": "1161",
+        "ref": "1161",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6425362877,
+      "lat": 1.3005989,
+      "lon": 103.8589746,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/XgVv5FlCjzfNcQ2iSeyTXg/thumb-2048.jpg",
+        "mapillary": "1425383917819487",
+        "name": "1071",
+        "ref": "1071",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6432919886,
+      "lat": 1.2999853,
+      "lon": 103.8594571,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/HIY9IWWc6jFym4w0ZzHcUA/thumb-2048.jpg",
+        "mapillary": "940483353365483",
+        "name": "1027",
+        "ref": "1027",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6432919890,
+      "lat": 1.2961013,
+      "lon": 103.8622151,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/CBsxCDbcw9zTKqOmZ43gHA/thumb-2048.jpg",
+        "mapillary": "1215945472196251",
+        "name": "8420",
+        "ref": "8420",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6432919893,
+      "lat": 1.2941258,
+      "lon": 103.8622893,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/SeJMAGANclY3bZ6x0a-LYA/thumb-2048.jpg",
+        "mapillary": "273542951141895",
+        "name": "8419",
+        "ref": "8419",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6433028839,
+      "lat": 1.292011,
+      "lon": 103.8628405,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/ck7cBr4IgzLEHG9paQnBxQ/thumb-2048.jpg",
+        "mapillary": "278915687274713",
+        "name": "8418",
+        "ref": "8418",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6448634627,
+      "lat": 1.2863459,
+      "lon": 103.8598498,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/lNVYghKh1VNI-MCA_19Uog/thumb-2048.jpg",
+        "mapillary": "328294808719527",
+        "ref": "4/29",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6449190567,
+      "lat": 1.2850797,
+      "lon": 103.8589263,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/aJ1VG6UA_pDrVb84-IhKAg/thumb-2048.jpg",
+        "mapillary": "582254349411402",
+        "ref": "FH-09--29",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6449190572,
+      "lat": 1.2844376,
+      "lon": 103.8586847,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/8VvKxmnDCq_38yk4bbrKXg/thumb-2048.jpg",
+        "mapillary": "505799070599223",
+        "ref": "FH-10-29",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6449623724,
+      "lat": 1.2837766,
+      "lon": 103.8644238,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/nGgwvfN43upkFlTrwuMPEg/thumb-2048.jpg",
+        "mapillary": "329142245215646",
+        "ref": "FH 22-40",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6450115627,
+      "lat": 1.2937667,
+      "lon": 103.8581126,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/OIZK5pnIpiu_OY9iSctAZg/thumb-2048.jpg",
+        "mapillary": "184741153499468",
+        "ref": "19504",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6450115629,
+      "lat": 1.294008,
+      "lon": 103.8581877,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/YkrtJ7mpfoT3zX-j6p9Q0Q/thumb-2048.jpg",
+        "mapillary": "769991383886958",
+        "ref": "3-11",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6450115631,
+      "lat": 1.2984492,
+      "lon": 103.8582739,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/-IBb-LgxrfmOH_tf8Vvq1A/thumb-2048.jpg",
+        "mapillary": "830703870871763",
+        "ref": "10560",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6450115645,
+      "lat": 1.2991661,
+      "lon": 103.8588885,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/f-8-2tPOT2LxukQcAQCk_g/thumb-2048.jpg",
+        "mapillary": "4586589168023589",
+        "ref": "10561",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6450115647,
+      "lat": 1.302813,
+      "lon": 103.859415,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/hygh137RWq2-V_fZUqn11Q/thumb-2048.jpg",
+        "mapillary": "1176112483218851",
+        "ref": "7131",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6499063742,
+      "lat": 1.3986159,
+      "lon": 103.8773557,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6503750227,
+      "lat": 1.3545974,
+      "lon": 103.7764148,
+      "tags": {
+        "access": "yes",
+        "covered": "yes",
+        "defibrillator:location": "Under the porch, attached to a pillar, at 1.2m height",
+        "emergency": "defibrillator",
+        "image": "https://images.mapillary.com/k8v4hYE5rJawufimelFF3A/thumb-2048.jpg",
+        "mapillary": "468046474500947",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6516694566,
+      "lat": 1.402834,
+      "lon": 103.7963424,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "image": "https://images.mapillary.com/-s-GvXUVJJGSVp0ioewsvQ/thumb-2048.jpg",
+        "mapillary": "568971800748112",
+        "ref": "BC24",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6516694574,
+      "lat": 1.4057018,
+      "lon": 103.7951928,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/q2hhLyBb0b1N8u57NmfUiw/thumb-2048.jpg",
+        "mapillary": "608392190137833",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6516694575,
+      "lat": 1.4057644,
+      "lon": 103.7947645,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/6vw7fVn2NxVjQgv5uMLwtw/thumb-2048.jpg",
+        "mapillary": "4095333650526256",
+        "ref": "BC13",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6516694578,
+      "lat": 1.4061118,
+      "lon": 103.7937296,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "image": "https://images.mapillary.com/__nZpm86jDkXNX6P1aXRDg/thumb-2048.jpg",
+        "mapillary": "4486570764704456",
+        "ref": "BC12",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6538803721,
+      "lat": 1.327386,
+      "lon": 103.8444686,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6556829967,
+      "lat": 1.3315866,
+      "lon": 103.8447937,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6578134285,
+      "lat": 1.3753603,
+      "lon": 103.8933247,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6579486886,
+      "lat": 1.376132,
+      "lon": 103.893713,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6583050039,
+      "lat": 1.2923236,
+      "lon": 103.8452191,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6665234002,
+      "lat": 1.3461017,
+      "lon": 103.837812,
+      "tags": {
+        "emergency": "water_tank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6666262188,
+      "lat": 1.3042967,
+      "lon": 103.8536077,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6666295985,
+      "lat": 1.3084677,
+      "lon": 103.8529967,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6666295986,
+      "lat": 1.3092727,
+      "lon": 103.8535286,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6666297085,
+      "lat": 1.3114092,
+      "lon": 103.8549427,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6669878085,
+      "lat": 1.4305829,
+      "lon": 103.8386253,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6694821985,
+      "lat": 1.3761393,
+      "lon": 103.8893044,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6698277821,
+      "lat": 1.3149845,
+      "lon": 103.816297,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Right side past Visitor services desk on the wall",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6698277822,
+      "lat": 1.3151679,
+      "lon": 103.8162391,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6718646793,
+      "lat": 1.2660937,
+      "lon": 103.818896,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749801569,
+      "lat": 1.3300206,
+      "lon": 103.8444075,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749826052,
+      "lat": 1.3271844,
+      "lon": 103.8443771,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749828850,
+      "lat": 1.3282106,
+      "lon": 103.8441441,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749831371,
+      "lat": 1.3363559,
+      "lon": 103.8547906,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749833165,
+      "lat": 1.3262096,
+      "lon": 103.8416707,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749834176,
+      "lat": 1.3243494,
+      "lon": 103.856647,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6749837652,
+      "lat": 1.3268155,
+      "lon": 103.8438866,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6776263397,
+      "lat": 1.2781267,
+      "lon": 103.8133648,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6861918716,
+      "lat": 1.3175341,
+      "lon": 103.8934448,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6861929925,
+      "lat": 1.317237,
+      "lon": 103.8937618,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6861930120,
+      "lat": 1.302822,
+      "lon": 103.8596144,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6912998792,
+      "lat": 1.3852691,
+      "lon": 103.8207032,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6938823538,
+      "lat": 1.3052591,
+      "lon": 103.7729234,
+      "tags": {
+        "emergency": "assembly_point",
+        "name": "Emergency Assembly Point",
+        "name:zh": "\u7d27\u6025\u96c6\u4e2d\u70b9"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6938823540,
+      "lat": 1.3050631,
+      "lon": 103.7721596,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6938823542,
+      "lat": 1.3052962,
+      "lon": 103.7723396,
+      "tags": {
+        "emergency": "fire_hose",
+        "level": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6938823543,
+      "lat": 1.3051028,
+      "lon": 103.7721494,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7005494146,
+      "lat": 1.3276846,
+      "lon": 103.8929097,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7017331065,
+      "lat": 1.3727117,
+      "lon": 103.7786155,
+      "tags": {
+        "emergency": "water_tank"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7025223137,
+      "lat": 1.3364785,
+      "lon": 103.8452841,
+      "tags": {
+        "access": "no",
+        "barrier": "gate",
+        "emergency": "designated"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7049628535,
+      "lat": 1.2817993,
+      "lon": 103.8440134,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7079716957,
+      "lat": 1.3354617,
+      "lon": 103.7575611,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7079722837,
+      "lat": 1.336422,
+      "lon": 103.7560804,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7079727020,
+      "lat": 1.3349431,
+      "lon": 103.7582443,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7079734728,
+      "lat": 1.3360166,
+      "lon": 103.7567284,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7082557943,
+      "lat": 1.3044151,
+      "lon": 103.9243439,
+      "tags": {
+        "defibrillator:location": "Between male and female toilet entrances",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7099156285,
+      "lat": 1.3082246,
+      "lon": 103.8710391,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7100789590,
+      "lat": 1.3323348,
+      "lon": 103.8354436,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7100808495,
+      "lat": 1.3169784,
+      "lon": 103.876106,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7161676124,
+      "lat": 1.3818876,
+      "lon": 103.9518874,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7161676160,
+      "lat": 1.3761255,
+      "lon": 103.9517863,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7179141951,
+      "lat": 1.3044522,
+      "lon": 103.846742,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7195132127,
+      "lat": 1.3222923,
+      "lon": 103.814908,
+      "tags": {
+        "emergency": "defibrillator",
+        "layer": "-1",
+        "level": "-1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7197718012,
+      "lat": 1.4197199,
+      "lon": 103.7203832,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "opening_hours": "24/7",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7254681538,
+      "lat": 1.2980938,
+      "lon": 103.7894407,
+      "tags": {
+        "colour": "red",
+        "couplings": "2",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7254768607,
+      "lat": 1.2803225,
+      "lon": 103.7914245,
+      "tags": {
+        "couplings": "2",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7254768618,
+      "lat": 1.2805598,
+      "lon": 103.7910778,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "underground",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7273720644,
+      "lat": 1.3705014,
+      "lon": 103.8278272,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7306086334,
+      "lat": 1.416606,
+      "lon": 103.7284873,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7306087265,
+      "lat": 1.3319694,
+      "lon": 103.8495506,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7451038243,
+      "lat": 1.360373,
+      "lon": 103.8270009,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7528091170,
+      "lat": 1.2389606,
+      "lon": 103.8318823,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7528091171,
+      "lat": 1.2394794,
+      "lon": 103.836575,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7528091175,
+      "lat": 1.2396602,
+      "lon": 103.8358396,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7701092261,
+      "lat": 1.389976,
+      "lon": 103.8945346,
+      "tags": {
+        "emergency": "fire_hose",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7701092270,
+      "lat": 1.3902834,
+      "lon": 103.8945126,
+      "tags": {
+        "defibrillator:location": "at ground floor lift lobby",
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7703915313,
+      "lat": 1.3919543,
+      "lon": 103.8953973,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7703915314,
+      "lat": 1.3919535,
+      "lon": 103.8954144,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7703915315,
+      "lat": 1.391518,
+      "lon": 103.8953872,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7703915316,
+      "lat": 1.3919968,
+      "lon": 103.8954503,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7703915317,
+      "lat": 1.3914978,
+      "lon": 103.8953851,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7703915318,
+      "lat": 1.3915417,
+      "lon": 103.8953649,
+      "tags": {
+        "defibrillator:location": "inside the Sengkang station platform",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7731049349,
+      "lat": 1.3409978,
+      "lon": 103.7715849,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7765643855,
+      "lat": 1.2851189,
+      "lon": 103.8538755,
+      "tags": {
+        "defibrillator:location": "On the outside wall, next to the Brewerkz entrance",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7852077236,
+      "lat": 1.3940543,
+      "lon": 103.8967865,
+      "tags": {
+        "defibrillator:location": "at ground floor lift lobby",
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8108555811,
+      "lat": 1.319823,
+      "lon": 103.8167344,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8108592626,
+      "lat": 1.3332081,
+      "lon": 103.7490322,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8176574517,
+      "lat": 1.3493542,
+      "lon": 103.7631462,
+      "tags": {
+        "defibrillator:location": "Attached to a pillar of a porch outside",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "survey:date": "2020-11-14"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8199112824,
+      "lat": 1.2896004,
+      "lon": 103.8540191,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8241833318,
+      "lat": 1.3561175,
+      "lon": 103.9870269,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8251197901,
+      "lat": 1.2905111,
+      "lon": 103.8484081,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8251197907,
+      "lat": 1.288385,
+      "lon": 103.8465841,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8251197908,
+      "lat": 1.2880568,
+      "lon": 103.8462913,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8270687637,
+      "lat": 1.2866355,
+      "lon": 103.8456912,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8277411854,
+      "lat": 1.2962988,
+      "lon": 103.832061,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8288006885,
+      "lat": 1.2925489,
+      "lon": 103.843344,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8327073437,
+      "lat": 1.296893,
+      "lon": 103.8529724,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8337543816,
+      "lat": 1.3100521,
+      "lon": 103.7965907,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "3993",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8374180061,
+      "lat": 1.3889553,
+      "lon": 103.8925964,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8374180082,
+      "lat": 1.387045,
+      "lon": 103.8920091,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8398774863,
+      "lat": 1.2983332,
+      "lon": 103.8454364,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8399418596,
+      "lat": 1.2946223,
+      "lon": 103.8508931,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8399418597,
+      "lat": 1.293783,
+      "lon": 103.8503513,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8399418598,
+      "lat": 1.2924713,
+      "lon": 103.8498047,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404560210,
+      "lat": 1.2910606,
+      "lon": 103.8489509,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404560211,
+      "lat": 1.2937314,
+      "lon": 103.8498677,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404560213,
+      "lat": 1.2946996,
+      "lon": 103.8500713,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404560214,
+      "lat": 1.2982466,
+      "lon": 103.8446883,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404614919,
+      "lat": 1.3005672,
+      "lon": 103.8381956,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "ref": "4968",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404614920,
+      "lat": 1.3012924,
+      "lon": 103.8352878,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404614921,
+      "lat": 1.3018725,
+      "lon": 103.834761,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "ref": "12637",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8404614924,
+      "lat": 1.3031873,
+      "lon": 103.8332249,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8430485187,
+      "lat": 1.3922978,
+      "lon": 103.904104,
+      "tags": {
+        "defibrillator:location": "inside fairprice, right by the exit",
+        "emergency": "defibrillator",
+        "level": "2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8445550534,
+      "lat": 1.2978011,
+      "lon": 103.8880824,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "level": "0",
+        "ref": "22184",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8448403916,
+      "lat": 1.3866355,
+      "lon": 103.8966489,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8448423018,
+      "lat": 1.3871223,
+      "lon": 103.8976768,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8448501870,
+      "lat": 1.3882611,
+      "lon": 103.8971508,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8463136041,
+      "lat": 1.4023703,
+      "lon": 103.9708898,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8475617381,
+      "lat": 1.3030557,
+      "lon": 103.835913,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8481691703,
+      "lat": 1.3980241,
+      "lon": 103.8965261,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8481849024,
+      "lat": 1.396624,
+      "lon": 103.8900031,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8481909316,
+      "lat": 1.3957725,
+      "lon": 103.8894976,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8481940620,
+      "lat": 1.3948853,
+      "lon": 103.8880342,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8481940637,
+      "lat": 1.3957059,
+      "lon": 103.8880936,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8482037435,
+      "lat": 1.3975637,
+      "lon": 103.889479,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8482037442,
+      "lat": 1.3985334,
+      "lon": 103.8886135,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8498985169,
+      "lat": 1.3499894,
+      "lon": 103.848958,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8526854688,
+      "lat": 1.2960878,
+      "lon": 103.8462399,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "left side of building between side entrance and security box",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8548247950,
+      "lat": 1.3778475,
+      "lon": 103.8896958,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8548399937,
+      "lat": 1.3720321,
+      "lon": 103.8867022,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8568609069,
+      "lat": 1.2836699,
+      "lon": 103.7906387,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8620435934,
+      "lat": 1.3932046,
+      "lon": 103.8913793,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8620558773,
+      "lat": 1.3946746,
+      "lon": 103.8782797,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8620558779,
+      "lat": 1.393907,
+      "lon": 103.8782327,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8627982671,
+      "lat": 1.3334853,
+      "lon": 103.8504627,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8651604474,
+      "lat": 1.3089048,
+      "lon": 103.7978357,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9345938581,
+      "lat": 1.2969956,
+      "lon": 103.7812641,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9345938584,
+      "lat": 1.2969308,
+      "lon": 103.7810012,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9345938588,
+      "lat": 1.2970963,
+      "lon": 103.7811551,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9504493779,
+      "lat": 1.3834365,
+      "lon": 103.9430528,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pipe"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9613468519,
+      "lat": 1.3310897,
+      "lon": 103.8284024,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9626827082,
+      "lat": 1.3247702,
+      "lon": 103.8486873,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9710736639,
+      "lat": 1.3035826,
+      "lon": 103.902944,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9732699603,
+      "lat": 1.323554,
+      "lon": 103.8484502,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9732736162,
+      "lat": 1.3306893,
+      "lon": 103.8444375,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9750453350,
+      "lat": 1.2782693,
+      "lon": 103.7901331,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9776505299,
+      "lat": 1.4097989,
+      "lon": 103.9034966,
+      "tags": {
+        "emergency": "life_ring",
+        "operator": "Public Utilities Board"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9776505302,
+      "lat": 1.4079148,
+      "lon": 103.9030372,
+      "tags": {
+        "emergency": "life_ring",
+        "operator": "Public Utilities Board",
+        "ref": "10"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9787653978,
+      "lat": 1.278011,
+      "lon": 103.8338252,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "1",
+        "addr:postcode": "168581",
+        "addr:street": "Hospital Boulevard",
+        "emergency": "emergency_ward_entrance",
+        "emergency_ward_entrance": "all",
+        "entrance": "yes",
+        "level": "3",
+        "name": "Singapore General Hospital",
+        "opening_hours": "24/7",
+        "operator": "Singapore General Hospital"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9810137745,
+      "lat": 1.2789192,
+      "lon": 103.7907731,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9819841668,
+      "lat": 1.3909476,
+      "lon": 103.8953885,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9835170370,
+      "lat": 1.3135531,
+      "lon": 103.9142469,
+      "tags": {
+        "access": "no",
+        "barrier": "gate",
+        "emergency": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9858462254,
+      "lat": 1.3209344,
+      "lon": 103.8381967,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9859506706,
+      "lat": 1.3916201,
+      "lon": 103.8951558,
+      "tags": {
+        "description": "extinguisher right between the 7-Eleven and Mr Bean outlets",
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9859506707,
+      "lat": 1.3915802,
+      "lon": 103.8951425,
+      "tags": {
+        "description": "fire hose right outside the 7-Eleven outlet",
+        "emergency": "fire_hose",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9872240457,
+      "lat": 1.3895326,
+      "lon": 103.9014384,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9872240465,
+      "lat": 1.3904716,
+      "lon": 103.9010896,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9872240479,
+      "lat": 1.3884948,
+      "lon": 103.9014188,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9872403223,
+      "lat": 1.3893588,
+      "lon": 103.897551,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9876332638,
+      "lat": 1.3035443,
+      "lon": 103.7743975,
+      "tags": {
+        "access": "yes",
+        "description": "emergency call point at bus stop, connecting to campus security",
+        "emergency": "phone"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9876421539,
+      "lat": 1.3890299,
+      "lon": 103.7530456,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9880904192,
+      "lat": 1.2645,
+      "lon": 103.8150066,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9881906301,
+      "lat": 1.2984698,
+      "lon": 103.8519089,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9885064187,
+      "lat": 1.3000869,
+      "lon": 103.8516822,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9887532396,
+      "lat": 1.2973945,
+      "lon": 103.8495026,
+      "tags": {
+        "access": "customers",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "operator": "SMU"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890929998,
+      "lat": 1.4466439,
+      "lon": 103.7324343,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890930002,
+      "lat": 1.4471629,
+      "lon": 103.7283462,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890930004,
+      "lat": 1.4495573,
+      "lon": 103.7290133,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890930006,
+      "lat": 1.4462976,
+      "lon": 103.7276359,
+      "tags": {
+        "defibrillator:location": "The AED is inside the bird viewing house, on the platform elevated by 6 steps",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890930008,
+      "lat": 1.4464469,
+      "lon": 103.7257748,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "AED is located on ground-level at the bottom of the bird viewing tower near the waste basket.",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890950222,
+      "lat": 1.4463071,
+      "lon": 103.7291705,
+      "tags": {
+        "access": "yes",
+        "emergency": "first_aid_kit",
+        "level": "0",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890950225,
+      "lat": 1.4401336,
+      "lon": 103.7351587,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890950228,
+      "lat": 1.4493494,
+      "lon": 103.7268052,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890950234,
+      "lat": 1.4459472,
+      "lon": 103.7300715,
+      "tags": {
+        "emergency": "assembly_point"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9890950235,
+      "lat": 1.4473732,
+      "lon": 103.7304012,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9891006016,
+      "lat": 1.2994099,
+      "lon": 103.773826,
+      "tags": {
+        "description": "emergency assembly point for Raffles Hall",
+        "emergency": "assembly_point"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9893218541,
+      "lat": 1.321862,
+      "lon": 103.7373887,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9893218557,
+      "lat": 1.2990939,
+      "lon": 103.853559,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9896638326,
+      "lat": 1.392283,
+      "lon": 103.8971755,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9896638330,
+      "lat": 1.3923876,
+      "lon": 103.8978203,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9896638333,
+      "lat": 1.3928302,
+      "lon": 103.8962651,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9897471469,
+      "lat": 1.2987606,
+      "lon": 103.8505366,
+      "tags": {
+        "access": "customers",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9897471474,
+      "lat": 1.2888715,
+      "lon": 103.8461873,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9901114736,
+      "lat": 1.3946955,
+      "lon": 103.895919,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9903941173,
+      "lat": 1.3970215,
+      "lon": 103.897073,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9904455797,
+      "lat": 1.3775267,
+      "lon": 103.7773974,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9907441011,
+      "lat": 1.3940421,
+      "lon": 103.8922547,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "21542"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9911554197,
+      "lat": 1.3741485,
+      "lon": 103.8920316,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9923736782,
+      "lat": 1.3885256,
+      "lon": 103.8954396,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "fixme": "resurvey",
+        "ref": "14780"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9923736786,
+      "lat": 1.3901883,
+      "lon": 103.8958638,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "18071"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9923736790,
+      "lat": 1.3882365,
+      "lon": 103.8962828,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "14779"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9923736791,
+      "lat": 1.3898404,
+      "lon": 103.8968415,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "18074"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9923736792,
+      "lat": 1.3887919,
+      "lon": 103.8946934,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "14781"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9930923247,
+      "lat": 1.3920351,
+      "lon": 103.8927611,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9942991121,
+      "lat": 1.358485,
+      "lon": 103.8452751,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9974079576,
+      "lat": 1.3940345,
+      "lon": 103.8954293,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9974079580,
+      "lat": 1.3938638,
+      "lon": 103.8948539,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9995317016,
+      "lat": 1.3122646,
+      "lon": 103.8120464,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9995356111,
+      "lat": 1.3644731,
+      "lon": 103.8383961,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10015169408,
+      "lat": 1.2897273,
+      "lon": 103.8550452,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10015221217,
+      "lat": 1.2888859,
+      "lon": 103.8567112,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "lane",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10016104181,
+      "lat": 1.3024157,
+      "lon": 103.9182168,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10033938691,
+      "lat": 1.4104953,
+      "lon": 103.832983,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10035312090,
+      "lat": 1.372556,
+      "lon": 103.8289584,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10048982456,
+      "lat": 1.3502682,
+      "lon": 103.7781538,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Outside under the porch attached to a pillar at 1.2 meter above the ground",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10079121294,
+      "lat": 1.2780844,
+      "lon": 103.8046539,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10136993784,
+      "lat": 1.2818055,
+      "lon": 103.864584,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10142619327,
+      "lat": 1.392076,
+      "lon": 103.8929284,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10198734801,
+      "lat": 1.394233,
+      "lon": 103.8925875,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "fixme": "resurvey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10214467806,
+      "lat": 1.2780366,
+      "lon": 103.7908722,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "water_source": "main"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10299683153,
+      "lat": 1.3359394,
+      "lon": 103.7813943,
+      "tags": {
+        "defibrillator:location": "right outside toilet entrance",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10702069367,
+      "lat": 1.3056489,
+      "lon": 103.8672832,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10702069369,
+      "lat": 1.3204654,
+      "lon": 103.8406654,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "note": "Not operational on Feb 23",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10702091655,
+      "lat": 1.2984001,
+      "lon": 103.905698,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10763919867,
+      "lat": 1.3634407,
+      "lon": 103.752131,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10771041153,
+      "lat": 1.3186644,
+      "lon": 103.8153384,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10806574824,
+      "lat": 1.2785384,
+      "lon": 103.8619634,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Outside male toilet",
+        "emergency": "defibrillator",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10806576254,
+      "lat": 1.2818027,
+      "lon": 103.8647081,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "On wall next to stairway",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10806670134,
+      "lat": 1.2838723,
+      "lon": 103.8655457,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Next to visitor center, opposite ticket office",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10807163416,
+      "lat": 1.2851622,
+      "lon": 103.8590854,
+      "tags": {
+        "defibrillator:location": "Inside mall, L1, next to elevator",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10809983357,
+      "lat": 1.2551025,
+      "lon": 103.8167922,
+      "tags": {
+        "defibrillator:location": "On level 1 underneath cable car station",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10809983358,
+      "lat": 1.2539962,
+      "lon": 103.8195121,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "On ground floor next to escalator",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10809983359,
+      "lat": 1.2644831,
+      "lon": 103.8186593,
+      "tags": {
+        "defibrillator:location": "On level 15 at cable car station",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "15",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10809983360,
+      "lat": 1.2540809,
+      "lon": 103.8187651,
+      "tags": {
+        "access": "customers",
+        "defibrillator:location": "Next to ticket office on level 2",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10822273530,
+      "lat": 1.3274793,
+      "lon": 103.8814184,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10901285021,
+      "lat": 1.2998087,
+      "lon": 103.7757801,
+      "tags": {
+        "emergency": "lifeguard",
+        "fixme": "location"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10931147072,
+      "lat": 1.327932,
+      "lon": 103.8060617,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "3783"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10931147074,
+      "lat": 1.3287739,
+      "lon": 103.8066756,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "ref": "2825"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10940110465,
+      "lat": 1.2772189,
+      "lon": 103.8037608,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10940110480,
+      "lat": 1.2758274,
+      "lon": 103.8161026,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "layer": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10940110481,
+      "lat": 1.2758232,
+      "lon": 103.8161148,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "no",
+        "layer": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10940122731,
+      "lat": 1.3053059,
+      "lon": 103.856982,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10951103543,
+      "lat": 1.3546817,
+      "lon": 103.6879899,
+      "tags": {
+        "assembly_point": "fire",
+        "emergency": "assembly_point"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10963604020,
+      "lat": 1.3009681,
+      "lon": 103.866548,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10984167253,
+      "lat": 1.3769575,
+      "lon": 103.8917403,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10984175508,
+      "lat": 1.3771413,
+      "lon": 103.8917735,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10989297969,
+      "lat": 1.3769314,
+      "lon": 103.8932961,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10996460405,
+      "lat": 1.2864128,
+      "lon": 103.8598213,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10997144024,
+      "lat": 1.3762966,
+      "lon": 103.8898917,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "10946"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11001177198,
+      "lat": 1.3709082,
+      "lon": 103.8931872,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11001177200,
+      "lat": 1.3761734,
+      "lon": 103.8912879,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11001241921,
+      "lat": 1.265466,
+      "lon": 103.8215837,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "level": "-2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11003360490,
+      "lat": 1.2651161,
+      "lon": 103.8228553,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11005482187,
+      "lat": 1.3795943,
+      "lon": 103.8920925,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Other side of elevator wall",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11005482196,
+      "lat": 1.3781654,
+      "lon": 103.8914294,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Beside elevator",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11005490906,
+      "lat": 1.3796385,
+      "lon": 103.8897016,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "In front of elevator.",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11005611077,
+      "lat": 1.3764907,
+      "lon": 103.8929841,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11012000730,
+      "lat": 1.3704873,
+      "lon": 103.8822897,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11012000751,
+      "lat": 1.3755413,
+      "lon": 103.8874732,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "In front of elevator.",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11012000773,
+      "lat": 1.371019,
+      "lon": 103.8862633,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11012000775,
+      "lat": 1.3774864,
+      "lon": 103.890206,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "In front of elevator",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11012000798,
+      "lat": 1.3701801,
+      "lon": 103.8831874,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11015784398,
+      "lat": 1.3756105,
+      "lon": 103.8950198,
+      "tags": {
+        "emergency": "fire_service_inlet",
+        "fire_mains": "dry"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11015790540,
+      "lat": 1.3744782,
+      "lon": 103.8905192,
+      "tags": {
+        "defibrillator:location": "In front of elevator",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11015790615,
+      "lat": 1.3758108,
+      "lon": 103.8919042,
+      "tags": {
+        "defibrillator:location": "In front of elevator",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11015790637,
+      "lat": 1.3758048,
+      "lon": 103.8947627,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "At lift lobby",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11018055026,
+      "lat": 1.3937555,
+      "lon": 103.9183746,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Toilet entrance",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11019796417,
+      "lat": 1.3830907,
+      "lon": 103.8950773,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11028022917,
+      "lat": 1.3713375,
+      "lon": 103.9694723,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11028022919,
+      "lat": 1.3777248,
+      "lon": 103.8962036,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11028022924,
+      "lat": 1.3806678,
+      "lon": 103.9033357,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11028022940,
+      "lat": 1.3801024,
+      "lon": 103.8971147,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11028022942,
+      "lat": 1.3912353,
+      "lon": 103.8978694,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11028022956,
+      "lat": 1.3769258,
+      "lon": 103.8944206,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11036967169,
+      "lat": 1.3516863,
+      "lon": 103.8060827,
+      "tags": {
+        "emergency": "defibrillator",
+        "location": "Jelutong Hut",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11037007851,
+      "lat": 1.3103854,
+      "lon": 103.8152363,
+      "tags": {
+        "defibrillator:location": "At a pole right side of visitor services desk",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11051427589,
+      "lat": 1.4538811,
+      "lon": 103.8365795,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11054817930,
+      "lat": 1.2930236,
+      "lon": 103.8158379,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11054817940,
+      "lat": 1.2923508,
+      "lon": 103.8323836,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11073660422,
+      "lat": 1.3069639,
+      "lon": 103.798259,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11076371988,
+      "lat": 1.3089162,
+      "lon": 103.8657027,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11098875727,
+      "lat": 1.2814215,
+      "lon": 103.8548702,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11111474829,
+      "lat": 1.2820698,
+      "lon": 103.8638139,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11112076555,
+      "lat": 1.2896102,
+      "lon": 103.849541,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11113919261,
+      "lat": 1.2876246,
+      "lon": 103.8507998,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11116339989,
+      "lat": 1.2980843,
+      "lon": 103.8594024,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11121240761,
+      "lat": 1.3042113,
+      "lon": 103.7982208,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11121240800,
+      "lat": 1.3056432,
+      "lon": 103.7993001,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11135413415,
+      "lat": 1.2858648,
+      "lon": 103.8502372,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "ref": "261"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11170437620,
+      "lat": 1.3220376,
+      "lon": 103.8153158,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Desk of visitor service",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11246971145,
+      "lat": 1.2964556,
+      "lon": 103.8663389,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11269029555,
+      "lat": 1.3911222,
+      "lon": 103.7524511,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11281418896,
+      "lat": 1.3577466,
+      "lon": 103.8339935,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11293429410,
+      "lat": 1.2973502,
+      "lon": 103.8496287,
+      "tags": {
+        "access": "customers",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "-1",
+        "operator": "Gym"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11293429412,
+      "lat": 1.2990697,
+      "lon": 103.8465302,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11293429417,
+      "lat": 1.2985597,
+      "lon": 103.8494793,
+      "tags": {
+        "access": "customers",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11293429419,
+      "lat": 1.2948674,
+      "lon": 103.8493764,
+      "tags": {
+        "access": "customers",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "operator": "SMU",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11297615918,
+      "lat": 1.357037,
+      "lon": 103.8126581,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Ranger station - entrance to female toilet",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11348952589,
+      "lat": 1.3187966,
+      "lon": 103.8260896,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "ref": "FM 1-2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11348952597,
+      "lat": 1.3184224,
+      "lon": 103.8258073,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "943"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11350445607,
+      "lat": 1.3349695,
+      "lon": 103.8404386,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11350445613,
+      "lat": 1.3351703,
+      "lon": 103.8412835,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "10771"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11359537761,
+      "lat": 1.2923489,
+      "lon": 103.844302,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11359537765,
+      "lat": 1.2925605,
+      "lon": 103.8440922,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "157"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11359537766,
+      "lat": 1.2929506,
+      "lon": 103.8435468,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "ref": "39"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11361641843,
+      "lat": 1.3268421,
+      "lon": 103.7877322,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11362235881,
+      "lat": 1.3635144,
+      "lon": 103.8339711,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "8964"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11395311864,
+      "lat": 1.2824941,
+      "lon": 103.8630097,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "An der Au\u00dfenseite des Unterstandes",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11402949198,
+      "lat": 1.3926218,
+      "lon": 103.8999291,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "On lift lobby wall",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11408710043,
+      "lat": 1.315609,
+      "lon": 103.7752674,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11408710053,
+      "lat": 1.3124747,
+      "lon": 103.7801522,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11425781165,
+      "lat": 1.3559511,
+      "lon": 103.7737019,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "location": "Jungle Fall Hut"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11452266653,
+      "lat": 1.3456339,
+      "lon": 103.7880152,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11452266664,
+      "lat": 1.3267127,
+      "lon": 103.8075702,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "In front of the public toilets",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11478839543,
+      "lat": 1.4011254,
+      "lon": 103.8226943,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11536087018,
+      "lat": 1.3027314,
+      "lon": 103.8320854,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11536087029,
+      "lat": 1.3029226,
+      "lon": 103.8303582,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11559880271,
+      "lat": 1.3159393,
+      "lon": 103.9144878,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11563379881,
+      "lat": 1.3048907,
+      "lon": 103.928881,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Between the entrance of the male and female toilets",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11607138269,
+      "lat": 1.4273296,
+      "lon": 103.8253263,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11626880906,
+      "lat": 1.3060524,
+      "lon": 103.8005826,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "3695"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11648895572,
+      "lat": 1.3076979,
+      "lon": 103.8003093,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "17214"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11649450098,
+      "lat": 1.3031944,
+      "lon": 103.8012864,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "17769"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11649450099,
+      "lat": 1.304865,
+      "lon": 103.8014292,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "17770"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11649450101,
+      "lat": 1.3071282,
+      "lon": 103.8020723,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "2154"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11649450102,
+      "lat": 1.3081686,
+      "lon": 103.802437,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "12515"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11802121089,
+      "lat": 1.3115537,
+      "lon": 103.8637626,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "level": "0",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11810604442,
+      "lat": 1.3852769,
+      "lon": 103.8207214,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11810604449,
+      "lat": 1.3848135,
+      "lon": 103.8211347,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11841394936,
+      "lat": 1.3124547,
+      "lon": 103.8643564,
+      "tags": {
+        "access": "private",
+        "defibrillator:location": "Lift lobby ground floor",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11844394818,
+      "lat": 1.4250636,
+      "lon": 103.7621522,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "Outside the ticketing gates of Kranji MRT station",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873612986,
+      "lat": 1.2558226,
+      "lon": 103.8153522,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873612987,
+      "lat": 1.2558684,
+      "lon": 103.8173595,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11873612988,
+      "lat": 1.2558574,
+      "lon": 103.8173546,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875497068,
+      "lat": 1.2818073,
+      "lon": 103.8613143,
+      "tags": {
+        "defibrillator:location": "At the wall",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875497169,
+      "lat": 1.2834434,
+      "lon": 103.866897,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "level": "0",
+        "opening_hours": "09:00-19:00"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875497172,
+      "lat": 1.2834264,
+      "lon": 103.8668653,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875497173,
+      "lat": 1.2824866,
+      "lon": 103.8634806,
+      "tags": {
+        "defibrillator:location": "on the outside wall of the elevator building to the subway",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875868237,
+      "lat": 1.2841583,
+      "lon": 103.8661352,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875868238,
+      "lat": 1.2841332,
+      "lon": 103.8657389,
+      "tags": {
+        "access": "customers",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875868239,
+      "lat": 1.2840962,
+      "lon": 103.8657126,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11875961311,
+      "lat": 1.2851144,
+      "lon": 103.8645407,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11877132568,
+      "lat": 1.2976399,
+      "lon": 103.8481475,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0",
+        "operator": "YMCA"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11881020479,
+      "lat": 1.2891937,
+      "lon": 103.8458537,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11901146112,
+      "lat": 1.3570131,
+      "lon": 103.7715625,
+      "tags": {
+        "access": "yes",
+        "defibrillator:location": "at post of weather shelter that faces the lake. accessible when gate is open: Mo-Su 08:00-18:30",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "opening_hours": "Mo-Su 08:00-18:30"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11914855283,
+      "lat": 1.3073542,
+      "lon": 103.7960672,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "5086"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11917937516,
+      "lat": 1.3163101,
+      "lon": 103.8439731,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11961020162,
+      "lat": 1.3202656,
+      "lon": 103.8157438,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11966561181,
+      "lat": 1.3842557,
+      "lon": 103.9461462,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 11975349365,
+      "lat": 1.3807183,
+      "lon": 103.9600596,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12013581357,
+      "lat": 1.2852097,
+      "lon": 103.8622047,
+      "tags": {
+        "access": "permit",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12013581358,
+      "lat": 1.2850922,
+      "lon": 103.8625463,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12018878461,
+      "lat": 1.3409804,
+      "lon": 103.8366538,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "2516"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12022191470,
+      "lat": 1.302927,
+      "lon": 103.8300785,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "21745"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12022661377,
+      "lat": 1.2871611,
+      "lon": 103.848204,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "ref": "396"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12022661379,
+      "lat": 1.2871218,
+      "lon": 103.8480162,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "506"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12027906503,
+      "lat": 1.2874411,
+      "lon": 103.8457304,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "T21512"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12037345261,
+      "lat": 1.2869258,
+      "lon": 103.842246,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar",
+        "ref": "568"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12066366102,
+      "lat": 1.3071221,
+      "lon": 103.9068952,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "ref": "1859"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12106452483,
+      "lat": 1.2908298,
+      "lon": 103.781266,
+      "tags": {
+        "emergency": "defibrillator",
+        "fixme": "exact location"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12106452484,
+      "lat": 1.2910801,
+      "lon": 103.7818712,
+      "tags": {
+        "emergency": "defibrillator",
+        "fixme": "exact location"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12106452485,
+      "lat": 1.2913331,
+      "lon": 103.779961,
+      "tags": {
+        "emergency": "defibrillator",
+        "fixme": "exact location"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12106452486,
+      "lat": 1.2902756,
+      "lon": 103.7810416,
+      "tags": {
+        "emergency": "defibrillator",
+        "fixme": "exact location"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12106452487,
+      "lat": 1.2907102,
+      "lon": 103.7810373,
+      "tags": {
+        "emergency": "defibrillator",
+        "fixme": "exact location"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12157252788,
+      "lat": 1.3389013,
+      "lon": 103.8728585,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12206907452,
+      "lat": 1.3784745,
+      "lon": 103.8920957,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "level": "0",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12206907470,
+      "lat": 1.3810362,
+      "lon": 103.8927374,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12206907485,
+      "lat": 1.3784238,
+      "lon": 103.8919403,
+      "tags": {
+        "emergency": "fire_service_inlet",
+        "fire_mains": "dry",
+        "ref": "DR 1-2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12206907496,
+      "lat": 1.3770908,
+      "lon": 103.8919135,
+      "tags": {
+        "emergency": "fire_service_inlet",
+        "fire_mains": "dry",
+        "ref": "DR 5-2"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12213671121,
+      "lat": 1.2818096,
+      "lon": 103.8625825,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12219308384,
+      "lat": 1.2823416,
+      "lon": 103.8625955,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12241407279,
+      "lat": 1.3409196,
+      "lon": 103.8750442,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12241407280,
+      "lat": 1.3397795,
+      "lon": 103.8742788,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12241407281,
+      "lat": 1.3390188,
+      "lon": 103.873953,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12397106727,
+      "lat": 1.3947224,
+      "lon": 103.8951556,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12397106728,
+      "lat": 1.3947036,
+      "lon": 103.8951661,
+      "tags": {
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12433521001,
+      "lat": 1.2900949,
+      "lon": 103.8462161,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "shop": "ticket"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12435121701,
+      "lat": 1.2807728,
+      "lon": 103.8464104,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12493939440,
+      "lat": 1.3521849,
+      "lon": 103.9845066,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12494009169,
+      "lat": 1.3575124,
+      "lon": 103.9864645,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12495812060,
+      "lat": 1.3437124,
+      "lon": 103.7794609,
+      "tags": {
+        "emergency": "fire_hose",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12548530296,
+      "lat": 1.2811284,
+      "lon": 103.8614483,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12553574546,
+      "lat": 1.3037038,
+      "lon": 103.8315757,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "-3-3"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555938418,
+      "lat": 1.2897107,
+      "lon": 103.7788555,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555953812,
+      "lat": 1.2884223,
+      "lon": 103.7795761,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "defibrillator:location:en": "Level 1 Main Lobby, Near Security Counter",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555953813,
+      "lat": 1.28929,
+      "lon": 103.776036,
+      "tags": {
+        "access": "private",
+        "check_date": "2025-02-04",
+        "defibrillator:location:en": "Inside the Church",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555955315,
+      "lat": 1.2929195,
+      "lon": 103.774402,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "defibrillator:location:en": "Level 1 Library Entrance",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555955512,
+      "lat": 1.2830541,
+      "lon": 103.7820135,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "defibrillator:location:en": "MRT station",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555955606,
+      "lat": 1.2874104,
+      "lon": 103.7831035,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "defibrillator:location:en": "Level 1 Main Lobby, Inside Wall Cabinet",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555963514,
+      "lat": 1.2923955,
+      "lon": 103.7741793,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "defibrillator:location:en": "Level 1 Outside Fire Command Centre",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555963627,
+      "lat": 1.2865025,
+      "lon": 103.7841019,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "defibrillator:location:en": "near entrance of west wing",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12555970501,
+      "lat": 1.288593,
+      "lon": 103.783225,
+      "tags": {
+        "access": "yes",
+        "check_date": "2025-02-04",
+        "defibrillator:location": "Beside The Gemini info counter & Lobby C&D entrance",
+        "defibrillator:location:en": "Level 2 Main Lobby, Beside Security Counter\nLevel 2 Lift Lobby A\nLevel 2 Lift Lobby D",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12570330432,
+      "lat": 1.3917162,
+      "lon": 103.8801346,
+      "tags": {
+        "defibrillator:location": "beside sheng siong entrance outside",
+        "emergency": "defibrillator",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12646859230,
+      "lat": 1.3762929,
+      "lon": 103.7455754,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12692523694,
+      "lat": 1.3493425,
+      "lon": 103.7795187,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12692603104,
+      "lat": 1.3531765,
+      "lon": 103.7774223,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12698130673,
+      "lat": 1.3686743,
+      "lon": 103.9486223,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12698226831,
+      "lat": 1.366941,
+      "lon": 103.9506576,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12701771253,
+      "lat": 1.3688328,
+      "lon": 103.9472459,
+      "tags": {
+        "defibrillator:location": "Lift lobby 525D",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12701781244,
+      "lat": 1.3672873,
+      "lon": 103.9474099,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12701784713,
+      "lat": 1.3686589,
+      "lon": 103.9470267,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12701809879,
+      "lat": 1.3697534,
+      "lon": 103.94833,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12701888217,
+      "lat": 1.3697825,
+      "lon": 103.9480327,
+      "tags": {
+        "defibrillator:location": "Lift Lobby 527D",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12701890264,
+      "lat": 1.3688157,
+      "lon": 103.9474022,
+      "tags": {
+        "defibrillator:location": "Lift Lobby 526D",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12704331396,
+      "lat": 1.3676421,
+      "lon": 103.9501315,
+      "tags": {
+        "defibrillator:location": "Lift Lobby Block 562",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12753294268,
+      "lat": 1.3713482,
+      "lon": 103.9474897,
+      "tags": {
+        "defibrillator:location": "Lift Lobby 524A",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12753306603,
+      "lat": 1.3706205,
+      "lon": 103.9473217,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12753314995,
+      "lat": 1.3706786,
+      "lon": 103.9475439,
+      "tags": {
+        "defibrillator:location": "Lift Lobby 524C",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12753815670,
+      "lat": 1.3682028,
+      "lon": 103.9496754,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12753825581,
+      "lat": 1.3679736,
+      "lon": 103.9496083,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12753825981,
+      "lat": 1.368689,
+      "lon": 103.9481424,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12753847181,
+      "lat": 1.3668012,
+      "lon": 103.9499013,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12846856732,
+      "lat": 1.2818063,
+      "lon": 103.8704447,
+      "tags": {
+        "emergency": "water_rescue",
+        "seamark:rescue_station:category": "lifeboat_on_mooring",
+        "seamark:type": "rescue_station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12882735110,
+      "lat": 1.3463369,
+      "lon": 103.6890445,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12883303608,
+      "lat": 1.3372012,
+      "lon": 103.6970324,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12883362942,
+      "lat": 1.337435,
+      "lon": 103.6972324,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12883438052,
+      "lat": 1.3464408,
+      "lon": 103.6892794,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12883440089,
+      "lat": 1.3465365,
+      "lon": 103.6890799,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar",
+        "level": "1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12883448833,
+      "lat": 1.3463665,
+      "lon": 103.6891802,
+      "tags": {
+        "emergency": "fire_alarm_box",
+        "indoor": "yes",
+        "level": "6",
+        "ref": "P4.Z71-4001"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12885535204,
+      "lat": 1.2986169,
+      "lon": 103.8527971,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12886517138,
+      "lat": 1.2901219,
+      "lon": 103.8367128,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12888070348,
+      "lat": 1.3460794,
+      "lon": 103.6889112,
+      "tags": {
+        "emergency": "fire_alarm_box",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12888073984,
+      "lat": 1.3460301,
+      "lon": 103.6885644,
+      "tags": {
+        "addr:floor": "1",
+        "emergency": "fire_alarm_box",
+        "indoor": "yes",
+        "level": "0",
+        "source": "local knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12888085724,
+      "lat": 1.3455254,
+      "lon": 103.688663,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12888193454,
+      "lat": 1.3413239,
+      "lon": 103.6921675,
+      "tags": {
+        "access": "yes",
+        "addr:floor": "1",
+        "defibrillator:location": "Next to elevator B",
+        "emergency": "defibrillator",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12888193455,
+      "lat": 1.3413201,
+      "lon": 103.6921719,
+      "tags": {
+        "addr:floor": "1",
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "0"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12888744991,
+      "lat": 1.3386468,
+      "lon": 103.7049013,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "yes",
+        "level": "-1"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12894811574,
+      "lat": 1.3462704,
+      "lon": 103.689063,
+      "tags": {
+        "addr:floor": "2",
+        "emergency": "fire_extinguisher",
+        "indoor": "no",
+        "level": "1",
+        "source": "local knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12894811575,
+      "lat": 1.3462957,
+      "lon": 103.6890416,
+      "tags": {
+        "access": "permissive",
+        "addr:floor": "2",
+        "defibrillator:location": "Near the security counter",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "level": "1",
+        "source": "local knowledge"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12913876241,
+      "lat": 1.3700951,
+      "lon": 103.7650568,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12970258400,
+      "lat": 1.3034886,
+      "lon": 103.8568587,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12979538012,
+      "lat": 1.3676799,
+      "lon": 103.9393766,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12981895805,
+      "lat": 1.3535152,
+      "lon": 103.7796548,
+      "tags": {
+        "defibrillator:location": "Catchment Hut",
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12994423812,
+      "lat": 1.2809291,
+      "lon": 103.8465916,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13008912620,
+      "lat": 1.4416584,
+      "lon": 103.7736299,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13026295606,
+      "lat": 1.3125856,
+      "lon": 103.8549577,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13026677563,
+      "lat": 1.4280748,
+      "lon": 103.7812742,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13026709232,
+      "lat": 1.4278415,
+      "lon": 103.7808365,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13026718901,
+      "lat": 1.4297091,
+      "lon": 103.793519,
+      "tags": {
+        "emergency": "fire_hose"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13032531411,
+      "lat": 1.281076,
+      "lon": 103.8446793,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13032550338,
+      "lat": 1.2812627,
+      "lon": 103.8448817,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13037404714,
+      "lat": 1.2847053,
+      "lon": 103.8439848,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13039489913,
+      "lat": 1.4348241,
+      "lon": 103.7755707,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13061552720,
+      "lat": 1.2805597,
+      "lon": 103.8445488,
+      "tags": {
+        "check_date": "2025-08-10",
+        "emergency": "defibrillator",
+        "indoor": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13075439186,
+      "lat": 1.400263,
+      "lon": 103.8072215,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13075439190,
+      "lat": 1.4002628,
+      "lon": 103.8072131,
+      "tags": {
+        "emergency": "fire_extinguisher"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13094481295,
+      "lat": 1.3097617,
+      "lon": 103.9154421,
+      "tags": {
+        "access": "no",
+        "barrier": "gate",
+        "emergency": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13095867883,
+      "lat": 1.3102883,
+      "lon": 103.9140594,
+      "tags": {
+        "emergency": "fire_hydrant"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13095886015,
+      "lat": 1.3105244,
+      "lon": 103.9153038,
+      "tags": {
+        "barrier": "gate",
+        "emergency": "yes",
+        "locked": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13106017252,
+      "lat": 1.439089,
+      "lon": 103.8268331,
+      "tags": {
+        "access": "yes",
+        "emergency": "defibrillator",
+        "indoor": "no",
+        "opening_hours": "24/7"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13343573304,
+      "lat": 1.3424265,
+      "lon": 103.83493,
+      "tags": {
+        "emergency": "defibrillator"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13352528499,
+      "lat": 1.3007121,
+      "lon": 103.8876998,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "ref": "1776"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380562010,
+      "lat": 1.2481236,
+      "lon": 103.8228592,
+      "tags": {
+        "emergency": "lifeguard"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380562411,
+      "lat": 1.2912838,
+      "lon": 103.8438491,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380570034,
+      "lat": 1.2911106,
+      "lon": 103.8360138,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380570051,
+      "lat": 1.2477139,
+      "lon": 103.8243786,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380571393,
+      "lat": 1.2525576,
+      "lon": 103.8259547,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380576616,
+      "lat": 1.2887903,
+      "lon": 103.8499453,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380583859,
+      "lat": 1.2902171,
+      "lon": 103.8362353,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380588901,
+      "lat": 1.2911054,
+      "lon": 103.8431362,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13380588902,
+      "lat": 1.2910277,
+      "lon": 103.8441991,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383042593,
+      "lat": 1.3144198,
+      "lon": 103.8149604,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383051946,
+      "lat": 1.3209514,
+      "lon": 103.8158095,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383053311,
+      "lat": 1.31373,
+      "lon": 103.8152317,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383062875,
+      "lat": 1.3209675,
+      "lon": 103.8164188,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383062877,
+      "lat": 1.3136824,
+      "lon": 103.8147565,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383069412,
+      "lat": 1.3136265,
+      "lon": 103.8149144,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383084921,
+      "lat": 1.309566,
+      "lon": 103.8145774,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383332661,
+      "lat": 1.3103559,
+      "lon": 103.8135402,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383335639,
+      "lat": 1.3070993,
+      "lon": 103.8159436,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383349638,
+      "lat": 1.4036965,
+      "lon": 103.9021054,
+      "tags": {
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383351445,
+      "lat": 1.3102495,
+      "lon": 103.8141744,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383351446,
+      "lat": 1.2727104,
+      "lon": 103.8649929,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383353434,
+      "lat": 1.2840375,
+      "lon": 103.8626227,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383355127,
+      "lat": 1.282309,
+      "lon": 103.8644845,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383355737,
+      "lat": 1.2758233,
+      "lon": 103.8621914,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383359589,
+      "lat": 1.2813507,
+      "lon": 103.8623326,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383360032,
+      "lat": 1.2753794,
+      "lon": 103.86265,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383362108,
+      "lat": 1.2734487,
+      "lon": 103.865499,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383366768,
+      "lat": 1.2854334,
+      "lon": 103.8635443,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383369891,
+      "lat": 1.283097,
+      "lon": 103.8624347,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13383371162,
+      "lat": 1.281254,
+      "lon": 103.8617589,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385738260,
+      "lat": 1.4073978,
+      "lon": 103.9895716,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385743715,
+      "lat": 1.4077999,
+      "lon": 103.9924712,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385743716,
+      "lat": 1.4093096,
+      "lon": 103.9917112,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385748713,
+      "lat": 1.4078749,
+      "lon": 103.9907861,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385748714,
+      "lat": 1.4078947,
+      "lon": 103.991206,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385748715,
+      "lat": 1.407594,
+      "lon": 103.9915926,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385751570,
+      "lat": 1.4016399,
+      "lon": 103.970345,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385761959,
+      "lat": 1.4182564,
+      "lon": 103.9753297,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385762517,
+      "lat": 1.4082497,
+      "lon": 103.9925867,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385766970,
+      "lat": 1.3927372,
+      "lon": 103.9885846,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385768715,
+      "lat": 1.408657,
+      "lon": 103.992429,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385769505,
+      "lat": 1.4088055,
+      "lon": 103.9893465,
+      "tags": {
+        "defibrillator:location": "On top of the information kiosk under the shelter",
+        "emergency": "defibrillator",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385770369,
+      "lat": 1.3923851,
+      "lon": 103.9853342,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385773854,
+      "lat": 1.4016766,
+      "lon": 103.9702922,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385776194,
+      "lat": 1.4076172,
+      "lon": 103.9920388,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385777577,
+      "lat": 1.4089581,
+      "lon": 103.992098,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385777578,
+      "lat": 1.4093606,
+      "lon": 103.9913259,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385782809,
+      "lat": 1.401493,
+      "lon": 103.9702674,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385786505,
+      "lat": 1.3925083,
+      "lon": 103.9850004,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385790244,
+      "lat": 1.4125627,
+      "lon": 103.9442735,
+      "tags": {
+        "emergency": "fire_extinguisher",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385790246,
+      "lat": 1.3929943,
+      "lon": 103.9865567,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13385791445,
+      "lat": 1.4068828,
+      "lon": 103.9897106,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13387861648,
+      "lat": 1.4083141,
+      "lon": 103.9260522,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13387919234,
+      "lat": 1.4100733,
+      "lon": 103.9240455,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13390042602,
+      "lat": 1.4035607,
+      "lon": 103.903197,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "green",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13390981367,
+      "lat": 1.2832507,
+      "lon": 103.8574342,
+      "tags": {
+        "emergency": "fire_hose",
+        "indoor": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13390993608,
+      "lat": 1.2829586,
+      "lon": 103.857616,
+      "tags": {
+        "emergency": "life_ring"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13390998670,
+      "lat": 1.2832416,
+      "lon": 103.8574372,
+      "tags": {
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13481295115,
+      "lat": 1.3888359,
+      "lon": 103.8744129,
+      "tags": {
+        "colour": "red",
+        "emergency": "fire_hydrant",
+        "fire_hydrant:position": "sidewalk",
+        "fire_hydrant:type": "pillar",
+        "ref": "18543"
+      }
+    },
+    {
+      "type": "way",
+      "id": 41663272,
+      "center": {
+        "lat": 1.3105457,
+        "lon": 103.8467818
+      },
+      "nodes": [
+        512075427,
+        512075428,
+        1834279482,
+        3201038604,
+        1834279481,
+        5280740027,
+        1834279480,
+        5280740032,
+        1834279479,
+        1834279478,
+        512075429,
+        1834279477,
+        1834279475,
+        512075430,
+        512075431,
+        512075433,
+        7495551308,
+        13476295896,
+        512075427
+      ],
+      "tags": {
+        "alt_name": "KK Hospital",
+        "amenity": "hospital",
+        "building": "yes",
+        "building:levels": "2",
+        "building:part": "yes",
+        "emergency": "yes",
+        "full_name": "Kandang Kerbau Women's and Children's Hospital",
+        "healthcare": "hospital",
+        "name": "KK Women's and Children's Hospital",
+        "name:ms": "Hospital Wanita dan Kanak-kanak KK",
+        "name:zh": "\u7af9\u811a\u5987\u5e7c\u533b\u9662",
+        "wikidata": "Q6332329",
+        "wikipedia": "en:KK Women's and Children's Hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 41890511,
+      "center": {
+        "lat": 1.3073675,
+        "lon": 103.8198296
+      },
+      "nodes": [
+        518302148,
+        518302150,
+        518302151,
+        518302152,
+        518302153,
+        518302154,
+        11262843970,
+        11262843971,
+        518302156,
+        518302157,
+        518302148
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "6",
+        "addr:street": "Napier Road",
+        "amenity": "hospital",
+        "contact:facebook": "https://www.facebook.com/GleneaglesHospitalSingapore",
+        "contact:whatsapp": "+65 8111 9777",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "name": "Gleneagles Hospital",
+        "name:ms": "Hospital Gleneagles",
+        "name:zh": "\u9e70\u9601\u533b\u9662",
+        "phone": "+65 6575 7575",
+        "start_date": "1957",
+        "website": "https://www.gleneagles.com.sg/",
+        "wikidata": "Q14874254",
+        "wikimedia_commons": "Category:Gleneagles Hospital and Medical Centre",
+        "wikipedia": "en:Gleneagles Hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 47415667,
+      "center": {
+        "lat": 1.2783781,
+        "lon": 103.8340433
+      },
+      "nodes": [
+        603486112,
+        1832784418,
+        1832784419,
+        603486114,
+        1831896142,
+        603486115,
+        603486116,
+        9787669584,
+        5233184156,
+        603486117,
+        9787693982,
+        13463310755,
+        603486118,
+        5233184157,
+        603486119,
+        603486120,
+        603486112
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "1",
+        "addr:postcode": "169608",
+        "addr:street": "Hospital Crescent",
+        "building": "hospital",
+        "building:colour": "#b0cbcc",
+        "building:levels": "2",
+        "building:material": "metal",
+        "emergency": "yes",
+        "name": "Blk 1"
+      }
+    },
+    {
+      "type": "way",
+      "id": 74715098,
+      "center": {
+        "lat": 1.342202,
+        "lon": 103.8379314
+      },
+      "nodes": [
+        882483835,
+        882483836,
+        882483837,
+        882483838,
+        2402430226,
+        882483835
+      ],
+      "tags": {
+        "addr:housenumber": "820",
+        "addr:postcode": "574623",
+        "addr:street": "Thomson Road",
+        "amenity": "hospital",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "name": "Mount Alvernia Hospital",
+        "name:ms": "Hospital Mount Alvernia",
+        "name:zh": "\u5b89\u5fae\u5c3c\u4e9a\u5c71\u533b\u9662",
+        "website": "https://mtalvernia.sg/",
+        "wikidata": "Q6919390",
+        "wikipedia": "en:Mount Alvernia Hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 117178559,
+      "center": {
+        "lat": 1.4237475,
+        "lon": 103.8372373
+      },
+      "nodes": [
+        1319900186,
+        1319900184,
+        1319900185,
+        1319900183,
+        1319900186
+      ],
+      "tags": {
+        "amenity": "hospital",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "name": "Yishun Community Hospital",
+        "name:ms": "Hospital Masyarakat Yishun",
+        "name:zh": "\u4e49\u987a\u793e\u533a\u533b\u9662",
+        "wheelchair": "yes",
+        "wikidata": "Q65052043",
+        "wikipedia": "en:Yishun Community Hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 121874611,
+      "center": {
+        "lat": 1.294967,
+        "lon": 103.85858
+      },
+      "nodes": [
+        1363236270,
+        1363236293,
+        1683121617,
+        6302337557,
+        1363236272
+      ],
+      "tags": {
+        "access": "no",
+        "emergency": "designated",
+        "highway": "service",
+        "lanes": "1",
+        "lit": "yes",
+        "oneway": "yes",
+        "service": "driveway",
+        "sidewalk": "left",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 167948596,
+      "center": {
+        "lat": 1.288614,
+        "lon": 103.8033404
+      },
+      "nodes": [
+        1792729692,
+        1792729738,
+        1792729718,
+        1792729696
+      ],
+      "tags": {
+        "access": "private",
+        "emergency": "yes",
+        "foot": "no",
+        "highway": "service",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 170744577,
+      "center": {
+        "lat": 1.3416535,
+        "lon": 103.9488264
+      },
+      "nodes": [
+        1818899867,
+        1818899868,
+        1818899869,
+        1818899870,
+        1818899871,
+        1818899872,
+        1818899873,
+        1818899874,
+        1818899867
+      ],
+      "tags": {
+        "addr:street": "Simei Street 3",
+        "amenity": "hospital",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "name": "Saint Andrew's Community Hospital",
+        "name:ms": "Hospital Masyarakat Saint Andrew's",
+        "operator": "St. Andrew's Mission Hospital",
+        "website": "https://www.sach.org.sg/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 213582725,
+      "center": {
+        "lat": 1.3706767,
+        "lon": 103.9836587
+      },
+      "nodes": [
+        2232575595,
+        2232575591,
+        2232575593,
+        2232575597,
+        2232575595
+      ],
+      "tags": {
+        "building": "yes",
+        "emergency": "ambulance_station",
+        "name": "Casualty Clearance Station 1"
+      }
+    },
+    {
+      "type": "way",
+      "id": 260472491,
+      "center": {
+        "lat": 1.3212804,
+        "lon": 103.8510187
+      },
+      "nodes": [
+        2659553353,
+        2659552781,
+        8011791054,
+        2659552790,
+        2659552792,
+        2659552794,
+        13325813012,
+        13325813011,
+        2659552788,
+        13325813010,
+        13325813008,
+        13325813009,
+        2659552811,
+        2659552943,
+        2659552941,
+        13325813059,
+        13325813006,
+        13325813007,
+        13325813005,
+        13325813004,
+        13325813065,
+        2659553267,
+        2659553265,
+        13325813117,
+        2659553352,
+        13469985917,
+        2659553355,
+        13469985921,
+        13469985920,
+        13469985919,
+        13469985918,
+        2659553384,
+        2659553375,
+        2659553391,
+        13470119468,
+        13470119467,
+        2659553390,
+        2659553353
+      ],
+      "tags": {
+        "amenity": "hospital",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "name": "Communicable Disease Centre",
+        "wheelchair": "yes",
+        "wikidata": "Q5154059",
+        "wikipedia": "en:Communicable Disease Centre"
+      }
+    },
+    {
+      "type": "way",
+      "id": 330213766,
+      "center": {
+        "lat": 1.3417303,
+        "lon": 103.8464212
+      },
+      "nodes": [
+        3371655209,
+        8073776474,
+        7025063232
+      ],
+      "tags": {
+        "emergency": "fire_truck",
+        "highway": "service",
+        "lanes": "1",
+        "motor_vehicle": "no",
+        "oneway": "yes",
+        "service": "driveway",
+        "sidewalk": "left",
+        "turn:lanes": "through"
+      }
+    },
+    {
+      "type": "way",
+      "id": 368005263,
+      "center": {
+        "lat": 1.3333962,
+        "lon": 103.745529
+      },
+      "nodes": [
+        3718704958,
+        7490754526,
+        7490754527,
+        7490754528,
+        3718704959,
+        3718704957,
+        3718704955,
+        7490754529,
+        3718704954,
+        3718704953,
+        7490754530,
+        3718704946,
+        7490754525,
+        7490754531,
+        7490754532,
+        7490754533,
+        3718704766,
+        3718704761,
+        3718704747,
+        3718704933,
+        3718704621,
+        7490754534,
+        7490754535,
+        3718704615,
+        3718704612,
+        3570890927,
+        3718704704,
+        3718704690,
+        7490754553,
+        3718704688,
+        3718704692,
+        7490754554,
+        3718702944,
+        7490754555,
+        3718702953,
+        7490754556,
+        3718704696,
+        3718704702,
+        3718704708,
+        3718704591,
+        3718704586,
+        7490754552,
+        3718704592,
+        7490754551,
+        7490754550,
+        3718704606,
+        3718704523,
+        3718704731,
+        7490754523,
+        3718704740,
+        7490754524,
+        3718704722,
+        3718704958
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "1",
+        "addr:postcode": "609606",
+        "addr:street": "Jurong East Street 21",
+        "alt_name": "Ng Teng Fong General Hospital Tower B",
+        "amenity": "hospital",
+        "building": "yes",
+        "building:colour": "#543d45",
+        "building:levels": "4",
+        "building:material": "metal",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "name": "Ng Teng Fong General Hospital",
+        "name:ms": "Hospital Besar Ng Teng Fong",
+        "name:zh": "\u9ec4\u5ef7\u65b9\u7efc\u5408\u533b\u96620",
+        "operator": "Jurong Health",
+        "wikidata": "Q18639988",
+        "wikipedia": "en:Ng Teng Fong General Hospital"
+      }
+    },
+    {
+      "type": "way",
+      "id": 482053308,
+      "center": {
+        "lat": 1.3327375,
+        "lon": 103.7454431
+      },
+      "nodes": [
+        4749298618,
+        5143988443,
+        4749481666,
+        4749481665,
+        4749298619
+      ],
+      "tags": {
+        "access": "private",
+        "emergency": "yes",
+        "foot": "no",
+        "highway": "primary_link",
+        "maxspeed": "50",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 546909133,
+      "center": {
+        "lat": 1.3419848,
+        "lon": 103.8452971
+      },
+      "nodes": [
+        5284718075,
+        5284718074
+      ],
+      "tags": {
+        "emergency": "fire_truck",
+        "highway": "service",
+        "motor_vehicle": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 646148267,
+      "center": {
+        "lat": 1.3286631,
+        "lon": 103.7463662
+      },
+      "nodes": [
+        4602649235,
+        4602649226,
+        4602649225,
+        4602649224,
+        4602649223,
+        4602649222,
+        4602649221,
+        4602649219
+      ],
+      "tags": {
+        "emergency": "fire_truck",
+        "highway": "service",
+        "lanes": "1",
+        "motor_vehicle": "yes",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 672222624,
+      "center": {
+        "lat": 1.2422027,
+        "lon": 103.6856229
+      },
+      "nodes": [
+        1796894687,
+        6294953417
+      ],
+      "tags": {
+        "access": "private",
+        "emergency": "yes",
+        "highway": "service",
+        "maxspeed": "50",
+        "oneway": "yes",
+        "service": "emergency_access"
+      }
+    },
+    {
+      "type": "way",
+      "id": 672227307,
+      "center": {
+        "lat": 1.373604,
+        "lon": 103.7523487
+      },
+      "nodes": [
+        6905056715,
+        6905056714,
+        6905056713,
+        6905056712,
+        6905056711,
+        6905056710,
+        6905056709,
+        6295001824
+      ],
+      "tags": {
+        "access": "no",
+        "emergency": "yes",
+        "highway": "primary_link",
+        "lanes": "1",
+        "maxspeed": "50",
+        "oneway": "yes",
+        "turn:lanes": "right"
+      }
+    },
+    {
+      "type": "way",
+      "id": 677395330,
+      "center": {
+        "lat": 1.2951831,
+        "lon": 103.8066764
+      },
+      "nodes": [
+        6342812405,
+        6342812406,
+        12550600371,
+        6988670384
+      ],
+      "tags": {
+        "bicycle": "yes",
+        "emergency": "designated",
+        "foot": "designated",
+        "highway": "footway",
+        "lit": "yes",
+        "name": "Condo Lane",
+        "stroller": "yes",
+        "surface": "concrete",
+        "tactile_paving": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 690651315,
+      "center": {
+        "lat": 1.2952866,
+        "lon": 103.782941
+      },
+      "nodes": [
+        6480045760,
+        6480045759,
+        6480045754,
+        6480045758,
+        6480045757,
+        6480045756,
+        6480045755,
+        5229188389
+      ],
+      "tags": {
+        "access": "no",
+        "emergency": "designated",
+        "highway": "service",
+        "lanes": "1",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 751459840,
+      "center": {
+        "lat": 1.3417635,
+        "lon": 103.8459588
+      },
+      "nodes": [
+        7025063232,
+        3371655206,
+        6990198357,
+        6990198358,
+        3371655200,
+        3371654992,
+        3371655193,
+        3371655197,
+        6990198356,
+        3371655204,
+        7025063226
+      ],
+      "tags": {
+        "emergency": "fire_truck",
+        "highway": "service",
+        "lanes": "1",
+        "motor_vehicle": "no",
+        "oneway": "yes",
+        "service": "driveway",
+        "turn:lanes": "through"
+      }
+    },
+    {
+      "type": "way",
+      "id": 809888784,
+      "center": {
+        "lat": 1.3370448,
+        "lon": 103.8750694
+      },
+      "nodes": [
+        7571956073,
+        7571956074,
+        7571956075,
+        7571970668,
+        7571970669,
+        10792254852,
+        7571970670,
+        10170877222,
+        10170877221,
+        10170877220,
+        7571956073
+      ],
+      "tags": {
+        "addr:street": "Alkaff Crescent",
+        "amenity": "hospital",
+        "construction": "healthcare",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "healthcare:speciality": "general;community",
+        "landuse": "construction",
+        "name": "Bidadari Polyclinic & Nursing Home",
+        "name:zh": "\u6bd4\u8fbe\u8fbe\u5229\u7efc\u5408\u8bca\u7597\u6240\u548c\u7597\u517b\u9662",
+        "operator": "National Healthcare Group",
+        "operator:type": "public"
+      }
+    },
+    {
+      "type": "way",
+      "id": 877728970,
+      "center": {
+        "lat": 1.403086,
+        "lon": 103.912852
+      },
+      "nodes": [
+        6444127781,
+        11169571544,
+        11169571578,
+        8166387796,
+        8236274118,
+        11170095219
+      ],
+      "tags": {
+        "access": "no",
+        "bicycle": "permissive",
+        "emergency": "yes",
+        "foot": "permissive",
+        "highway": "service",
+        "service": "emergency_access",
+        "surface": "paving_stones",
+        "width": "3"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1167138720,
+      "center": {
+        "lat": 1.2887044,
+        "lon": 103.8030366
+      },
+      "nodes": [
+        10852987159,
+        10852987160,
+        10852987161,
+        10852987162,
+        10852987159
+      ],
+      "tags": {
+        "access": "private",
+        "area:highway": "service",
+        "emergency": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1205268339,
+      "center": {
+        "lat": 1.403345,
+        "lon": 103.9133094
+      },
+      "nodes": [
+        11170095218,
+        8166387796
+      ],
+      "tags": {
+        "access": "no",
+        "emergency": "yes",
+        "foot": "yes",
+        "highway": "service",
+        "service": "emergency_access"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1286187574,
+      "center": {
+        "lat": 1.3266442,
+        "lon": 103.8545912
+      },
+      "nodes": [
+        2767318462,
+        2767318470,
+        2767318465,
+        11930071743,
+        11930071742,
+        11930071741,
+        2767318462
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "81",
+        "addr:postcode": "328836",
+        "addr:street": "Kim Keat Road",
+        "alt_name": "NKF Centre",
+        "amenity": "hospital",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "name": "National Kidney Foundation Dialysis Centre",
+        "name:zh": "\u5168\u56fd\u80be\u810f\u57fa\u91d1\u4f1a\u6d17\u80be\u4e2d\u5fc3",
+        "source": "Bing",
+        "website": "https://www.nkfs.org/",
+        "wikidata": "Q6973911",
+        "wikipedia": "en:National Kidney Foundation Singapore"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1345623876,
+      "center": {
+        "lat": 1.3268013,
+        "lon": 103.8133285
+      },
+      "nodes": [
+        12447442229,
+        12447442228,
+        12447442227,
+        12447442226,
+        12447442229
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "19",
+        "addr:postcode": "289891",
+        "addr:street": "Adam Road",
+        "amenity": "hospital",
+        "emergency": "yes",
+        "healthcare": "hospital",
+        "name": "Crawfurd Hospital",
+        "name:ms": "Hospital Crawfurd",
+        "name:zh": "\u798f\u5fb7\u533b\u9662",
+        "operator": "Crawfurd Medical"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1356087596,
+      "center": {
+        "lat": 1.2947726,
+        "lon": 103.8061968
+      },
+      "nodes": [
+        12550600369,
+        12550600372,
+        12550600370,
+        12550600371
+      ],
+      "tags": {
+        "access": "no",
+        "bicycle": "yes",
+        "emergency": "designated",
+        "foot": "yes",
+        "highway": "service",
+        "maxheight": "4.5",
+        "oneway": "no",
+        "service": "emergency_access",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1424056384,
+      "center": {
+        "lat": 1.3154475,
+        "lon": 103.9322002
+      },
+      "nodes": [
+        13088650907,
+        13088650906,
+        13088650905,
+        13088650904,
+        13088650908,
+        13088650909,
+        13088650910,
+        13088650907
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "208",
+        "addr:postcode": "469726",
+        "addr:street": "Bedok South Avenue 1",
+        "amenity": "hospital",
+        "email": "general@sach.org.sg",
+        "emergency": "no",
+        "healthcare": "hospital",
+        "name": "St. Andrew's Community Hospital (Bedok)",
+        "phone": "+65 6399 3888"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1475366391,
+      "center": {
+        "lat": 1.3207979,
+        "lon": 103.9857609
+      },
+      "nodes": [
+        13535077925,
+        13535077926,
+        13535077927,
+        13535077928,
+        13535077925
+      ],
+      "tags": {
+        "building": "yes",
+        "emergency": "ambulance_station",
+        "name": "Casualty Clearance Station 2"
+      }
+    }
+  ]
+}
