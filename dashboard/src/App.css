@@ -1,0 +1,51 @@
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0f0f1a;
+  overflow: hidden;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.app-map {
+  flex: 7;
+  min-width: 0;
+  position: relative;
+}
+
+.app-sidebar {
+  flex: 3;
+  min-width: 280px;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.015);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .app-body {
+    flex-direction: column;
+  }
+
+  .app-map {
+    flex: 1;
+    min-height: 50vh;
+  }
+
+  .app-sidebar {
+    flex: none;
+    max-width: none;
+    height: 40vh;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+}
