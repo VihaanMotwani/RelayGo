@@ -8,7 +8,7 @@ from typing import Any
 
 import aiosqlite
 
-from backend.models import EmergencyReport, MeshMessage
+from models import EmergencyReport, MeshMessage
 
 DB_PATH = Path(__file__).resolve().parent / "relaygo.db"
 

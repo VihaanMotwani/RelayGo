@@ -4,14 +4,15 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from backend.database import (
+
+from database import (
     get_reports,
     get_reports_geojson,
     insert_message,
     insert_report,
 )
-from backend.models import BatchUpload, EmergencyReport, MeshMessage
-from backend.routes.websocket import broadcast
+from models import BatchUpload, EmergencyReport, MeshMessage
+from routes.websocket import broadcast
 
 router = APIRouter(prefix="/api/reports", tags=["reports"])
 

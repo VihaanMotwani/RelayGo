@@ -8,9 +8,9 @@ from typing import AsyncIterator
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.database import init_db
-from backend.routes.reports import router as reports_router
-from backend.routes.websocket import router as ws_router
+from database import init_db
+from routes.reports import router as reports_router
+from routes.websocket import router as ws_router
 
 
 @asynccontextmanager
@@ -49,4 +49,4 @@ async def health() -> dict:
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

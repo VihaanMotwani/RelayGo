@@ -59,7 +59,7 @@ export default function Map({ reports }) {
 
     const map = new mapboxgl.Map({
       container: containerRef.current,
-      style: 'mapbox://styles/mapbox/dark-v11',
+      style: 'mapbox://styles/mapbox/standard',
       center: [-98, 39],
       zoom: 4,
       attributionControl: false,
