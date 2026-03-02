@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cactus/cactus.dart';
 
 import '../../core/constants.dart';
-import '../../models/chat_message.dart';
+import '../../models/chat_message.dart' as app;
 import '../../models/emergency_report.dart';
 import 'knowledge_loader.dart';
 import 'prompts.dart';
@@ -24,7 +24,7 @@ class AiExtraction {
 
 class AiResponse {
   final String text;
-  final ConfidenceLevel confidence;
+  final app.ConfidenceLevel confidence;
   final AiExtraction? extraction;
 
   AiResponse({
@@ -56,8 +56,10 @@ class AiService {
     _initController.add('Downloading language model...');
     await _lm!.downloadModel(
       model: AiConfig.modelSlug,
-      callback: (progress) {
-        _initController.add('LLM: ${(progress * 100).toStringAsFixed(0)}%');
+      downloadProcessCallback: (progress, status, isError) {
+        if (progress != null) {
+          _initController.add('LLM: ${(progress * 100).toStringAsFixed(0)}%');
+        }
       },
     );
 
@@ -75,8 +77,10 @@ class AiService {
     _initController.add('Downloading speech model...');
     await _stt!.downloadModel(
       model: 'whisper-tiny',
-      callback: (progress) {
-        _initController.add('STT: ${(progress * 100).toStringAsFixed(0)}%');
+      downloadProcessCallback: (progress, status, isError) {
+        if (progress != null) {
+          _initController.add('STT: ${(progress * 100).toStringAsFixed(0)}%');
+        }
       },
     );
 
@@ -96,11 +100,10 @@ class AiService {
 
     final result = await _stt!.transcribe(
       audioFilePath: audioPath,
-      params: CactusTranscriptionParams(maxTokens: 4096),
     );
 
     if (!result.success) {
-      throw Exception('Transcription failed');
+      throw Exception('Transcription failed: ${result.errorMessage}');
     }
 
     return result.text;
@@ -127,8 +130,8 @@ class AiService {
     }
 
     final messages = [
-      ChatMessage2(content: fullSystemPrompt, role: 'system'),
-      ChatMessage2(content: userText, role: 'user'),
+      ChatMessage(content: fullSystemPrompt, role: 'system'),
+      ChatMessage(content: userText, role: 'user'),
     ];
 
     final params = CactusCompletionParams(
@@ -145,14 +148,14 @@ class AiService {
     if (!result.success) {
       return AiResponse(
         text: 'I\'m having trouble processing your request. Please try again.',
-        confidence: ConfidenceLevel.unverified,
+        confidence: app.ConfidenceLevel.unverified,
       );
     }
 
     // Check for tool calls
     AiExtraction? extraction;
-    if (result.toolCalls != null && result.toolCalls!.isNotEmpty) {
-      final toolCall = result.toolCalls!.first;
+    if (result.toolCalls.isNotEmpty) {
+      final toolCall = result.toolCalls.first;
       if (toolCall.name == 'extract_emergency') {
         final args = toolCall.arguments;
         extraction = AiExtraction(
@@ -169,9 +172,9 @@ class AiService {
     }
 
     // Determine confidence level
-    ConfidenceLevel confidence = ConfidenceLevel.unverified;
+    app.ConfidenceLevel confidence = app.ConfidenceLevel.unverified;
     if (ragContext.isNotEmpty) {
-      confidence = ConfidenceLevel.verified;
+      confidence = app.ConfidenceLevel.verified;
     }
 
     return AiResponse(
@@ -207,7 +210,7 @@ class AiService {
 
     final result = await _lm!.generateCompletion(
       messages: [
-        ChatMessage2(content: buffer.toString(), role: 'user'),
+        ChatMessage(content: buffer.toString(), role: 'user'),
       ],
       params: CactusCompletionParams(
         temperature: AiConfig.temperature,
@@ -220,17 +223,10 @@ class AiService {
         : 'Unable to generate summary. Check reports list for raw data.';
   }
 
-  Future<void> dispose() async {
-    await _lm?.unload();
-    await _stt?.unload();
-    await _rag?.close();
+  void dispose() {
+    _lm?.unload();
+    _stt?.unload();
+    _rag?.close();
     _initController.close();
   }
-}
-
-/// Internal chat message wrapper for the Cactus API
-class ChatMessage2 {
-  final String content;
-  final String role;
-  ChatMessage2({required this.content, required this.role});
 }

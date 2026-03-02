@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:ble_peripheral/ble_peripheral.dart';
+import 'dart:typed_data';
 
 import '../../core/constants.dart';
 import '../../models/mesh_packet.dart';
@@ -41,9 +41,8 @@ class BlePeripheralService {
           _handleIncomingData(Uint8List.fromList(value));
         }
         return WriteRequestResult(
-          characteristicId: characteristicId,
           offset: offset,
-          status: true,
+          status: 0, // 0 = success
         );
       },
     );

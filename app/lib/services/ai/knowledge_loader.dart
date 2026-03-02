@@ -29,14 +29,18 @@ class KnowledgeLoader {
       final existing = await rag.getDocumentByFileName(fileName);
       if (existing != null) continue;
 
-      final content = await rootBundle.loadString(path);
-      await rag.storeDocument(
-        fileName: fileName,
-        filePath: path,
-        content: content,
-        fileSize: content.length,
-        fileHash: content.hashCode.toString(),
-      );
+      try {
+        final content = await rootBundle.loadString(path);
+        await rag.storeDocument(
+          fileName: fileName,
+          filePath: path,
+          content: content,
+          fileSize: content.length,
+          fileHash: content.hashCode.toString(),
+        );
+      } catch (e) {
+        // Skip files that don't exist yet
+      }
     }
   }
 

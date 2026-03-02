@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -19,7 +18,7 @@ class PacketStore {
 
   Future<Database> _initDb() async {
     final dir = await getApplicationDocumentsDirectory();
-    final path = join(dir.path, 'relaygo_packets.db');
+    final path = '${dir.path}/relaygo_packets.db';
     return openDatabase(
       path,
       version: 1,
