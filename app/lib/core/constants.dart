@@ -3,7 +3,8 @@ class BleConstants {
   static const String serviceUuid = '12345678-1234-5678-1234-56789abcdef0';
   static const String packetCharUuid = '12345678-1234-5678-1234-56789abcdef1';
   static const Duration scanInterval = Duration(seconds: 30);
-  static const int maxMtu = 185; // iOS BLE MTU limit
+  static const int requestMtu = 512; // Request this from the remote device
+  static const int fallbackMtu = 185; // iOS BLE MTU limit / fallback
 }
 
 /// Emergency type enum matching the packet format.

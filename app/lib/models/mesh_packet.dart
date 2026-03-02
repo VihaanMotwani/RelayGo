@@ -27,8 +27,10 @@ class MeshPacket {
     if (report != null) report!.hops = value;
     if (message != null) message!.hops = value;
   }
+
   int get ttl => report?.ttl ?? message!.ttl;
 
+  /// Full JSON for SQLite storage.
   Map<String, dynamic> toJson() => report?.toJson() ?? message!.toJson();
 
   factory MeshPacket.fromJson(Map<String, dynamic> json) {
@@ -39,8 +41,18 @@ class MeshPacket {
     return MeshPacket.fromReport(EmergencyReport.fromJson(json));
   }
 
-  Uint8List toBytes() => Uint8List.fromList(utf8.encode(jsonEncode(toJson())));
+  /// Compact wire JSON for BLE transfer.
+  Uint8List toBytes() => Uint8List.fromList(
+    utf8.encode(jsonEncode(report?.toWireJson() ?? message!.toWireJson())),
+  );
 
-  factory MeshPacket.fromBytes(Uint8List bytes) =>
-      MeshPacket.fromJson(jsonDecode(utf8.decode(bytes)));
+  /// Parse from compact BLE wire bytes. Routes on `k` field.
+  factory MeshPacket.fromBytes(Uint8List bytes) {
+    final json = jsonDecode(utf8.decode(bytes)) as Map<String, dynamic>;
+    final k = json['k'] as String?;
+    if (k == 'm') {
+      return MeshPacket.fromMessage(MeshMessage.fromWireJson(json));
+    }
+    return MeshPacket.fromReport(EmergencyReport.fromWireJson(json));
+  }
 }

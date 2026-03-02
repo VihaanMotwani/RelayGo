@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import '../core/packet_hash.dart';
+
 class EmergencyReport {
   final String kind = 'report';
   final String id;
@@ -17,7 +19,7 @@ class EmergencyReport {
   final int ttl;
 
   EmergencyReport({
-    required this.id,
+    String? id,
     required this.ts,
     required this.lat,
     required this.lng,
@@ -29,8 +31,9 @@ class EmergencyReport {
     required this.src,
     this.hops = 0,
     this.ttl = 10,
-  });
+  }) : id = id ?? PacketHash.computeReportId(src, ts, type, lat, lng, desc);
 
+  /// Full JSON for SQLite storage and backend sync.
   Map<String, dynamic> toJson() => {
     'kind': kind,
     'id': id,
@@ -43,6 +46,22 @@ class EmergencyReport {
     'src': src,
     'hops': hops,
     'ttl': ttl,
+  };
+
+  /// Compact JSON for BLE wire transfer (< 185B).
+  /// Uses 1-char keys. Drops acc and haz to save space.
+  Map<String, dynamic> toWireJson() => {
+    'k': 'r',
+    'i': id,
+    't': ts,
+    'y': type,
+    'u': urg,
+    'a': lat,
+    'o': lng,
+    'd': desc,
+    's': src,
+    'h': hops,
+    'l': ttl,
   };
 
   factory EmergencyReport.fromJson(Map<String, dynamic> json) {
@@ -63,10 +82,29 @@ class EmergencyReport {
     );
   }
 
-  Uint8List toBytes() => Uint8List.fromList(utf8.encode(jsonEncode(toJson())));
+  /// Parse from compact BLE wire format.
+  factory EmergencyReport.fromWireJson(Map<String, dynamic> j) {
+    return EmergencyReport(
+      id: j['i'] as String,
+      ts: j['t'] as int,
+      lat: (j['a'] as num).toDouble(),
+      lng: (j['o'] as num).toDouble(),
+      acc: 10, // not transmitted on wire
+      type: j['y'] as String,
+      urg: j['u'] as int,
+      haz: const [], // not transmitted on wire
+      desc: j['d'] as String,
+      src: j['s'] as String,
+      hops: j['h'] as int? ?? 0,
+      ttl: j['l'] as int? ?? 10,
+    );
+  }
+
+  Uint8List toBytes() =>
+      Uint8List.fromList(utf8.encode(jsonEncode(toWireJson())));
 
   factory EmergencyReport.fromBytes(Uint8List bytes) =>
-      EmergencyReport.fromJson(jsonDecode(utf8.decode(bytes)));
+      EmergencyReport.fromWireJson(jsonDecode(utf8.decode(bytes)));
 
   DateTime get dateTime => DateTime.fromMillisecondsSinceEpoch(ts * 1000);
 }

@@ -40,17 +40,13 @@ class PacketStore {
   Future<bool> insertIfNew(MeshPacket packet) async {
     final db = await database;
     try {
-      await db.insert(
-        'packets',
-        {
-          'id': packet.id,
-          'kind': packet.kind,
-          'json_data': jsonEncode(packet.toJson()),
-          'received_at': DateTime.now().millisecondsSinceEpoch ~/ 1000,
-          'uploaded': 0,
-        },
-        conflictAlgorithm: ConflictAlgorithm.ignore,
-      );
+      await db.insert('packets', {
+        'id': packet.id,
+        'kind': packet.kind,
+        'json_data': jsonEncode(packet.toJson()),
+        'received_at': DateTime.now().millisecondsSinceEpoch ~/ 1000,
+        'uploaded': 0,
+      }, conflictAlgorithm: ConflictAlgorithm.ignore);
       return true;
     } catch (_) {
       return false;
@@ -120,5 +116,22 @@ class PacketStore {
       'UPDATE packets SET uploaded = 1 WHERE id IN ($placeholders)',
       ids,
     );
+  }
+
+  /// Get all packet IDs currently in the store (for UI display).
+  Future<List<String>> getAllPacketIds() async {
+    final db = await database;
+    final rows = await db.query(
+      'packets',
+      columns: ['id'],
+      orderBy: 'received_at ASC',
+    );
+    return rows.map((row) => row['id'] as String).toList();
+  }
+
+  /// Delete all packets from the store.
+  Future<void> clearAll() async {
+    final db = await database;
+    await db.delete('packets');
   }
 }

@@ -6,3 +6,4 @@ venv
 .cursor
 __pycache__
 .idea
+.DS_Store

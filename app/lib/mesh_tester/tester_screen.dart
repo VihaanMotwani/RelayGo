@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -22,13 +23,14 @@ class TesterScreen extends StatefulWidget {
 }
 
 class _TesterScreenState extends State<TesterScreen> {
-  final InstrumentedMeshService _mesh = InstrumentedMeshService();
+  final InstrumentedMeshService _mesh = InstrumentedMeshService.create();
   final LogService _log = LogService.instance;
   final ScrollController _scrollController = ScrollController();
 
   List<LogEntry> _logEntries = [];
   bool _meshRunning = false;
   bool _dataPreloaded = false;
+  String _adapterName = '...';
 
   StreamSubscription? _logSub;
   StreamSubscription? _statsSub;
@@ -36,6 +38,10 @@ class _TesterScreenState extends State<TesterScreen> {
   @override
   void initState() {
     super.initState();
+    // Fetch adapter name
+    _mesh.getDeviceAddress().then((name) {
+      if (mounted) setState(() => _adapterName = name);
+    });
     _logSub = _log.onNewEntry.listen((_) {
       setState(() {
         _logEntries = _log.entries;
@@ -67,22 +73,55 @@ class _TesterScreenState extends State<TesterScreen> {
 
   Future<bool> _requestPermissions() async {
     _log.info('Requesting BLE permissions...');
-    Map<Permission, PermissionStatus> statuses = await [
-      Permission.location,
-      Permission.bluetoothScan,
-      Permission.bluetoothAdvertise,
-      Permission.bluetoothConnect,
-    ].request();
+
+    List<Permission> permissionsToRequest = [];
+    if (Platform.isIOS) {
+      permissionsToRequest = [
+        Permission.location,
+        Permission.bluetooth, // iOS uses a single generic Bluetooth permission
+      ];
+    } else {
+      permissionsToRequest = [
+        Permission.location,
+        Permission.bluetoothScan,
+        Permission.bluetoothAdvertise,
+        Permission.bluetoothConnect,
+      ];
+    }
+
+    Map<Permission, PermissionStatus> statuses = await permissionsToRequest
+        .request();
 
     bool allGranted = true;
     statuses.forEach((permission, status) {
       if (!status.isGranted) {
         _log.error('${permission.toString()} not granted: $status');
         allGranted = false;
+      } else {
+        _log.info('${permission.toString()} → granted ✅');
       }
     });
 
-    return allGranted;
+    if (!allGranted) return false;
+
+    // Android ≤11 requires Location Services (GPS) to be ENABLED, not just
+    // the permission granted. Without this, startScan() throws a
+    // PlatformException("Location services are required").
+    final locationEnabled = await Permission.location.serviceStatus.isEnabled;
+    if (!locationEnabled) {
+      _log.error(
+        '⚠️ Location Services are DISABLED. BLE scanning needs GPS on Android ≤11.',
+      );
+      _log.error(
+        'Please enable Location (GPS) in your device Settings and try again.',
+      );
+      // Try to open the location settings
+      await openAppSettings();
+      return false;
+    }
+    _log.info('Location Services enabled ✅');
+
+    return true;
   }
 
   Future<void> _preloadData() async {
@@ -98,6 +137,11 @@ class _TesterScreenState extends State<TesterScreen> {
     _log.info(
       '✅ Preloaded ${reports.length} reports + ${messages.length} messages',
     );
+  }
+
+  Future<void> _resetDb() async {
+    await _mesh.resetDatabase();
+    setState(() => _dataPreloaded = false);
   }
 
   Future<void> _startMesh() async {
@@ -130,9 +174,22 @@ class _TesterScreenState extends State<TesterScreen> {
       backgroundColor: const Color(0xFF0D1117),
       appBar: AppBar(
         backgroundColor: const Color(0xFF161B22),
-        title: const Text(
-          'RelayGo Mesh Tester',
-          style: TextStyle(fontWeight: FontWeight.w700, letterSpacing: -0.5),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'RelayGo Mesh Tester',
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                letterSpacing: -0.5,
+                fontSize: 16,
+              ),
+            ),
+            Text(
+              'BT: $_adapterName',
+              style: const TextStyle(fontSize: 11, color: Color(0xFF8B949E)),
+            ),
+          ],
         ),
         actions: [
           // Peer count indicator
@@ -193,102 +250,133 @@ class _TesterScreenState extends State<TesterScreen> {
   }
 
   Widget _buildSummaryCard() {
+    final ids = _mesh.storedPacketIds;
     return Container(
       margin: const EdgeInsets.all(12),
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: const Color(0xFF161B22),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: const Color(0xFF30363D)),
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: _buildStatColumn(
-              'Reports',
-              '${_mesh.storedReports} stored',
-              '${_mesh.receivedReports} received',
-              const Color(0xFFF85149),
-            ),
+          Row(
+            children: [
+              Text(
+                'SQLite: ${ids.length} packets',
+                style: const TextStyle(
+                  color: Color(0xFFD2A8FF),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                'Rx: ${_mesh.receivedReports}r ${_mesh.receivedMessages}m',
+                style: const TextStyle(color: Color(0xFF8B949E), fontSize: 12),
+              ),
+            ],
           ),
-          Container(width: 1, height: 40, color: const Color(0xFF30363D)),
-          Expanded(
-            child: _buildStatColumn(
-              'Messages',
-              '${_mesh.storedMessages} stored',
-              '${_mesh.receivedMessages} received',
-              const Color(0xFF58A6FF),
+          if (ids.isNotEmpty) ...[
+            const SizedBox(height: 6),
+            SizedBox(
+              height: 20,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: ids.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 6),
+                itemBuilder: (_, i) => Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 2,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF30363D),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    ids[i].substring(0, 8),
+                    style: const TextStyle(
+                      fontFamily: 'monospace',
+                      fontSize: 10,
+                      color: Color(0xFFC9D1D9),
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ),
+          ],
         ],
       ),
-    );
-  }
-
-  Widget _buildStatColumn(
-    String title,
-    String line1,
-    String line2,
-    Color color,
-  ) {
-    return Column(
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            color: color,
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          line1,
-          style: const TextStyle(color: Color(0xFFC9D1D9), fontSize: 13),
-        ),
-        Text(
-          line2,
-          style: const TextStyle(color: Color(0xFF8B949E), fontSize: 12),
-        ),
-      ],
     );
   }
 
   Widget _buildControlBar() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Row(
-        children: [
-          Expanded(
-            child: _ControlButton(
-              label: 'Preload Data',
-              icon: Icons.dataset,
-              color: const Color(0xFF58A6FF),
-              enabled: !_dataPreloaded,
-              onTap: _preloadData,
-            ),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: _ControlButton(
-              label: _meshRunning ? 'Stop Mesh' : 'Start Mesh',
-              icon: _meshRunning ? Icons.stop_circle : Icons.play_circle,
-              color: _meshRunning
-                  ? const Color(0xFFF85149)
-                  : const Color(0xFF3FB950),
-              onTap: _meshRunning ? _stopMesh : _startMesh,
-            ),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: _ControlButton(
-              label: 'Clear Log',
-              icon: Icons.delete_sweep,
-              color: const Color(0xFF8B949E),
-              onTap: _clearLog,
-            ),
-          ),
-        ],
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final btnWidth = (constraints.maxWidth - 8) / 2;
+          return Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: btnWidth,
+                    child: _ControlButton(
+                      label: 'Preload Data',
+                      icon: Icons.dataset,
+                      color: const Color(0xFF58A6FF),
+                      enabled: !_dataPreloaded,
+                      onTap: _preloadData,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    width: btnWidth,
+                    child: _ControlButton(
+                      label: _meshRunning ? 'Stop Mesh' : 'Start Mesh',
+                      icon: _meshRunning
+                          ? Icons.stop_circle
+                          : Icons.play_circle,
+                      color: _meshRunning
+                          ? const Color(0xFFF85149)
+                          : const Color(0xFF3FB950),
+                      onTap: _meshRunning ? _stopMesh : _startMesh,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  SizedBox(
+                    width: btnWidth,
+                    child: _ControlButton(
+                      label: 'Reset DB',
+                      icon: Icons.restart_alt,
+                      color: const Color(0xFFF0883E),
+                      enabled: !_meshRunning,
+                      onTap: _resetDb,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    width: btnWidth,
+                    child: _ControlButton(
+                      label: 'Clear Log',
+                      icon: Icons.delete_sweep,
+                      color: const Color(0xFF8B949E),
+                      onTap: _clearLog,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }

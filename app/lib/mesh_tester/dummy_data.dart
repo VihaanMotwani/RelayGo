@@ -1,5 +1,3 @@
-import 'package:uuid/uuid.dart';
-
 import '../models/emergency_report.dart';
 import '../models/mesh_message.dart';
 
@@ -7,73 +5,58 @@ import '../models/mesh_message.dart';
 ///
 /// 5 EmergencyReports + 3 MeshMessages = 8 total packets,
 /// with varied types, locations, and broadcast/DM mix.
+/// All descriptions kept SHORT to fit within 185B BLE MTU.
 class DummyData {
-  static const _uuid = Uuid();
-  static const String _deviceId = 'tester-device-001';
-  static const String _deviceName = 'MeshTester';
+  static const String _deviceId = 'dev01';
+  static const String _deviceName = 'Tester';
 
   /// Generate 5 emergency reports covering different types and locations.
   static List<EmergencyReport> generateReports() {
     final now = DateTime.now().millisecondsSinceEpoch ~/ 1000;
     return [
       EmergencyReport(
-        id: _uuid.v4(),
         ts: now,
         lat: 37.7749,
         lng: -122.4194,
-        acc: 10,
         type: 'fire',
         urg: 5,
-        haz: ['smoke', 'fire_spread'],
-        desc: 'Building fire downtown, 3rd floor',
+        desc: 'Building fire 3rd floor',
         src: _deviceId,
       ),
       EmergencyReport(
-        id: _uuid.v4(),
         ts: now - 30,
         lat: 37.7751,
         lng: -122.4180,
-        acc: 15,
         type: 'medical',
         urg: 4,
-        haz: ['unconscious_person'],
-        desc: 'Person collapsed on Market St',
+        desc: 'Person collapsed Market St',
         src: _deviceId,
       ),
       EmergencyReport(
-        id: _uuid.v4(),
         ts: now - 60,
         lat: 37.7730,
         lng: -122.4200,
-        acc: 8,
         type: 'structural',
         urg: 3,
-        haz: ['debris'],
-        desc: 'Partial wall collapse at 5th Ave',
+        desc: 'Wall collapse 5th Ave',
         src: _deviceId,
       ),
       EmergencyReport(
-        id: _uuid.v4(),
         ts: now - 90,
         lat: 37.7760,
         lng: -122.4220,
-        acc: 20,
         type: 'flood',
         urg: 3,
-        haz: ['rising_water'],
-        desc: 'Street flooding on Main St',
+        desc: 'Street flooding Main St',
         src: _deviceId,
       ),
       EmergencyReport(
-        id: _uuid.v4(),
         ts: now - 120,
         lat: 37.7740,
         lng: -122.4210,
-        acc: 12,
         type: 'hazmat',
         urg: 4,
-        haz: ['gas_leak', 'chemical_spill'],
-        desc: 'Gas leak near intersection',
+        desc: 'Gas leak at intersection',
         src: _deviceId,
       ),
     ];
@@ -84,28 +67,25 @@ class DummyData {
     final now = DateTime.now().millisecondsSinceEpoch ~/ 1000;
     return [
       MeshMessage(
-        id: _uuid.v4(),
         ts: now,
         src: _deviceId,
         name: _deviceName,
         to: null, // broadcast
-        body: 'Road blocked on 5th St — use alternate route via Oak St',
+        body: 'Road blocked 5th St use Oak',
       ),
       MeshMessage(
-        id: _uuid.v4(),
         ts: now - 15,
         src: _deviceId,
         name: _deviceName,
         to: null, // broadcast
-        body: 'Shelter open at Central Park community center',
+        body: 'Shelter open Central Park',
       ),
       MeshMessage(
-        id: _uuid.v4(),
         ts: now - 45,
         src: _deviceId,
         name: _deviceName,
-        to: dmTarget, // DM if target provided, otherwise broadcast
-        body: 'Are you safe? We are at the park.',
+        to: dmTarget, // DM if target provided
+        body: 'Are you safe? At the park',
       ),
     ];
   }
