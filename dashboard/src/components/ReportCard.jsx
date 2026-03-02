@@ -1,10 +1,23 @@
-import { getMarkerColor, TYPE_LABELS, TYPE_ICONS } from '../utils/mapStyles';
+import { getMarkerColor, TYPE_LABELS } from '../utils/mapStyles';
 
-const urgencyMeta = (u) => {
-  if (u >= 4) return { label: 'CRITICAL', color: '#FF4444', bg: 'rgba(255,68,68,0.12)' };
-  if (u >= 3) return { label: 'HIGH', color: '#FFA843', bg: 'rgba(255,168,67,0.12)' };
-  if (u >= 2) return { label: 'MEDIUM', color: '#FFB832', bg: 'rgba(255,184,50,0.10)' };
-  return { label: 'LOW', color: '#64748B', bg: 'rgba(100,116,139,0.10)' };
+const urgLabel = (u) => {
+  if (u >= 4) return 'Critical';
+  if (u >= 3) return 'High';
+  if (u >= 2) return 'Medium';
+  return 'Low';
+};
+
+const urgColor = (u) => {
+  if (u >= 4) return 'var(--red)';
+  if (u >= 3) return 'var(--orange)';
+  if (u >= 2) return 'var(--tint)';
+  return 'var(--gray)';
+};
+
+const urgBg = (u) => {
+  if (u >= 4) return 'rgba(200, 50, 40, 0.04)';
+  if (u >= 3) return 'rgba(200, 120, 0, 0.035)';
+  return 'transparent';
 };
 
 function formatTime(ts) {
@@ -14,147 +27,103 @@ function formatTime(ts) {
   if (isNaN(d.getTime())) return String(ts);
   const now = new Date();
   const diff = Math.floor((now - d) / 1000);
-  if (diff < 60) return `${diff}s ago`;
+  if (diff < 60) return 'Just now';
   if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
   if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
-  return d.toLocaleDateString();
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
-export default function ReportCard({ report, style: extraStyle }) {
+export default function ReportCard({ report }) {
   const type = report.type?.toLowerCase() || 'other';
   const color = getMarkerColor(type);
-  const icon = TYPE_ICONS[type] || '⚠';
   const urgency = report.urgency ?? report.urg ?? 1;
-  const meta = urgencyMeta(urgency);
-  const desc = report.description || report.desc || 'No description provided';
+  const desc = report.description || report.desc || 'No description';
   const hops = report.hop_count ?? report.hops ?? 0;
   const ts = report.timestamp || (report.ts ? report.ts : null);
 
   return (
     <div
-      style={{ ...styles.card, ...extraStyle, animation: 'fadeSlideUp 0.35s ease-out both' }}
+      style={{ ...s.row, background: urgBg(urgency) }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.background = 'var(--bg-card-hover)';
-        e.currentTarget.style.borderColor = `${color}25`;
+        e.currentTarget.style.background = urgency >= 3 ? urgBg(urgency) : 'var(--bg-row-hover)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.background = 'var(--bg-card)';
-        e.currentTarget.style.borderColor = 'var(--border-subtle)';
+        e.currentTarget.style.background = urgBg(urgency);
       }}
     >
-      {/* Top bar with colored accent */}
-      <div style={{ ...styles.accentBar, background: `linear-gradient(90deg, ${color}, transparent)` }} />
+      {/* Color indicator */}
+      <div style={{ ...s.indicator, background: color, width: urgency >= 4 ? 4 : 3 }} />
 
-      <div style={styles.header}>
-        <div style={styles.typeRow}>
-          <span style={{ fontSize: 14 }}>{icon}</span>
-          <span style={{ ...styles.typeLabel, color }}>{TYPE_LABELS[type] || type}</span>
-        </div>
-        <span style={{
-          ...styles.urgencyBadge,
-          background: meta.bg,
-          color: meta.color,
-          border: `1px solid ${meta.color}20`,
-        }}>
-          {meta.label}
-        </span>
-      </div>
-
-      <div style={styles.description}>{desc}</div>
-
-      <div style={styles.footer}>
-        <span style={styles.footerItem}>
-          {formatTime(ts)}
-        </span>
-        <div style={styles.footerRight}>
-          <span style={styles.footerItem}>
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <path d="M8 7l4-4 4 4M12 3v13M4 17h16" />
-            </svg>
-            {hops}
+      {/* Content */}
+      <div style={s.content}>
+        <div style={s.topRow}>
+          <span style={s.type}>{TYPE_LABELS[type] || type}</span>
+          <span style={{ ...s.urgency, color: urgColor(urgency) }}>
+            {urgLabel(urgency)}
           </span>
-          <span style={styles.urgencyNum}>U{urgency}</span>
+        </div>
+        <div style={s.desc}>{desc}</div>
+        <div style={s.meta}>
+          <span>{formatTime(ts)}</span>
+          <span>·</span>
+          <span>{hops} hop{hops !== 1 ? 's' : ''}</span>
         </div>
       </div>
     </div>
   );
 }
 
-const styles = {
-  card: {
-    position: 'relative',
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border-subtle)',
-    borderRadius: 'var(--radius-md)',
-    padding: '12px 14px',
-    marginBottom: 8,
-    transition: 'all 0.18s ease',
+const s = {
+  row: {
+    display: 'flex',
+    alignItems: 'stretch',
+    padding: '8px 6px',
+    borderRadius: 6,
     cursor: 'default',
-    overflow: 'hidden',
-  },
-  accentBar: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 2,
-    opacity: 0.6,
-  },
-  header: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 8,
-  },
-  typeRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 7,
-  },
-  typeLabel: {
-    fontSize: 11,
-    fontWeight: 700,
-    fontFamily: 'var(--font-mono)',
-    textTransform: 'uppercase',
-    letterSpacing: '0.06em',
-  },
-  urgencyBadge: {
-    fontSize: 9,
-    fontWeight: 700,
-    fontFamily: 'var(--font-mono)',
-    padding: '2px 7px',
-    borderRadius: 4,
-    letterSpacing: '0.06em',
-  },
-  description: {
-    fontSize: 12.5,
-    lineHeight: 1.55,
-    color: 'rgba(255,255,255,0.72)',
-    marginBottom: 10,
-    wordBreak: 'break-word',
-    fontFamily: 'var(--font-display)',
-  },
-  footer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    fontSize: 10,
-    fontFamily: 'var(--font-mono)',
-    color: 'rgba(255,255,255,0.28)',
-  },
-  footerRight: {
-    display: 'flex',
-    alignItems: 'center',
+    transition: 'background 0.1s',
     gap: 10,
+    marginBottom: 1,
   },
-  footerItem: {
+  indicator: {
+    width: 3,
+    borderRadius: 1.5,
+    flexShrink: 0,
+    alignSelf: 'stretch',
+  },
+  content: {
+    flex: 1,
+    minWidth: 0,
+  },
+  topRow: {
     display: 'flex',
     alignItems: 'center',
-    gap: 4,
+    justifyContent: 'space-between',
+    marginBottom: 2,
   },
-  urgencyNum: {
+  type: {
+    fontSize: 13,
     fontWeight: 700,
-    color: 'rgba(255,255,255,0.2)',
-    fontSize: 9,
+    color: 'var(--text-primary)',
+  },
+  urgency: {
+    fontSize: 10,
+    fontWeight: 600,
+    fontFamily: 'var(--mono)',
+  },
+  desc: {
+    fontSize: 12,
+    color: 'var(--text-primary)',
+    lineHeight: 1.4,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
+  meta: {
+    display: 'flex',
+    gap: 4,
+    fontSize: 10,
+    color: 'var(--text-secondary)',
+    marginTop: 2,
+    fontFamily: 'var(--mono)',
   },
 };

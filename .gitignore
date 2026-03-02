@@ -4,6 +4,58 @@ venv
 .agent
 .claude
 .cursor
+
+# Build/tooling artifacts
+**/.gradle/
+**/build/
+**/.idea/
+*.iml
+
+# Flutter/Dart generated files
+**/.dart_tool/
+**/.flutter-plugins-dependencies
+**/Flutter/ephemeral/
+**/flutter/ephemeral/
+**/.plugin_symlinks/
+
+# Local machine / IDE files
+android-native/local.properties
+app/.metadata
+app/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+app/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+app/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+app/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+
+# iPhone-focused app: ignore desktop/web Flutter scaffolding
+app/linux/
+app/macos/
+app/windows/
+app/web/
+
+# OS/Xcode noise
+**/.DS_Store
+**/xcshareddata/IDEWorkspaceChecks.plist
+**/xcshareddata/WorkspaceSettings.xcsettings
+**/xcuserdata/
+**/*.xcuserstate
+
 __pycache__
 .idea
 .DS_Store
+
+# Backend runtime/test artifacts
+backend/*.db
+backend/*.sqlite3
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+**/htmlcov/
+
+# Android native local build caches
+android-native/.kotlin/
+android-native/.cxx/
+android-native/captures/

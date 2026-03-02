@@ -1,0 +1,271 @@
+{
+  "fetch_timestamp": "2026-03-02T17:07:24.642163",
+  "sources": {
+    "onemap": {
+      "status": "success",
+      "total_files": 18,
+      "total_size_bytes": 3504989,
+      "total_records": 10991,
+      "files": [
+        {
+          "path": "search_fire_station.json",
+          "size_bytes": 14011,
+          "size_human": "13.68 KB",
+          "records": 35
+        },
+        {
+          "path": "theme_civildefencepublicshelters.json",
+          "size_bytes": 186388,
+          "size_human": "182.02 KB",
+          "records": 597
+        },
+        {
+          "path": "theme_moh_hospitals.json",
+          "size_bytes": 15725,
+          "size_human": "15.36 KB",
+          "records": 33
+        },
+        {
+          "path": "theme_spf_establishments.json",
+          "size_bytes": 60958,
+          "size_human": "59.53 KB",
+          "records": 129
+        },
+        {
+          "path": "available_themes.json",
+          "size_bytes": 2,
+          "size_human": "2.00 B",
+          "records": 1
+        },
+        {
+          "path": "theme_scdfhq.json",
+          "size_bytes": 3231,
+          "size_human": "3.16 KB",
+          "records": 10
+        },
+        {
+          "path": "search_emergency.json",
+          "size_bytes": 2332,
+          "size_human": "2.28 KB",
+          "records": 5
+        },
+        {
+          "path": "metadata.json",
+          "size_bytes": 1900,
+          "size_human": "1.86 KB",
+          "records": 1
+        },
+        {
+          "path": "theme_vaccination_polyclinics.json",
+          "size_bytes": 6505,
+          "size_human": "6.35 KB",
+          "records": 9
+        },
+        {
+          "path": "theme_aed_locations.json",
+          "size_bytes": 3000259,
+          "size_human": "2.86 MB",
+          "records": 9645
+        },
+        {
+          "path": "search_hospital.json",
+          "size_bytes": 21156,
+          "size_human": "20.66 KB",
+          "records": 52
+        },
+        {
+          "path": "search_polyclinic.json",
+          "size_bytes": 24474,
+          "size_human": "23.90 KB",
+          "records": 56
+        },
+        {
+          "path": "search_aed.json",
+          "size_bytes": 153695,
+          "size_human": "150.09 KB",
+          "records": 377
+        },
+        {
+          "path": "search_clinic.json",
+          "size_bytes": 378,
+          "size_human": "378.00 B",
+          "records": 1
+        },
+        {
+          "path": "search_police_station.json",
+          "size_bytes": 2495,
+          "size_human": "2.44 KB",
+          "records": 6
+        },
+        {
+          "path": "search_shelter.json",
+          "size_bytes": 3577,
+          "size_human": "3.49 KB",
+          "records": 10
+        },
+        {
+          "path": "search_scdf.json",
+          "size_bytes": 845,
+          "size_human": "845.00 B",
+          "records": 2
+        },
+        {
+          "path": "theme_firestation.json",
+          "size_bytes": 7058,
+          "size_human": "6.89 KB",
+          "records": 22
+        }
+      ],
+      "total_size_human": "3.34 MB"
+    },
+    "osm": {
+      "status": "success",
+      "total_files": 22,
+      "total_size_bytes": 3450017,
+      "total_records": 10843,
+      "files": [
+        {
+          "path": "police_stations.json",
+          "size_bytes": 56057,
+          "size_human": "54.74 KB",
+          "records": 130
+        },
+        {
+          "path": "raw_assembly_points.json",
+          "size_bytes": 1217,
+          "size_human": "1.19 KB",
+          "records": 4
+        },
+        {
+          "path": "hospitals.json",
+          "size_bytes": 33848,
+          "size_human": "33.05 KB",
+          "records": 72
+        },
+        {
+          "path": "assembly_points.json",
+          "size_bytes": 837,
+          "size_human": "837.00 B",
+          "records": 4
+        },
+        {
+          "path": "raw_police_stations.json",
+          "size_bytes": 68753,
+          "size_human": "67.14 KB",
+          "records": 130
+        },
+        {
+          "path": "combined_emergency.json",
+          "size_bytes": 1059235,
+          "size_human": "1.01 MB",
+          "records": 3454
+        },
+        {
+          "path": "aed_locations.json",
+          "size_bytes": 48791,
+          "size_human": "47.65 KB",
+          "records": 223
+        },
+        {
+          "path": "emergency_services.json",
+          "size_bytes": 136593,
+          "size_human": "133.39 KB",
+          "records": 597
+        },
+        {
+          "path": "raw_clinics.json",
+          "size_bytes": 225419,
+          "size_human": "220.14 KB",
+          "records": 584
+        },
+        {
+          "path": "ambulance_stations.json",
+          "size_bytes": 469,
+          "size_human": "469.00 B",
+          "records": 2
+        },
+        {
+          "path": "raw_fire_stations.json",
+          "size_bytes": 17385,
+          "size_human": "16.98 KB",
+          "records": 36
+        },
+        {
+          "path": "metadata.json",
+          "size_bytes": 2457,
+          "size_human": "2.40 KB",
+          "records": 1
+        },
+        {
+          "path": "raw_pharmacies.json",
+          "size_bytes": 69334,
+          "size_human": "67.71 KB",
+          "records": 165
+        },
+        {
+          "path": "fire_stations.json",
+          "size_bytes": 11157,
+          "size_human": "10.90 KB",
+          "records": 36
+        },
+        {
+          "path": "raw_ambulance_stations.json",
+          "size_bytes": 1144,
+          "size_human": "1.12 KB",
+          "records": 2
+        },
+        {
+          "path": "raw_hospitals.json",
+          "size_bytes": 61569,
+          "size_human": "60.13 KB",
+          "records": 72
+        },
+        {
+          "path": "raw_emergency_services.json",
+          "size_bytes": 152574,
+          "size_human": "149.00 KB",
+          "records": 597
+        },
+        {
+          "path": "shelters.json",
+          "size_bytes": 445683,
+          "size_human": "435.24 KB",
+          "records": 1881
+        },
+        {
+          "path": "clinics.json",
+          "size_bytes": 203030,
+          "size_human": "198.27 KB",
+          "records": 584
+        },
+        {
+          "path": "raw_shelters.json",
+          "size_bytes": 739084,
+          "size_human": "721.76 KB",
+          "records": 1881
+        },
+        {
+          "path": "pharmacies.json",
+          "size_bytes": 63192,
+          "size_human": "61.71 KB",
+          "records": 165
+        },
+        {
+          "path": "raw_aed_locations.json",
+          "size_bytes": 52189,
+          "size_human": "50.97 KB",
+          "records": 223
+        }
+      ],
+      "total_size_human": "3.29 MB"
+    }
+  },
+  "summary": {
+    "total_sources": 2,
+    "successful_sources": 2,
+    "total_files": 40,
+    "total_size_bytes": 6955006,
+    "total_size_human": "6.63 MB",
+    "total_records": 21834
+  }
+}

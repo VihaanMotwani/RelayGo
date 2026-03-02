@@ -1,10 +1,10 @@
 export const TYPE_COLORS = {
-  fire: '#FF5C38',
-  medical: '#38BDF8',
-  structural: '#FFA843',
-  flood: '#22D3EE',
-  hazmat: '#C084FC',
-  other: '#64748B',
+  fire: '#ff453a',
+  medical: '#0a84ff',
+  structural: '#ff9f0a',
+  flood: '#64d2ff',
+  hazmat: '#bf5af2',
+  other: '#636366',
 };
 
 export const TYPE_LABELS = {
@@ -16,20 +16,10 @@ export const TYPE_LABELS = {
   other: 'Other',
 };
 
-export const TYPE_ICONS = {
-  fire: '🔥',
-  medical: '🏥',
-  structural: '🏗',
-  flood: '🌊',
-  hazmat: '☢',
-  other: '⚠',
-};
-
 export function getMarkerColor(type) {
   return TYPE_COLORS[type?.toLowerCase()] || TYPE_COLORS.other;
 }
 
-// Mapbox match expression for coloring circles by emergency type
 export const colorMatchExpression = [
   'match',
   ['get', 'type'],
@@ -41,41 +31,40 @@ export const colorMatchExpression = [
   TYPE_COLORS.other,
 ];
 
-// Radius scaled by urgency: urgency 1 -> 6px, urgency 5 -> 16px
 export const radiusExpression = [
   'interpolate',
   ['linear'],
   ['get', 'urgency'],
-  1, 7,
-  5, 16,
+  1, 6,
+  5, 14,
 ];
 
 export const clusterPaint = {
   'circle-color': [
     'step',
     ['get', 'point_count'],
-    '#FFB832',
-    10, '#FF8800',
-    50, '#FF5C38',
+    '#0a84ff',
+    10, '#ff9f0a',
+    50, '#ff453a',
   ],
   'circle-radius': [
     'step',
     ['get', 'point_count'],
-    20,
-    10, 28,
-    50, 36,
+    18,
+    10, 24,
+    50, 32,
   ],
-  'circle-stroke-width': 2,
-  'circle-stroke-color': 'rgba(255, 184, 50, 0.2)',
-  'circle-opacity': 0.85,
+  'circle-stroke-width': 1.5,
+  'circle-stroke-color': 'rgba(255,255,255,0.12)',
+  'circle-opacity': 0.9,
 };
 
 export const clusterCountLayout = {
   'text-field': ['get', 'point_count_abbreviated'],
   'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-  'text-size': 13,
+  'text-size': 12,
 };
 
 export const clusterCountPaint = {
-  'text-color': '#0a0c10',
+  'text-color': '#ffffff',
 };

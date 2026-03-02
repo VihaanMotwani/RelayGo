@@ -1,0 +1,5378 @@
+{
+  "SrchResults": [
+    {
+      "FeatCount": 596,
+      "Theme_Name": "Civil Defence Public Shelters",
+      "Category": "Emergency Preparedness",
+      "Owner": "SINGAPORE CIVIL DEFENCE FORCE",
+      "DateTime": "2025-10-29T09:29:16+00:00",
+      "Published_Date": "2018-06-05T00:00:00+00:00",
+      "Formatted_DateTime": "29/10/2025",
+      "Formatted_Published_Date": "05/06/2018"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510506",
+      "ADDRESSSTREETNAME": "Blk 506 Pasir Ris St 52 #01-189 S510506",
+      "Type": "Point",
+      "LatLng": "1.37698793727212,103.944846227511",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510515",
+      "ADDRESSSTREETNAME": "Blk 515 Pasir Ris St 52 #01-81 S510515",
+      "Type": "Point",
+      "LatLng": "1.37414415059287,103.942957214484",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510520",
+      "ADDRESSSTREETNAME": "Blk 520 Pasir Ris St 52 #01-13 S510520",
+      "Type": "Point",
+      "LatLng": "1.37343253337772,103.944756322317",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510560",
+      "ADDRESSSTREETNAME": "Blk 560 Pasir Ris St 51 #01-235 S510560",
+      "Type": "Point",
+      "LatLng": "1.36676412651249,103.950422813522",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510561",
+      "ADDRESSSTREETNAME": "Blk 501 Pasir Ris St 52 #01-213 S510501",
+      "Type": "Point",
+      "LatLng": "1.3670130278114,103.950865069012",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510570",
+      "ADDRESSSTREETNAME": "Blk 570 Pasir Ris St 53 #01-64 S510570",
+      "Type": "Point",
+      "LatLng": "1.37276905533651,103.946510452453",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510571",
+      "ADDRESSSTREETNAME": "Blk 571 Pasir Ris St 53 #01-18 S510571",
+      "Type": "Point",
+      "LatLng": "1.37309992258509,103.945674159185",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510585",
+      "ADDRESSSTREETNAME": "Blk 585 Pasir Ris St 53 #01-43 S510585",
+      "Type": "Point",
+      "LatLng": "1.37535084483496,103.947376570524",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510612",
+      "ADDRESSSTREETNAME": "Blk 612 Elias Road #01-138 S510612",
+      "Type": "Point",
+      "LatLng": "1.37462984179201,103.942021013316",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510614",
+      "ADDRESSSTREETNAME": "Blk 614 Elias Road #01-120 S510614",
+      "Type": "Point",
+      "LatLng": "1.37569025451538,103.941594148435",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510615",
+      "ADDRESSSTREETNAME": "Blk 615 Elias Road #01-102 S510615",
+      "Type": "Point",
+      "LatLng": "1.37640665308628,103.941721948573",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510626",
+      "ADDRESSSTREETNAME": "Blk 626 Pasir Ris Dr 3 #01-302 S510626",
+      "Type": "Point",
+      "LatLng": "1.3797933685312,103.940918762595",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510631",
+      "ADDRESSSTREETNAME": "Blk 631 Pasir Ris Dr 3 #01-388 S510631",
+      "Type": "Point",
+      "LatLng": "1.37889015356225,103.940140229657",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510634",
+      "ADDRESSSTREETNAME": "Blk 634 Pasir Ris Dr 1 #01-608 S510634",
+      "Type": "Point",
+      "LatLng": "1.37757160099851,103.940659594766",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510639",
+      "ADDRESSSTREETNAME": "Blk 639 Pasir Ris Dr 1 #01-536 S510639",
+      "Type": "Point",
+      "LatLng": "1.37666002324227,103.939880598672",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510644",
+      "ADDRESSSTREETNAME": "Blk 644 Pasir Ris Dr 10 #01-20 S510644",
+      "Type": "Point",
+      "LatLng": "1.37804865087847,103.937574532162",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510706",
+      "ADDRESSSTREETNAME": "Blk 706 Pasir Ris Dr 10 #01-157 S510706",
+      "Type": "Point",
+      "LatLng": "1.38076797179957,103.938148547475",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510716",
+      "ADDRESSSTREETNAME": "Blk 716 Pasir Ris St 72 #01-09 S510716",
+      "Type": "Point",
+      "LatLng": "1.38310156402033,103.93673258097",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510720",
+      "ADDRESSSTREETNAME": "Blk 720 Pasir Ris St 72 #01-105 S510720",
+      "Type": "Point",
+      "LatLng": "1.3817859609192,103.936411754031",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510739",
+      "ADDRESSSTREETNAME": "Blk 739 Pasir Ris Dr 10 #01-11 S510739",
+      "Type": "Point",
+      "LatLng": "1.37850496338925,103.936790921635",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510741",
+      "ADDRESSSTREETNAME": "Blk 741 Pasir Ris St 71 #01-39 S510741",
+      "Type": "Point",
+      "LatLng": "1.37755384115138,103.936383542733",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510750",
+      "ADDRESSSTREETNAME": "Blk 750 Pasir Ris St 71 #01-10 S510750",
+      "Type": "Point",
+      "LatLng": "1.37820859520961,103.93464608655",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510753",
+      "ADDRESSSTREETNAME": "Blk 753 Pasir Ris St 71 #01-118 S510753",
+      "Type": "Point",
+      "LatLng": "1.37715361876133,103.934480452297",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510760",
+      "ADDRESSSTREETNAME": "Blk 760 Pasir Ris St 71 #01-202 S510760",
+      "Type": "Point",
+      "LatLng": "1.37640019426492,103.933539788793",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510766",
+      "ADDRESSSTREETNAME": "Blk 766 Pasir Ris St 71 #01-308 S510766",
+      "Type": "Point",
+      "LatLng": "1.37594758287424,103.936000880125",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510775",
+      "ADDRESSSTREETNAME": "Blk 775 Pasir Ris St 71 #01-402 S510775",
+      "Type": "Point",
+      "LatLng": "1.37406385993511,103.937049592237",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510776",
+      "ADDRESSSTREETNAME": "Blk 776 Pasir Ris St 71 #01-412 S510776",
+      "Type": "Point",
+      "LatLng": "1.37454927857921,103.937088176234",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520243",
+      "ADDRESSSTREETNAME": "Blk 243 Simei Street 5 #01-16 S520243",
+      "Type": "Point",
+      "LatLng": "1.34381959479819,103.954994185326",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520256",
+      "ADDRESSSTREETNAME": "Blk 256 Simei St 1 #01-517 S520256",
+      "Type": "Point",
+      "LatLng": "1.3430255607438,103.951759842267",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520302",
+      "ADDRESSSTREETNAME": "Blk 302 Tampines St 32 #01-36 S520302",
+      "Type": "Point",
+      "LatLng": "1.35225585000422,103.955225444577",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520313",
+      "ADDRESSSTREETNAME": "Blk 313 Tampines St 33 #01-26 S520313",
+      "Type": "Point",
+      "LatLng": "1.3522170404052,103.956804063818",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680790",
+      "ADDRESSSTREETNAME": "Blk 790 Choa Chu Kang North 6 #01-238 S680790",
+      "Type": "Point",
+      "LatLng": "1.3959236691631,103.749680157709",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "681632",
+      "ADDRESSSTREETNAME": "Blk 632A Choa Chu Kang North 6 #B1-01 S681632",
+      "Type": "Point",
+      "LatLng": "1.39683951464666,103.748917011141",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530445",
+      "ADDRESSSTREETNAME": "Blk 445 Hougang Ave 8 #B1-1615 S530445",
+      "Type": "Point",
+      "LatLng": "1.37912308478651,103.894288761753",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530446",
+      "ADDRESSSTREETNAME": "Blk 446 Hougang Ave 8 #B1-1635 S530446",
+      "Type": "Point",
+      "LatLng": "1.37879300397322,103.894281710339",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530447",
+      "ADDRESSSTREETNAME": "Blk 447 Hougang Ave 10 #B1-517 S530447",
+      "Type": "Point",
+      "LatLng": "1.37952096317229,103.89474475568",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530448",
+      "ADDRESSSTREETNAME": "Blk 448 Hougang Ave 10 #B1-529 S530448",
+      "Type": "Point",
+      "LatLng": "1.37911196404799,103.895116774314",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530449",
+      "ADDRESSSTREETNAME": "Blk 449 Hougang Ave 10 #B1-509 S530449",
+      "Type": "Point",
+      "LatLng": "1.37878134315518,103.895151313232",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530450",
+      "ADDRESSSTREETNAME": "Blk 450 Hougang Ave 10 #B1-541 S530450",
+      "Type": "Point",
+      "LatLng": "1.37928873508668,103.89554638051",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530451",
+      "ADDRESSSTREETNAME": "Blk 451 Hougang Ave 10 #B1-553 S530451",
+      "Type": "Point",
+      "LatLng": "1.3788339390534,103.89591134487",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530452",
+      "ADDRESSSTREETNAME": "Blk 452 Hougang Ave 10 #B1-565 S530452",
+      "Type": "Point",
+      "LatLng": "1.3784914423889,103.896307995728",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530453",
+      "ADDRESSSTREETNAME": "Blk 453 Hougang Ave 10 #B1-583 S530453",
+      "Type": "Point",
+      "LatLng": "1.37847774245648,103.895888536975",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530468",
+      "ADDRESSSTREETNAME": "Blk 468 Hougang Ave 8 #01-1510 S530468",
+      "Type": "Point",
+      "LatLng": "1.37372775369266,103.897221534459",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530534",
+      "ADDRESSSTREETNAME": "Blk 534 Hougang St 52 #B1-32 S530534",
+      "Type": "Point",
+      "LatLng": "1.37715488188307,103.890479183446",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530535",
+      "ADDRESSSTREETNAME": "Blk 535 Hougang Street 52 #B1-14 S530535",
+      "Type": "Point",
+      "LatLng": "1.37644173875212,103.890133776807",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530536",
+      "ADDRESSSTREETNAME": "Blk 536 Hougang St 52 #B1-106 S530536",
+      "Type": "Point",
+      "LatLng": "1.37717417157125,103.889474451172",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530537",
+      "ADDRESSSTREETNAME": "Blk 537 Hougang St 52 #B1-94 S530537",
+      "Type": "Point",
+      "LatLng": "1.3778110303394,103.889725708859",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530538",
+      "ADDRESSSTREETNAME": "Blk 538 Hougang Street 52 #B1-84 S530538",
+      "Type": "Point",
+      "LatLng": "1.37782286140468,103.890322568219",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530539",
+      "ADDRESSSTREETNAME": "Blk 539 Hougang St 52 #B1-48 S530539",
+      "Type": "Point",
+      "LatLng": "1.37747961874659,103.890340425487",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530540",
+      "ADDRESSSTREETNAME": "Blk 540 Hougang Ave 8 #B1-1235 S530540",
+      "Type": "Point",
+      "LatLng": "1.37781451620675,103.891280119642",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530541",
+      "ADDRESSSTREETNAME": "Blk 541 Hougang Ave 8 #B1-1215 S530541",
+      "Type": "Point",
+      "LatLng": "1.37746142835856,103.891272655653",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530552",
+      "ADDRESSSTREETNAME": "Blk 552 Hougang St 51 #B1-214 S530552",
+      "Type": "Point",
+      "LatLng": "1.37880333068028,103.890373634981",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530553",
+      "ADDRESSSTREETNAME": "Blk 553 Hougang St 51 #B1-270, S530553",
+      "Type": "Point",
+      "LatLng": "1.37912949392871,103.890376371712",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530570",
+      "ADDRESSSTREETNAME": "Blk 570 Hougang St 51 #01-105 S530570",
+      "Type": "Point",
+      "LatLng": "1.37797175587727,103.888099467174",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530573",
+      "ADDRESSSTREETNAME": "Blk 573 Hougang St 51 #01-21 S530573",
+      "Type": "Point",
+      "LatLng": "1.3776031978509,103.887546177796",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530580",
+      "ADDRESSSTREETNAME": "Blk 580 Hougang Ave 4  #01-620 S530580",
+      "Type": "Point",
+      "LatLng": "1.37895223586549,103.886777003436",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530836",
+      "ADDRESSSTREETNAME": "Blk 836 Hougang Central #01-539 S530836",
+      "Type": "Point",
+      "LatLng": "1.37008344024379,103.89079533636",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530837",
+      "ADDRESSSTREETNAME": "Blk 837 Hougang Central #01-527 S530837",
+      "Type": "Point",
+      "LatLng": "1.36930044161654,103.89152065306",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530911",
+      "ADDRESSSTREETNAME": "Blk 911 Hougang St 91 #01-58 S530911",
+      "Type": "Point",
+      "LatLng": "1.37893741784616,103.883855743696",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530915",
+      "ADDRESSSTREETNAME": "Blk 915 Hougang St 91 #01-10 S530915",
+      "Type": "Point",
+      "LatLng": "1.37757028719604,103.883566207276",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530916",
+      "ADDRESSSTREETNAME": "Blk 916 Hougang Ave 9 #01-08 S530916",
+      "Type": "Point",
+      "LatLng": "1.37491223414443,103.884248147973",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530919",
+      "ADDRESSSTREETNAME": "Blk 919 Hougang Ave 9 #01-459 S530919",
+      "Type": "Point",
+      "LatLng": "1.37599795110226,103.884075785277",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530925",
+      "ADDRESSSTREETNAME": "Blk 925 Hougang Ave 9 #01-41 S530925",
+      "Type": "Point",
+      "LatLng": "1.37670583993849,103.882497242732",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530927",
+      "ADDRESSSTREETNAME": "Blk 927 Hougang Ave 9 #01-69 S530927",
+      "Type": "Point",
+      "LatLng": "1.37662265584878,103.880711296578",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550509",
+      "ADDRESSSTREETNAME": "Blk 509 Serangoon North Ave 4 #01-360 S550509",
+      "Type": "Point",
+      "LatLng": "1.37140996957847,103.876148957392",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550512",
+      "ADDRESSSTREETNAME": "Blk 512 Serangoon North Ave 4 #01-416 S550512",
+      "Type": "Point",
+      "LatLng": "1.37151126989928,103.875246613554",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550517",
+      "ADDRESSSTREETNAME": "Blk 517 Serangoon North Ave 4 #B1-228 S550517",
+      "Type": "Point",
+      "LatLng": "1.37132341839225,103.874085638991",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550518",
+      "ADDRESSSTREETNAME": "Blk 518 Serangoon North Ave 4 #B1-208 S550518",
+      "Type": "Point",
+      "LatLng": "1.37164172621645,103.874102223007",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550523",
+      "ADDRESSSTREETNAME": "Blk 523 Serangoon North Ave 4 #B1-30 S550523",
+      "Type": "Point",
+      "LatLng": "1.37301317433751,103.872874281116",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550523",
+      "ADDRESSSTREETNAME": "Blk 524 Serangoon North Ave 4 #B1-46 S550524",
+      "Type": "Point",
+      "LatLng": "1.37301317433751,103.872874281116",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550533",
+      "ADDRESSSTREETNAME": "Blk 533 Serangoon North Ave 4 #B1-233, S550533",
+      "Type": "Point",
+      "LatLng": "1.37453653358516,103.874596426383",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550534",
+      "ADDRESSSTREETNAME": "Blk 534 Serangoon North Ave 4 #B1-207 S550534",
+      "Type": "Point",
+      "LatLng": "1.37421845369075,103.874578905064",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550540",
+      "ADDRESSSTREETNAME": "Blk 540 Serangoon North Ave 4 #B1-109 S550540",
+      "Type": "Point",
+      "LatLng": "1.37461946643915,103.872572638953",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550541",
+      "ADDRESSSTREETNAME": "Blk 541 Serangoon North Ave 4 #B1-129 S550541",
+      "Type": "Point",
+      "LatLng": "1.37430114865936,103.872556024556",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550546",
+      "ADDRESSSTREETNAME": "Blk 546 Serangoon North Ave 3 #01-226 S550546",
+      "Type": "Point",
+      "LatLng": "1.37482522281205,103.870146850078",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550548",
+      "ADDRESSSTREETNAME": "Blk 548 Serangoon North Ave 3 #01-07 S550548",
+      "Type": "Point",
+      "LatLng": "1.3731586940508,103.870675916894",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "550554",
+      "ADDRESSSTREETNAME": "Blk 554 Serangoon North Ave 3 #01-85 S550554",
+      "Type": "Point",
+      "LatLng": "1.3719672042816,103.870390129481",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "560617",
+      "ADDRESSSTREETNAME": "Blk 617 Ang Mo Kio Ave 4 #01-1041 S560617",
+      "Type": "Point",
+      "LatLng": "1.37751709063193,103.83805186718",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "560619",
+      "ADDRESSSTREETNAME": "Blk 619 Ang Mo Kio Ave 4 #01-1073 S560619",
+      "Type": "Point",
+      "LatLng": "1.37858807548131,103.838639708969",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570212",
+      "ADDRESSSTREETNAME": "Blk 212 Bishan St 23 #B1-257 S570212",
+      "Type": "Point",
+      "LatLng": "1.3562724633968,103.848249858317",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570213",
+      "ADDRESSSTREETNAME": "Blk 213 Bishan St 23 #B1-235 S570213",
+      "Type": "Point",
+      "LatLng": "1.35717823373366,103.848152957154",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570214",
+      "ADDRESSSTREETNAME": "Blk 214 Bishan St 23 #B1-223 S570214",
+      "Type": "Point",
+      "LatLng": "1.35751188988901,103.848303421327",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570215",
+      "ADDRESSSTREETNAME": "Blk 215 Bishan St 23 #B1-203 S570215",
+      "Type": "Point",
+      "LatLng": "1.35710189135956,103.848799752304",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570220",
+      "ADDRESSSTREETNAME": "Blk 220 Bishan St 23 #B1-189 S570220",
+      "Type": "Point",
+      "LatLng": "1.35747695091619,103.848836186136",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570221",
+      "ADDRESSSTREETNAME": "Blk 221 Bishan St 23 #B1-183 S570221",
+      "Type": "Point",
+      "LatLng": "1.35786907821349,103.848922901141",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570222",
+      "ADDRESSSTREETNAME": "Blk 222 Bishan St 23 #B1-169 S570222",
+      "Type": "Point",
+      "LatLng": "1.35803524250896,103.848208494647",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570223",
+      "ADDRESSSTREETNAME": "Blk 223 Bishan St 23 #B1-145 S570223",
+      "Type": "Point",
+      "LatLng": "1.35846189151323,103.848248666755",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570224",
+      "ADDRESSSTREETNAME": "Blk 224 Bishan St 23 #B1-131 S570224",
+      "Type": "Point",
+      "LatLng": "1.35894550279448,103.84769864651",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570225",
+      "ADDRESSSTREETNAME": "Blk 225 Bishan St 23 #B1-119 S570225",
+      "Type": "Point",
+      "LatLng": "1.35856894147894,103.847594240782",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570226",
+      "ADDRESSSTREETNAME": "Blk 226 Bishan St 23 #B1-101 S570226",
+      "Type": "Point",
+      "LatLng": "1.358545999579,103.847127305241",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570227",
+      "ADDRESSSTREETNAME": "Blk 227 Bishan St 23 #B1-79 S570227",
+      "Type": "Point",
+      "LatLng": "1.3580705371959,103.847138124874",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570228",
+      "ADDRESSSTREETNAME": "Blk 228 Bishan St 23 #B1-71 S570228",
+      "Type": "Point",
+      "LatLng": "1.35811065791849,103.846584147487",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570229",
+      "ADDRESSSTREETNAME": "Blk 229 Bishan St 23 #B1-53 S570229",
+      "Type": "Point",
+      "LatLng": "1.35760845055583,103.845962916789",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570230",
+      "ADDRESSSTREETNAME": "Blk 230 Bishan St 23 #B1-35 S570230",
+      "Type": "Point",
+      "LatLng": "1.35794579896956,103.845493593958",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570231",
+      "ADDRESSSTREETNAME": "Blk 231 Bishan St 23 #B1-05 S570231",
+      "Type": "Point",
+      "LatLng": "1.35729122095242,103.845845691857",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570232",
+      "ADDRESSSTREETNAME": "Blk 232 Bishan St 22 #B1-112 S570232",
+      "Type": "Point",
+      "LatLng": "1.35824517245656,103.845504304564",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570233",
+      "ADDRESSSTREETNAME": "Blk 233 Bishan St 22 #B1-134 S570233",
+      "Type": "Point",
+      "LatLng": "1.35857600024384,103.845592707159",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570234",
+      "ADDRESSSTREETNAME": "Blk 234 Bishan St 22 #B1-118 S570234",
+      "Type": "Point",
+      "LatLng": "1.35837056947516,103.846091357288",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570235",
+      "ADDRESSSTREETNAME": "Blk 235 Bishan St 22 #B1-144 S570235",
+      "Type": "Point",
+      "LatLng": "1.35847821516488,103.846408016151",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570236",
+      "ADDRESSSTREETNAME": "Blk 236 Bishan St 22 #B1-154 S570236",
+      "Type": "Point",
+      "LatLng": "1.35900490096457,103.847006583662",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570237",
+      "ADDRESSSTREETNAME": "Blk 237 Bishan St 22 #B1-176 S570237",
+      "Type": "Point",
+      "LatLng": "1.35941996267744,103.847150344951",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570238",
+      "ADDRESSSTREETNAME": "Blk 238 Bishan St 22 #B1-228 S570238",
+      "Type": "Point",
+      "LatLng": "1.35976079364992,103.844642644284",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570239",
+      "ADDRESSSTREETNAME": "Blk 239 Bishan St 22 #B1-202 S570239",
+      "Type": "Point",
+      "LatLng": "1.36042894643119,103.844777324594",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570241",
+      "ADDRESSSTREETNAME": "Blk 241 Bishan St 22 #B1-236 S570241",
+      "Type": "Point",
+      "LatLng": "1.36084158007422,103.845466012554",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570242",
+      "ADDRESSSTREETNAME": "Blk 242 Bishan St 22 #B1-266 S570242",
+      "Type": "Point",
+      "LatLng": "1.361350478793,103.844866461412",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570243",
+      "ADDRESSSTREETNAME": "Blk 243 Bishan St 22 #B1-274 S570243",
+      "Type": "Point",
+      "LatLng": "1.36108499469883,103.844635628148",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570245",
+      "ADDRESSSTREETNAME": "Blk 245 Bishan St 22 #B1-320 S570245",
+      "Type": "Point",
+      "LatLng": "1.36033727295522,103.843963455351",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570246",
+      "ADDRESSSTREETNAME": "Blk 246 Bishan St 22 #B1-338 S570246",
+      "Type": "Point",
+      "LatLng": "1.36067415582082,103.843353637177",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570248",
+      "ADDRESSSTREETNAME": "Blk 248 Bishan St 22 #B1-360 S570248",
+      "Type": "Point",
+      "LatLng": "1.3613971529069,103.84328126147",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570249",
+      "ADDRESSSTREETNAME": "Blk 249 Bishan St 22 #B1-370 S570249",
+      "Type": "Point",
+      "LatLng": "1.36124090921646,103.843772591062",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570250",
+      "ADDRESSSTREETNAME": "Blk 250 Bishan St 22 #B1-384 S570250",
+      "Type": "Point",
+      "LatLng": "1.36161481702395,103.843937151792",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570251",
+      "ADDRESSSTREETNAME": "Blk 251 Bishan St 22 #B1-408 S570251",
+      "Type": "Point",
+      "LatLng": "1.36191023111061,103.84417049756",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570253",
+      "ADDRESSSTREETNAME": "Blk 253 Bishan St 22 #B1-428 S570253",
+      "Type": "Point",
+      "LatLng": "1.36225938644904,103.843079573435",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570254",
+      "ADDRESSSTREETNAME": "Blk 254 Bishan St 22 #B1-444 S570254",
+      "Type": "Point",
+      "LatLng": "1.36191566683978,103.842997164437",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570255",
+      "ADDRESSSTREETNAME": "Blk 255 Bishan St 22 #B1-462 S570255",
+      "Type": "Point",
+      "LatLng": "1.36166763507946,103.842743223832",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570256",
+      "ADDRESSSTREETNAME": "Blk 256 Bishan St 22 #B1-472 S570256",
+      "Type": "Point",
+      "LatLng": "1.36131844396281,103.8426837562",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570257",
+      "ADDRESSSTREETNAME": "Blk 257 Bishan St 22 #B1-327 S570257",
+      "Type": "Point",
+      "LatLng": "1.35971686910652,103.843103112862",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570259",
+      "ADDRESSSTREETNAME": "Blk 259 Bishan St 22 #B1-309 S570259",
+      "Type": "Point",
+      "LatLng": "1.35996779647022,103.842246605493",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570260",
+      "ADDRESSSTREETNAME": "Blk 260 Bishan St 22 #B1-295 S570260",
+      "Type": "Point",
+      "LatLng": "1.35961376517638,103.842187446166",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570261",
+      "ADDRESSSTREETNAME": "Blk 261 Bishan St 22 #B1-229 S570261",
+      "Type": "Point",
+      "LatLng": "1.35898310313404,103.843324416914",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570262",
+      "ADDRESSSTREETNAME": "Blk 262 Bishan St 22 #B1-287 S570262",
+      "Type": "Point",
+      "LatLng": "1.3592501041493,103.84262396302",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570264",
+      "ADDRESSSTREETNAME": "Blk 264 Bishan St 24 #B1-114 S570264",
+      "Type": "Point",
+      "LatLng": "1.35865897577507,103.842049820984",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570268",
+      "ADDRESSSTREETNAME": "Blk 268 Bishan St 24 #B1-170 S570268",
+      "Type": "Point",
+      "LatLng": "1.35761490304684,103.842145086787",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570269",
+      "ADDRESSSTREETNAME": "Blk 269 Bishan St 24 #B1-192 S570269",
+      "Type": "Point",
+      "LatLng": "1.35688865033769,103.842673885493",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570270",
+      "ADDRESSSTREETNAME": "Blk 270 Bishan St 24 #B1-198 S570270",
+      "Type": "Point",
+      "LatLng": "1.35696104210571,103.842165431539",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570271",
+      "ADDRESSSTREETNAME": "Blk 271 Bishan St 24 #B1-218 S570271",
+      "Type": "Point",
+      "LatLng": "1.35661575703225,103.84231764368",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570272",
+      "ADDRESSSTREETNAME": "Blk 272 Bishan St 24 #B1-228 S570272",
+      "Type": "Point",
+      "LatLng": "1.35629488661206,103.842822604764",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570288",
+      "ADDRESSSTREETNAME": "Blk 288 Bishan St 24 #01-11 S570288",
+      "Type": "Point",
+      "LatLng": "1.35692384450598,103.845156531521",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "570293",
+      "ADDRESSSTREETNAME": "Blk 293 Bishan St 22 #01-83 S570293",
+      "Type": "Point",
+      "LatLng": "1.35628009431448,103.845894062723",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610151",
+      "ADDRESSSTREETNAME": "Blk 151 Yung Ho Road #B1-91 S610151",
+      "Type": "Point",
+      "LatLng": "1.32676125109031,103.721288506799",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610152",
+      "ADDRESSSTREETNAME": "Blk 152 Yung Ho Road #B1-03 S610152",
+      "Type": "Point",
+      "LatLng": "1.32718723309615,103.720536392493",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610153",
+      "ADDRESSSTREETNAME": "Blk 153 Yung Ho Road #B1-35 S610153",
+      "Type": "Point",
+      "LatLng": "1.32748325157873,103.721043765052",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610154",
+      "ADDRESSSTREETNAME": "Blk 154 Yung Ho Road #B1-51 S610154",
+      "Type": "Point",
+      "LatLng": "1.32712455862468,103.721777835217",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610155",
+      "ADDRESSSTREETNAME": "Blk 156 Yung Loh Road #01-12 S610156",
+      "Type": "Point",
+      "LatLng": "1.32767173391326,103.722407556313",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610163",
+      "ADDRESSSTREETNAME": "Blk 163 Yung Ping Rd #01-90 S610163",
+      "Type": "Point",
+      "LatLng": "1.33003579267027,103.72256552089",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610323",
+      "ADDRESSSTREETNAME": "Blk 323 Tah Ching Rd #01-62 S610323",
+      "Type": "Point",
+      "LatLng": "1.33681564754455,103.723914183934",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610324",
+      "ADDRESSSTREETNAME": "Blk 324 Tah Ching Rd #01-46 S610324",
+      "Type": "Point",
+      "LatLng": "1.33637958880018,103.723444771313",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610332",
+      "ADDRESSSTREETNAME": "Blk 332 Tah Ching Rd #01-169 S610332",
+      "Type": "Point",
+      "LatLng": "1.3388206940753,103.72369052507",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610347",
+      "ADDRESSSTREETNAME": "Blk 347 Kang Ching Road #01-145 S610347",
+      "Type": "Point",
+      "LatLng": "1.34049924058437,103.720198495622",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610351",
+      "ADDRESSSTREETNAME": "Blk 351 Corporation Drive #01-520 S610351",
+      "Type": "Point",
+      "LatLng": "1.33897222002978,103.719838816599",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610353",
+      "ADDRESSSTREETNAME": "Blk 353 Kang Ching Road #01-39 S610353",
+      "Type": "Point",
+      "LatLng": "1.33963604074386,103.720528206083",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610359",
+      "ADDRESSSTREETNAME": "Blk 359 Yung An Road #01-79 S610359",
+      "Type": "Point",
+      "LatLng": "1.3364809301094,103.721301072728",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610362",
+      "ADDRESSSTREETNAME": "Blk 362 Yung An Road #01-131 S610362",
+      "Type": "Point",
+      "LatLng": "1.3361615466707,103.719783404171",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "610368",
+      "ADDRESSSTREETNAME": "Blk 368 Corporation Drive #01-465 S610368",
+      "Type": "Point",
+      "LatLng": "1.33736272099556,103.719602738211",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640260",
+      "ADDRESSSTREETNAME": "Blk 260 Boon Lay Drive #01-527 S640260",
+      "Type": "Point",
+      "LatLng": "1.34509372760706,103.708033297812",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640263",
+      "ADDRESSSTREETNAME": "Blk 263 Boon Lay Drive #01-583 S640263",
+      "Type": "Point",
+      "LatLng": "1.34510044668795,103.706911687304",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640690",
+      "ADDRESSSTREETNAME": "Blk 690 Jurong West Central 1 #01-193 S640690",
+      "Type": "Point",
+      "LatLng": "1.34135747957631,103.706707492836",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640691",
+      "ADDRESSSTREETNAME": "Blk 691 Jurong West Central 1 #01-185 S640691",
+      "Type": "Point",
+      "LatLng": "1.34194049402213,103.706311127856",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640692",
+      "ADDRESSSTREETNAME": "Blk 692 Jurong West Central 1 #01-81 S640692",
+      "Type": "Point",
+      "LatLng": "1.34227183369423,103.706611971338",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640694",
+      "ADDRESSSTREETNAME": "Blk 694 Jurong West Central 1 #01-191 S640694",
+      "Type": "Point",
+      "LatLng": "1.34302580903887,103.70687961482",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640705",
+      "ADDRESSSTREETNAME": "Blk 705 Jurong West St 71 #01-78 S640705",
+      "Type": "Point",
+      "LatLng": "1.34091242032195,103.694650994005",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640709",
+      "ADDRESSSTREETNAME": "Blk 709 Jurong West St 71 #01-34 S640709",
+      "Type": "Point",
+      "LatLng": "1.34253229928209,103.694438320221",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640711",
+      "ADDRESSSTREETNAME": "Blk 711 Jurong West St 71 #B1-11 S640711",
+      "Type": "Point",
+      "LatLng": "1.34304085784372,103.695640825196",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640713",
+      "ADDRESSSTREETNAME": "Blk 713 Jurong West St 71 #B1-37 S640713",
+      "Type": "Point",
+      "LatLng": "1.34365710042769,103.696064247888",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640714",
+      "ADDRESSSTREETNAME": "Blk 714 Jurong West St 71 #B1-147 S640714",
+      "Type": "Point",
+      "LatLng": "1.34312002078581,103.696674977365",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640715",
+      "ADDRESSSTREETNAME": "Blk 715 Jurong West St 71 #B1-51 S640715",
+      "Type": "Point",
+      "LatLng": "1.34375487966374,103.696409997723",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640716",
+      "ADDRESSSTREETNAME": "Blk 716 Jurong West St 71 #B1-73 S640716",
+      "Type": "Point",
+      "LatLng": "1.34405238369205,103.696709873183",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640717",
+      "ADDRESSSTREETNAME": "Blk 717 Jurong West St 71 #B1-107 S640717",
+      "Type": "Point",
+      "LatLng": "1.34300945615067,103.697479926063",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640718",
+      "ADDRESSSTREETNAME": "Blk 718 Jurong West St 71 #B1-99 S640718",
+      "Type": "Point",
+      "LatLng": "1.34372249054999,103.697467057067",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640720",
+      "ADDRESSSTREETNAME": "Blk 720 Jurong West Ave 5 #B1-94 S640720",
+      "Type": "Point",
+      "LatLng": "1.34435136562996,103.697497316312",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640721",
+      "ADDRESSSTREETNAME": "Blk 721 Jurong West St 81 #B1-102 S640721",
+      "Type": "Point",
+      "LatLng": "1.34402565770713,103.697478170757",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640722",
+      "ADDRESSSTREETNAME": "Blk 722 Jurong West St 71 #B1-132 S640722",
+      "Type": "Point",
+      "LatLng": "1.34364538894774,103.698273394188",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640723",
+      "ADDRESSSTREETNAME": "Blk 723 Jurong West Ave 5 #B1-144 S640723",
+      "Type": "Point",
+      "LatLng": "1.34446500792886,103.698164458249",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640724",
+      "ADDRESSSTREETNAME": "Blk 724 Jurong West St 72 #B1-13 S640724",
+      "Type": "Point",
+      "LatLng": "1.34504744141577,103.698147816352",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640725",
+      "ADDRESSSTREETNAME": "Blk 725 Jurong West Ave 5 #B1-164 S640725",
+      "Type": "Point",
+      "LatLng": "1.34545304802241,103.697715543197",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640727",
+      "ADDRESSSTREETNAME": "Blk 727 Jurong West Ave 5 #B1-182 S640727",
+      "Type": "Point",
+      "LatLng": "1.34578288643183,103.697658654286",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640728",
+      "ADDRESSSTREETNAME": "Blk 728 Jurong West Ave 5 #B1-198 S640728",
+      "Type": "Point",
+      "LatLng": "1.34609924790682,103.697696365501",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640729",
+      "ADDRESSSTREETNAME": "Blk 729 Jurong West Ave 5 #B1-214 S640729",
+      "Type": "Point",
+      "LatLng": "1.34640911441287,103.697801563368",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640730",
+      "ADDRESSSTREETNAME": "Blk 730 Jurong West St 72 #B1-45 S640730",
+      "Type": "Point",
+      "LatLng": "1.34610885412735,103.698426995043",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640731",
+      "ADDRESSSTREETNAME": "Blk 731 Jurong West St 72 #B1-29 S640731",
+      "Type": "Point",
+      "LatLng": "1.34547702603267,103.698587056804",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640732",
+      "ADDRESSSTREETNAME": "Blk 732 Jurong West St 73 #01-48 S640732",
+      "Type": "Point",
+      "LatLng": "1.34584119664431,103.69960545014",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640735",
+      "ADDRESSSTREETNAME": "Blk 735 Jurong West St 75 #01-19 S640735",
+      "Type": "Point",
+      "LatLng": "1.34615520638865,103.7011693753",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640743",
+      "ADDRESSSTREETNAME": "Blk 743 Jurong West St 73 #B1-03 S640743",
+      "Type": "Point",
+      "LatLng": "1.3472933612616,103.699193661791",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640745",
+      "ADDRESSSTREETNAME": "Blk 745 Jurong West St 73 #B1-57 S640745",
+      "Type": "Point",
+      "LatLng": "1.34701291630212,103.697949468836",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640746",
+      "ADDRESSSTREETNAME": "Blk 746 Jurong West St 73 #B1-111 S640746",
+      "Type": "Point",
+      "LatLng": "1.34743826772674,103.697936347054",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640748",
+      "ADDRESSSTREETNAME": "Blk 748 Jurong West St 73 #B1-127 S640748",
+      "Type": "Point",
+      "LatLng": "1.34775336460253,103.697968714645",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640749",
+      "ADDRESSSTREETNAME": "Blk 749 Jurong West St 73 #B1-145 S640749",
+      "Type": "Point",
+      "LatLng": "1.34806526208774,103.698070113374",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640751",
+      "ADDRESSSTREETNAME": "Blk 751 Jurong West St 73 #B1-175 S640751",
+      "Type": "Point",
+      "LatLng": "1.34760957783245,103.699227748427",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640760",
+      "ADDRESSSTREETNAME": "Blk 760 Jurong West St 74 #01-08 S640760",
+      "Type": "Point",
+      "LatLng": "1.34942545429356,103.699782251278",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640810",
+      "ADDRESSSTREETNAME": "Blk 810 Jurong West St 81 #01-88 S640810",
+      "Type": "Point",
+      "LatLng": "1.34688626803342,103.695471366937",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640811",
+      "ADDRESSSTREETNAME": "Blk 811 Jurong West St 81 #01-64 S640811",
+      "Type": "Point",
+      "LatLng": "1.34658168441137,103.696428426852",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640812",
+      "ADDRESSSTREETNAME": "Blk 812 Jurong West St 81 #B1-164 S640812",
+      "Type": "Point",
+      "LatLng": "1.34630854058702,103.695863841473",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640813",
+      "ADDRESSSTREETNAME": "Blk 813 Jurong West St 81 #B1-184 S640813",
+      "Type": "Point",
+      "LatLng": "1.34600002263005,103.695778176662",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640814",
+      "ADDRESSSTREETNAME": "Blk 814 Jurong West St 81 #B1-204, S640814",
+      "Type": "Point",
+      "LatLng": "1.34566785942312,103.695791571219",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640815",
+      "ADDRESSSTREETNAME": "Blk 815 Jurong West St 81 #B1-222 S640815",
+      "Type": "Point",
+      "LatLng": "1.34533232103128,103.695850953293",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640816",
+      "ADDRESSSTREETNAME": "Blk 816 Jurong West St 81 #01-44 S640816",
+      "Type": "Point",
+      "LatLng": "1.34533413550037,103.696415984891",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640821",
+      "ADDRESSSTREETNAME": "Blk 821 Jurong West St 81 #B1-490 S640821",
+      "Type": "Point",
+      "LatLng": "1.34699538422557,103.694528723584",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640823",
+      "ADDRESSSTREETNAME": "Blk 823 Jurong West St 81 #B1-462 S640823",
+      "Type": "Point",
+      "LatLng": "1.34670683608196,103.694264917547",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640824",
+      "ADDRESSSTREETNAME": "Blk 824 Jurong West St 81 #B1-444 S640824",
+      "Type": "Point",
+      "LatLng": "1.34639959990245,103.694137817608",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640826",
+      "ADDRESSSTREETNAME": "Blk 826 Jurong West St 81 #B1-424 S640826",
+      "Type": "Point",
+      "LatLng": "1.34604947266847,103.694422335594",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640835",
+      "ADDRESSSTREETNAME": "Blk 835 Jurong West St 81 #B1-45 S640835",
+      "Type": "Point",
+      "LatLng": "1.34350458999747,103.693705525444",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640836",
+      "ADDRESSSTREETNAME": "Blk 836 Jurong West St 81 #01-65 S640836",
+      "Type": "Point",
+      "LatLng": "1.34263095724401,103.693464900854",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640838",
+      "ADDRESSSTREETNAME": "Blk 838 Jurong West St 81 #B1-153 S640838",
+      "Type": "Point",
+      "LatLng": "1.3438490129574,103.693508099865",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640840",
+      "ADDRESSSTREETNAME": "Blk 840 Jurong West St 81 #01-107 S640840",
+      "Type": "Point",
+      "LatLng": "1.34419344751553,103.692091089063",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640845",
+      "ADDRESSSTREETNAME": "Blk 845 Jurong West St 81 #01-229 S640845",
+      "Type": "Point",
+      "LatLng": "1.34486052801736,103.691684243688",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640850",
+      "ADDRESSSTREETNAME": "Blk 850 Jurong West St 81 #01-267 S640850",
+      "Type": "Point",
+      "LatLng": "1.34642680133764,103.691936514521",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640852",
+      "ADDRESSSTREETNAME": "Blk 852 Jurong West St 81 #01-303 S640852",
+      "Type": "Point",
+      "LatLng": "1.34744619547416,103.692827947055",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640854",
+      "ADDRESSSTREETNAME": "Blk 854 Jurong West St 81 #01-502 S640854",
+      "Type": "Point",
+      "LatLng": "1.34731624512107,103.69606144832",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640859",
+      "ADDRESSSTREETNAME": "Blk 859 Jurong West St 81 #01-572 S640859",
+      "Type": "Point",
+      "LatLng": "1.34923031923075,103.696100645029",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "640863",
+      "ADDRESSSTREETNAME": "Blk 863 Jurong West St 81 #01-515 S640863",
+      "Type": "Point",
+      "LatLng": "1.3492736977774,103.695305057437",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "650188",
+      "ADDRESSSTREETNAME": "Blk 188 Bukit Batok West Ave 6 #01-07 S650188",
+      "Type": "Point",
+      "LatLng": "1.34600053267505,103.745834644105",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "650285",
+      "ADDRESSSTREETNAME": "Blk 285 Bukit Batok East Ave 3 #01-427 S650285",
+      "Type": "Point",
+      "LatLng": "1.34617496194412,103.757832398416",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "650290",
+      "ADDRESSSTREETNAME": "Blk 290D Bukit Batok East Ave 3 #01-370 S650290",
+      "Type": "Point",
+      "LatLng": "1.34409579706813,103.757275316435",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "650625",
+      "ADDRESSSTREETNAME": "Blk 625 Bukit Batok Central #01-386 S650625",
+      "Type": "Point",
+      "LatLng": "1.3513811254031,103.748585288765",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "651291",
+      "ADDRESSSTREETNAME": "Blk 291B Bukit Batok #01-39 S651291",
+      "Type": "Point",
+      "LatLng": "1.34306434957467,103.755677630156",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "652288",
+      "ADDRESSSTREETNAME": "Blk 288C Bukit Batok St 25 #01-28 S652288",
+      "Type": "Point",
+      "LatLng": "1.34610032063238,103.759754675732",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "652290",
+      "ADDRESSSTREETNAME": "Blk 290A Bukit Batok St 24 #01-87 S652290",
+      "Type": "Point",
+      "LatLng": "1.34326272628593,103.756531459621",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "654289",
+      "ADDRESSSTREETNAME": "Blk 289E Bukit Batok St 25 #01-160 S654289",
+      "Type": "Point",
+      "LatLng": "1.34421029226156,103.759205464086",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670436",
+      "ADDRESSSTREETNAME": "Blk 436 Fajar Road #B1-384 S670436",
+      "Type": "Point",
+      "LatLng": "1.38227210568673,103.769884727999",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670438",
+      "ADDRESSSTREETNAME": "Blk 438 Fajar Road #B1-412 S670438",
+      "Type": "Point",
+      "LatLng": "1.38277660693876,103.770296657172",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670439",
+      "ADDRESSSTREETNAME": "Blk 439 Fajar Road #B1-428 S670439",
+      "Type": "Point",
+      "LatLng": "1.38304691485392,103.770464371716",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670441",
+      "ADDRESSSTREETNAME": "Blk 441 Fajar Road #B1-466 S670441",
+      "Type": "Point",
+      "LatLng": "1.38328363761776,103.770742195847",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670442",
+      "ADDRESSSTREETNAME": "Blk 442 Fajar Rd #01-482 S479442",
+      "Type": "Point",
+      "LatLng": "1.38225114500963,103.771235667875",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670451",
+      "ADDRESSSTREETNAME": "Blk 451 Fajar Road #01-726 S670451",
+      "Type": "Point",
+      "LatLng": "1.38508210478474,103.772219190337",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670453",
+      "ADDRESSSTREETNAME": "Blk 453 Fajar Rd #01-702 S670453",
+      "Type": "Point",
+      "LatLng": "1.38545293111883,103.771670253523",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670501",
+      "ADDRESSSTREETNAME": "Blk 501 Jelapang Road #01-420 S670501",
+      "Type": "Point",
+      "LatLng": "1.38288226218921,103.76684713046",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "670505",
+      "ADDRESSSTREETNAME": "Blk 505 Jelapang Road #01-448 S670505",
+      "Type": "Point",
+      "LatLng": "1.38416247633173,103.767483693065",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520316",
+      "ADDRESSSTREETNAME": "Blk 316 Tampines St 33 #01-180 S520316",
+      "Type": "Point",
+      "LatLng": "1.35153798820429,103.957579536597",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520328",
+      "ADDRESSSTREETNAME": "Blk 328 Tampines St 32 #01-362 S520328",
+      "Type": "Point",
+      "LatLng": "1.35316616546044,103.958287526347",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520333",
+      "ADDRESSSTREETNAME": "Blk 333 Tampines St 32 #01-536 S520333",
+      "Type": "Point",
+      "LatLng": "1.35316479844068,103.961041512763",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520338",
+      "ADDRESSSTREETNAME": "Blk 338 Tampines St 33 #01-204 S520338",
+      "Type": "Point",
+      "LatLng": "1.35191833884959,103.959646784889",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520343",
+      "ADDRESSSTREETNAME": "Blk 343 Tampines St 33 #01-318 S520343",
+      "Type": "Point",
+      "LatLng": "1.35191831541982,103.961275861629",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520345",
+      "ADDRESSSTREETNAME": "Blk 345 Tampines St 33 #01-350 S520345",
+      "Type": "Point",
+      "LatLng": "1.35191877092049,103.962266866221",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520349",
+      "ADDRESSSTREETNAME": "Blk 349 Tampines St 33 #01-434 S520349",
+      "Type": "Point",
+      "LatLng": "1.35341689180952,103.963011757032",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520354",
+      "ADDRESSSTREETNAME": "Blk 354 Tampines St 33 #01-530 S520354",
+      "Type": "Point",
+      "LatLng": "1.35501778659969,103.962434471633",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520357",
+      "ADDRESSSTREETNAME": "Blk 357 Tampines St 33 #01-610 S520357",
+      "Type": "Point",
+      "LatLng": "1.35401953751784,103.961599846786",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520361",
+      "ADDRESSSTREETNAME": "Blk 361 Tampines St 34 #01-401 S520361",
+      "Type": "Point",
+      "LatLng": "1.35604415761694,103.962576039773",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520364",
+      "ADDRESSSTREETNAME": "Blk 364 Tampines St 34 #01-133 S520364",
+      "Type": "Point",
+      "LatLng": "1.35693800555856,103.959873499831",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520367",
+      "ADDRESSSTREETNAME": "Blk 367 Tampines St 34 #01-77 S520367",
+      "Type": "Point",
+      "LatLng": "1.35806742423191,103.960581868521",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520374",
+      "ADDRESSSTREETNAME": "Blk 374 Tampines St 34 #01-42 S520374",
+      "Type": "Point",
+      "LatLng": "1.35642450436441,103.958609334889",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520387",
+      "ADDRESSSTREETNAME": "Blk 387 Tampines St 32 #01-87 S520387",
+      "Type": "Point",
+      "LatLng": "1.35530936311846,103.958770015178",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520393",
+      "ADDRESSSTREETNAME": "Blk 393 Tampines Ave 7 #01-251 S520393",
+      "Type": "Point",
+      "LatLng": "1.35519256308366,103.956808024237",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520487",
+      "ADDRESSSTREETNAME": "Blk 487A Tampines Ave 9 #B1-96 S520487",
+      "Type": "Point",
+      "LatLng": "1.35955070251068,103.957814101911",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520492",
+      "ADDRESSSTREETNAME": "Blk 492B Tampines Ave 9 #01-422 S520492",
+      "Type": "Point",
+      "LatLng": "1.36300823583218,103.953547637361",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520493",
+      "ADDRESSSTREETNAME": "Blk 493D/493E Tampines St 43 #01-326 S520493",
+      "Type": "Point",
+      "LatLng": "1.36255882105658,103.952463128061",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520494",
+      "ADDRESSSTREETNAME": "Blk 494B Tampines Ave 9 #01-458 S520494",
+      "Type": "Point",
+      "LatLng": "1.36300828886632,103.952704907495",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520496",
+      "ADDRESSSTREETNAME": "Blk 496G Tampines Ave 9 #01-500 S520496",
+      "Type": "Point",
+      "LatLng": "1.36162610553573,103.949991844991",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520498",
+      "ADDRESSSTREETNAME": "Blk 498A Tampines St 45 #01-360 S520498",
+      "Type": "Point",
+      "LatLng": "1.36154056164651,103.958057423023",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520702",
+      "ADDRESSSTREETNAME": "Blk 702 Tampines St 71 #01-14 S520702",
+      "Type": "Point",
+      "LatLng": "1.35617253659734,103.937479925984",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520703",
+      "ADDRESSSTREETNAME": "Blk 703 Tampines St 71 #01-34 S520703",
+      "Type": "Point",
+      "LatLng": "1.35687847282843,103.93773919729",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520708",
+      "ADDRESSSTREETNAME": "Blk 708 Tampines St 71 #01-102 S520708",
+      "Type": "Point",
+      "LatLng": "1.35799336377254,103.936891130528",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520710",
+      "ADDRESSSTREETNAME": "Blk 710 Tampines St 71 #01-134 S520710",
+      "Type": "Point",
+      "LatLng": "1.35892430400755,103.937644664396",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520717",
+      "ADDRESSSTREETNAME": "Blk 717 Tampines St 72 #01-75 S520717",
+      "Type": "Point",
+      "LatLng": "1.35881526185757,103.935147331546",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520719",
+      "ADDRESSSTREETNAME": "Blk 719 Tampines St 72 #01-37 S520719",
+      "Type": "Point",
+      "LatLng": "1.35881239950179,103.935913224064",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520730",
+      "ADDRESSSTREETNAME": "Blk 730 Tampines St 71 #01-61 S520730",
+      "Type": "Point",
+      "LatLng": "1.35670605826191,103.933499184206",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520735",
+      "ADDRESSSTREETNAME": "Blk 735 Tampines St 72 #01-04 S520735",
+      "Type": "Point",
+      "LatLng": "1.35957583587405,103.934155808444",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520741",
+      "ADDRESSSTREETNAME": "Blk 741 Tampines St 72 #01-74 S520741",
+      "Type": "Point",
+      "LatLng": "1.36001177535613,103.933043784538",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "520891",
+      "ADDRESSSTREETNAME": "Blk 891 Tampines Ave 8 #01-82 S520891",
+      "Type": "Point",
+      "LatLng": "1.34922500248819,103.931119234309",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680151",
+      "ADDRESSSTREETNAME": "Blk 151 Jalan Teck Whye #01-29 S680151",
+      "Type": "Point",
+      "LatLng": "1.37841033558764,103.757250629445",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680163",
+      "ADDRESSSTREETNAME": "Blk 163 Jalan Teck Whye #01-220 S680163",
+      "Type": "Point",
+      "LatLng": "1.38092710603597,103.756924620634",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680202",
+      "ADDRESSSTREETNAME": "Blk 202 Choa Chu Kang Ave 1 #B1-63 S680202",
+      "Type": "Point",
+      "LatLng": "1.38183697427067,103.749464812878",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680203",
+      "ADDRESSSTREETNAME": "Blk 203 Choa Chu Kang Ave 1 #B1-41 S680203",
+      "Type": "Point",
+      "LatLng": "1.38124357352133,103.749436340814",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680204",
+      "ADDRESSSTREETNAME": "Blk 204 Choa Chu Kang Ave 1 #B1-15 S680204",
+      "Type": "Point",
+      "LatLng": "1.38050632672412,103.749107389961",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680207",
+      "ADDRESSSTREETNAME": "Blk 207 Choa Chu Kang Central #B1-08 S680207",
+      "Type": "Point",
+      "LatLng": "1.3811032189207,103.747693688956",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680208",
+      "ADDRESSSTREETNAME": "Blk 208 Choa Chu Kang Central #B1-82 S680208",
+      "Type": "Point",
+      "LatLng": "1.38147789135504,103.748174145605",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680210",
+      "ADDRESSSTREETNAME": "Blk 210 Choa Chu Kang Central #B1-162 S680210",
+      "Type": "Point",
+      "LatLng": "1.38249577521271,103.747937139186",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680211",
+      "ADDRESSSTREETNAME": "Blk 211 Choa Chu Kang Central #B1-120 S680211",
+      "Type": "Point",
+      "LatLng": "1.38192103935246,103.747901190703",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680214",
+      "ADDRESSSTREETNAME": "Blk 214 Choa Chu Kang Central #B1-230 S680214",
+      "Type": "Point",
+      "LatLng": "1.38249927801286,103.746505386161",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680215",
+      "ADDRESSSTREETNAME": "Blk 215 Choa Chu Kang Central #B1-186 S680215",
+      "Type": "Point",
+      "LatLng": "1.38289362462521,103.747120912248",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680217",
+      "ADDRESSSTREETNAME": "Blk 217 Choa Chu Kang Central #B1-212 S680217",
+      "Type": "Point",
+      "LatLng": "1.3833569317893,103.746606000717",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680218",
+      "ADDRESSSTREETNAME": "Blk 218 Choa Chu Kang Central #B1-250 S680218",
+      "Type": "Point",
+      "LatLng": "1.38283793568811,103.745841911606",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680219",
+      "ADDRESSSTREETNAME": "Blk 219 Choa Chu Kang Central #B1-256 S680219",
+      "Type": "Point",
+      "LatLng": "1.38248805206283,103.745331200092",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680220",
+      "ADDRESSSTREETNAME": "Blk 220 Choa Chu Kang Central #B1-266 S680220",
+      "Type": "Point",
+      "LatLng": "1.38193300759247,103.745580990801",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680230",
+      "ADDRESSSTREETNAME": "Blk 230 Choa Chu Kang Central #B1-163 S680230",
+      "Type": "Point",
+      "LatLng": "1.38038257280773,103.746190542721",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680232",
+      "ADDRESSSTREETNAME": "Blk 232 Choa Chu Kang Central #B1-127 S680232",
+      "Type": "Point",
+      "LatLng": "1.3804245241606,103.747021683747",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680233",
+      "ADDRESSSTREETNAME": "Blk 233 Choa Chu Kang Central #B1-97 S680233",
+      "Type": "Point",
+      "LatLng": "1.3803055904352,103.747293957529",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680235",
+      "ADDRESSSTREETNAME": "Blk 235 Choa Chu Kang Central #B1-25 S680235",
+      "Type": "Point",
+      "LatLng": "1.37975664204033,103.748749205563",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680237",
+      "ADDRESSSTREETNAME": "Blk 237 Choa Chu Kang Central #B1-63 S680237",
+      "Type": "Point",
+      "LatLng": "1.37944749965803,103.748287394903",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680252",
+      "ADDRESSSTREETNAME": "Blk 252 Choa Chu Kang Ave 2 #01-304 S680252",
+      "Type": "Point",
+      "LatLng": "1.37803547366374,103.745019264429",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680273",
+      "ADDRESSSTREETNAME": "Blk 273 Choa Chu Kang Ave 2 #01-241 S680273",
+      "Type": "Point",
+      "LatLng": "1.37925042924038,103.743072731291",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680284",
+      "ADDRESSSTREETNAME": "Blk 284 Choa Chu Kang Ave 3 #B1-330 S680284",
+      "Type": "Point",
+      "LatLng": "1.37971380153209,103.742134232586",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680285",
+      "ADDRESSSTREETNAME": "Blk 285 Choa Chu Kang Ave 3 #B1-298 S680285",
+      "Type": "Point",
+      "LatLng": "1.38011866600469,103.741879947048",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680286",
+      "ADDRESSSTREETNAME": "Blk 286 Choa Chu Kang Ave 3 #B1-318 S680286",
+      "Type": "Point",
+      "LatLng": "1.37961044294181,103.741530735216",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680287",
+      "ADDRESSSTREETNAME": "Blk 287 Choa Chu Kang Ave 2 #B1-203 S680287",
+      "Type": "Point",
+      "LatLng": "1.37893095378292,103.741564350797",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680288",
+      "ADDRESSSTREETNAME": "Blk 288 Choa Chu Kang Ave 3 #B1-288 S680288",
+      "Type": "Point",
+      "LatLng": "1.37893861257803,103.741023158197",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680289",
+      "ADDRESSSTREETNAME": "Blk 289 Choa Chu Kang Ave 3 #B1-268 S680289",
+      "Type": "Point",
+      "LatLng": "1.37927183011973,103.740664883519",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680294",
+      "ADDRESSSTREETNAME": "Blk 294 Choa Chu Kang Ave 3 #B1-177 S680294",
+      "Type": "Point",
+      "LatLng": "1.37860430153301,103.740961778806",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680295",
+      "ADDRESSSTREETNAME": "Blk 295 Choa Chu Kang Ave 2 #B1-157 S680295",
+      "Type": "Point",
+      "LatLng": "1.37816642908623,103.740967964377",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680296",
+      "ADDRESSSTREETNAME": "Blk 296 Choa Chu Kang Ave 2 #01-12 S680296",
+      "Type": "Point",
+      "LatLng": "1.37738337906207,103.740781449189",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680297",
+      "ADDRESSSTREETNAME": "Blk 297C Choa Chu Kang Ave 2 #01-96 S680297",
+      "Type": "Point",
+      "LatLng": "1.37706567490883,103.74190945223",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680340",
+      "ADDRESSSTREETNAME": "Blk 340 Choa Chu Kang Loop #01-09 S680340",
+      "Type": "Point",
+      "LatLng": "1.3840983030698,103.745498997207",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680445",
+      "ADDRESSSTREETNAME": "Blk 445 Choa Chu Kang Ave 4 #01-307 S680445",
+      "Type": "Point",
+      "LatLng": "1.38170882577146,103.736662616157",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680447",
+      "ADDRESSSTREETNAME": "Blk 447 Choa Chu Kang Ave 4 #01-371 S680447",
+      "Type": "Point",
+      "LatLng": "1.38063153382534,103.737541427366",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680504",
+      "ADDRESSSTREETNAME": "Blk 504 Choa Chu Kang St 51 #01-173 S680504",
+      "Type": "Point",
+      "LatLng": "1.38897887705001,103.742536914361",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680505",
+      "ADDRESSSTREETNAME": "Blk 505 Choa Chu Kang St 51 #01-191 S680505",
+      "Type": "Point",
+      "LatLng": "1.38883086637936,103.742049281495",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680516",
+      "ADDRESSSTREETNAME": "Blk 516 Choa Chu Kang St 51 #01-66 S680516",
+      "Type": "Point",
+      "LatLng": "1.39095081891391,103.743525070851",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680517",
+      "ADDRESSSTREETNAME": "Blk 517 Choa Chu Kang St 51 #01-30 S680517",
+      "Type": "Point",
+      "LatLng": "1.39106988215354,103.742895746896",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680530",
+      "ADDRESSSTREETNAME": "Blk 530 Choa Chu Kang St 51 #01-323 S680530",
+      "Type": "Point",
+      "LatLng": "1.3926269192814,103.741798788286",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680541",
+      "ADDRESSSTREETNAME": "Blk 541 Choa Chu Kang St 52 #01-46 S680541",
+      "Type": "Point",
+      "LatLng": "1.39277814914065,103.744321838125",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680544",
+      "ADDRESSSTREETNAME": "Blk 544 Choa Chu Kang St 52 #01-88 S680544",
+      "Type": "Point",
+      "LatLng": "1.3937173702862,103.743762504413",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680549",
+      "ADDRESSSTREETNAME": "Blk 549 Choa Chu Kang St 52 #01-13 S680549",
+      "Type": "Point",
+      "LatLng": "1.39367280318271,103.742586100094",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680555",
+      "ADDRESSSTREETNAME": "Blk 555 Choa Chu Kang North 6 #01-34 S680555",
+      "Type": "Point",
+      "LatLng": "1.39628713611283,103.743676579444",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680561",
+      "ADDRESSSTREETNAME": "Blk 561 Choa Chu Kang North 6 #01-82 S680561",
+      "Type": "Point",
+      "LatLng": "1.39632680498523,103.744955495219",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680601",
+      "ADDRESSSTREETNAME": "Blk 601 Choa Chu Kang St 62 #01-09 S680601",
+      "Type": "Point",
+      "LatLng": "1.39692771596806,103.744901174309",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680610",
+      "ADDRESSSTREETNAME": "Blk 610 Choa Chu Kang St 62 #01-161 S680610",
+      "Type": "Point",
+      "LatLng": "1.39942409870146,103.743786302032",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680614",
+      "ADDRESSSTREETNAME": "Blk 614 Choa Chu Kang St 62 #01-233 S680614",
+      "Type": "Point",
+      "LatLng": "1.40107456040535,103.743957206124",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680620",
+      "ADDRESSSTREETNAME": "Blk 620 Choa Chu Kang St 62 #01-18 S680620",
+      "Type": "Point",
+      "LatLng": "1.39957665132933,103.747100339309",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680626",
+      "ADDRESSSTREETNAME": "Blk 626 Choa Chu Kang St 62 #01-180 S680626",
+      "Type": "Point",
+      "LatLng": "1.39832082812054,103.745878081763",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680639",
+      "ADDRESSSTREETNAME": "Blk 639 Choa Chu Kang St 64 #01-31 S680639",
+      "Type": "Point",
+      "LatLng": "1.3978267953659,103.748997450018",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680642",
+      "ADDRESSSTREETNAME": "Blk 642 Choa Chu Kang Street  64 #01-65 S680642",
+      "Type": "Point",
+      "LatLng": "1.3983965523244,103.749199895966",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680660",
+      "ADDRESSSTREETNAME": "Blk 660 Choa Chu Kang Crescent #01-93 S680660",
+      "Type": "Point",
+      "LatLng": "1.40115928312892,103.749807649041",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680704",
+      "ADDRESSSTREETNAME": "Blk 704 Choa Chu Kang St 53 #01-80 S680704",
+      "Type": "Point",
+      "LatLng": "1.3904587339736,103.74571946396",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680707",
+      "ADDRESSSTREETNAME": "Blk 707 Choa Chu Kang St 53 #01-118 S680707",
+      "Type": "Point",
+      "LatLng": "1.39038150426611,103.747115975931",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680753",
+      "ADDRESSSTREETNAME": "Blk 753 Choa Chu Kang North 5 #01-213 S680753",
+      "Type": "Point",
+      "LatLng": "1.39237534066513,103.746937307612",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680759",
+      "ADDRESSSTREETNAME": "Blk 759 Choa Chu Kang North 5 #01-145 S680759",
+      "Type": "Point",
+      "LatLng": "1.39321858867242,103.74674084503",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680764",
+      "ADDRESSSTREETNAME": "Blk 764 Choa Chu Kang North 5 #01-275 S680764",
+      "Type": "Point",
+      "LatLng": "1.39317994657916,103.7491081676",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680768",
+      "ADDRESSSTREETNAME": "Blk 768 Choa Chu Kang St 54 #01-29 S680768",
+      "Type": "Point",
+      "LatLng": "1.39412652609195,103.749961595771",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680785",
+      "ADDRESSSTREETNAME": "Blk 785 Choa Chu Kang Drive #01-223 S680785",
+      "Type": "Point",
+      "LatLng": "1.39461111659513,103.747911197359",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "521450",
+      "ADDRESSSTREETNAME": "Blk 450A Tampines St 42 #01-356 S521450",
+      "Type": "Point",
+      "LatLng": "1.35836068451993,103.952252190882",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "521487",
+      "ADDRESSSTREETNAME": "Blk 487B Tampines St 45 #B1-123 S521487",
+      "Type": "Point",
+      "LatLng": "1.35998567096265,103.958247655538",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "521488",
+      "ADDRESSSTREETNAME": "Blk 488B Tampines St 45 #B1-147 S521488",
+      "Type": "Point",
+      "LatLng": "1.36032920706407,103.956980577453",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "521842",
+      "ADDRESSSTREETNAME": "Blk 842G Tampines St 82 #01-96 S521842",
+      "Type": "Point",
+      "LatLng": "1.35126033416255,103.937976274331",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "522487",
+      "ADDRESSSTREETNAME": "Blk 487C Tampines St 44 #B1-103 S522487",
+      "Type": "Point",
+      "LatLng": "1.36075138387229,103.957877079148",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "522497",
+      "ADDRESSSTREETNAME": "Blk 497C Tampines St 45 #01-54 S522497",
+      "Type": "Point",
+      "LatLng": "1.35825225017841,103.958367363018",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "523491",
+      "ADDRESSSTREETNAME": "Blk 491D/491E Tampines St 45 #01-224 S523491",
+      "Type": "Point",
+      "LatLng": "1.3624651984993,103.954683090071",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "523842",
+      "ADDRESSSTREETNAME": "Blk 842C Tampines St 82 #01-46 S523842",
+      "Type": "Point",
+      "LatLng": "1.35092894847636,103.936758460801",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "525230",
+      "ADDRESSSTREETNAME": "Blk 230B Tampines St 24 #01-21 S525230",
+      "Type": "Point",
+      "LatLng": "1.35539848104779,103.950733897824",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "525856",
+      "ADDRESSSTREETNAME": "Blk 856E/856F Tampines St 82 #01-208 S525856",
+      "Type": "Point",
+      "LatLng": "1.35276436098903,103.938706096401",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "526497",
+      "ADDRESSSTREETNAME": "Blk 497H Tampines St 45 #01-92 S526497",
+      "Type": "Point",
+      "LatLng": "1.35964877774206,103.959908218493",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "527450",
+      "ADDRESSSTREETNAME": "Blk 450G Tampines St 42 #01-382 S527450",
+      "Type": "Point",
+      "LatLng": "1.35836062201294,103.952873644136",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "529498",
+      "ADDRESSSTREETNAME": "Blk 498M Tampines St 45 #01-498 S529498",
+      "Type": "Point",
+      "LatLng": "1.36190675523653,103.957741432609",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530159",
+      "ADDRESSSTREETNAME": "Blk 159 Hougang Street 11 #01-17 S530159",
+      "Type": "Point",
+      "LatLng": "1.3514431716346,103.87951331942",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530165",
+      "ADDRESSSTREETNAME": "Blk 165 Hougang Ave 1 #01-1598 S530165",
+      "Type": "Point",
+      "LatLng": "1.35025425045497,103.887795312314",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530221",
+      "ADDRESSSTREETNAME": "Blk 221 Hougang St 21 #B1-100 S530221",
+      "Type": "Point",
+      "LatLng": "1.35660452068998,103.88365063024",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530221",
+      "ADDRESSSTREETNAME": "Blk 221 Hougang St 21 #B1-68 S530221",
+      "Type": "Point",
+      "LatLng": "1.35660452068998,103.88365063024",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530222",
+      "ADDRESSSTREETNAME": "Blk 222 Hougang St 21 #B1-134 S530222",
+      "Type": "Point",
+      "LatLng": "1.35633467142209,103.883722704856",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530422",
+      "ADDRESSSTREETNAME": "Blk 422 Hougang Ave 6 #B1-122 S530422",
+      "Type": "Point",
+      "LatLng": "1.37477275865325,103.894050579171",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530423",
+      "ADDRESSSTREETNAME": "Blk 423 Hougang Ave 6 #B1-102 S530423",
+      "Type": "Point",
+      "LatLng": "1.37408160055307,103.893976658707",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530424",
+      "ADDRESSSTREETNAME": "Blk 424 Hougang Ave 6 #B1-74 S530424",
+      "Type": "Point",
+      "LatLng": "1.37376539871229,103.893482816599",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530424",
+      "ADDRESSSTREETNAME": "Blk 425 Hougang Ave 6 #B1-62 S530425",
+      "Type": "Point",
+      "LatLng": "1.37376539871229,103.893482816599",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530424",
+      "ADDRESSSTREETNAME": "Blk 426 Hougang Ave 6 #B1-46 S530426",
+      "Type": "Point",
+      "LatLng": "1.37376539871229,103.893482816599",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530428",
+      "ADDRESSSTREETNAME": "Blk 428 Hougang Ave 6 #B1-12  S530428",
+      "Type": "Point",
+      "LatLng": "1.37499447732444,103.893254855423",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530435",
+      "ADDRESSSTREETNAME": "Blk 435 Hougang Ave 8 #B1-1679 S530435",
+      "Type": "Point",
+      "LatLng": "1.3775272107324,103.893597446476",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530436",
+      "ADDRESSSTREETNAME": "Blk 436 Hougang Ave 8 #B1-1505 S530436",
+      "Type": "Point",
+      "LatLng": "1.3771978287922,103.893810725195",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530437",
+      "ADDRESSSTREETNAME": "Blk 437 Hougang Ave 8 #B1-1521 S530437",
+      "Type": "Point",
+      "LatLng": "1.37720413309245,103.893277832254",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530439",
+      "ADDRESSSTREETNAME": "Blk 439 Hougang Ave 8 #B1-1555 S530439",
+      "Type": "Point",
+      "LatLng": "1.37859554721405,103.893425128796",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530440",
+      "ADDRESSSTREETNAME": "Blk 440 Hougang Ave 8 #B1-1567 S530440",
+      "Type": "Point",
+      "LatLng": "1.37913329192951,103.893527877968",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530444",
+      "ADDRESSSTREETNAME": "Blk 444 Hougang Ave 8 #B1-1591 S530444",
+      "Type": "Point",
+      "LatLng": "1.37948289992705,103.8938476576",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "530444",
+      "ADDRESSSTREETNAME": "Blk 444 Hougang Ave 8 #B1-1599 S530444",
+      "Type": "Point",
+      "LatLng": "1.37948289992705,103.8938476576",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bukit Batok CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "659959",
+      "ADDRESSSTREETNAME": "21 Bukit Batok Central",
+      "Type": "Point",
+      "LatLng": "1.34989765246565,103.747549470703",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Braddell Heights CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "556129",
+      "ADDRESSSTREETNAME": "50 Serangoon Ave 2",
+      "Type": "Point",
+      "LatLng": "1.35161224552733,103.8703678757",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Mountbatten CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "390087",
+      "ADDRESSSTREETNAME": "87 Jalan Satu",
+      "Type": "Point",
+      "LatLng": "1.30923463666423,103.886826838063",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Yio Chu Kang CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "569163",
+      "ADDRESSSTREETNAME": "50 Ang Mo Kio Street 61",
+      "Type": "Point",
+      "LatLng": "1.38151727157775,103.841428124035",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "140021",
+      "ADDRESSSTREETNAME": "Blk 21 Queen's Close #01-141 S140021",
+      "Type": "Point",
+      "LatLng": "1.29327263801382,103.799914667228",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "140132",
+      "ADDRESSSTREETNAME": "Blk 132 Clarence Lane #01-12 S140132",
+      "Type": "Point",
+      "LatLng": "1.29225522865349,103.814879810829",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "141082",
+      "ADDRESSSTREETNAME": "Blk 82 Stratmore Ave #01-148 S141082",
+      "Type": "Point",
+      "LatLng": "1.29454525680166,103.80875107492",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "150082",
+      "ADDRESSSTREETNAME": "Blk 82 Redhill Lane #01-65 S150082",
+      "Type": "Point",
+      "LatLng": "1.28742209967026,103.81943493767",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "151125",
+      "ADDRESSSTREETNAME": "Blk 125 Bukit Merah View #01-386 S151125",
+      "Type": "Point",
+      "LatLng": "1.28505730700464,103.823812016097",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "160123",
+      "ADDRESSSTREETNAME": "Blk 123 Kim Tian Road #01-62 S160123",
+      "Type": "Point",
+      "LatLng": "1.283851513276,103.828962976361",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "271030",
+      "ADDRESSSTREETNAME": "Blk 30A Holland Close #01-209 S271030",
+      "Type": "Point",
+      "LatLng": "1.30746713303664,103.79718588923",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "272003",
+      "ADDRESSSTREETNAME": "Blk 3A Holland Close #01-55 S272003",
+      "Type": "Point",
+      "LatLng": "1.30872888690863,103.796738859754",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "310043",
+      "ADDRESSSTREETNAME": "Blk 43 Toa Payoh Lor 5 #01-131 S310043",
+      "Type": "Point",
+      "LatLng": "1.33598539811143,103.854241820285",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "310050",
+      "ADDRESSSTREETNAME": "Blk 50 Toa Payoh Lor 5 #01-69 S310050",
+      "Type": "Point",
+      "LatLng": "1.33717651345097,103.852543131074",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "310086",
+      "ADDRESSSTREETNAME": "Blk 86 Toa Payoh Lor 2 #01-333 S310086",
+      "Type": "Point",
+      "LatLng": "1.33576224499197,103.847631116183",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "311080",
+      "ADDRESSSTREETNAME": "Blk 80A Toa Payoh Lorong 4 #01-454 S311080",
+      "Type": "Point",
+      "LatLng": "1.3352915711484,103.849247126225",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "311172",
+      "ADDRESSSTREETNAME": "Blk 172A Toa Payoh Lor 1 #01-1170 S311172",
+      "Type": "Point",
+      "LatLng": "1.33027754120316,103.842448865118",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "312080",
+      "ADDRESSSTREETNAME": "Blk 80B Toa Payoh Lorong 4 #01-440 S312080",
+      "Type": "Point",
+      "LatLng": "1.33529400234173,103.849888212061",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "320115",
+      "ADDRESSSTREETNAME": "Blk 115 Whampoa Road #01-115 S320115",
+      "Type": "Point",
+      "LatLng": "1.32626356977454,103.857337491664",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "322004",
+      "ADDRESSSTREETNAME": "Blk 4C St George's Lane #01-157 S322004",
+      "Type": "Point",
+      "LatLng": "1.32211971246855,103.860820099617",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "330006",
+      "ADDRESSSTREETNAME": "Blk 6 Boon Keng Road #01-52 S330006",
+      "Type": "Point",
+      "LatLng": "1.31708802980472,103.860896695276",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "370042",
+      "ADDRESSSTREETNAME": "Blk 42 Circuit Road #01-531 S370042",
+      "Type": "Point",
+      "LatLng": "1.32684923065663,103.886293549991",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "370055",
+      "ADDRESSSTREETNAME": "Blk 55 Pipit Road #01-04 S370055",
+      "Type": "Point",
+      "LatLng": "1.32373875352027,103.888378425388",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "410645",
+      "ADDRESSSTREETNAME": "Blk 645 Jalan Tenaga #01-105 S410645",
+      "Type": "Point",
+      "LatLng": "1.33167116992143,103.906537917969",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "410651",
+      "ADDRESSSTREETNAME": "Blk 651 Jalan Tenaga #01-04 S410651",
+      "Type": "Point",
+      "LatLng": "1.33219242402732,103.907363530901",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "410655",
+      "ADDRESSSTREETNAME": "Blk 655 Jalan Tenaga #01-94 S410655",
+      "Type": "Point",
+      "LatLng": "1.33335886355862,103.906849073112",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "410660",
+      "ADDRESSSTREETNAME": "Blk 660 Jalan Tenaga #01-134 S410660",
+      "Type": "Point",
+      "LatLng": "1.3343932898617,103.906741808067",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "410661",
+      "ADDRESSSTREETNAME": "Blk 661 Jalan Damai #01-129 S410661",
+      "Type": "Point",
+      "LatLng": "1.33447671357595,103.907884887766",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "410671",
+      "ADDRESSSTREETNAME": "Blk 671 Jalan Damai #01-03 S410671",
+      "Type": "Point",
+      "LatLng": "1.33244991362315,103.908872190511",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "461029",
+      "ADDRESSSTREETNAME": "Blk 29A Chai Chee Ave #01-74 S461029",
+      "Type": "Point",
+      "LatLng": "1.32470110613965,103.923851967398",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "462010",
+      "ADDRESSSTREETNAME": "Blk 10C Bedok South Ave 2 #01-562 S462010",
+      "Type": "Point",
+      "LatLng": "1.32209389480633,103.936222129443",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510136",
+      "ADDRESSSTREETNAME": "Blk 136 Pasir Ris Street 11 #01-233 S510136",
+      "Type": "Point",
+      "LatLng": "1.36467287098948,103.95773973163",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510138",
+      "ADDRESSSTREETNAME": "Blk 138 Pasir Ris St 11 #01-207 S510138",
+      "Type": "Point",
+      "LatLng": "1.36333064996671,103.95972655249",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510148",
+      "ADDRESSSTREETNAME": "Blk 148 Pasir Ris St 13 #01-24 S510148",
+      "Type": "Point",
+      "LatLng": "1.36226594574083,103.962078615696",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510156",
+      "ADDRESSSTREETNAME": "Blk 156 Pasir Ris St 13 #01-35 S510156",
+      "Type": "Point",
+      "LatLng": "1.36408364401249,103.962895350524",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510185",
+      "ADDRESSSTREETNAME": "Blk 185 Pasir Ris St 11 #01-60 S510185",
+      "Type": "Point",
+      "LatLng": "1.36573012308917,103.959903675589",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510192",
+      "ADDRESSSTREETNAME": "Blk 192 Pasir Ris Street 12 #01-06 S510192",
+      "Type": "Point",
+      "LatLng": "1.36624733181184,103.959056955263",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510194",
+      "ADDRESSSTREETNAME": "Blk 194 Pasir Ris Street 12 #01-76 S510194",
+      "Type": "Point",
+      "LatLng": "1.36598902782478,103.959675297733",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510207",
+      "ADDRESSSTREETNAME": "Blk 207 Pasir Ris St 21 #01-356 S510207",
+      "Type": "Point",
+      "LatLng": "1.36630332038319,103.962287770446",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510212",
+      "ADDRESSSTREETNAME": "Blk 212 Pasir Ris St 21 #01-226 S510212",
+      "Type": "Point",
+      "LatLng": "1.3675472389412,103.960581881712",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510220",
+      "ADDRESSSTREETNAME": "Blk 219/220 Pasir Ris St 21 #01-170 S510220",
+      "Type": "Point",
+      "LatLng": "1.3698482033682,103.96158260173",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510221",
+      "ADDRESSSTREETNAME": "Blk 221 Pasir Ris St 21 #01-116 S510221",
+      "Type": "Point",
+      "LatLng": "1.3702019319887,103.961614645511",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510226",
+      "ADDRESSSTREETNAME": "Blk 226 Pasir Ris St 21 #01-76 S510226",
+      "Type": "Point",
+      "LatLng": "1.37101229693268,103.961722376679",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510230",
+      "ADDRESSSTREETNAME": "Blk 230 Pasir Ris St 21 #01-44 S510230",
+      "Type": "Point",
+      "LatLng": "1.37256155774444,103.960998688783",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510233",
+      "ADDRESSSTREETNAME": "Blk 233 Pasir Ris Drive 4 #01-490 S510233",
+      "Type": "Point",
+      "LatLng": "1.37412050302567,103.961908571531",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510247",
+      "ADDRESSSTREETNAME": "Blk 247 Pasir Ris St 21 #01-145 S510247",
+      "Type": "Point",
+      "LatLng": "1.37073378688977,103.9624580243",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510252",
+      "ADDRESSSTREETNAME": "Blk 252 Pasir Ris St 21 #01-203 S510252",
+      "Type": "Point",
+      "LatLng": "1.36817271033091,103.962563721416",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510273",
+      "ADDRESSSTREETNAME": "Blk 273 Pasir Ris St 21 #01-498 S510273",
+      "Type": "Point",
+      "LatLng": "1.36484626595442,103.964113175833",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510448",
+      "ADDRESSSTREETNAME": "Blk 448 Pasir Ris Dr 6 #B1-150 S510448",
+      "Type": "Point",
+      "LatLng": "1.37058343644046,103.958105616772",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510450",
+      "ADDRESSSTREETNAME": "Blk 450 Pasir Ris Dr 6 #B1-164 S510450",
+      "Type": "Point",
+      "LatLng": "1.37114185789878,103.958096914287",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510451",
+      "ADDRESSSTREETNAME": "Blk 451 Pasir Ris Dr 6 #B1-186 S510451",
+      "Type": "Point",
+      "LatLng": "1.37148485170111,103.958096941931",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510452",
+      "ADDRESSSTREETNAME": "Blk 452 Pasir Ris Dr 6 #B1-232 S510452",
+      "Type": "Point",
+      "LatLng": "1.37148474458095,103.957361145228",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510453",
+      "ADDRESSSTREETNAME": "Blk 453 Pasir Ris Dr 6 #B1-222 S510453",
+      "Type": "Point",
+      "LatLng": "1.37184726293775,103.957373304459",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510454",
+      "ADDRESSSTREETNAME": "Blk 454 Pasir Ris Dr 6 #B1-210 S510454",
+      "Type": "Point",
+      "LatLng": "1.37200971584113,103.958089266582",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510472",
+      "ADDRESSSTREETNAME": "Blk 472 Pasir Ris Dr 6 #B1-458 S510472",
+      "Type": "Point",
+      "LatLng": "1.37416560339562,103.957269545679",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510473",
+      "ADDRESSSTREETNAME": "Blk 473 Pasir Ris Dr 6 #B1-498 S510473",
+      "Type": "Point",
+      "LatLng": "1.37449501605943,103.957362535899",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510474",
+      "ADDRESSSTREETNAME": "Blk 474 Pasir Ris Dr 6 #B1-568 S510474",
+      "Type": "Point",
+      "LatLng": "1.37474139748475,103.956621653311",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510475",
+      "ADDRESSSTREETNAME": "Blk 475 Pasir Ris Dr 6 #B1-544 S510475",
+      "Type": "Point",
+      "LatLng": "1.37519519163485,103.957148369059",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510476",
+      "ADDRESSSTREETNAME": "Blk 476 Pasir Ris Dr 6 #B1-538 S510476",
+      "Type": "Point",
+      "LatLng": "1.37519783392208,103.958343063252",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510477",
+      "ADDRESSSTREETNAME": "Blk 477 Pasir Ris Dr 6 #B1-520 S510477",
+      "Type": "Point",
+      "LatLng": "1.37449176651019,103.958262502079",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510482",
+      "ADDRESSSTREETNAME": "Blk 482 Pasir Ris Dr 4 #B1-395 S510482",
+      "Type": "Point",
+      "LatLng": "1.37375877651544,103.959715102485",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "510483",
+      "ADDRESSSTREETNAME": "Blk 483 Pasir Ris Dr 6 #B1-477 S510483",
+      "Type": "Point",
+      "LatLng": "1.37404166662378,103.959999175909",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Dunman High School (Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "436895",
+      "ADDRESSSTREETNAME": "10 Tanjong Rhu Rd",
+      "Type": "Point",
+      "LatLng": "1.29912529891553,103.882861743815",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Pasir Ris Crest Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "518934",
+      "ADDRESSSTREETNAME": "11 Pasir Ris Street 41",
+      "Type": "Point",
+      "LatLng": "1.37234390542994,103.959362585115",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Hai Sing Catholic School (Former Greenview Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "518969",
+      "ADDRESSSTREETNAME": "15 Pasir Ris Street 21",
+      "Type": "Point",
+      "LatLng": "1.36930602350171,103.962693413977",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Seng Kang Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "545090",
+      "ADDRESSSTREETNAME": "10 Compassvale Lane",
+      "Type": "Point",
+      "LatLng": "1.38659682785745,103.898365040967",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Pathlight School Campus 2 (Annex Building) (Former Chong Boon Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "569250",
+      "ADDRESSSTREETNAME": "2 Ang Mo Kio Street 44",
+      "Type": "Point",
+      "LatLng": "1.36405220590429,103.857900880363",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "One World International School (Nanyang Campus) (Former Pioneer Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "649075",
+      "ADDRESSSTREETNAME": "21 Jurong West Street 81",
+      "Type": "Point",
+      "LatLng": "1.34761306715972,103.694769259962",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Joint Testing & Vaccination Centre (Jurong West) (Former Hong Kah Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "649370",
+      "ADDRESSSTREETNAME": "931 Jurong West Street 42",
+      "Type": "Point",
+      "LatLng": "1.3520408414765,103.726657937831",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "St Andrew's Mission School (Former Yusof Ishak Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "658712",
+      "ADDRESSSTREETNAME": "11 Bukit Batok Street 25",
+      "Type": "Point",
+      "LatLng": "1.34233920870103,103.760032634584",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Dunearn Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "659204",
+      "ADDRESSSTREETNAME": "21 Bukit Batok West Ave 2",
+      "Type": "Point",
+      "LatLng": "1.36357900165575,103.744721094248",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Greenridge Secondary (Former Fajar Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "678972",
+      "ADDRESSSTREETNAME": "31 Gangsa Road",
+      "Type": "Point",
+      "LatLng": "1.37556538638884,103.763881903479",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "58 Chestnut Drive (679301) (Former Chestnut Drive Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "679301",
+      "ADDRESSSTREETNAME": "58 Chestnut Drive",
+      "Type": "Point",
+      "LatLng": "1.36876120995947,103.770575852008",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Chua Chu Kang Secondary (Former Teck Whye Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "688848",
+      "ADDRESSSTREETNAME": "31 Teck Whye Crescent",
+      "Type": "Point",
+      "LatLng": "1.38333422199194,103.755103276768",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Northbrooks Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "768692",
+      "ADDRESSSTREETNAME": "585 Yishun Ring Road",
+      "Type": "Point",
+      "LatLng": "1.42088101738226,103.845060259965",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Clarke Quay MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "059815",
+      "ADDRESSSTREETNAME": "10 Eu Tong Sen Street",
+      "Type": "Point",
+      "LatLng": "1.28745210783328,103.846119198451",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Outram Park MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "059816",
+      "ADDRESSSTREETNAME": "300 Eu Tong Sen Street",
+      "Type": "Point",
+      "LatLng": "1.27972058956314,103.839439872372",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Macpherson MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "378956",
+      "ADDRESSSTREETNAME": "10 Circuit Link",
+      "Type": "Point",
+      "LatLng": "1.32628414742769,103.888527798779",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Hillview MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "678211",
+      "ADDRESSSTREETNAME": "510 Upper Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.36244851836587,103.767148938524",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Marina Bay MRT Station (North-South Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "018925",
+      "ADDRESSSTREETNAME": "21 Park Street",
+      "Type": "Point",
+      "LatLng": "1.27641029482829,103.854595529265",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Raffles Place MRT Station (North-South Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "048618",
+      "ADDRESSSTREETNAME": "5 Raffles Place",
+      "Type": "Point",
+      "LatLng": "1.28433392075075,103.851379790122",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Chinatown MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "059443",
+      "ADDRESSSTREETNAME": "151 New Bridge Road",
+      "Type": "Point",
+      "LatLng": "1.2839640472182,103.843141955384",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Habourfront MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "098867",
+      "ADDRESSSTREETNAME": "81 Telok Blangah Road",
+      "Type": "Point",
+      "LatLng": "1.26531139638208,103.820557324849",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Mount Pleasant MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "299781",
+      "ADDRESSSTREETNAME": "14 Denham Road",
+      "Type": "Point",
+      "LatLng": "1.32856454440688,103.83518858659",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Gardens By The Bay MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "019396",
+      "ADDRESSSTREETNAME": "11 Marina Mall",
+      "Type": "Point",
+      "LatLng": "1.27848725263356,103.86745466551",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bukit Merah Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "159050",
+      "ADDRESSSTREETNAME": "10 Lengkok Bahru",
+      "Type": "Point",
+      "LatLng": "1.28575153502273,103.813208366669",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Cedar Girl\ufffds School",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "349692",
+      "ADDRESSSTREETNAME": "1 Cedar Avenue",
+      "Type": "Point",
+      "LatLng": "1.33452736509598,103.873791002748",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "St Gabriel\ufffds Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "556140",
+      "ADDRESSSTREETNAME": "24 Serangoon Ave 1",
+      "Type": "Point",
+      "LatLng": "1.34664416093473,103.875734247561",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Kent Ridge Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "127368",
+      "ADDRESSSTREETNAME": "147 West Coast Road",
+      "Type": "Point",
+      "LatLng": "1.30122772549231,103.764889623507",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "New Town Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "139657",
+      "ADDRESSSTREETNAME": "1020 Dover Road",
+      "Type": "Point",
+      "LatLng": "1.30977589077101,103.773188642353",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Queenstown Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "148800",
+      "ADDRESSSTREETNAME": "1 Strathmore Road",
+      "Type": "Point",
+      "LatLng": "1.29353328836811,103.813175479088",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Anglo-Chinese School (Junior)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "227988",
+      "ADDRESSSTREETNAME": "16 Winstedt Road",
+      "Type": "Point",
+      "LatLng": "1.30937871521635,103.840789154983",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bukit Panjang MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "678213",
+      "ADDRESSSTREETNAME": "950 Upper Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.37956120268721,103.761188870501",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Cashew MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "679696",
+      "ADDRESSSTREETNAME": "1 Cashew Road",
+      "Type": "Point",
+      "LatLng": "1.36984600372845,103.764315055992",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Woodlands MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "737736",
+      "ADDRESSSTREETNAME": "11 Woodlands Square",
+      "Type": "Point",
+      "LatLng": "1.43659640744388,103.787346997051",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Lentor MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "789361",
+      "ADDRESSSTREETNAME": "1 Lentor Drive",
+      "Type": "Point",
+      "LatLng": "1.38550657118953,103.835743817999",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Junyuan Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "528933",
+      "ADDRESSSTREETNAME": "11 Tampines Street 84",
+      "Type": "Point",
+      "LatLng": "1.35334123825347,103.933411376807",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "East Spring Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "529231",
+      "ADDRESSSTREETNAME": "30 Tampines Street 34",
+      "Type": "Point",
+      "LatLng": "1.35622508531525,103.960640702696",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Ngee Ann Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "529283",
+      "ADDRESSSTREETNAME": "1 Tampines Street 32",
+      "Type": "Point",
+      "LatLng": "1.35439823780083,103.95674468748",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Springfield Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "529593",
+      "ADDRESSSTREETNAME": "30 Tampines Avenue 8",
+      "Type": "Point",
+      "LatLng": "1.34957562959866,103.930218343292",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Changkat Changi Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "529894",
+      "ADDRESSSTREETNAME": "23 Simei Street 3",
+      "Type": "Point",
+      "LatLng": "1.34036113669139,103.95272509563",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Kranji Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "689333",
+      "ADDRESSSTREETNAME": "61 Choa Chu Kang Street 51",
+      "Type": "Point",
+      "LatLng": "1.39004038546376,103.741091103306",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bukit Panjang Govt. High",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "689809",
+      "ADDRESSSTREETNAME": "7 Choa Chu Kang Avenue 4",
+      "Type": "Point",
+      "LatLng": "1.38213671617123,103.738134427535",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Admiralty Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "737916",
+      "ADDRESSSTREETNAME": "31 Woodlands Crescent",
+      "Type": "Point",
+      "LatLng": "1.44589068499209,103.802398196653",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Woodlands Ring Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "738239",
+      "ADDRESSSTREETNAME": "10 Woodlands Ring Road",
+      "Type": "Point",
+      "LatLng": "1.43648894260373,103.800148471822",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Woodgrove Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "738990",
+      "ADDRESSSTREETNAME": "3 Woodlands Avenue 6",
+      "Type": "Point",
+      "LatLng": "1.42831827209743,103.79604758957",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Sembawang Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "757704",
+      "ADDRESSSTREETNAME": "30 Sembawang Crescent",
+      "Type": "Point",
+      "LatLng": "1.44531501399694,103.816843259007",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Orchid Park Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "768454",
+      "ADDRESSSTREETNAME": "10 Yishun Street 81",
+      "Type": "Point",
+      "LatLng": "1.41532032260402,103.837859247645",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Northland Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "768578",
+      "ADDRESSSTREETNAME": "3 Yishun Street 22",
+      "Type": "Point",
+      "LatLng": "1.43573961657428,103.840104689868",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tanjong Katong Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "438796",
+      "ADDRESSSTREETNAME": "130 Haig Road",
+      "Type": "Point",
+      "LatLng": "1.3087351555554,103.897225202611",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Temasek Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "465561",
+      "ADDRESSSTREETNAME": "600 Upper East Coast Road",
+      "Type": "Point",
+      "LatLng": "1.31577097619921,103.94714754817",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bedok South Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "468585",
+      "ADDRESSSTREETNAME": "1 Jalan Langgar Bedok",
+      "Type": "Point",
+      "LatLng": "1.32565340732723,103.950621243051",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Damai Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "479229",
+      "ADDRESSSTREETNAME": "4800 Bedok Reservoir Road",
+      "Type": "Point",
+      "LatLng": "1.3375454782513,103.926417065716",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Meridian Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "518901",
+      "ADDRESSSTREETNAME": "31 Pasir Ris Street 51",
+      "Type": "Point",
+      "LatLng": "1.36724684009191,103.948972488695",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Boon Lay Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "648354",
+      "ADDRESSSTREETNAME": "11 Jurong West Street 65",
+      "Type": "Point",
+      "LatLng": "1.3432237168212,103.701702922479",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Pasir Ris Elias  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "519498",
+      "ADDRESSSTREETNAME": "93 Pasir Ris Drive 3",
+      "Type": "Point",
+      "LatLng": "1.37842943699246,103.942476405496",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tampines West  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "529014",
+      "ADDRESSSTREETNAME": "10 Tampines Street 81",
+      "Type": "Point",
+      "LatLng": "1.34803138764804,103.935566571762",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tampines East  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "529341",
+      "ADDRESSSTREETNAME": "10 Tampines Street 23",
+      "Type": "Point",
+      "LatLng": "1.35335682593433,103.954620461629",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Punggol CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "538808",
+      "ADDRESSSTREETNAME": "3 Hougang Ave 6",
+      "Type": "Point",
+      "LatLng": "1.3743788214828,103.891815328408",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Teck Ghee CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "569734",
+      "ADDRESSSTREETNAME": "861 Ang Mo Kio Ave 10",
+      "Type": "Point",
+      "LatLng": "1.36308867917974,103.853536076665",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730710",
+      "ADDRESSSTREETNAME": "Blk 710 Woodlands Dr 40 #01-45 S730710",
+      "Type": "Point",
+      "LatLng": "1.44077676101798,103.797420285504",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730711",
+      "ADDRESSSTREETNAME": "Blk 711 Woodlands Dr 40 #01-65 S730711",
+      "Type": "Point",
+      "LatLng": "1.44122296609589,103.797378367929",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730717",
+      "ADDRESSSTREETNAME": "Blk 717 Woodlands Dr 70 #01-114 S730717",
+      "Type": "Point",
+      "LatLng": "1.44084734761544,103.799421970171",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730718",
+      "ADDRESSSTREETNAME": "Blk 718 Woodlands Ave 6 #01-684 S730718",
+      "Type": "Point",
+      "LatLng": "1.44159550066733,103.80110649092",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730721",
+      "ADDRESSSTREETNAME": "Blk 721 Woodlands Circle #01-122 S730721",
+      "Type": "Point",
+      "LatLng": "1.44398934803962,103.800333935621",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730724",
+      "ADDRESSSTREETNAME": "Blk 724 Woodlands Ave 6 #01-502 S730724",
+      "Type": "Point",
+      "LatLng": "1.44466655461149,103.798713050329",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730729",
+      "ADDRESSSTREETNAME": "Blk 729 Woodlands Circle #01-47 S730729",
+      "Type": "Point",
+      "LatLng": "1.44259053541606,103.79858079013",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730738",
+      "ADDRESSSTREETNAME": "Blk 738 Woodlands Circle #01-373 S730738",
+      "Type": "Point",
+      "LatLng": "1.44404657352513,103.797489732755",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730740",
+      "ADDRESSSTREETNAME": "Blk 740 Woodlands Circle #01-413 S730740",
+      "Type": "Point",
+      "LatLng": "1.44451878308682,103.796297969532",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730743",
+      "ADDRESSSTREETNAME": "Blk 743 Woodlands Circle #01-465 S730743",
+      "Type": "Point",
+      "LatLng": "1.44372823665509,103.796311729087",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730747",
+      "ADDRESSSTREETNAME": "Blk 747 Woodlands Circle #01-708 S730747",
+      "Type": "Point",
+      "LatLng": "1.44317275666218,103.795008214419",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730749",
+      "ADDRESSSTREETNAME": "Blk 749 Woodlands Circle #01-604 S730749",
+      "Type": "Point",
+      "LatLng": "1.44451996470322,103.794445729253",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730756",
+      "ADDRESSSTREETNAME": "Blk 756 Woodlands Ave 4 #01-283 S730756",
+      "Type": "Point",
+      "LatLng": "1.44572144754626,103.793193114548",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730759",
+      "ADDRESSSTREETNAME": "Blk 759 Woodlands Ave 6 #01-32 S730759",
+      "Type": "Point",
+      "LatLng": "1.44647549000956,103.795415745838",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730763",
+      "ADDRESSSTREETNAME": "Blk 763 Woodlands Ave 6 #01-70 S730763",
+      "Type": "Point",
+      "LatLng": "1.44538363145039,103.795975415961",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730791",
+      "ADDRESSSTREETNAME": "Blk 791 Woodlands Ave 6 #01-603 S730791",
+      "Type": "Point",
+      "LatLng": "1.44274810529231,103.802238463011",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730792",
+      "ADDRESSSTREETNAME": "Blk 792 Woodlands Ave 7 #01-675 S730792",
+      "Type": "Point",
+      "LatLng": "1.4421012190172,103.802273267298",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730795",
+      "ADDRESSSTREETNAME": "Blk 795 Woodlands Dr 72 #01-13 S730795",
+      "Type": "Point",
+      "LatLng": "1.44300644257679,103.804098452693",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730810",
+      "ADDRESSSTREETNAME": "Blk 810 Woodlands St 81 #01-191A S730810",
+      "Type": "Point",
+      "LatLng": "1.44266793256435,103.788139136848",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730827",
+      "ADDRESSSTREETNAME": "Blk 827 Woodlands St 81 #01-92 S730827",
+      "Type": "Point",
+      "LatLng": "1.43987157518481,103.789355484143",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Ang Mo Kio  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "569976",
+      "ADDRESSSTREETNAME": "795 Ang Mo Kio Ave 1",
+      "Type": "Point",
+      "LatLng": "1.36683348076669,103.840668130336",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bishan CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "579799",
+      "ADDRESSSTREETNAME": "51 Bishan Street 13",
+      "Type": "Point",
+      "LatLng": "1.34951161831951,103.850509275687",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Nanyang CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "649040",
+      "ADDRESSSTREETNAME": "60 Jurong West Street 91",
+      "Type": "Point",
+      "LatLng": "1.3423640283979,103.692320231917",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Jurong Green  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "649520",
+      "ADDRESSSTREETNAME": "6 Jurong West Ave 1",
+      "Type": "Point",
+      "LatLng": "1.35055603170356,103.725341556777",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Hong Kah North  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "659440",
+      "ADDRESSSTREETNAME": "30 Bukit Batok Street 31",
+      "Type": "Point",
+      "LatLng": "1.35905888839505,103.749456841487",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Zheng Hua CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "677738",
+      "ADDRESSSTREETNAME": "1 Segar Road",
+      "Type": "Point",
+      "LatLng": "1.3868068291971,103.771520846382",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bukit Panjang  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "678295",
+      "ADDRESSSTREETNAME": "8 Pending Rd",
+      "Type": "Point",
+      "LatLng": "1.37645074924612,103.77055880601",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Choa Chu Kang  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "688892",
+      "ADDRESSSTREETNAME": "35 Teck Whye Ave",
+      "Type": "Point",
+      "LatLng": "1.38115529003064,103.751903886481",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Nee Soon East  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "768893",
+      "ADDRESSSTREETNAME": "1 Yishun Ave 9",
+      "Type": "Point",
+      "LatLng": "1.43102087212489,103.838488083545",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "150035",
+      "ADDRESSSTREETNAME": "Blk 35 Jalan Rumah Tinggi #01-493",
+      "Type": "Point",
+      "LatLng": "1.28797300093957,103.808839268722",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "150036",
+      "ADDRESSSTREETNAME": "Blk 36 Jalan Rumah Tinggi #01-447",
+      "Type": "Point",
+      "LatLng": "1.28850154549197,103.808776833953",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "210040",
+      "ADDRESSSTREETNAME": "Blk 40 Cambridge Road #01-115",
+      "Type": "Point",
+      "LatLng": "1.31599301420798,103.848243055948",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Telok Blangah  CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "108943",
+      "ADDRESSSTREETNAME": "450 Telok Blangah Street 31",
+      "Type": "Point",
+      "LatLng": "1.27486265663736,103.807875435609",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Ulu Pandan CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "279621",
+      "ADDRESSSTREETNAME": "170 Ghim Moh Road",
+      "Type": "Point",
+      "LatLng": "1.31200940949362,103.789211186001",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Toa Payoh West CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "319642",
+      "ADDRESSSTREETNAME": "200 Lorong 2 Toa Payoh",
+      "Type": "Point",
+      "LatLng": "1.3353827124599,103.844830875826",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Marine Parade CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "449282",
+      "ADDRESSSTREETNAME": "278 Marine Parade Road",
+      "Type": "Point",
+      "LatLng": "1.30482859822658,103.9095452826",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tanjong Rhu MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "436488",
+      "ADDRESSSTREETNAME": "2 Tanjong Rhu Place",
+      "Type": "Point",
+      "LatLng": "1.29671308713912,103.873386497372",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Hougang Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "534256",
+      "ADDRESSSTREETNAME": "2 Hougang Street 93",
+      "Type": "Point",
+      "LatLng": "1.37815587736238,103.881871600462",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bartley Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "538403",
+      "ADDRESSSTREETNAME": "10 Jalan Bunga Rampai",
+      "Type": "Point",
+      "LatLng": "1.34001741417171,103.882455034534",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Zhonghua Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "556123",
+      "ADDRESSSTREETNAME": "13 Serangoon Ave 3",
+      "Type": "Point",
+      "LatLng": "1.34840720818108,103.869430489288",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Anderson Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "569206",
+      "ADDRESSSTREETNAME": "10 Ang Mo Kio Street 53",
+      "Type": "Point",
+      "LatLng": "1.37424218597029,103.851429962258",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Deyi Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "569277",
+      "ADDRESSSTREETNAME": "1 Ang Mo Kio Street 42",
+      "Type": "Point",
+      "LatLng": "1.36734741315475,103.85193612136",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Yio Chu Kang Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "569868",
+      "ADDRESSSTREETNAME": "3063 Ang Mo Kio Avenue 5",
+      "Type": "Point",
+      "LatLng": "1.37826334342741,103.841809451457",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Peirce Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "575566",
+      "ADDRESSSTREETNAME": "10 Sin Ming Walk",
+      "Type": "Point",
+      "LatLng": "1.36613167574689,103.829910359682",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Whitley Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "579747",
+      "ADDRESSSTREETNAME": "30 Bishan Street 24",
+      "Type": "Point",
+      "LatLng": "1.35505208299812,103.8425523817",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Crest Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "609561",
+      "ADDRESSSTREETNAME": "561 Jurong East Street 24",
+      "Type": "Point",
+      "LatLng": "1.3435550149546,103.742543057668",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tengah CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "690119",
+      "ADDRESSSTREETNAME": "119 Plantation Cres",
+      "Type": "Point",
+      "LatLng": "1.35675241769837,103.734500050293",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Nee Soon South CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "768455",
+      "ADDRESSSTREETNAME": "30 Yishun Street 81",
+      "Type": "Point",
+      "LatLng": "1.41518685333742,103.834766232704",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tampines Changkat CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "529453",
+      "ADDRESSSTREETNAME": "13 Tampines Street 11",
+      "Type": "Point",
+      "LatLng": "1.34584984281025,103.947549813977",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tampines North CC",
+      "DESCRIPTION": "Civil Defence Public Shelter (Community Club/Centre)",
+      "ADDRESSPOSTALCODE": "529204",
+      "ADDRESSSTREETNAME": "2 Tampines Street 41",
+      "Type": "Point",
+      "LatLng": "1.35736478775974,103.946602685067",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Geylang Bahru MRT Station  (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "339355",
+      "ADDRESSSTREETNAME": "541 Kallang Bahru, #B2-01",
+      "Type": "Point",
+      "LatLng": "1.32130110237378,103.871622627508",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Potong Pasir MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "347694",
+      "ADDRESSSTREETNAME": "55 Upper Serangoon Road",
+      "Type": "Point",
+      "LatLng": "1.3312858030285,103.869027840136",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Woodleigh MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "347695",
+      "ADDRESSSTREETNAME": "400 Upper Serangoon Road",
+      "Type": "Point",
+      "LatLng": "1.33919004552448,103.870818319259",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Dakota MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "397973",
+      "ADDRESSSTREETNAME": "201 Old Airport Road",
+      "Type": "Point",
+      "LatLng": "1.30833703594984,103.888614669914",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Mountbatten MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "398006",
+      "ADDRESSSTREETNAME": "301 Mountbatten Road",
+      "Type": "Point",
+      "LatLng": "1.30617246427352,103.882429934659",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bedok Reservoir MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "469724",
+      "ADDRESSSTREETNAME": "371 Bedok North Avenue 3",
+      "Type": "Point",
+      "LatLng": "1.33660781986183,103.93223462632",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Caldecott MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "298113",
+      "ADDRESSSTREETNAME": "38 Toa Payoh Rise",
+      "Type": "Point",
+      "LatLng": "1.33767337125514,103.839530791204",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Unity Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "689143",
+      "ADDRESSSTREETNAME": "20 Choa Chu Kang Street 62",
+      "Type": "Point",
+      "LatLng": "1.39966040605019,103.74588280003",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Marine Parade MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "449971",
+      "ADDRESSSTREETNAME": "101 Marine Parade Road",
+      "Type": "Point",
+      "LatLng": "1.30262287620209,103.904727817185",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Marine Terrace MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "449970",
+      "ADDRESSSTREETNAME": "304 Marine Parade Road",
+      "Type": "Point",
+      "LatLng": "1.30649599398536,103.914951929981",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Siglap MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "449969",
+      "ADDRESSSTREETNAME": "1000 Marine Parade Road",
+      "Type": "Point",
+      "LatLng": "1.31013108508729,103.929940702349",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bayshore MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "469958",
+      "ADDRESSSTREETNAME": "31 Bayshore Road",
+      "Type": "Point",
+      "LatLng": "1.31232031316296,103.941067438165",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tanjong Katong Girls'",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "439272",
+      "ADDRESSSTREETNAME": "20 Dunman Lane",
+      "Type": "Point",
+      "LatLng": "1.30821274088342,103.895820097615",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Haw Par Villa MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "117396",
+      "ADDRESSSTREETNAME": "270 Pasir Panjang Road",
+      "Type": "Point",
+      "LatLng": "1.28257135559439,103.781752725926",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Buona Vista MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "139350",
+      "ADDRESSSTREETNAME": "150 North Buona Vista Road",
+      "Type": "Point",
+      "LatLng": "1.30627534285357,103.790363206387",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tiong Bahru MRT Station(East-West Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "168731",
+      "ADDRESSSTREETNAME": "300 Tiong Bahru Road",
+      "Type": "Point",
+      "LatLng": "1.28619457933338,103.826998946003",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "City Hall MRT Station (North-South Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "179100",
+      "ADDRESSSTREETNAME": "150 North Bridge Road",
+      "Type": "Point",
+      "LatLng": "1.29323999732464,103.852220718842",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bugis MRT Station (East-West Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "188022",
+      "ADDRESSSTREETNAME": "220 Victoria Street",
+      "Type": "Point",
+      "LatLng": "1.30022849205221,103.85557493413",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Lavender MRT Station(East-West Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "208699",
+      "ADDRESSSTREETNAME": "50 Kallang Road",
+      "Type": "Point",
+      "LatLng": "1.30737781397325,103.862767638976",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Farrer Park MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "218703",
+      "ADDRESSSTREETNAME": "250 Race Course Road",
+      "Type": "Point",
+      "LatLng": "1.31190556461827,103.853477716971",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Newton MRT Station (North-South Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "228234",
+      "ADDRESSSTREETNAME": "49 Scotts Road",
+      "Type": "Point",
+      "LatLng": "1.31231891212519,103.837984596067",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Little India MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "229900",
+      "ADDRESSSTREETNAME": "60 Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.30556891456457,103.849360697749",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Somerset MRT Station(North-South Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "238162",
+      "ADDRESSSTREETNAME": "1 Somerset Road",
+      "Type": "Point",
+      "LatLng": "1.300264162665,103.839085757997",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Botanic Gardens MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "259777",
+      "ADDRESSSTREETNAME": "491 Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.32248806567299,103.816014002457",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tan Kah Kee MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "266268",
+      "ADDRESSSTREETNAME": "651 Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.32639223665315,103.806548207356",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Sixth Avenue MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "269784",
+      "ADDRESSSTREETNAME": "777 Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.33081856750387,103.796767728272",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Braddell MRT Station (North-South Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "319756",
+      "ADDRESSSTREETNAME": "377 Lorong 1 Toa Payoh",
+      "Type": "Point",
+      "LatLng": "1.3401052072537,103.84675592921",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Boon Keng MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "328260",
+      "ADDRESSSTREETNAME": "900 Serangoon Road",
+      "Type": "Point",
+      "LatLng": "1.31933570458251,103.861569454038",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bedok North MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "479481",
+      "ADDRESSSTREETNAME": "651 Bedok North Road, #B1-01",
+      "Type": "Point",
+      "LatLng": "1.33456075403487,103.917712323919",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Expo MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "485985",
+      "ADDRESSSTREETNAME": "2 Expo Drive, #B2-01",
+      "Type": "Point",
+      "LatLng": "1.33543686729168,103.961831209972",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Labrador Park MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "109029",
+      "ADDRESSSTREETNAME": "701 Telok Blangah Road",
+      "Type": "Point",
+      "LatLng": "1.27225416755714,103.802631580117",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Upper Changi MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "485990",
+      "ADDRESSSTREETNAME": "690 Upper Changi Road East, #B3-01",
+      "Type": "Point",
+      "LatLng": "1.34177037769795,103.961104442005",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tampines MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "529544",
+      "ADDRESSSTREETNAME": "15 Tampines Central 1",
+      "Type": "Point",
+      "LatLng": "1.35515040885258,103.943009890068",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tampines East MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "529623",
+      "ADDRESSSTREETNAME": "20 Tampines Avenue 7",
+      "Type": "Point",
+      "LatLng": "1.35644704602436,103.954542099745",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Tampines West MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "529683",
+      "ADDRESSSTREETNAME": "2 Tampines Ave 4",
+      "Type": "Point",
+      "LatLng": "1.34551530349219,103.938436979441",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Kovan MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "534799",
+      "ADDRESSSTREETNAME": "900 Upper Serangoon Road",
+      "Type": "Point",
+      "LatLng": "1.35990191445076,103.88449472718",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Hougang MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "538758",
+      "ADDRESSSTREETNAME": "80 Hougang Central",
+      "Type": "Point",
+      "LatLng": "1.37033472167609,103.892261758406",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bartley MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "539788",
+      "ADDRESSSTREETNAME": "90 Bartley Road",
+      "Type": "Point",
+      "LatLng": "1.34286557694132,103.879701089978",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Buangkok  MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "545061",
+      "ADDRESSSTREETNAME": "10 Sengkang Central",
+      "Type": "Point",
+      "LatLng": "1.38369416304571,103.893049982263",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Lorong Chuan MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "554533",
+      "ADDRESSSTREETNAME": "150 Serangoon Avenue 3",
+      "Type": "Point",
+      "LatLng": "1.35163927021247,103.863945744124",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Serangoon MRT Station (North-East Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "556082",
+      "ADDRESSSTREETNAME": "21 Serangoon Central",
+      "Type": "Point",
+      "LatLng": "1.35104828848536,103.871070420495",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Mayflower MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "569900",
+      "ADDRESSSTREETNAME": "91 Ang Mo Kio Ave 4",
+      "Type": "Point",
+      "LatLng": "1.37150153281237,103.836357796571",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bright Hill MRT Station (Thomson-East Coast Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "575737",
+      "ADDRESSSTREETNAME": "100 Sin Ming Ave",
+      "Type": "Point",
+      "LatLng": "1.36328317561584,103.832893625407",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bishan MRT Station (Circle Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "579827",
+      "ADDRESSSTREETNAME": "200 Bishan Road",
+      "Type": "Point",
+      "LatLng": "1.35070566850026,103.848078932848",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Beauty World MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "588216",
+      "ADDRESSSTREETNAME": "101 Upper Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.34171845972527,103.775413568426",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "King Albert Park MRT Station (Downtown Line)",
+      "DESCRIPTION": "Civil Defence Public Shelter (MRT Station)",
+      "ADDRESSPOSTALCODE": "599987",
+      "ADDRESSSTREETNAME": "2 Blackmore Drive",
+      "Type": "Point",
+      "LatLng": "1.33589349453785,103.783235866294",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730351",
+      "ADDRESSSTREETNAME": "Blk 351 Woodlands Ave 1 #01-721 S730351",
+      "Type": "Point",
+      "LatLng": "1.43250599942044,103.784061602739",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730355",
+      "ADDRESSSTREETNAME": "Blk 355 Woodlands Ave 1 #01-707 S730355",
+      "Type": "Point",
+      "LatLng": "1.43284697215391,103.784550345249",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730363",
+      "ADDRESSSTREETNAME": "Blk 363 Woodlands Ave 5 #01-440 S730363",
+      "Type": "Point",
+      "LatLng": "1.43392831973202,103.785927942288",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730368",
+      "ADDRESSSTREETNAME": "Blk 368 Woodlands Ave 1 #01-807 S730368",
+      "Type": "Point",
+      "LatLng": "1.43294239475345,103.786732556542",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730401",
+      "ADDRESSSTREETNAME": "Blk 401 Woodlands St 41 #01-30 S730401",
+      "Type": "Point",
+      "LatLng": "1.43044857202337,103.772774073681",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730408",
+      "ADDRESSSTREETNAME": "Blk 408 Woodlands St 41 #01-09 S730408",
+      "Type": "Point",
+      "LatLng": "1.42885252458878,103.772369187339",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730418",
+      "ADDRESSSTREETNAME": "Blk 418 Woodlands St 41 #01-131 S730418",
+      "Type": "Point",
+      "LatLng": "1.42886830899668,103.77477428549",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730424",
+      "ADDRESSSTREETNAME": "Blk 424 Woodlands St 41 #01-340 S730424",
+      "Type": "Point",
+      "LatLng": "1.42728730224268,103.774859403272",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730601",
+      "ADDRESSSTREETNAME": "Blk 601 Woodlands Dr 42 #01-83 S730601",
+      "Type": "Point",
+      "LatLng": "1.43865031015329,103.796517236524",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730605",
+      "ADDRESSSTREETNAME": "Blk 605 Woodlands Dr 42 #01-105 S730605",
+      "Type": "Point",
+      "LatLng": "1.43719229447028,103.797089760716",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730702",
+      "ADDRESSSTREETNAME": "Blk 702 Woodlands Dr 40 #01-88 S730702",
+      "Type": "Point",
+      "LatLng": "1.44186517420882,103.796513725332",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "671171",
+      "ADDRESSSTREETNAME": "Blk 171A Gangsa Road #01-50 S671171",
+      "Type": "Point",
+      "LatLng": "1.37921044311779,103.766373352814",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "680150",
+      "ADDRESSSTREETNAME": "Blk 150 Jalan Teck Whye #01-43 S680150",
+      "Type": "Point",
+      "LatLng": "1.37820350353559,103.75645088026",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730846",
+      "ADDRESSSTREETNAME": "Blk 846 Woodlands Ave 4 #01-612 S730846",
+      "Type": "Point",
+      "LatLng": "1.44330259673776,103.793474578196",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730851",
+      "ADDRESSSTREETNAME": "Blk 851 Woodlands Street 83 #01-18 S730851",
+      "Type": "Point",
+      "LatLng": "1.44012390277222,103.792357938904",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730859",
+      "ADDRESSSTREETNAME": "Blk 859 Woodlands St 83 #01-140 S730859",
+      "Type": "Point",
+      "LatLng": "1.43988175447245,103.793964789949",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730871",
+      "ADDRESSSTREETNAME": "Blk 871 Woodlands Street 81 #01-292 S730871",
+      "Type": "Point",
+      "LatLng": "1.44385815163047,103.789187012091",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730876",
+      "ADDRESSSTREETNAME": "Blk 876 Woodlands Ave 9 #01-256 S730876",
+      "Type": "Point",
+      "LatLng": "1.44479629224386,103.790602762447",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730880",
+      "ADDRESSSTREETNAME": "Blk 880 Woodlands St 82 #01-08 S730880",
+      "Type": "Point",
+      "LatLng": "1.44448968108041,103.792643082337",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730892",
+      "ADDRESSSTREETNAME": "Blk 892A Woodlands Dr 50 #01-153 S730892",
+      "Type": "Point",
+      "LatLng": "1.43724908091526,103.790191537598",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730897",
+      "ADDRESSSTREETNAME": "Blk 897A Woodlands Dr 50 #01-50 S730897",
+      "Type": "Point",
+      "LatLng": "1.43649097915325,103.793972077253",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "730899",
+      "ADDRESSSTREETNAME": "Blk 899A Woodlands Dr 50 #01-250 S730899",
+      "Type": "Point",
+      "LatLng": "1.43580504395405,103.795253994526",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "731894",
+      "ADDRESSSTREETNAME": "Blk 894B Woodlands Dr 50 #01-49 S731894",
+      "Type": "Point",
+      "LatLng": "1.43600943505244,103.78950749795",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "731894",
+      "ADDRESSSTREETNAME": "Blk 895B Woodlands Dr 50 #01-24 S731894",
+      "Type": "Point",
+      "LatLng": "1.43600943505244,103.78950749795",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "732899",
+      "ADDRESSSTREETNAME": "Blk 899C Woodlands Dr 50 #01-296 S732899",
+      "Type": "Point",
+      "LatLng": "1.43657076947556,103.795252869391",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "HDB",
+      "DESCRIPTION": "Civil Defence Public Shelter (HDB)",
+      "ADDRESSPOSTALCODE": "760310",
+      "ADDRESSSTREETNAME": "Blk 310 Yishun Ring Road #01-1230 S760310",
+      "Type": "Point",
+      "LatLng": "1.43235922096158,103.841097440494",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Fusionopolis One Parking (Carpark)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "138632",
+      "ADDRESSSTREETNAME": "1 Fusionopolis Way",
+      "Type": "Point",
+      "LatLng": "1.29929405573076,103.787404060926",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "The Atrium @ Orchard (Carpark)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "238889",
+      "ADDRESSSTREETNAME": "60 Orchard Road",
+      "Type": "Point",
+      "LatLng": "1.29970457676462,103.845488552253",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Civil Service College (Carpark)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "275983",
+      "ADDRESSSTREETNAME": "31 North Buona Vista Road",
+      "Type": "Point",
+      "LatLng": "1.30962959457178,103.791802737643",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Revenue House (Carpark)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "307987",
+      "ADDRESSSTREETNAME": "55 Newton Road",
+      "Type": "Point",
+      "LatLng": "1.31946087725785,103.841991957752",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Temasek Polytechnic (Block 26)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "529757",
+      "ADDRESSSTREETNAME": "21 Tampines Avenue 1",
+      "Type": "Point",
+      "LatLng": "1.34793947802841,103.928839989349",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Nanyang Polytechnic (Block 170)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "569830",
+      "ADDRESSSTREETNAME": "180 Ang Mo Kio Avenue 8",
+      "Type": "Point",
+      "LatLng": "1.38034090667762,103.848083335838",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "BCA Academy (Block C)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "579700",
+      "ADDRESSSTREETNAME": "200 Braddell Road",
+      "Type": "Point",
+      "LatLng": "1.34483593174321,103.858270641508",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Punggol Digital District (Carpark)",
+      "DESCRIPTION": "Civil Defence Public Shelter (Public Development)",
+      "ADDRESSPOSTALCODE": "829909",
+      "ADDRESSSTREETNAME": "80 Punggol Way",
+      "Type": "Point",
+      "LatLng": "1.41582227677587,103.909068122635",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Grace Orchard School (Former Clementi Woods Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "127443",
+      "ADDRESSSTREETNAME": "170 West Coast Road",
+      "Type": "Point",
+      "LatLng": "1.30638619053762,103.764761544635",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "ECON Care Residence (Henderson) (Former Henderson Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "159544",
+      "ADDRESSSTREETNAME": "100 Henderson Road",
+      "Type": "Point",
+      "LatLng": "1.28509566288222,103.819480729958",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Crescent Girls' Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "247961",
+      "ADDRESSSTREETNAME": "357 Tanglin Road",
+      "Type": "Point",
+      "LatLng": "1.29331946616836,103.817544466321",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Hwa Chong Institution (Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "269734",
+      "ADDRESSSTREETNAME": "661 Bukit Timah Road",
+      "Type": "Point",
+      "LatLng": "1.32752415198259,103.801405049428",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Elections Department (Former Balestier Hill Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "307516",
+      "ADDRESSSTREETNAME": "11  Novena Rise",
+      "Type": "Point",
+      "LatLng": "1.32459690351406,103.844005817866",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Bendemeer Secondary",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "327919",
+      "ADDRESSSTREETNAME": "1 St Wilfred Road",
+      "Type": "Point",
+      "LatLng": "1.32434842272038,103.860518359299",
+      "ICON_NAME": "Onemap.png"
+    },
+    {
+      "NAME": "Joint Testing & Vaccination Centre (Kaki Bukit) (Former Bedok North Secondary)",
+      "DESCRIPTION": "Civil Defence Public Shelter (School)",
+      "ADDRESSPOSTALCODE": "419612",
+      "ADDRESSSTREETNAME": "20 Jalan Damai",
+      "Type": "Point",
+      "LatLng": "1.33467855055437,103.910702098048",
+      "ICON_NAME": "Onemap.png"
+    }
+  ]
+}

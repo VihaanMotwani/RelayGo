@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:uuid/uuid.dart';
 
-import 'app.dart';
-import 'core/permissions.dart';
-import 'providers/ai_provider.dart';
-import 'providers/awareness_provider.dart';
-import 'providers/chat_provider.dart';
-import 'providers/connectivity_provider.dart';
-import 'providers/mesh_provider.dart';
-import 'providers/messaging_provider.dart';
-import 'services/mesh/mesh_service.dart';
+import 'core/platform_bridge.dart';
+
+/// RelayGo Flutter Module - Headless Service Layer
+///
+/// This module provides:
+/// - On-device AI (Cactus LLM, STT, RAG)
+/// - BLE mesh networking
+/// - Backend sync
+///
+/// UI is handled by native platforms:
+/// - iOS: SwiftUI (ios-native/)
+/// - Android: Jetpack Compose (android-native/)
+///
+/// Communication via Platform Channels (com.relaygo/bridge)
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,66 +24,26 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
 
-  // Dark status bar
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarBrightness: Brightness.dark,
-    statusBarIconBrightness: Brightness.light,
-  ));
+  // Initialize the platform bridge
+  // This sets up method channel handlers for native UI communication
+  PlatformBridge.instance;
 
-  // Request permissions
-  await PermissionHelper.requestAll();
+  // Run minimal app to keep Flutter engine alive
+  runApp(const _HeadlessApp());
 
-  // Get or create device ID and display name
-  final prefs = await SharedPreferences.getInstance();
-  String deviceId = prefs.getString('device_id') ?? '';
-  if (deviceId.isEmpty) {
-    deviceId = const Uuid().v4().substring(0, 12);
-    await prefs.setString('device_id', deviceId);
+  print('RelayGo Flutter service layer ready');
+}
+
+/// Minimal app - no UI, just keeps Flutter engine running
+class _HeadlessApp extends StatelessWidget {
+  const _HeadlessApp();
+
+  @override
+  Widget build(BuildContext context) {
+    // Transparent container - native UI handles everything
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SizedBox.shrink(),
+    );
   }
-  String displayName = prefs.getString('display_name') ?? '';
-  if (displayName.isEmpty) {
-    displayName = 'User-${deviceId.substring(0, 4)}';
-    await prefs.setString('display_name', displayName);
-  }
-
-  // Initialize core services
-  final meshService = MeshService();
-  final aiProvider = AiProvider();
-
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider.value(value: aiProvider),
-        ChangeNotifierProvider(
-          create: (_) => MeshProvider(meshService)..start(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => ConnectivityProvider(meshService.store)..start(),
-        ),
-        ChangeNotifierProxyProvider<AiProvider, ChatProvider>(
-          create: (_) => ChatProvider(
-            aiProvider.aiService,
-            meshService,
-            deviceId,
-          ),
-          update: (_, ai, prev) => prev!,
-        ),
-        ChangeNotifierProvider(
-          create: (_) => MessagingProvider(meshService, deviceId, displayName)
-            ..start(),
-        ),
-        ChangeNotifierProxyProvider<AiProvider, AwarenessProvider>(
-          create: (_) => AwarenessProvider(
-            aiProvider.aiService,
-            meshService.store,
-          )..startAutoRefresh(),
-          update: (_, ai, prev) => prev!,
-        ),
-      ],
-      child: const RelayGoApp(),
-    ),
-  );
-
-  // Start AI initialization (async, shows loading screen)
-  aiProvider.initialize();
 }

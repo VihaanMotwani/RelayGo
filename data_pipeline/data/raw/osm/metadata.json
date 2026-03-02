@@ -1,0 +1,86 @@
+{
+  "fetch_timestamp": "2026-03-02T17:08:01.510328",
+  "bbox": {
+    "south": 1.1496,
+    "west": 103.594,
+    "north": 1.4784,
+    "east": 104.0945
+  },
+  "queries": {
+    "hospitals": {
+      "raw_filename": "raw_hospitals.json",
+      "normalized_filename": "hospitals.json",
+      "raw_element_count": 72,
+      "normalized_count": 72,
+      "status": "success"
+    },
+    "clinics": {
+      "raw_filename": "raw_clinics.json",
+      "normalized_filename": "clinics.json",
+      "raw_element_count": 584,
+      "normalized_count": 584,
+      "status": "success"
+    },
+    "fire_stations": {
+      "raw_filename": "raw_fire_stations.json",
+      "normalized_filename": "fire_stations.json",
+      "raw_element_count": 36,
+      "normalized_count": 36,
+      "status": "success"
+    },
+    "police_stations": {
+      "raw_filename": "raw_police_stations.json",
+      "normalized_filename": "police_stations.json",
+      "raw_element_count": 130,
+      "normalized_count": 130,
+      "status": "success"
+    },
+    "shelters": {
+      "raw_filename": "raw_shelters.json",
+      "normalized_filename": "shelters.json",
+      "raw_element_count": 1881,
+      "normalized_count": 1881,
+      "status": "success"
+    },
+    "aed_locations": {
+      "raw_filename": "raw_aed_locations.json",
+      "normalized_filename": "aed_locations.json",
+      "raw_element_count": 223,
+      "normalized_count": 223,
+      "status": "success"
+    },
+    "assembly_points": {
+      "raw_filename": "raw_assembly_points.json",
+      "normalized_filename": "assembly_points.json",
+      "raw_element_count": 4,
+      "normalized_count": 4,
+      "status": "success"
+    },
+    "emergency_services": {
+      "raw_filename": "raw_emergency_services.json",
+      "normalized_filename": "emergency_services.json",
+      "raw_element_count": 597,
+      "normalized_count": 597,
+      "status": "success"
+    },
+    "pharmacies": {
+      "raw_filename": "raw_pharmacies.json",
+      "normalized_filename": "pharmacies.json",
+      "raw_element_count": 165,
+      "normalized_count": 165,
+      "status": "success"
+    },
+    "ambulance_stations": {
+      "raw_filename": "raw_ambulance_stations.json",
+      "normalized_filename": "ambulance_stations.json",
+      "raw_element_count": 2,
+      "normalized_count": 2,
+      "status": "success"
+    }
+  },
+  "combined": {
+    "filename": "combined_emergency.json",
+    "total_before_dedup": 3694,
+    "total_after_dedup": 3454
+  }
+}

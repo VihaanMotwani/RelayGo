@@ -1,0 +1,47 @@
+{
+  "hospital": {
+    "before": 104,
+    "after": 87,
+    "duplicates_removed": 17
+  },
+  "clinic": {
+    "before": 592,
+    "after": 575,
+    "duplicates_removed": 17
+  },
+  "fire_station": {
+    "before": 57,
+    "after": 38,
+    "duplicates_removed": 19
+  },
+  "police_station": {
+    "before": 258,
+    "after": 173,
+    "duplicates_removed": 85
+  },
+  "shelter": {
+    "before": 2477,
+    "after": 2102,
+    "duplicates_removed": 375
+  },
+  "aed": {
+    "before": 9867,
+    "after": 7695,
+    "duplicates_removed": 2172
+  },
+  "pharmacy": {
+    "before": 165,
+    "after": 164,
+    "duplicates_removed": 1
+  },
+  "emergency_service": {
+    "before": 0,
+    "after": 0,
+    "duplicates_removed": 0
+  },
+  "total": {
+    "records": 10834,
+    "file_size_bytes": 3592340
+  },
+  "processed_at": "2026-03-02T17:17:39.864090"
+}

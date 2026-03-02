@@ -1,0 +1,13 @@
+# Flutter generated frameworks (rebuild with: flutter build ios-framework)
+Flutter/Debug/
+Flutter/Profile/
+Flutter/Release/
+
+# Xcode
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.xcworkspace/xcuserdata/
+
+# CocoaPods
+Pods/

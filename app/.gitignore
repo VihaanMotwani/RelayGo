@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Desktop generated artifacts (created by Flutter tooling)
+/linux/flutter/ephemeral/
+/windows/flutter/ephemeral/
+/macos/Flutter/ephemeral/
+**/.plugin_symlinks/
