@@ -4,3 +4,5 @@ venv
 .agent
 .claude
 .cursor
+__pycache__
+.idea
