@@ -145,6 +145,10 @@ body {
   background: transparent !important;
 }
 
+.mapboxgl-ctrl-top-right {
+  z-index: 3 !important;
+}
+
 .mapboxgl-ctrl-group {
   background: var(--bg-toolbar) !important;
   border: 0.5px solid var(--separator) !important;
@@ -171,8 +175,15 @@ body {
 
 /* Directive flash animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Incident map pins — dispatch-style markers */

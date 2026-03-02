@@ -103,6 +103,9 @@ export default function Map({ reports }) {
   reportsRef.current = reports;
 
   /* ---- Canvas relay arc rendering (draws OVER 3D buildings) ---- */
+  /* Arcs are 3D-aware: points are sampled along the geographic path,
+     assigned parabolic altitude, and projected to screen with pitch offset
+     so they rotate and tilt naturally with the map camera. */
 
   const drawRelayOverlay = useCallback((map, rpts) => {
     const canvas = canvasRef.current;
@@ -122,53 +125,91 @@ export default function Map({ reports }) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
 
+    const pitchRad = map.getPitch() * Math.PI / 180;
+    const zoom = map.getZoom();
     const allNodes = [];
 
     for (const r of rpts) {
       const path = r.relay_path;
       if (!Array.isArray(path) || path.length < 2) continue;
 
-      const pts = [];
-      for (const p of path) {
-        if (p.lat == null || p.lng == null) continue;
-        const sp = map.project([p.lng, p.lat]);
-        pts.push(sp);
-        allNodes.push(sp);
-      }
-      if (pts.length < 2) continue;
+      const geoNodes = path.filter((p) => p.lat != null && p.lng != null);
+      for (const p of geoNodes) allNodes.push(map.project([p.lng, p.lat]));
+      if (geoNodes.length < 2) continue;
 
-      for (let i = 0; i < pts.length - 1; i++) {
-        const a = pts[i];
-        const b = pts[i + 1];
-        const dx = b.x - a.x;
-        const dy = b.y - a.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 4 || dist > 3000) continue;
+      for (let i = 0; i < geoNodes.length - 1; i++) {
+        const aGeo = geoNodes[i];
+        const bGeo = geoNodes[i + 1];
 
-        // Quadratic bezier control point — arcs UPWARD in screen space
-        const cpx = (a.x + b.x) / 2;
-        const cpy = (a.y + b.y) / 2 - dist * 0.38;
+        const a = map.project([aGeo.lng, aGeo.lat]);
+        const b = map.project([bGeo.lng, bGeo.lat]);
+        const screenDist = Math.sqrt((b.x - a.x) ** 2 + (b.y - a.y) ** 2);
+        if (screenDist < 4 || screenDist > 3000) continue;
+
+        // Haversine geographic distance (metres)
+        const R = 6371000;
+        const lat1 = aGeo.lat * Math.PI / 180;
+        const lat2 = bGeo.lat * Math.PI / 180;
+        const dLat = lat2 - lat1;
+        const dLng = (bGeo.lng - aGeo.lng) * Math.PI / 180;
+        const ha =
+          Math.sin(dLat / 2) ** 2 +
+          Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+        const geoDist = R * 2 * Math.atan2(Math.sqrt(ha), Math.sqrt(1 - ha));
+
+        // Peak altitude of the parabolic arc (proportional to distance)
+        const maxAlt = geoDist * 0.5;
+
+        // Metres-per-pixel at the segment midpoint
+        const midLat = (aGeo.lat + bGeo.lat) / 2;
+        const metersPerPixel =
+          (78271.484 * Math.cos(midLat * Math.PI / 180)) / Math.pow(2, zoom);
+
+        // Pitch factor — never fully flat so arcs stay visible at low pitch
+        const pitchFactor = Math.max(Math.sin(pitchRad), 0.15);
+
+        // Sample N points along the geographic path with parabolic altitude
+        const N = 30;
+        const screenPts = [];
+
+        for (let s = 0; s <= N; s++) {
+          const t = s / N;
+          const lng = aGeo.lng + (bGeo.lng - aGeo.lng) * t;
+          const lat = aGeo.lat + (bGeo.lat - aGeo.lat) * t;
+          const alt = maxAlt * 4 * t * (1 - t); // parabola: 0 → maxAlt → 0
+
+          const sp = map.project([lng, lat]);
+          // Push the point upward on screen proportional to its altitude
+          sp.y -= (alt / metersPerPixel) * pitchFactor;
+          screenPts.push(sp);
+        }
 
         // Glow pass
         ctx.save();
         ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.quadraticCurveTo(cpx, cpy, b.x, b.y);
+        ctx.moveTo(screenPts[0].x, screenPts[0].y);
+        for (let s = 1; s < screenPts.length; s++) {
+          ctx.lineTo(screenPts[s].x, screenPts[s].y);
+        }
         ctx.strokeStyle = 'rgba(0, 217, 255, 0.10)';
         ctx.lineWidth = 12;
         ctx.shadowColor = 'rgba(0, 217, 255, 0.25)';
         ctx.shadowBlur = 18;
         ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
         ctx.stroke();
         ctx.restore();
 
         // Main arc
         ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.quadraticCurveTo(cpx, cpy, b.x, b.y);
+        ctx.moveTo(screenPts[0].x, screenPts[0].y);
+        for (let s = 1; s < screenPts.length; s++) {
+          ctx.lineTo(screenPts[s].x, screenPts[s].y);
+        }
         ctx.strokeStyle = 'rgba(0, 217, 255, 0.75)';
         ctx.lineWidth = 2.5;
         ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
         ctx.stroke();
       }
     }
@@ -388,7 +429,7 @@ export default function Map({ reports }) {
       attributionControl: false,
     });
 
-    map.addControl(new mapboxgl.NavigationControl({ visualizePitch: true }), 'top-right');
+    map.addControl(new mapboxgl.NavigationControl({ visualizePitch: true }), 'bottom-left');
 
     // Redraw canvas arcs on every camera change
     const redraw = () => drawRelayOverlay(map, reportsRef.current);
