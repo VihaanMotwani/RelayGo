@@ -22,26 +22,53 @@ struct SOSView: View {
                         }
 
                         Circle()
-                            .fill(relay.sosActive ? .red : .red.opacity(0.9))
+                            .fill(
+                                relay.sosActive
+                                    ? LinearGradient(
+                                        colors: [Color(red: 0.9, green: 0.2, blue: 0.2), Color(red: 0.7, green: 0.1, blue: 0.1)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                    : LinearGradient(
+                                        colors: [Color(red: 0.95, green: 0.35, blue: 0.35), Color(red: 0.75, green: 0.15, blue: 0.2)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                            )
                             .frame(width: 200, height: 200)
-                            .shadow(color: .red.opacity(0.4), radius: relay.sosActive ? 30 : 15)
+                            .overlay(
+                                Circle()
+                                    .strokeBorder(
+                                        LinearGradient(
+                                            colors: [.white.opacity(0.3), .clear],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 2
+                                    )
+                            )
+                            .shadow(color: .red.opacity(0.5), radius: relay.sosActive ? 25 : 12, y: 4)
 
-                        VStack(spacing: 4) {
+                        VStack(spacing: 2) {
                             if relay.sosActive {
                                 Text("RELAY")
-                                    .font(.system(size: 42, weight: .bold, design: .rounded))
+                                    .font(.system(size: 38, weight: .heavy, design: .rounded))
                                 Text("ACTIVE")
-                                    .font(.caption.bold())
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                    .tracking(2)
                             } else if relay.isConnected {
-                                Text("CONNECT")
-                                    .font(.system(size: 42, weight: .bold, design: .rounded))
-                                Text("to Relay")
-                                    .font(.caption.bold())
+                                Text("TAP TO")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                    .tracking(1)
+                                Text("RELAY")
+                                    .font(.system(size: 38, weight: .heavy, design: .rounded))
                             } else {
-                                Text("Connect")
-                                    .font(.system(size: 32, weight: .bold, design: .rounded))
-                                Text("to Relay")
-                                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                                Text("TAP TO")
+                                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                    .tracking(1)
+                                    .opacity(0.8)
+                                Text("CONNECT")
+                                    .font(.system(size: 28, weight: .heavy, design: .rounded))
                             }
                         }
                         .foregroundStyle(.white)

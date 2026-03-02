@@ -201,10 +201,11 @@ class FlutterBridge: ObservableObject {
 
     // MARK: - AI Methods
 
-    func chat(_ text: String, extractReport: Bool = false) async throws -> ChatResponse {
+    func chat(_ text: String, extractReport: Bool = false, extractAndBroadcast: Bool = false) async throws -> ChatResponse {
         let result = try await invoke("chat", arguments: [
             "text": text,
-            "extractReport": extractReport
+            "extractReport": extractReport,
+            "extractAndBroadcast": extractAndBroadcast
         ])
 
         guard let result = result else {
@@ -228,6 +229,15 @@ class FlutterBridge: ObservableObject {
     /// Cancel ongoing streaming chat
     func cancelStreamingChat() async throws {
         let _ = try await invoke("cancelStreamingChat")
+    }
+
+    /// Extract emergency info from text and broadcast to mesh if significant
+    /// Used for Nearby chat messages to auto-detect emergencies
+    func extractAndBroadcast(_ text: String) async throws -> [String: Any]? {
+        let result = try await invoke("extractAndBroadcast", arguments: [
+            "text": text
+        ])
+        return result?["extraction"] as? [String: Any]
     }
 
     func transcribe(audioPath: String) async throws -> String {

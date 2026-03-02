@@ -89,6 +89,7 @@ class RelayService: ObservableObject {
     @Published var isThinking = false
     @Published var isStreaming = false
     private var currentStreamingMessageId: UUID?
+    private var lastUserMessageText: String?  // For extraction after streaming
 
     // Settings
     @Published var relayEnabled: Bool {
@@ -315,6 +316,9 @@ class RelayService: ObservableObject {
                 isEmergency: false
             )
             broadcasts.insert(broadcast, at: 0)
+
+            // Also extract and broadcast as emergency report if urgent
+            await extractAndBroadcastIfNeeded(message)
         } catch {
             print("Failed to send broadcast: \(error)")
         }
@@ -327,6 +331,9 @@ class RelayService: ObservableObject {
     // MARK: - AI Chat
 
     func sendToAI(_ text: String) async {
+        // Store for extraction after streaming completes
+        lastUserMessageText = text
+
         // Add user message
         let userMessage = ChatMessage(isUser: true, text: text, isVerified: false)
         chatMessages.append(userMessage)
@@ -385,6 +392,28 @@ class RelayService: ObservableObject {
         // Haptic feedback
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+
+        // If mesh is connected, extract emergency info and broadcast
+        if isConnected, let userText = lastUserMessageText {
+            Task {
+                await extractAndBroadcastIfNeeded(userText)
+            }
+        }
+        lastUserMessageText = nil
+    }
+
+    /// Extract emergency info from text and broadcast to mesh if urgent
+    private func extractAndBroadcastIfNeeded(_ text: String) async {
+        guard isConnected else { return }
+
+        do {
+            let extraction = try await bridge.extractAndBroadcast(text)
+            if let extraction = extraction {
+                print("[RelayService] Extracted and broadcast: \(extraction["type"] ?? "unknown") urg=\(extraction["urgency"] ?? 0)")
+            }
+        } catch {
+            print("[RelayService] Extraction failed: \(error)")
+        }
     }
 
     /// Handle stream error

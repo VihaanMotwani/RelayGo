@@ -109,16 +109,26 @@ class PlatformBridge {
   }
 
   /// Send message to AI and get response
-  Future<Map<String, dynamic>> chat(String text, {bool extractReport = false}) async {
+  /// If extractAndBroadcast is true and mesh is connected, extracts emergency data and broadcasts it
+  Future<Map<String, dynamic>> chat(String text, {bool extractReport = false, bool extractAndBroadcast = false}) async {
     // Get user location for nearby resources context
     final location = await LocationService.getCurrentLocation();
 
+    // If we should extract and broadcast, force extraction
+    final shouldExtract = extractReport || (extractAndBroadcast && _meshService.isConnected);
+
     final response = await _aiService.chat(
       text,
-      extractReport: extractReport,
+      extractReport: shouldExtract,
       userLat: location?.latitude,
       userLon: location?.longitude,
     );
+
+    // If extraction succeeded and mesh is connected, broadcast the report
+    if (extractAndBroadcast && _meshService.isConnected && response.extraction != null) {
+      await _broadcastExtraction(response.extraction!, location);
+    }
+
     return {
       'text': response.text,
       'confidence': response.confidence.name,
@@ -131,6 +141,62 @@ class PlatformBridge {
             }
           : null,
     };
+  }
+
+  /// Broadcast an extracted emergency report to the mesh network
+  Future<void> _broadcastExtraction(AiExtraction extraction, dynamic location) async {
+    // Only broadcast if urgency is significant (3+)
+    if (extraction.urgency < 3) {
+      print('[PlatformBridge] Skipping broadcast - urgency ${extraction.urgency} below threshold');
+      return;
+    }
+
+    final report = EmergencyReport(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      ts: DateTime.now().millisecondsSinceEpoch ~/ 1000,
+      lat: location?.latitude ?? 0,
+      lng: location?.longitude ?? 0,
+      acc: location?.accuracy ?? 0,
+      type: extraction.type,
+      urg: extraction.urgency,
+      haz: extraction.hazards,
+      desc: extraction.description,
+      src: _meshService.deviceId,
+      hops: 0,
+      ttl: 10,
+    );
+
+    await _meshService.broadcastReport(report);
+    print('[PlatformBridge] Broadcast emergency report: ${extraction.type} urg=${extraction.urgency}');
+  }
+
+  /// Extract emergency data from text and broadcast if significant
+  /// Used for Nearby chat messages to auto-detect emergencies
+  Future<Map<String, dynamic>?> extractAndBroadcastFromText(String text) async {
+    if (!_meshService.isConnected || !_aiService.isReady) {
+      return null;
+    }
+
+    final location = await LocationService.getCurrentLocation();
+
+    final response = await _aiService.chat(
+      text,
+      extractReport: true,
+      userLat: location?.latitude,
+      userLon: location?.longitude,
+    );
+
+    if (response.extraction != null) {
+      await _broadcastExtraction(response.extraction!, location);
+      return {
+        'type': response.extraction!.type,
+        'urgency': response.extraction!.urgency,
+        'hazards': response.extraction!.hazards,
+        'description': response.extraction!.description,
+      };
+    }
+
+    return null;
   }
 
   /// Start streaming chat - tokens sent via MethodChannel push
@@ -301,7 +367,13 @@ class PlatformBridge {
         case 'chat':
           final text = call.arguments['text'] as String;
           final extract = call.arguments['extractReport'] as bool? ?? false;
-          return await chat(text, extractReport: extract);
+          final extractAndBroadcast = call.arguments['extractAndBroadcast'] as bool? ?? false;
+          return await chat(text, extractReport: extract, extractAndBroadcast: extractAndBroadcast);
+
+        case 'extractAndBroadcast':
+          final text = call.arguments['text'] as String;
+          final result = await extractAndBroadcastFromText(text);
+          return {'extraction': result};
 
         case 'startStreamingChat':
           final text = call.arguments['text'] as String;
