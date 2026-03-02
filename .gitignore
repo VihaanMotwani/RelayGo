@@ -41,3 +41,20 @@ app/web/
 
 __pycache__
 .idea
+
+# Backend runtime/test artifacts
+backend/*.db
+backend/*.sqlite3
+**/*.py[cod]
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+**/htmlcov/
+
+# Android native local build caches
+android-native/.kotlin/
+android-native/.cxx/
+android-native/captures/
