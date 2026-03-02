@@ -374,6 +374,19 @@ export default function Map({ reports }) {
         ? new Date(typeof ts === 'number' && ts < 1e12 ? ts * 1000 : ts).toLocaleString()
         : 'Unknown';
 
+      // Mapbox measures HTML elements on addition, which can be wonky for unrendered flex items.
+      // Wrap it in a 0-size container so it securely anchors at the bottom-center.
+      const wrapper = document.createElement('div');
+      wrapper.style.position = 'absolute';
+      wrapper.style.pointerEvents = 'none';
+
+      el.style.position = 'absolute';
+      el.style.bottom = '0';
+      el.style.left = '50%';
+      el.style.transform = 'translate(-50%, 0)';
+      el.style.pointerEvents = 'auto'; // Re-enable pointer events for the pin itself
+      wrapper.appendChild(el);
+
       el.addEventListener('click', () => {
         new mapboxgl.Popup({ closeButton: true, closeOnClick: true, maxWidth: '260px' })
           .setLngLat([r.loc.lng, r.loc.lat])
@@ -394,7 +407,7 @@ export default function Map({ reports }) {
           .addTo(map);
       });
 
-      const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
+      const marker = new mapboxgl.Marker({ element: wrapper })
         .setLngLat([r.loc.lng, r.loc.lat])
         .addTo(map);
 
