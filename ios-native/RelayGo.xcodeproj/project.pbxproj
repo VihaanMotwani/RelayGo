@@ -1,0 +1,751 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF27AE3F2F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE312F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework */; };
+		AF27AE402F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE312F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE412F5540B100E0C9E4 /* Flutter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE322F5540B100E0C9E4 /* Flutter.xcframework */; };
+		AF27AE422F5540B100E0C9E4 /* Flutter.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE322F5540B100E0C9E4 /* Flutter.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE432F5540B100E0C9E4 /* record_ios.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE332F5540B100E0C9E4 /* record_ios.xcframework */; };
+		AF27AE442F5540B100E0C9E4 /* record_ios.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE332F5540B100E0C9E4 /* record_ios.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE472F5540B100E0C9E4 /* connectivity_plus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE352F5540B100E0C9E4 /* connectivity_plus.xcframework */; };
+		AF27AE482F5540B100E0C9E4 /* connectivity_plus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE352F5540B100E0C9E4 /* connectivity_plus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE492F5540B100E0C9E4 /* permission_handler_apple.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE362F5540B100E0C9E4 /* permission_handler_apple.xcframework */; };
+		AF27AE4A2F5540B100E0C9E4 /* permission_handler_apple.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE362F5540B100E0C9E4 /* permission_handler_apple.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE4B2F5540B100E0C9E4 /* device_info_plus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE372F5540B100E0C9E4 /* device_info_plus.xcframework */; };
+		AF27AE4C2F5540B100E0C9E4 /* device_info_plus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE372F5540B100E0C9E4 /* device_info_plus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE4D2F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE382F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework */; };
+		AF27AE4E2F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE382F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE512F5540B100E0C9E4 /* geolocator_apple.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3A2F5540B100E0C9E4 /* geolocator_apple.xcframework */; };
+		AF27AE522F5540B100E0C9E4 /* geolocator_apple.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3A2F5540B100E0C9E4 /* geolocator_apple.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE532F5540B100E0C9E4 /* sqflite_darwin.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3B2F5540B100E0C9E4 /* sqflite_darwin.xcframework */; };
+		AF27AE542F5540B100E0C9E4 /* sqflite_darwin.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3B2F5540B100E0C9E4 /* sqflite_darwin.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE552F5540B100E0C9E4 /* ble_peripheral.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3C2F5540B100E0C9E4 /* ble_peripheral.xcframework */; };
+		AF27AE562F5540B100E0C9E4 /* ble_peripheral.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3C2F5540B100E0C9E4 /* ble_peripheral.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE572F5540B100E0C9E4 /* package_info_plus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3D2F5540B100E0C9E4 /* package_info_plus.xcframework */; };
+		AF27AE582F5540B100E0C9E4 /* package_info_plus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3D2F5540B100E0C9E4 /* package_info_plus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE592F5540B100E0C9E4 /* shared_preferences_foundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3E2F5540B100E0C9E4 /* shared_preferences_foundation.xcframework */; };
+		AF27AE5A2F5540B100E0C9E4 /* shared_preferences_foundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE3E2F5540B100E0C9E4 /* shared_preferences_foundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE612F55424C00E0C9E4 /* ObjectBox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE602F55424C00E0C9E4 /* ObjectBox.xcframework */; };
+		AF27AE622F55424C00E0C9E4 /* ObjectBox.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE602F55424C00E0C9E4 /* ObjectBox.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE662F5548DF00E0C9E4 /* App.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE652F5548DF00E0C9E4 /* App.xcframework */; };
+		AF27AE672F5548DF00E0C9E4 /* App.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE652F5548DF00E0C9E4 /* App.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE862F55632100E0C9E4 /* cactus.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE842F55632100E0C9E4 /* cactus.xcframework */; };
+		AF27AE872F55632100E0C9E4 /* cactus.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE842F55632100E0C9E4 /* cactus.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE882F55632100E0C9E4 /* cactus_util.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE852F55632100E0C9E4 /* cactus_util.xcframework */; };
+		AF27AE892F55632100E0C9E4 /* cactus_util.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE852F55632100E0C9E4 /* cactus_util.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF27AE8A2F5564B100E0C9E4 /* objective_c.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE392F5540B100E0C9E4 /* objective_c.framework */; };
+		AF27AE8B2F5564B100E0C9E4 /* objective_c.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF27AE392F5540B100E0C9E4 /* objective_c.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF27ADF22F552A7100E0C9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF27ADDA2F552A6D00E0C9E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF27ADE12F552A6D00E0C9E4;
+			remoteInfo = RelayGo;
+		};
+		AF27ADFC2F552A7100E0C9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF27ADDA2F552A6D00E0C9E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF27ADE12F552A6D00E0C9E4;
+			remoteInfo = RelayGo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AF27AE5B2F5540B100E0C9E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AF27AE422F5540B100E0C9E4 /* Flutter.xcframework in Embed Frameworks */,
+				AF27AE672F5548DF00E0C9E4 /* App.xcframework in Embed Frameworks */,
+				AF27AE5A2F5540B100E0C9E4 /* shared_preferences_foundation.xcframework in Embed Frameworks */,
+				AF27AE442F5540B100E0C9E4 /* record_ios.xcframework in Embed Frameworks */,
+				AF27AE522F5540B100E0C9E4 /* geolocator_apple.xcframework in Embed Frameworks */,
+				AF27AE542F5540B100E0C9E4 /* sqflite_darwin.xcframework in Embed Frameworks */,
+				AF27AE622F55424C00E0C9E4 /* ObjectBox.xcframework in Embed Frameworks */,
+				AF27AE8B2F5564B100E0C9E4 /* objective_c.framework in Embed Frameworks */,
+				AF27AE582F5540B100E0C9E4 /* package_info_plus.xcframework in Embed Frameworks */,
+				AF27AE402F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework in Embed Frameworks */,
+				AF27AE4E2F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework in Embed Frameworks */,
+				AF27AE562F5540B100E0C9E4 /* ble_peripheral.xcframework in Embed Frameworks */,
+				AF27AE892F55632100E0C9E4 /* cactus_util.xcframework in Embed Frameworks */,
+				AF27AE872F55632100E0C9E4 /* cactus.xcframework in Embed Frameworks */,
+				AF27AE4C2F5540B100E0C9E4 /* device_info_plus.xcframework in Embed Frameworks */,
+				AF27AE4A2F5540B100E0C9E4 /* permission_handler_apple.xcframework in Embed Frameworks */,
+				AF27AE482F5540B100E0C9E4 /* connectivity_plus.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AF27ADE22F552A6D00E0C9E4 /* RelayGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelayGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF27ADF12F552A7100E0C9E4 /* RelayGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelayGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF27ADFB2F552A7100E0C9E4 /* RelayGoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelayGoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF27AE312F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = flutter_blue_plus_darwin.xcframework; path = Flutter/Release/flutter_blue_plus_darwin.xcframework; sourceTree = "<group>"; };
+		AF27AE322F5540B100E0C9E4 /* Flutter.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:S8QB4VV633:FLUTTER.IO LLC"; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = Flutter/Release/Flutter.xcframework; sourceTree = "<group>"; };
+		AF27AE332F5540B100E0C9E4 /* record_ios.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = record_ios.xcframework; path = Flutter/Release/record_ios.xcframework; sourceTree = "<group>"; };
+		AF27AE342F5540B100E0C9E4 /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = Flutter/Release/App.xcframework; sourceTree = "<group>"; };
+		AF27AE352F5540B100E0C9E4 /* connectivity_plus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = connectivity_plus.xcframework; path = Flutter/Release/connectivity_plus.xcframework; sourceTree = "<group>"; };
+		AF27AE362F5540B100E0C9E4 /* permission_handler_apple.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = permission_handler_apple.xcframework; path = Flutter/Release/permission_handler_apple.xcframework; sourceTree = "<group>"; };
+		AF27AE372F5540B100E0C9E4 /* device_info_plus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = device_info_plus.xcframework; path = Flutter/Release/device_info_plus.xcframework; sourceTree = "<group>"; };
+		AF27AE382F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = objectbox_flutter_libs.xcframework; path = Flutter/Release/objectbox_flutter_libs.xcframework; sourceTree = "<group>"; };
+		AF27AE392F5540B100E0C9E4 /* objective_c.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = objective_c.framework; path = Flutter/Release/objective_c.framework; sourceTree = "<group>"; };
+		AF27AE3A2F5540B100E0C9E4 /* geolocator_apple.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = geolocator_apple.xcframework; path = Flutter/Release/geolocator_apple.xcframework; sourceTree = "<group>"; };
+		AF27AE3B2F5540B100E0C9E4 /* sqflite_darwin.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = sqflite_darwin.xcframework; path = Flutter/Release/sqflite_darwin.xcframework; sourceTree = "<group>"; };
+		AF27AE3C2F5540B100E0C9E4 /* ble_peripheral.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ble_peripheral.xcframework; path = Flutter/Release/ble_peripheral.xcframework; sourceTree = "<group>"; };
+		AF27AE3D2F5540B100E0C9E4 /* package_info_plus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = package_info_plus.xcframework; path = Flutter/Release/package_info_plus.xcframework; sourceTree = "<group>"; };
+		AF27AE3E2F5540B100E0C9E4 /* shared_preferences_foundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = shared_preferences_foundation.xcframework; path = Flutter/Release/shared_preferences_foundation.xcframework; sourceTree = "<group>"; };
+		AF27AE602F55424C00E0C9E4 /* ObjectBox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ObjectBox.xcframework; path = Flutter/Release/ObjectBox.xcframework; sourceTree = "<group>"; };
+		AF27AE652F5548DF00E0C9E4 /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = Flutter/Release/App.xcframework; sourceTree = "<group>"; };
+		AF27AE842F55632100E0C9E4 /* cactus.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = cactus.xcframework; path = Flutter/Release/cactus.xcframework; sourceTree = "<group>"; };
+		AF27AE852F55632100E0C9E4 /* cactus_util.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = cactus_util.xcframework; path = Flutter/Release/cactus_util.xcframework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AF27AE2F2F553FC900E0C9E4 /* Exceptions for "RelayGo" folder in "RelayGo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AF27ADE12F552A6D00E0C9E4 /* RelayGo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AF27ADE42F552A6D00E0C9E4 /* RelayGo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AF27AE2F2F553FC900E0C9E4 /* Exceptions for "RelayGo" folder in "RelayGo" target */,
+			);
+			path = RelayGo;
+			sourceTree = "<group>";
+		};
+		AF27ADF42F552A7100E0C9E4 /* RelayGoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RelayGoTests;
+			sourceTree = "<group>";
+		};
+		AF27ADFE2F552A7100E0C9E4 /* RelayGoUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = RelayGoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF27ADDF2F552A6D00E0C9E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF27AE412F5540B100E0C9E4 /* Flutter.xcframework in Frameworks */,
+				AF27AE662F5548DF00E0C9E4 /* App.xcframework in Frameworks */,
+				AF27AE592F5540B100E0C9E4 /* shared_preferences_foundation.xcframework in Frameworks */,
+				AF27AE432F5540B100E0C9E4 /* record_ios.xcframework in Frameworks */,
+				AF27AE512F5540B100E0C9E4 /* geolocator_apple.xcframework in Frameworks */,
+				AF27AE532F5540B100E0C9E4 /* sqflite_darwin.xcframework in Frameworks */,
+				AF27AE612F55424C00E0C9E4 /* ObjectBox.xcframework in Frameworks */,
+				AF27AE8A2F5564B100E0C9E4 /* objective_c.framework in Frameworks */,
+				AF27AE572F5540B100E0C9E4 /* package_info_plus.xcframework in Frameworks */,
+				AF27AE3F2F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework in Frameworks */,
+				AF27AE4D2F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework in Frameworks */,
+				AF27AE552F5540B100E0C9E4 /* ble_peripheral.xcframework in Frameworks */,
+				AF27AE882F55632100E0C9E4 /* cactus_util.xcframework in Frameworks */,
+				AF27AE862F55632100E0C9E4 /* cactus.xcframework in Frameworks */,
+				AF27AE4B2F5540B100E0C9E4 /* device_info_plus.xcframework in Frameworks */,
+				AF27AE492F5540B100E0C9E4 /* permission_handler_apple.xcframework in Frameworks */,
+				AF27AE472F5540B100E0C9E4 /* connectivity_plus.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF27ADEE2F552A7100E0C9E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF27ADF82F552A7100E0C9E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF27ADD92F552A6D00E0C9E4 = {
+			isa = PBXGroup;
+			children = (
+				AF27ADE42F552A6D00E0C9E4 /* RelayGo */,
+				AF27ADF42F552A7100E0C9E4 /* RelayGoTests */,
+				AF27ADFE2F552A7100E0C9E4 /* RelayGoUITests */,
+				AF27AE302F5540B100E0C9E4 /* Frameworks */,
+				AF27ADE32F552A6D00E0C9E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF27ADE32F552A6D00E0C9E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF27ADE22F552A6D00E0C9E4 /* RelayGo.app */,
+				AF27ADF12F552A7100E0C9E4 /* RelayGoTests.xctest */,
+				AF27ADFB2F552A7100E0C9E4 /* RelayGoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF27AE302F5540B100E0C9E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF27AE842F55632100E0C9E4 /* cactus.xcframework */,
+				AF27AE852F55632100E0C9E4 /* cactus_util.xcframework */,
+				AF27AE652F5548DF00E0C9E4 /* App.xcframework */,
+				AF27AE602F55424C00E0C9E4 /* ObjectBox.xcframework */,
+				AF27AE342F5540B100E0C9E4 /* App.xcframework */,
+				AF27AE3C2F5540B100E0C9E4 /* ble_peripheral.xcframework */,
+				AF27AE352F5540B100E0C9E4 /* connectivity_plus.xcframework */,
+				AF27AE372F5540B100E0C9E4 /* device_info_plus.xcframework */,
+				AF27AE322F5540B100E0C9E4 /* Flutter.xcframework */,
+				AF27AE312F5540B100E0C9E4 /* flutter_blue_plus_darwin.xcframework */,
+				AF27AE3A2F5540B100E0C9E4 /* geolocator_apple.xcframework */,
+				AF27AE382F5540B100E0C9E4 /* objectbox_flutter_libs.xcframework */,
+				AF27AE392F5540B100E0C9E4 /* objective_c.framework */,
+				AF27AE3D2F5540B100E0C9E4 /* package_info_plus.xcframework */,
+				AF27AE362F5540B100E0C9E4 /* permission_handler_apple.xcframework */,
+				AF27AE332F5540B100E0C9E4 /* record_ios.xcframework */,
+				AF27AE3E2F5540B100E0C9E4 /* shared_preferences_foundation.xcframework */,
+				AF27AE3B2F5540B100E0C9E4 /* sqflite_darwin.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF27ADE12F552A6D00E0C9E4 /* RelayGo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF27AE052F552A7100E0C9E4 /* Build configuration list for PBXNativeTarget "RelayGo" */;
+			buildPhases = (
+				AF27ADDE2F552A6D00E0C9E4 /* Sources */,
+				AF27ADDF2F552A6D00E0C9E4 /* Frameworks */,
+				AF27ADE02F552A6D00E0C9E4 /* Resources */,
+				AF27AE5B2F5540B100E0C9E4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AF27ADE42F552A6D00E0C9E4 /* RelayGo */,
+			);
+			name = RelayGo;
+			packageProductDependencies = (
+			);
+			productName = RelayGo;
+			productReference = AF27ADE22F552A6D00E0C9E4 /* RelayGo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AF27ADF02F552A7100E0C9E4 /* RelayGoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF27AE082F552A7100E0C9E4 /* Build configuration list for PBXNativeTarget "RelayGoTests" */;
+			buildPhases = (
+				AF27ADED2F552A7100E0C9E4 /* Sources */,
+				AF27ADEE2F552A7100E0C9E4 /* Frameworks */,
+				AF27ADEF2F552A7100E0C9E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF27ADF32F552A7100E0C9E4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AF27ADF42F552A7100E0C9E4 /* RelayGoTests */,
+			);
+			name = RelayGoTests;
+			packageProductDependencies = (
+			);
+			productName = RelayGoTests;
+			productReference = AF27ADF12F552A7100E0C9E4 /* RelayGoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AF27ADFA2F552A7100E0C9E4 /* RelayGoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF27AE0B2F552A7100E0C9E4 /* Build configuration list for PBXNativeTarget "RelayGoUITests" */;
+			buildPhases = (
+				AF27ADF72F552A7100E0C9E4 /* Sources */,
+				AF27ADF82F552A7100E0C9E4 /* Frameworks */,
+				AF27ADF92F552A7100E0C9E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AF27ADFD2F552A7100E0C9E4 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AF27ADFE2F552A7100E0C9E4 /* RelayGoUITests */,
+			);
+			name = RelayGoUITests;
+			packageProductDependencies = (
+			);
+			productName = RelayGoUITests;
+			productReference = AF27ADFB2F552A7100E0C9E4 /* RelayGoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF27ADDA2F552A6D00E0C9E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					AF27ADE12F552A6D00E0C9E4 = {
+						CreatedOnToolsVersion = 26.3;
+						LastSwiftMigration = 2630;
+					};
+					AF27ADF02F552A7100E0C9E4 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = AF27ADE12F552A6D00E0C9E4;
+					};
+					AF27ADFA2F552A7100E0C9E4 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = AF27ADE12F552A6D00E0C9E4;
+					};
+				};
+			};
+			buildConfigurationList = AF27ADDD2F552A6D00E0C9E4 /* Build configuration list for PBXProject "RelayGo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF27ADD92F552A6D00E0C9E4;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AF27ADE32F552A6D00E0C9E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF27ADE12F552A6D00E0C9E4 /* RelayGo */,
+				AF27ADF02F552A7100E0C9E4 /* RelayGoTests */,
+				AF27ADFA2F552A7100E0C9E4 /* RelayGoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF27ADE02F552A6D00E0C9E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF27ADEF2F552A7100E0C9E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF27ADF92F552A7100E0C9E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF27ADDE2F552A6D00E0C9E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF27ADED2F552A7100E0C9E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF27ADF72F552A7100E0C9E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AF27ADF32F552A7100E0C9E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF27ADE12F552A6D00E0C9E4 /* RelayGo */;
+			targetProxy = AF27ADF22F552A7100E0C9E4 /* PBXContainerItemProxy */;
+		};
+		AF27ADFD2F552A7100E0C9E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF27ADE12F552A6D00E0C9E4 /* RelayGo */;
+			targetProxy = AF27ADFC2F552A7100E0C9E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AF27AE032F552A7100E0C9E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF27AE042F552A7100E0C9E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF27AE062F552A7100E0C9E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter/Release",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RelayGo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "RelayGo uses Bluetooth to create a mesh network with nearby devices for communication ";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "RelayGo broadcasts messages to nearby devices via Bluetooth";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "RelayGo needs background location to relay emergency messages even when the app is closed";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = " RelayGo needs your location to tag emergency reports and show nearby incidents ";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "RelayGo uses the microphone for voice-to-text emergency reporting";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiramisu.RelayGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RelayGo/RelayGo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AF27AE072F552A7100E0C9E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flutter/Release",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RelayGo/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "RelayGo uses Bluetooth to create a mesh network with nearby devices for communication ";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "RelayGo broadcasts messages to nearby devices via Bluetooth";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "RelayGo needs background location to relay emergency messages even when the app is closed";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = " RelayGo needs your location to tag emergency reports and show nearby incidents ";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "RelayGo uses the microphone for voice-to-text emergency reporting";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiramisu.RelayGo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RelayGo/RelayGo-Bridging-Header.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AF27AE092F552A7100E0C9E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiramisu.RelayGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RelayGo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RelayGo";
+			};
+			name = Debug;
+		};
+		AF27AE0A2F552A7100E0C9E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiramisu.RelayGoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RelayGo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RelayGo";
+			};
+			name = Release;
+		};
+		AF27AE0C2F552A7100E0C9E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiramisu.RelayGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RelayGo;
+			};
+			name = Debug;
+		};
+		AF27AE0D2F552A7100E0C9E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9M49DCSV7X;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tiramisu.RelayGoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RelayGo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF27ADDD2F552A6D00E0C9E4 /* Build configuration list for PBXProject "RelayGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF27AE032F552A7100E0C9E4 /* Debug */,
+				AF27AE042F552A7100E0C9E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF27AE052F552A7100E0C9E4 /* Build configuration list for PBXNativeTarget "RelayGo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF27AE062F552A7100E0C9E4 /* Debug */,
+				AF27AE072F552A7100E0C9E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF27AE082F552A7100E0C9E4 /* Build configuration list for PBXNativeTarget "RelayGoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF27AE092F552A7100E0C9E4 /* Debug */,
+				AF27AE0A2F552A7100E0C9E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF27AE0B2F552A7100E0C9E4 /* Build configuration list for PBXNativeTarget "RelayGoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF27AE0C2F552A7100E0C9E4 /* Debug */,
+				AF27AE0D2F552A7100E0C9E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF27ADDA2F552A6D00E0C9E4 /* Project object */;
+}
