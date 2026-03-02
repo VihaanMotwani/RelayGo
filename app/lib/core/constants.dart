@@ -51,7 +51,7 @@ class BackendConfig {
 class AiConfig {
   static const String modelSlug = 'lfm2-1.2b';
   static const double temperature = 0.3;
-  static const int maxTokens = 80;
+  static const int maxTokens = 256;
 }
 
 /// Packet defaults.

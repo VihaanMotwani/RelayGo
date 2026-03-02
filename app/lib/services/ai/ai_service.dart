@@ -269,7 +269,7 @@ class AiService {
       }
 
       return AiResponse(
-        text: result.response,
+        text: _cleanResponse(result.response),
         confidence: confidence,
         extraction: extraction,
       );
@@ -280,6 +280,30 @@ class AiService {
         confidence: app.ConfidenceLevel.unverified,
       );
     }
+  }
+
+  /// Clean up model response by removing special tokens and artifacts
+  String _cleanResponse(String response) {
+    var cleaned = response;
+    // Remove common model artifacts
+    final artifactsToRemove = [
+      '<IM_end>',
+      '<|im_end|>',
+      '<|endoftext|>',
+      '<end>',
+      '[RelayGo]',
+      'User:',
+      'Assistant:',
+      'System:',
+    ];
+    for (final artifact in artifactsToRemove) {
+      cleaned = cleaned.replaceAll(artifact, '');
+    }
+    // Remove any text after "User:" pattern (model continuing the conversation)
+    final userPattern = RegExp(r'\nUser:\s*".*$', dotAll: true);
+    cleaned = cleaned.replaceAll(userPattern, '');
+    // Trim whitespace
+    return cleaned.trim();
   }
 
   /// Infer emergency type from user text for location filtering.
@@ -393,9 +417,34 @@ class AiService {
         params: params,
       );
 
-      // Yield tokens as they arrive
+      // Stop sequences that indicate model is done or hallucinating
+      final stopPatterns = ['<IM_end>', '<|im_end|>', '<|endoftext|>', 'User:', '\nUser:'];
+      var buffer = '';
+      var shouldStop = false;
+
+      // Yield tokens as they arrive, but check for stop sequences
       await for (final chunk in streamedResult.stream) {
-        yield chunk;
+        if (shouldStop) break;
+
+        buffer += chunk;
+
+        // Check if buffer contains a stop pattern
+        for (final pattern in stopPatterns) {
+          if (buffer.contains(pattern)) {
+            // Yield everything before the stop pattern
+            final idx = buffer.indexOf(pattern);
+            if (idx > 0) {
+              yield buffer.substring(0, idx);
+            }
+            shouldStop = true;
+            break;
+          }
+        }
+
+        // If no stop pattern found, yield the chunk
+        if (!shouldStop) {
+          yield chunk;
+        }
       }
     } catch (e) {
       print('[AiService] Stream chat error: $e');
@@ -464,7 +513,7 @@ class AiService {
       );
 
       return result.success
-          ? result.response
+          ? _cleanResponse(result.response)
           : 'Unable to generate summary. Check reports list for raw data.';
     } catch (e) {
       print('[AiService] Summary generation error: $e');
