@@ -13,7 +13,7 @@ function timeAgo(ts) {
   return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
-export default function ReportList({ reports }) {
+export default function ReportList({ reports, focusedReport, onReportClick }) {
   const sorted = [...reports].sort((a, b) => {
     const ta = new Date(a.timestamp || a.ts || 0).getTime();
     const tb = new Date(b.timestamp || b.ts || 0).getTime();
@@ -46,7 +46,12 @@ export default function ReportList({ reports }) {
           </div>
         ) : (
           sorted.map((report, idx) => (
-            <ReportCard key={report.id || idx} report={report} />
+            <ReportCard
+              key={report.id || idx}
+              report={report}
+              isFocused={focusedReport?.id === report.id}
+              onClick={() => onReportClick(report)}
+            />
           ))
         )}
       </div>

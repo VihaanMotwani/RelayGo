@@ -1,24 +1,38 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const WS_URL = 'ws://localhost:8000/ws/dashboard';
-const API_URL = 'http://localhost:8000/api/reports';
+const REPORTS_URL = 'http://localhost:8000/api/reports';
+const DIRECTIVES_URL = 'http://localhost:8000/api/directives';
 const RECONNECT_DELAY = 3000;
 
 export default function useWebSocket() {
   const [reports, setReports] = useState([]);
+  const [directives, setDirectives] = useState([]);
   const [connected, setConnected] = useState(false);
   const wsRef = useRef(null);
   const reconnectTimer = useRef(null);
 
   const fetchInitialReports = useCallback(async () => {
     try {
-      const res = await fetch(API_URL);
+      const res = await fetch(REPORTS_URL);
       if (res.ok) {
         const data = await res.json();
         setReports(Array.isArray(data) ? data : []);
       }
     } catch (err) {
       console.warn('Failed to fetch initial reports:', err);
+    }
+  }, []);
+
+  const fetchDirectives = useCallback(async () => {
+    try {
+      const res = await fetch(DIRECTIVES_URL);
+      if (res.ok) {
+        const data = await res.json();
+        setDirectives(Array.isArray(data) ? data : []);
+      }
+    } catch (err) {
+      console.warn('Failed to fetch directives:', err);
     }
   }, []);
 
@@ -31,12 +45,36 @@ export default function useWebSocket() {
     ws.onopen = () => {
       setConnected(true);
       fetchInitialReports();
+      fetchDirectives();
     };
 
     ws.onmessage = (event) => {
       try {
-        const report = JSON.parse(event.data);
-        setReports((prev) => [report, ...prev]);
+        const raw = JSON.parse(event.data);
+        const items = Array.isArray(raw) ? raw : [raw];
+        const newDirectives = [];
+        const newReports = [];
+        for (const item of items) {
+          if (item.kind === 'directive') {
+            newDirectives.push(item);
+          } else {
+            newReports.push(item);
+          }
+        }
+        if (newDirectives.length) {
+          setDirectives((prev) => {
+            const ids = new Set(prev.map((d) => d.id));
+            const fresh = newDirectives.filter((d) => !ids.has(d.id));
+            return fresh.length ? [...fresh, ...prev] : prev;
+          });
+        }
+        if (newReports.length) {
+          setReports((prev) => {
+            const ids = new Set(prev.map((r) => r.id));
+            const fresh = newReports.filter((r) => !ids.has(r.id));
+            return fresh.length ? [...fresh, ...prev] : prev;
+          });
+        }
       } catch (err) {
         console.warn('Failed to parse WebSocket message:', err);
       }
@@ -51,7 +89,7 @@ export default function useWebSocket() {
     ws.onerror = () => {
       ws.close();
     };
-  }, [fetchInitialReports]);
+  }, [fetchInitialReports, fetchDirectives]);
 
   useEffect(() => {
     connect();
@@ -64,5 +102,5 @@ export default function useWebSocket() {
     };
   }, [connect]);
 
-  return { reports, connected };
+  return { reports, directives, connected, refetchDirectives: fetchDirectives };
 }

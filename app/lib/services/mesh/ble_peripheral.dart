@@ -43,7 +43,6 @@ class BlePeripheralService {
           BleCharacteristic(
             uuid: BleConstants.packetCharUuid,
             properties: [
-              CharacteristicProperties.write.index,
               CharacteristicProperties.writeWithoutResponse.index,
             ],
             permissions: [AttributePermissions.writeable.index],
