@@ -99,7 +99,7 @@ export default function App() {
 const s = {
   tabBar: {
     display: 'flex',
-    padding: '8px 8px 0',
+    padding: '60px 8px 0',
     gap: 2,
     flexShrink: 0,
   },
