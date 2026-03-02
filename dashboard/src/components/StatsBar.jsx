@@ -1,7 +1,7 @@
 import { TYPE_COLORS, TYPE_LABELS } from '../utils/mapStyles';
 import { useTheme } from '../hooks/useTheme';
 
-export default function StatsBar({ reports, connected }) {
+export default function StatsBar({ reports, directives = [], connected }) {
   const { theme, toggle } = useTheme();
 
   const typeCounts = {};
@@ -41,6 +41,16 @@ export default function StatsBar({ reports, connected }) {
             </div>
           );
         })}
+
+        {directives.length > 0 && (
+          <div style={s.typeChip}>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--tint)' }}>
+              <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
+            </svg>
+            <span style={s.chipText}>Directives</span>
+            <span style={s.chipCount}>{directives.length}</span>
+          </div>
+        )}
 
         <div style={s.statusPill}>
           <div style={{

@@ -14,6 +14,12 @@ class Location(BaseModel):
     acc: float = 0.0
 
 
+class RelayPoint(BaseModel):
+    lat: float
+    lng: float
+    device: str = ""
+
+
 class EmergencyReport(BaseModel):
     kind: Literal["report"] = "report"
     id: str = Field(default_factory=lambda: str(uuid4()))
@@ -26,6 +32,7 @@ class EmergencyReport(BaseModel):
     src: str = ""
     hops: int = 0
     ttl: int = 5
+    relay_path: list[RelayPoint] = Field(default_factory=list)
 
 
 class MeshMessage(BaseModel):
@@ -38,6 +45,19 @@ class MeshMessage(BaseModel):
     body: str = ""
     hops: int = 0
     ttl: int = 5
+
+
+class Directive(BaseModel):
+    kind: Literal["directive"] = "directive"
+    id: str = Field(default_factory=lambda: str(uuid4()))
+    ts: int
+    src: str = ""
+    name: str = ""
+    to: Optional[str] = None
+    body: str = ""
+    priority: Literal["high", "medium", "low"] = "high"
+    hops: int = 0
+    ttl: int = 15
 
 
 class BatchUpload(BaseModel):

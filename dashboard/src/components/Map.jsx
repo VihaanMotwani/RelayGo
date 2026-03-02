@@ -1,11 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import mapboxgl from 'mapbox-gl';
 import {
-  clusterPaint,
-  clusterCountLayout,
-  clusterCountPaint,
   getMarkerColor,
+  colorMatchExpression,
   TYPE_LABELS,
+  TYPE_CODES,
 } from '../utils/mapStyles';
 import { useTheme } from '../hooks/useTheme';
 
@@ -15,6 +14,8 @@ const MAP_STYLES = {
   light: 'mapbox://styles/mapbox/streets-v12',
   dark: 'mapbox://styles/mapbox/dark-v11',
 };
+
+/* ---- GeoJSON generators ---- */
 
 function reportsToGeoJSON(reports) {
   return {
@@ -39,31 +40,60 @@ function reportsToGeoJSON(reports) {
   };
 }
 
+/* ---- Styles ---- */
+
 const styles = {
   wrapper: { position: 'relative', width: '100%', height: '100%' },
   map: { width: '100%', height: '100%' },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    pointerEvents: 'none',
+  },
 };
 
-// Create pulsing HTML marker element
-function createMarkerEl(color) {
+/* ---- Dispatch-style pin (text codes, no emojis) ---- */
+
+function createPinEl(color, code, urgency) {
   const el = document.createElement('div');
-  el.className = 'incident-marker';
+  el.className = 'incident-pin';
 
-  const dot = document.createElement('div');
-  dot.className = 'incident-marker-dot';
-  dot.style.background = color;
+  const badge = document.createElement('div');
+  badge.className = 'incident-pin-badge';
+  badge.style.background = color;
 
-  const pulse = document.createElement('div');
-  pulse.className = 'incident-marker-pulse';
-  pulse.style.background = color;
+  const codeSpan = document.createElement('span');
+  codeSpan.className = 'incident-pin-code';
+  codeSpan.textContent = code;
 
-  el.appendChild(pulse);
-  el.appendChild(dot);
+  const sep = document.createElement('span');
+  sep.className = 'incident-pin-sep';
+
+  const urgSpan = document.createElement('span');
+  urgSpan.className = 'incident-pin-urg';
+  urgSpan.textContent = urgency;
+
+  badge.appendChild(codeSpan);
+  badge.appendChild(sep);
+  badge.appendChild(urgSpan);
+
+  const tail = document.createElement('div');
+  tail.className = 'incident-pin-tail';
+  tail.style.borderTopColor = color;
+
+  el.appendChild(badge);
+  el.appendChild(tail);
   return el;
 }
 
+/* ---- Component ---- */
+
 export default function Map({ reports }) {
   const containerRef = useRef(null);
+  const canvasRef = useRef(null);
   const mapRef = useRef(null);
   const sourceReady = useRef(false);
   const reportsRef = useRef(reports);
@@ -72,7 +102,96 @@ export default function Map({ reports }) {
 
   reportsRef.current = reports;
 
-  // Hide non-essential POI labels
+  /* ---- Canvas relay arc rendering (draws OVER 3D buildings) ---- */
+
+  const drawRelayOverlay = useCallback((map, rpts) => {
+    const canvas = canvasRef.current;
+    if (!canvas || !map) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    const w = rect.width;
+    const h = rect.height;
+
+    if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+    }
+
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+
+    const allNodes = [];
+
+    for (const r of rpts) {
+      const path = r.relay_path;
+      if (!Array.isArray(path) || path.length < 2) continue;
+
+      const pts = [];
+      for (const p of path) {
+        if (p.lat == null || p.lng == null) continue;
+        const sp = map.project([p.lng, p.lat]);
+        pts.push(sp);
+        allNodes.push(sp);
+      }
+      if (pts.length < 2) continue;
+
+      for (let i = 0; i < pts.length - 1; i++) {
+        const a = pts[i];
+        const b = pts[i + 1];
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 4 || dist > 3000) continue;
+
+        // Quadratic bezier control point — arcs UPWARD in screen space
+        const cpx = (a.x + b.x) / 2;
+        const cpy = (a.y + b.y) / 2 - dist * 0.38;
+
+        // Glow pass
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.quadraticCurveTo(cpx, cpy, b.x, b.y);
+        ctx.strokeStyle = 'rgba(0, 217, 255, 0.10)';
+        ctx.lineWidth = 12;
+        ctx.shadowColor = 'rgba(0, 217, 255, 0.25)';
+        ctx.shadowBlur = 18;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        ctx.restore();
+
+        // Main arc
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.quadraticCurveTo(cpx, cpy, b.x, b.y);
+        ctx.strokeStyle = 'rgba(0, 217, 255, 0.75)';
+        ctx.lineWidth = 2.5;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+    }
+
+    // Relay node dots — deduplicated by screen position
+    const drawn = new Set();
+    for (const pt of allNodes) {
+      const key = `${Math.round(pt.x)},${Math.round(pt.y)}`;
+      if (drawn.has(key)) continue;
+      drawn.add(key);
+
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#FFD60A';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+  }, []);
+
+  /* ---- Map helper functions ---- */
+
   function stripPOIs(map) {
     const style = map.getStyle();
     if (!style?.layers) return;
@@ -83,37 +202,39 @@ export default function Map({ reports }) {
     });
   }
 
-  // Add cluster source and layers (no unclustered circles — we use HTML markers instead)
-  function addClusterLayers(map, data) {
-    map.addSource('reports', {
-      type: 'geojson',
-      data,
-      cluster: true,
-      clusterMaxZoom: 14,
-      clusterRadius: 50,
-    });
+  // GeoJSON source + incident zone circles on the ground
+  function addReportSource(map, data) {
+    map.addSource('reports', { type: 'geojson', data });
 
+    // Translucent zone circles — colored ground showing affected area
     map.addLayer({
-      id: 'clusters',
+      id: 'incident-zones',
       type: 'circle',
       source: 'reports',
-      filter: ['has', 'point_count'],
-      paint: clusterPaint,
-    });
-
-    map.addLayer({
-      id: 'cluster-count',
-      type: 'symbol',
-      source: 'reports',
-      filter: ['has', 'point_count'],
-      layout: clusterCountLayout,
-      paint: clusterCountPaint,
+      paint: {
+        'circle-radius': [
+          'interpolate', ['linear'], ['zoom'],
+          8, 12,
+          12, 50,
+          15, 120,
+          18, 280,
+        ],
+        'circle-color': colorMatchExpression,
+        'circle-opacity': [
+          'interpolate', ['linear'], ['get', 'urgency'],
+          1, 0.06,
+          3, 0.10,
+          5, 0.18,
+        ],
+        'circle-blur': 0.8,
+        'circle-pitch-alignment': 'map',
+      },
     });
 
     sourceReady.current = true;
   }
 
-  // Add 3D terrain, fog, buildings
+  // 3D terrain, fog, buildings
   function add3DLayers(map, isDark) {
     map.addSource('mapbox-dem', {
       type: 'raster-dem',
@@ -156,31 +277,26 @@ export default function Map({ reports }) {
     );
   }
 
-  // Add building hover highlight layer
+  // Building hover highlight
   function addBuildingHover(map, isDark) {
-    map.addLayer(
-      {
-        id: '3d-buildings-highlight',
-        source: 'composite',
-        'source-layer': 'building',
-        filter: ['==', 'extrude', 'true'],
-        type: 'fill-extrusion',
-        minzoom: 14,
-        paint: {
-          'fill-extrusion-color': isDark ? '#5a5a78' : '#b8b8d0',
-          'fill-extrusion-height': ['get', 'height'],
-          'fill-extrusion-base': ['get', 'min_height'],
-          'fill-extrusion-opacity': 0,
-        },
-      }
-    );
-
-    let hoveredId = null;
+    map.addLayer({
+      id: '3d-buildings-highlight',
+      source: 'composite',
+      'source-layer': 'building',
+      filter: ['==', 'extrude', 'true'],
+      type: 'fill-extrusion',
+      minzoom: 14,
+      paint: {
+        'fill-extrusion-color': isDark ? '#5a5a78' : '#b8b8d0',
+        'fill-extrusion-height': ['get', 'height'],
+        'fill-extrusion-base': ['get', 'min_height'],
+        'fill-extrusion-opacity': 0,
+      },
+    });
 
     map.on('mousemove', '3d-buildings', (e) => {
       if (e.features.length > 0) {
         map.getCanvas().style.cursor = 'pointer';
-        // Highlight by increasing opacity of the highlight layer for this feature
         map.setPaintProperty('3d-buildings-highlight', 'fill-extrusion-opacity', 0.9);
         map.setFilter('3d-buildings-highlight', [
           'all',
@@ -196,30 +312,32 @@ export default function Map({ reports }) {
     });
   }
 
-  // Sync pulsing HTML markers with reports
-  function syncMarkers(map, reports) {
-    // Remove old markers
+  // Sync incident pin markers
+  function syncMarkers(map, rpts) {
     markersRef.current.forEach((m) => m.remove());
     markersRef.current = [];
 
-    reports.forEach((r) => {
+    rpts.forEach((r) => {
       if (r.loc?.lat == null || r.loc?.lng == null) return;
 
       const type = r.type?.toLowerCase() || 'other';
       const color = getMarkerColor(type);
-      const el = createMarkerEl(color);
+      const code = TYPE_CODES[type] || TYPE_CODES.other;
+      const urgency = r.urg ?? r.urgency ?? 1;
+      const el = createPinEl(color, code, urgency);
       const label = TYPE_LABELS[type] || type;
       const desc = r.desc || r.description || '';
-      const urgency = r.urg ?? r.urgency ?? 1;
       const hops = r.hops ?? r.hop_count ?? 0;
       const ts = r.ts || r.timestamp;
-      const tsStr = ts ? new Date(typeof ts === 'number' && ts < 1e12 ? ts * 1000 : ts).toLocaleString() : 'Unknown';
+      const tsStr = ts
+        ? new Date(typeof ts === 'number' && ts < 1e12 ? ts * 1000 : ts).toLocaleString()
+        : 'Unknown';
 
       el.addEventListener('click', () => {
         new mapboxgl.Popup({ closeButton: true, closeOnClick: true, maxWidth: '260px' })
           .setLngLat([r.loc.lng, r.loc.lat])
-          .setHTML(`
-            <div style="font-family: var(--system-font);">
+          .setHTML(
+            `<div style="font-family:var(--system-font);">
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
                 <span style="width:8px;height:8px;border-radius:50%;background:${color};display:inline-block;"></span>
                 <strong style="font-size:12px;color:var(--text-primary);">${label}</strong>
@@ -230,18 +348,28 @@ export default function Map({ reports }) {
                 <span>${tsStr}</span>
                 <span>${hops} hops</span>
               </div>
-            </div>
-          `)
+            </div>`
+          )
           .addTo(map);
       });
 
-      const marker = new mapboxgl.Marker({ element: el })
+      const marker = new mapboxgl.Marker({ element: el, anchor: 'bottom' })
         .setLngLat([r.loc.lng, r.loc.lat])
         .addTo(map);
 
       markersRef.current.push(marker);
     });
   }
+
+  // All Mapbox sources and layers in one setup call
+  function setupLayers(map, isDark, data) {
+    addReportSource(map, data);
+    add3DLayers(map, isDark);
+    addBuildingHover(map, isDark);
+    stripPOIs(map);
+  }
+
+  /* ---- Effects ---- */
 
   // Initialize map
   useEffect(() => {
@@ -262,37 +390,28 @@ export default function Map({ reports }) {
 
     map.addControl(new mapboxgl.NavigationControl({ visualizePitch: true }), 'top-right');
 
+    // Redraw canvas arcs on every camera change
+    const redraw = () => drawRelayOverlay(map, reportsRef.current);
+    map.on('move', redraw);
+    map.on('resize', redraw);
+
     map.on('load', () => {
-      add3DLayers(map, isDark);
-      addBuildingHover(map, isDark);
-      addClusterLayers(map, reportsToGeoJSON(reportsRef.current));
-      stripPOIs(map);
+      setupLayers(map, isDark, reportsToGeoJSON(reportsRef.current));
       syncMarkers(map, reportsRef.current);
+      redraw();
     });
-
-    // Click on cluster to zoom
-    map.on('click', 'clusters', (e) => {
-      const features = map.queryRenderedFeatures(e.point, { layers: ['clusters'] });
-      if (!features.length) return;
-      const clusterId = features[0].properties.cluster_id;
-      map.getSource('reports').getClusterExpansionZoom(clusterId, (err, zoom) => {
-        if (err) return;
-        map.easeTo({ center: features[0].geometry.coordinates, zoom });
-      });
-    });
-
-    map.on('mouseenter', 'clusters', () => { map.getCanvas().style.cursor = 'pointer'; });
-    map.on('mouseleave', 'clusters', () => { map.getCanvas().style.cursor = ''; });
 
     mapRef.current = map;
 
     return () => {
+      map.off('move', redraw);
+      map.off('resize', redraw);
       markersRef.current.forEach((m) => m.remove());
       map.remove();
       mapRef.current = null;
       sourceReady.current = false;
     };
-  }, []);
+  }, [drawRelayOverlay]);
 
   // Switch map style when theme changes
   useEffect(() => {
@@ -300,14 +419,12 @@ export default function Map({ reports }) {
     if (!map) return;
 
     const isDark = theme === 'dark';
-    const newStyle = MAP_STYLES[theme];
-
     const center = map.getCenter();
     const zoom = map.getZoom();
     const pitch = map.getPitch();
     const bearing = map.getBearing();
 
-    map.setStyle(newStyle);
+    map.setStyle(MAP_STYLES[theme]);
 
     map.once('style.load', () => {
       map.setCenter(center);
@@ -315,13 +432,12 @@ export default function Map({ reports }) {
       map.setPitch(pitch);
       map.setBearing(bearing);
 
-      add3DLayers(map, isDark);
-      addBuildingHover(map, isDark);
-      addClusterLayers(map, reportsToGeoJSON(reportsRef.current));
-      stripPOIs(map);
+      sourceReady.current = false;
+      setupLayers(map, isDark, reportsToGeoJSON(reportsRef.current));
       syncMarkers(map, reportsRef.current);
+      drawRelayOverlay(map, reportsRef.current);
     });
-  }, [theme]);
+  }, [theme, drawRelayOverlay]);
 
   // Update data when reports change + auto-fly on first load
   const hasFitted = useRef(false);
@@ -335,6 +451,7 @@ export default function Map({ reports }) {
       if (source) source.setData(reportsToGeoJSON(reports));
     }
     syncMarkers(map, reports);
+    drawRelayOverlay(map, reports);
 
     // Auto-fly to incidents on first data load
     if (!hasFitted.current && reports.length > 0) {
@@ -342,7 +459,6 @@ export default function Map({ reports }) {
 
       const withCoords = reports.filter((r) => r.loc?.lat != null && r.loc?.lng != null);
       if (withCoords.length === 1) {
-        // Single incident — fly directly to it
         const r = withCoords[0];
         map.flyTo({
           center: [r.loc.lng, r.loc.lat],
@@ -353,7 +469,6 @@ export default function Map({ reports }) {
           essential: true,
         });
       } else if (withCoords.length > 1) {
-        // Multiple incidents — fit bounds
         const bounds = new mapboxgl.LngLatBounds();
         withCoords.forEach((r) => bounds.extend([r.loc.lng, r.loc.lat]));
         map.fitBounds(bounds, {
@@ -364,11 +479,12 @@ export default function Map({ reports }) {
         });
       }
     }
-  }, [reports]);
+  }, [reports, drawRelayOverlay]);
 
   return (
     <div style={styles.wrapper}>
       <div ref={containerRef} style={styles.map} />
+      <canvas ref={canvasRef} style={styles.overlay} />
     </div>
   );
 }
