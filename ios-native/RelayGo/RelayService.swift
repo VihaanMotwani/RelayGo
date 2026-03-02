@@ -90,6 +90,7 @@ class RelayService: ObservableObject {
     @Published var isStreaming = false
     private var currentStreamingMessageId: UUID?
     private var lastUserMessageText: String?  // For extraction after streaming
+    @Published var isSttReady = false
 
     // Settings
     @Published var relayEnabled: Bool {
@@ -135,6 +136,10 @@ class RelayService: ObservableObject {
         bridge.$isInitialized
             .receive(on: DispatchQueue.main)
             .assign(to: &$isEngineReady)
+
+        bridge.$isSttReady
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$isSttReady)
 
         // Setup packet callback
         bridge.onMeshPacket = { [weak self] packet in
@@ -470,9 +475,13 @@ class RelayService: ObservableObject {
 
             if transcription.isEmpty || transcription.starts(with: "[") {
                 // Transcription failed or unavailable
+                let detail = transcription
+                    .trimmingCharacters(in: CharacterSet(charactersIn: "[]"))
                 let errorMessage = ChatMessage(
                     isUser: false,
-                    text: "Voice transcription unavailable. Please type your message.",
+                    text: detail.isEmpty
+                        ? "Voice transcription unavailable. Please type your message."
+                        : "\(detail). Please type your message.",
                     isVerified: false
                 )
                 chatMessages.append(errorMessage)
@@ -512,5 +521,56 @@ class RelayService: ObservableObject {
         } catch {
             return "Unable to generate summary: \(error.localizedDescription)"
         }
+    }
+
+    // MARK: - Output Sanitation
+
+    /// Defensive cleanup for leaked reasoning/meta output from local LLMs.
+    /// Keeps chat user-facing even when model emits internal tags/JSON.
+    private func sanitizeAssistantText(_ text: String) -> String {
+        var cleaned = text
+            .replacingOccurrences(
+                of: "(?is)<think>[\\s\\S]*?</think>",
+                with: " ",
+                options: .regularExpression
+            )
+            .replacingOccurrences(
+                of: "(?is)<analysis>[\\s\\S]*?</analysis>",
+                with: " ",
+                options: .regularExpression
+            )
+            .replacingOccurrences(
+                of: "(?m)^\\s*```[a-zA-Z0-9_-]*\\s*",
+                with: "",
+                options: .regularExpression
+            )
+            .replacingOccurrences(of: "```", with: "")
+            .replacingOccurrences(
+                of: "(?im)^\\s*(assistant|system|user)\\s*:\\s*",
+                with: "",
+                options: .regularExpression
+            )
+            .replacingOccurrences(
+                of: "</?(think|analysis)>",
+                with: "",
+                options: .regularExpression
+            )
+            .replacingOccurrences(
+                of: "\\n{3,}",
+                with: "\n\n",
+                options: .regularExpression
+            )
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let lower = cleaned.lowercased()
+        if cleaned.isEmpty ||
+            lower == "json" ||
+            lower.hasPrefix("okay, the user") ||
+            lower.contains("let me start by") ||
+            lower.contains("i need to respond") {
+            return "I am here to help. Tell me what happened and where you are for immediate steps."
+        }
+
+        return cleaned
     }
 }

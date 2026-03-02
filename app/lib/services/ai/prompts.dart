@@ -1,73 +1,81 @@
 import 'package:cactus/cactus.dart';
 
-const String systemPrompt = '''You are RelayGo, an emergency assistant. Be VERY brief - 2-3 sentences max.
+/// System prompt for normal chat (no extraction).
+///
+/// Designed for small on-device models: short ranked rules, no meta-instructions
+/// that the model might echo back. Also includes location data rules for when
+/// [NEARBY EMERGENCY RESOURCES] context is injected.
+const String systemPrompt =
+    'You are RelayGo, an offline emergency assistant. Networks may be down.\n'
+    '\n'
+    'RULES — follow exactly:\n'
+    '1. Answer with SHORT numbered steps (3-5 max). Lead with the action.\n'
+    '2. If [EMERGENCY PROCEDURES] appear, copy the relevant steps directly.\n'
+    '3. If [NEARBY EMERGENCY RESOURCES] appear, use ONLY that data for distances/locations. NEVER invent distances, times, or addresses.\n'
+    '4. If no location data is provided, give general safety guidance only.\n'
+    '5. Never say what you "can" or "cannot" do. Just give the guidance.\n'
+    '6. No drug dosages. No invented phone numbers. No rescue timelines.\n'
+    '7. Output plain user-facing text only. Never output JSON, XML, or internal reasoning.\n'
+    '\n'
+    'Example — user says "there\'s a fire nearby":\n'
+    'You reply: "1. Stay low — smoke rises. 2. Feel door before opening. 3. Use stairs, not elevators. 4. Go to assembly point."';
 
-STRICT RULES:
-- ONLY mention locations/distances if they appear in [NEARBY EMERGENCY RESOURCES] data
-- NEVER invent distances, times, directions, or addresses
-- NEVER say "help will arrive in X minutes" - you don't know this
-- NEVER say "X is Y meters/km away" unless that exact data is provided
-- If no location data is provided, give general safety guidance only
-- Stay calm and direct
+/// Appended to the system prompt ONLY when the intent filter detects an
+/// active emergency. Instructs the model to call the extraction tool silently.
+///
+/// Placed BEFORE the RAG context so the small model sees it early.
+const String extractionPrompt =
+    'CALL extract_emergency now based on what the user described.\n'
+    'This call is automatic — do not tell the user about it, do not ask permission.\n'
+    'After the tool call, give the user emergency guidance using the steps below.';
 
-GOOD RESPONSE (no location data):
-User: "There's a fire nearby"
-You: "Leave the building immediately using stairs, not elevators. Stay low if there's smoke. Once outside, move away from the building and call emergency services."
-
-GOOD RESPONSE (with location data):
-User: "My friend has chest pain"
-[NEARBY EMERGENCY RESOURCES shows: AED - 116m east, Hospital - 400m east]
-You: "Get the AED 116m east. Nearest hospital is 400m east. Keep them seated and calm."''';
-
-const String extractionPrompt = '''Based on what the user described, extract the emergency details using the extract_emergency tool. Determine:
-- type: the category of emergency (fire, medical, structural, flood, hazmat, or other)
-- urgency: 1-5 scale (1=informational, 3=needs help soon, 5=life threatening)
-- hazards: list of specific hazards present (e.g. gas_leak, fire_spread, structural_collapse, flooding, chemical_spill, downed_power_lines)
-- description: one concise sentence summarizing the situation for first responders''';
-
+/// Tool definition for structured emergency data extraction.
 final CactusTool extractEmergencyTool = CactusTool(
   name: 'extract_emergency',
-  description: 'Extract structured emergency report data from a user description of their emergency situation.',
+  description:
+      'Extract structured data from a user description of their emergency.',
   parameters: ToolParametersSchema(
     properties: {
       'type': ToolParameter(
         type: 'string',
-        description: 'Emergency category: fire, medical, structural, flood, hazmat, or other',
+        description:
+            'Emergency category: fire, medical, structural, flood, hazmat, or other',
         required: true,
       ),
       'urgency': ToolParameter(
         type: 'integer',
-        description: 'Urgency level 1-5. 1=informational, 2=minor, 3=needs help soon, 4=serious, 5=life threatening',
+        description:
+            'Urgency 1-5. 1=informational, 2=minor, 3=needs help soon, 4=serious, 5=life threatening',
         required: true,
       ),
       'hazards': ToolParameter(
         type: 'string',
-        description: 'Comma-separated list of hazards: gas_leak, fire_spread, structural_collapse, flooding, chemical_spill, downed_power_lines, trapped_people',
+        description:
+            'Comma-separated hazards: gas_leak, fire_spread, structural_collapse, flooding, chemical_spill, downed_power_lines, trapped_people',
         required: false,
       ),
       'description': ToolParameter(
         type: 'string',
-        description: 'One concise sentence summary for first responders',
+        description: 'One sentence summary for first responders',
         required: true,
       ),
     },
   ),
 );
 
-const String awarenessPrompt = '''You are analyzing emergency data from a mesh network during a disaster.
-
-INSTRUCTIONS:
-- Summarize the current situation based on the data below
-- Report what you know with HIGH confidence when backed by multiple data points
-- Flag single-source reports as UNCONFIRMED
-- Provide actionable guidance: safest areas, areas to avoid, where help is needed
-- Be concise and structured
-
-FORMAT YOUR RESPONSE EXACTLY LIKE THIS:
-SITUATION: [1-2 sentence overview]
-THREATS: [list active threats with urgency levels]
-GUIDANCE: [actionable advice for people in the area]
-NEEDS HELP: [areas or situations where help is needed]
-
-DATA:
-''';
+/// Prompt for generating disaster awareness summaries from mesh network data.
+const String awarenessPrompt =
+    'You are analyzing emergency data from a mesh network during a disaster.\n'
+    '\n'
+    'INSTRUCTIONS:\n'
+    '- Summarize the situation from the data below\n'
+    '- Flag single-source reports as UNCONFIRMED\n'
+    '- Be concise and actionable\n'
+    '\n'
+    'FORMAT EXACTLY:\n'
+    'SITUATION: [1-2 sentences]\n'
+    'THREATS: [list active threats with urgency]\n'
+    'GUIDANCE: [what people should do]\n'
+    'NEEDS HELP: [areas or situations needing assistance]\n'
+    '\n'
+    'DATA:\n';

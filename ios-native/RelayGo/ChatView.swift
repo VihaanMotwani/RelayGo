@@ -52,9 +52,9 @@ struct ChatView: View {
                         Button(action: toggleRecording) {
                             Image(systemName: isRecording ? "stop.circle.fill" : "mic.circle.fill")
                                 .font(.title)
-                                .foregroundStyle(isRecording ? .red : .orange)
+                                .foregroundStyle(isRecording ? .red : (relay.isSttReady ? .orange : .gray))
                         }
-                        .disabled(relay.isThinking || !relay.isEngineReady)
+                        .disabled(relay.isThinking || !relay.isSttReady)
 
                         TextField("Describe your emergency...", text: $inputText, axis: .vertical)
                             .textFieldStyle(.roundedBorder)

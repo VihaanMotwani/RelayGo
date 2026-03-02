@@ -1,10 +1,14 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:cactus/cactus.dart';
 
 import '../../core/constants.dart';
 import '../../models/chat_message.dart' as app;
 import '../../models/emergency_report.dart';
+import 'intent_filter.dart';
 import 'knowledge_loader.dart';
 import 'location_service.dart';
 import 'prompts.dart';
@@ -54,6 +58,8 @@ class AiService {
   bool _lmReady = false;
   bool _sttReady = false;
   String? _initError;
+  String? _sttInitError;
+  String? _activeSttModel;
 
   bool get isReady => _lmReady;
   bool get isSttReady => _sttReady;
@@ -115,26 +121,7 @@ class AiService {
       }
 
       // Download and init STT
-      _initController.add('Downloading speech model...');
-      try {
-        await _stt!.downloadModel(
-          model: 'whisper-tiny',
-          downloadProcessCallback: (progress, status, isError) {
-            if (progress != null) {
-              _initController.add('STT: ${(progress * 100).toStringAsFixed(0)}%');
-            }
-          },
-        );
-
-        _initController.add('Initializing speech model...');
-        await _stt!.initializeModel(
-          params: CactusInitParams(model: 'whisper-tiny'),
-        );
-        _sttReady = true;
-      } catch (e) {
-        print('[AiService] STT initialization failed: $e');
-        // Continue without STT
-      }
+      await _initializeSttWithFallback();
 
       if (_lmReady) {
         _initController.add('Ready');
@@ -151,23 +138,123 @@ class AiService {
 
   Future<String> transcribe(String audioPath) async {
     if (!_sttReady || _stt == null) {
-      return '[Voice transcription unavailable]';
+      if (_sttInitError != null) {
+        return '[Voice transcription unavailable: $_sttInitError]';
+      }
+      return '[Voice transcription unavailable: speech model not initialized]';
+    }
+
+    if (!File(audioPath).existsSync()) {
+      return '[Voice transcription unavailable: audio file missing]';
     }
 
     try {
-      final result = await _stt!.transcribe(
-        audioFilePath: audioPath,
-      );
-
-      if (!result.success) {
+      // The C++ WAV parser inside Cactus can fail on iOS AVAudioRecorder files
+      // ("Missing fmt chunk"). Read the file in Dart, locate the raw PCM bytes
+      // in the `data` chunk, and pass them via the audioStream API instead.
+      final pcm = await _wavDataChunk(audioPath);
+      if (pcm == null || pcm.isEmpty) {
         return '[Transcription failed]';
       }
 
-      return result.text;
+      final controller = StreamController<Uint8List>();
+      final future = _stt!.transcribe(audioStream: controller.stream);
+      controller.add(pcm);
+      await controller.close();
+
+      final result = await future;
+      if (!result.success) {
+        return '[Transcription failed: model returned unsuccessful result]';
+      }
+
+      final text = result.text.trim();
+      if (text.isEmpty) {
+        return '[Transcription failed: no speech detected]';
+      }
+
+      return text;
     } catch (e) {
       print('[AiService] Transcription error: $e');
-      return '[Transcription error]';
+      return '[Transcription error: $e]';
     }
+  }
+
+  /// Parses a RIFF/WAV file and returns the raw bytes of its `data` chunk
+  /// (unsigned 8-bit view of signed 16-bit LE PCM samples).
+  /// Falls back to skipping the standard 44-byte header if no chunk is found.
+  Future<Uint8List?> _wavDataChunk(String path) async {
+    try {
+      final bytes = await File(path).readAsBytes();
+      if (bytes.length < 12) return null;
+
+      // Verify RIFF magic ("RIFF")
+      if (bytes[0] != 0x52 || bytes[1] != 0x49 ||
+          bytes[2] != 0x46 || bytes[3] != 0x46) {
+        return bytes.length > 44 ? bytes.sublist(44) : null;
+      }
+
+      // Walk chunks after the 12-byte RIFF/WAVE preamble
+      int offset = 12;
+      while (offset + 8 <= bytes.length) {
+        final id = String.fromCharCodes(bytes.sublist(offset, offset + 4));
+        final size = bytes[offset + 4] |
+            (bytes[offset + 5] << 8) |
+            (bytes[offset + 6] << 16) |
+            (bytes[offset + 7] << 24);
+
+        if (id == 'data') {
+          final end = (offset + 8 + size).clamp(0, bytes.length);
+          return bytes.sublist(offset + 8, end);
+        }
+
+        offset += 8 + size + (size & 1); // WAV chunks are word-aligned
+      }
+
+      return bytes.length > 44 ? bytes.sublist(44) : null;
+    } catch (e) {
+      print('[AiService] WAV parse error: $e');
+      return null;
+    }
+  }
+
+  Future<void> _initializeSttWithFallback() async {
+    if (_stt == null) return;
+
+    const candidates = ['whisper-small', 'whisper-tiny'];
+    String? lastError;
+
+    for (final model in candidates) {
+      try {
+        _initController.add('Downloading speech model ($model)...');
+        await _stt!.downloadModel(
+          model: model,
+          downloadProcessCallback: (progress, status, isError) {
+            if (progress != null) {
+              _initController
+                  .add('STT [$model]: ${(progress * 100).toStringAsFixed(0)}%');
+            }
+          },
+        );
+
+        _initController.add('Initializing speech model ($model)...');
+        await _stt!.initializeModel(
+          params: CactusInitParams(model: model),
+        );
+
+        _activeSttModel = model;
+        _sttReady = true;
+        _sttInitError = null;
+        _initController.add('Speech model ready ($model)');
+        return;
+      } catch (e) {
+        lastError = e.toString();
+        print('[AiService] STT initialization failed for $model: $e');
+      }
+    }
+
+    _sttReady = false;
+    _sttInitError = lastError ?? 'unknown error';
+    _initController.add('Speech model unavailable');
   }
 
   Future<AiResponse> chat(
@@ -186,6 +273,12 @@ class AiService {
     }
 
     try {
+      // Layer 1: Intent pre-filter — skip extraction tool entirely for
+      // non-emergency messages. This reduces false alarms and keeps
+      // context shorter for faster inference on the small model.
+      final bool shouldExtract =
+          extractReport && IntentFilter.isLikelyEmergency(userText);
+
       // Search RAG for relevant knowledge
       String ragContext = '';
       if (_rag != null) {
@@ -208,17 +301,27 @@ class AiService {
         );
       }
 
-      // Build messages
-      String fullSystemPrompt = systemPrompt;
+      // Build system prompt. Order matters for small models — most important
+      // instruction goes first.
+      //
+      // Layout:
+      //   [1] extraction directive (if needed) — must be seen early
+      //   [2] base system prompt
+      //   [3] RAG knowledge — injected as the last block so the model quotes it
+      //   [4] location context (nearby resources)
+      final buffer = StringBuffer();
+      if (shouldExtract) {
+        buffer.writeln(extractionPrompt);
+        buffer.writeln();
+      }
+      buffer.write(systemPrompt);
       if (ragContext.isNotEmpty) {
-        fullSystemPrompt += '\n\nRELEVANT VERIFIED PROCEDURES:\n$ragContext';
+        buffer.writeln('\n\n$ragContext');
       }
       if (locationContext.isNotEmpty) {
-        fullSystemPrompt += '\n\n$locationContext';
+        buffer.writeln('\n\n$locationContext');
       }
-      if (extractReport) {
-        fullSystemPrompt += '\n\n$extractionPrompt';
-      }
+      final String fullSystemPrompt = buffer.toString();
 
       final messages = [
         ChatMessage(content: fullSystemPrompt, role: 'system'),
@@ -226,7 +329,7 @@ class AiService {
       ];
 
       final params = CactusCompletionParams(
-        tools: extractReport ? [extractEmergencyTool] : [],
+        tools: shouldExtract ? [extractEmergencyTool] : null,
         temperature: AiConfig.temperature,
         maxTokens: AiConfig.maxTokens,
       );
@@ -243,33 +346,56 @@ class AiService {
         );
       }
 
-      // Check for tool calls
+      // Parse tool call → AiExtraction
       AiExtraction? extraction;
       if (result.toolCalls.isNotEmpty) {
         final toolCall = result.toolCalls.first;
         if (toolCall.name == 'extract_emergency') {
           final args = toolCall.arguments;
-          extraction = AiExtraction(
-            type: args['type']?.toString() ?? 'other',
-            urgency: int.tryParse(args['urgency']?.toString() ?? '3') ?? 3,
-            hazards: (args['hazards']?.toString() ?? '')
-                .split(',')
-                .map((s) => s.trim())
-                .where((s) => s.isNotEmpty)
-                .toList(),
-            description: args['description']?.toString() ?? userText,
-          );
+          final type = args['type']?.toString() ?? 'other';
+          final urgency =
+              int.tryParse(args['urgency']?.toString() ?? '1') ?? 1;
+          final hazards = (args['hazards']?.toString() ?? '')
+              .split(',')
+              .map((s) => s.trim())
+              .where((s) => s.isNotEmpty)
+              .toList();
+          final description =
+              args['description']?.toString() ?? userText;
+
+          // Layer 2: Extraction confidence gate — discard low-confidence
+          // tool calls before they become broadcast emergency reports.
+          //
+          // Thresholds:
+          //   urgency >= 2   : ignore pure "informational" (urgency=1) reports
+          //   type != 'other' OR urgency >= 4 : require a specific type unless
+          //                   it's a serious unclassified emergency
+          //   description length > 10 : ignore empty/garbage descriptions
+          final bool meetsThreshold = urgency >= 2 &&
+              (type != 'other' || urgency >= 4) &&
+              description.length > 10;
+
+          if (meetsThreshold) {
+            extraction = AiExtraction(
+              type: type,
+              urgency: urgency,
+              hazards: hazards,
+              description: description,
+            );
+          }
         }
       }
 
-      // Determine confidence level
-      app.ConfidenceLevel confidence = app.ConfidenceLevel.unverified;
-      if (ragContext.isNotEmpty) {
-        confidence = app.ConfidenceLevel.verified;
-      }
+      // Confidence level: verified if RAG knowledge was used
+      final app.ConfidenceLevel confidence = ragContext.isNotEmpty
+          ? app.ConfidenceLevel.verified
+          : app.ConfidenceLevel.unverified;
 
       return AiResponse(
-        text: _cleanResponse(result.response),
+        text: _sanitizeAssistantOutput(
+          result.response,
+          fallback: _getFallbackResponse(userText),
+        ),
         confidence: confidence,
         extraction: extraction,
       );
@@ -280,30 +406,6 @@ class AiService {
         confidence: app.ConfidenceLevel.unverified,
       );
     }
-  }
-
-  /// Clean up model response by removing special tokens and artifacts
-  String _cleanResponse(String response) {
-    var cleaned = response;
-    // Remove common model artifacts
-    final artifactsToRemove = [
-      '<IM_end>',
-      '<|im_end|>',
-      '<|endoftext|>',
-      '<end>',
-      '[RelayGo]',
-      'User:',
-      'Assistant:',
-      'System:',
-    ];
-    for (final artifact in artifactsToRemove) {
-      cleaned = cleaned.replaceAll(artifact, '');
-    }
-    // Remove any text after "User:" pattern (model continuing the conversation)
-    final userPattern = RegExp(r'\nUser:\s*".*$', dotAll: true);
-    cleaned = cleaned.replaceAll(userPattern, '');
-    // Trim whitespace
-    return cleaned.trim();
   }
 
   /// Infer emergency type from user text for location filtering.
@@ -513,12 +615,122 @@ class AiService {
       );
 
       return result.success
-          ? _cleanResponse(result.response)
+          ? _sanitizeAssistantOutput(
+              result.response,
+              fallback:
+                  'Unable to generate summary. Check reports list for raw data.',
+            )
           : 'Unable to generate summary. Check reports list for raw data.';
     } catch (e) {
       print('[AiService] Summary generation error: $e');
       return 'Unable to generate AI summary. ${reports.length} reports and ${broadcastMessages.length} messages received.';
     }
+  }
+
+  /// Strips ChatML and other model-specific stop tokens that smollm2/Whisper
+  /// occasionally leak into output text instead of using them as stop signals.
+  ///
+  /// Tokens cleaned:
+  ///   <|im_end|>    — ChatML end-of-turn (smollm2, Qwen, etc.)
+  ///   <|im_start|>  — ChatML start-of-turn
+  ///   <|endoftext|> — GPT-style EOS
+  ///   </s>          — LLaMA/Mistral EOS
+  ///   <s>           — LLaMA/Mistral BOS
+  static String _stripSpecialTokens(String text) {
+    return text
+        .replaceAll('<|im_end|>', '')
+        .replaceAll('<|im_start|>', '')
+        .replaceAll('<|endoftext|>', '')
+        .replaceAll('</s>', '')
+        .replaceAll('<s>', '')
+        .trim();
+  }
+
+  /// Sanitizes model output so only user-facing guidance is displayed.
+  /// Removes leaked reasoning tags/code fences and drops raw machine payloads.
+  String _sanitizeAssistantOutput(
+    String raw, {
+    required String fallback,
+  }) {
+    var cleaned = _stripSpecialTokens(raw);
+
+    // Remove hidden-reasoning blocks commonly leaked by small local models.
+    cleaned = cleaned.replaceAll(
+      RegExp(r'<think>[\s\S]*?<\/think>', caseSensitive: false),
+      ' ',
+    );
+    cleaned = cleaned.replaceAll(
+      RegExp(r'<analysis>[\s\S]*?<\/analysis>', caseSensitive: false),
+      ' ',
+    );
+
+    // Remove markdown code-fence wrappers.
+    cleaned = cleaned.replaceAll(
+      RegExp(r'^\s*```[a-zA-Z0-9_-]*\s*', multiLine: true),
+      '',
+    );
+    cleaned = cleaned.replaceAll('```', '');
+
+    // Remove leaked role prefixes.
+    cleaned = cleaned.replaceAll(
+      RegExp(r'^\s*(assistant|system|user)\s*:\s*',
+          caseSensitive: false, multiLine: true),
+      '',
+    );
+
+    // Remove residual lone reasoning tags.
+    cleaned = cleaned.replaceAll(
+      RegExp(r'</?(think|analysis)>', caseSensitive: false),
+      '',
+    );
+
+    cleaned = cleaned.replaceAll(RegExp(r'\n{3,}'), '\n\n').trim();
+
+    // If model returned JSON payload, try to extract user-facing text field.
+    if (_looksLikeJsonPayload(cleaned)) {
+      final extracted = _extractTextFromJsonPayload(cleaned);
+      if (extracted != null && extracted.trim().isNotEmpty) {
+        cleaned = extracted.trim();
+      } else {
+        return fallback;
+      }
+    }
+
+    // Drop obvious chain-of-thought style leakage.
+    final lower = cleaned.toLowerCase();
+    if (lower.startsWith('okay, the user') ||
+        lower.contains('let me start by') ||
+        lower.contains('i need to respond') ||
+        lower.contains('following all the guidelines')) {
+      return fallback;
+    }
+
+    if (cleaned.isEmpty || lower == 'json') {
+      return fallback;
+    }
+
+    return cleaned;
+  }
+
+  static bool _looksLikeJsonPayload(String text) {
+    final t = text.trim();
+    return (t.startsWith('{') && t.endsWith('}')) ||
+        (t.startsWith('[') && t.endsWith(']'));
+  }
+
+  static String? _extractTextFromJsonPayload(String text) {
+    try {
+      final decoded = jsonDecode(text);
+      if (decoded is Map<String, dynamic>) {
+        for (final key in const ['text', 'response', 'message', 'answer']) {
+          final value = decoded[key];
+          if (value is String && value.trim().isNotEmpty) return value;
+        }
+      }
+    } catch (_) {
+      return null;
+    }
+    return null;
   }
 
   void dispose() {
