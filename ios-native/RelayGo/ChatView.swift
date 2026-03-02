@@ -221,12 +221,23 @@ struct QuickPrompt: View {
 struct MessageBubble: View {
     let message: ChatMessage
 
+    var isTranscribing: Bool {
+        message.isUser && message.text == "Transcribing..."
+    }
+
     var body: some View {
         HStack(alignment: .top) {
             if message.isUser { Spacer(minLength: 60) }
 
             VStack(alignment: message.isUser ? .trailing : .leading, spacing: 4) {
-                HStack(spacing: 0) {
+                HStack(spacing: 4) {
+                    // Show microphone icon for transcribing
+                    if isTranscribing {
+                        Image(systemName: "waveform")
+                            .font(.caption)
+                            .opacity(0.7)
+                    }
+
                     Text(message.text)
                     if message.isStreaming {
                         TypingCursor()

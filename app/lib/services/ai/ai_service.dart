@@ -220,7 +220,7 @@ class AiService {
   Future<void> _initializeSttWithFallback() async {
     if (_stt == null) return;
 
-    const candidates = ['whisper-small', 'whisper-tiny'];
+    const candidates = ['whisper-medium', 'whisper-tiny'];
     String? lastError;
 
     for (final model in candidates) {
@@ -521,38 +521,68 @@ class AiService {
 
       // Stop sequences that indicate model is done or hallucinating
       final stopPatterns = ['<IM_end>', '<|im_end|>', '<|endoftext|>', 'User:', '\nUser:'];
-      var buffer = '';
+
+      // Accumulate full response for sanitization
+      var fullResponse = '';
       var shouldStop = false;
 
-      // Yield tokens as they arrive, but check for stop sequences
+      // Collect all tokens first
       await for (final chunk in streamedResult.stream) {
         if (shouldStop) break;
 
-        buffer += chunk;
+        fullResponse += chunk;
 
-        // Check if buffer contains a stop pattern
+        // Check for stop patterns
         for (final pattern in stopPatterns) {
-          if (buffer.contains(pattern)) {
-            // Yield everything before the stop pattern
-            final idx = buffer.indexOf(pattern);
-            if (idx > 0) {
-              yield buffer.substring(0, idx);
-            }
+          if (fullResponse.contains(pattern)) {
+            final idx = fullResponse.indexOf(pattern);
+            fullResponse = fullResponse.substring(0, idx);
             shouldStop = true;
             break;
           }
         }
+      }
 
-        // If no stop pattern found, yield the chunk
-        if (!shouldStop) {
-          yield chunk;
-        }
+      // Now sanitize the complete response and yield character by character for smooth streaming
+      final sanitized = _sanitizeForStreaming(fullResponse);
+
+      // Yield in small chunks for smooth streaming effect
+      const chunkSize = 3; // Characters per yield
+      for (var i = 0; i < sanitized.length; i += chunkSize) {
+        final end = (i + chunkSize < sanitized.length) ? i + chunkSize : sanitized.length;
+        yield sanitized.substring(i, end);
+        // Small delay for smooth visual effect
+        await Future.delayed(Duration(milliseconds: 15));
       }
     } catch (e) {
       print('[AiService] Stream chat error: $e');
       _lastResponseUsedRag = false;
       yield _getFallbackResponse(userText);
     }
+  }
+
+  /// Lightweight sanitization for individual streaming chunks
+  /// Removes special tokens and role prefixes
+  String _sanitizeStreamChunk(String chunk) {
+    var cleaned = _stripSpecialTokens(chunk);
+
+    // Remove role prefixes that might appear mid-stream
+    cleaned = cleaned.replaceAll(
+      RegExp(r'^\s*(assistant|system|user)\s*:\s*',
+          caseSensitive: false, multiLine: true),
+      '',
+    );
+
+    return cleaned;
+  }
+
+  /// Sanitize complete response for streaming - removes thinking blocks and cleans formatting
+  String _sanitizeForStreaming(String text) {
+    // Use the full sanitization pipeline
+    return _sanitizeAssistantOutput(
+      text,
+      fallback: "I'm here to help with emergency guidance. Please tell me what happened.",
+    );
   }
 
   /// Check if last response used RAG (for confidence level)
@@ -657,11 +687,11 @@ class AiService {
     // Remove hidden-reasoning blocks commonly leaked by small local models.
     cleaned = cleaned.replaceAll(
       RegExp(r'<think>[\s\S]*?<\/think>', caseSensitive: false),
-      ' ',
+      '',
     );
     cleaned = cleaned.replaceAll(
       RegExp(r'<analysis>[\s\S]*?<\/analysis>', caseSensitive: false),
-      ' ',
+      '',
     );
 
     // Remove markdown code-fence wrappers.
@@ -670,6 +700,15 @@ class AiService {
       '',
     );
     cleaned = cleaned.replaceAll('```', '');
+
+    // Remove markdown formatting - be specific to avoid breaking normal text
+    // Bold: **text** or __text__
+    cleaned = cleaned.replaceAll(RegExp(r'\*\*(.+?)\*\*'), r'$1');
+    cleaned = cleaned.replaceAll(RegExp(r'__(.+?)__'), r'$1');
+    // Italic: *text* or _text_ (but be careful with underscores in words)
+    cleaned = cleaned.replaceAll(RegExp(r'\*([^\*]+?)\*'), r'$1');
+    // Strikethrough: ~~text~~
+    cleaned = cleaned.replaceAll(RegExp(r'~~(.+?)~~'), r'$1');
 
     // Remove leaked role prefixes.
     cleaned = cleaned.replaceAll(
@@ -684,7 +723,13 @@ class AiService {
       '',
     );
 
+    // Clean up whitespace
     cleaned = cleaned.replaceAll(RegExp(r'\n{3,}'), '\n\n').trim();
+
+    // Only return fallback if truly empty or pure JSON
+    if (cleaned.isEmpty) {
+      return fallback;
+    }
 
     // If model returned JSON payload, try to extract user-facing text field.
     if (_looksLikeJsonPayload(cleaned)) {
@@ -694,19 +739,6 @@ class AiService {
       } else {
         return fallback;
       }
-    }
-
-    // Drop obvious chain-of-thought style leakage.
-    final lower = cleaned.toLowerCase();
-    if (lower.startsWith('okay, the user') ||
-        lower.contains('let me start by') ||
-        lower.contains('i need to respond') ||
-        lower.contains('following all the guidelines')) {
-      return fallback;
-    }
-
-    if (cleaned.isEmpty || lower == 'json') {
-      return fallback;
     }
 
     return cleaned;

@@ -374,7 +374,12 @@ class RelayService: ObservableObject {
             return
         }
 
-        // Append token to the streaming message
+        // Hide thinking indicator as soon as first token arrives
+        if isThinking {
+            isThinking = false
+        }
+
+        // Append token to the streaming message (sanitization happens at stream end)
         chatMessages[index].text += token
     }
 
@@ -384,6 +389,9 @@ class RelayService: ObservableObject {
               let index = chatMessages.firstIndex(where: { $0.id == messageId }) else {
             return
         }
+
+        // Final cleanup pass (in case any fragments slipped through during streaming)
+        chatMessages[index].text = sanitizeAssistantText(chatMessages[index].text)
 
         // Mark message as complete
         chatMessages[index].isStreaming = false
@@ -468,13 +476,23 @@ class RelayService: ObservableObject {
     }
 
     func transcribeAndSend(audioPath: String) async {
-        isThinking = true
+        // Add placeholder user message immediately
+        let placeholderId = UUID()
+        let placeholderMessage = ChatMessage(
+            id: placeholderId,
+            isUser: true,
+            text: "Transcribing...",
+            isVerified: false
+        )
+        chatMessages.append(placeholderMessage)
 
         do {
             let transcription = try await bridge.transcribe(audioPath: audioPath)
 
             if transcription.isEmpty || transcription.starts(with: "[") {
-                // Transcription failed or unavailable
+                // Transcription failed - remove placeholder and show error
+                chatMessages.removeAll { $0.id == placeholderId }
+
                 let detail = transcription
                     .trimmingCharacters(in: CharacterSet(charactersIn: "[]"))
                 let errorMessage = ChatMessage(
@@ -485,28 +503,54 @@ class RelayService: ObservableObject {
                     isVerified: false
                 )
                 chatMessages.append(errorMessage)
-                isThinking = false
+
                 // Clean up audio file
                 try? FileManager.default.removeItem(atPath: audioPath)
                 return
             }
 
+            // Update placeholder with actual transcription
+            if let index = chatMessages.firstIndex(where: { $0.id == placeholderId }) {
+                chatMessages[index].text = transcription
+            }
+
             // Clean up audio file
             try? FileManager.default.removeItem(atPath: audioPath)
 
-            // Reset thinking state - sendToAI will set it again
-            isThinking = false
+            // Store for extraction after streaming completes
+            lastUserMessageText = transcription
 
-            // Use streaming for AI response
-            await sendToAI(transcription)
+            // Create placeholder AI message for streaming
+            let aiMessageId = UUID()
+            let aiMessage = ChatMessage(
+                id: aiMessageId,
+                isUser: false,
+                text: "",
+                isVerified: false,
+                isStreaming: true
+            )
+            chatMessages.append(aiMessage)
+            currentStreamingMessageId = aiMessageId
+
+            isThinking = true
+            isStreaming = true
+
+            // Start streaming AI response
+            do {
+                try await bridge.startStreamingChat(transcription)
+            } catch {
+                handleStreamError(error.localizedDescription)
+            }
         } catch {
+            // Remove placeholder and show error
+            chatMessages.removeAll { $0.id == placeholderId }
+
             let errorMessage = ChatMessage(
                 isUser: false,
                 text: "Failed to process voice: \(error.localizedDescription)",
                 isVerified: false
             )
             chatMessages.append(errorMessage)
-            isThinking = false
 
             // Clean up audio file
             try? FileManager.default.removeItem(atPath: audioPath)

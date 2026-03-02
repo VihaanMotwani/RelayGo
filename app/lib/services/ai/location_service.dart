@@ -26,6 +26,10 @@ class NearbyResource {
   });
 
   String get distanceFormatted {
+    // Defensive check for unreasonable distances (>100km in Singapore context)
+    if (distanceMeters > 100000) {
+      return 'far';
+    }
     if (distanceMeters < 1000) {
       return '${distanceMeters}m';
     }
@@ -222,8 +226,12 @@ class LocationService {
       final typeLabel = entry.key.toUpperCase().replaceAll('_', ' ');
       buffer.writeln('\n$typeLabel:');
       for (final r in entry.value) {
-        final addr = r.address.isNotEmpty ? ' (${r.address})' : '';
-        buffer.writeln('  - ${r.name}$addr - ${r.locationDescription}');
+        // Show name with distance, skip empty addresses
+        if (r.address.isNotEmpty && r.address.length < 80) {
+          buffer.writeln('  • ${r.name} — ${r.locationDescription} (${r.address})');
+        } else {
+          buffer.writeln('  • ${r.name} — ${r.locationDescription}');
+        }
       }
     }
 
