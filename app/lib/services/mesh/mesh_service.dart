@@ -17,6 +17,9 @@ class MeshService {
   final BleCentralService _central;
   StreamSubscription? _peripheralSub;
 
+  /// Optional log callback for observability.
+  final void Function(String)? onLog;
+
   final _reportController = StreamController<EmergencyReport>.broadcast();
   final _messageController = StreamController<MeshMessage>.broadcast();
   final _packetController = StreamController<Map<String, dynamic>>.broadcast();
@@ -49,12 +52,12 @@ class MeshService {
   List<MeshMessage> get broadcastMessages => _messages.where((m) => m.to == null).toList();
   List<PeerInfo> get peers => _peers;
 
-  MeshService({PacketStore? store})
-      : _store = store ?? PacketStore(),
-        _peripheral = BlePeripheralService(),
-        _central = BleCentralService() {
-    _initIdentity();
-  }
+  MeshService({PacketStore? store, this.onLog})
+    : _store = store ?? PacketStore(),
+      _peripheral = BlePeripheralService(onLog: onLog),
+      _central = BleCentralService(onLog: onLog) {
+      _initIdentity();
+      }
 
   Future<void> _initIdentity() async {
     final prefs = await SharedPreferences.getInstance();
@@ -84,6 +87,8 @@ class MeshService {
 
   PacketStore get store => _store;
 
+  void _log(String msg) => onLog?.call(msg);
+
   Future<void> start() async {
     // Listen for incoming packets from peripheral
     _peripheralSub = _peripheral.onPacketReceived.listen(_handleIncomingPacket);
@@ -93,7 +98,7 @@ class MeshService {
     await _central.start();
 
     // Feed existing packets to central for sync
-    await _refreshCentralPackets();
+    await refreshOutbox();
 
     // Load cached data
     _reports = await _store.getAllReports();
@@ -104,8 +109,20 @@ class MeshService {
   }
 
   Future<void> _handleIncomingPacket(MeshPacket packet) async {
+    _log(
+      '[MESH] Incoming ${packet.kind} ${packet.id.substring(0, 8)}... from peripheral',
+    );
     final isNew = await _store.insertIfNew(packet);
-    if (!isNew) return; // Duplicate, already seen
+    if (!isNew) {
+      _log(
+        '[MESH] Duplicate ${packet.id.substring(0, 8)}... — already in store, skipping',
+      );
+      return;
+    }
+
+    _log(
+      '[MESH] NEW ${packet.kind} ${packet.id.substring(0, 8)}... inserted into store ✅',
+    );
 
     if (packet.isReport && packet.report != null) {
       _reports.insert(0, packet.report!);
@@ -118,16 +135,21 @@ class MeshService {
     }
 
     // Update central's packet list for forwarding
-    await _refreshCentralPackets();
+    await refreshOutbox();
   }
 
-  Future<void> _refreshCentralPackets() async {
+  /// Refresh the central's outbox from the store.
+  /// Call after preloading data to ensure the central picks it up.
+  Future<void> refreshOutbox() async {
     final reports = await _store.getAllReports();
     final messages = await _store.getAllMessages();
     final allPackets = [
       ...reports.map(MeshPacket.fromReport),
       ...messages.map(MeshPacket.fromMessage),
     ];
+    _log(
+      '[MESH] Refreshed central queue: ${allPackets.length} packets (${reports.length} reports + ${messages.length} msgs)',
+    );
     _central.updateLocalPackets(allPackets);
   }
 
@@ -135,14 +157,14 @@ class MeshService {
     final packet = MeshPacket.fromReport(report);
     await _store.insertIfNew(packet);
     _reportController.add(report);
-    await _refreshCentralPackets();
+    await refreshOutbox();
   }
 
   Future<void> broadcastMessage(MeshMessage message) async {
     final packet = MeshPacket.fromMessage(message);
     await _store.insertIfNew(packet);
     _messageController.add(message);
-    await _refreshCentralPackets();
+    await refreshOutbox();
   }
 
   Future<void> stop() async {

@@ -41,6 +41,7 @@ app/web/
 
 __pycache__
 .idea
+.DS_Store
 
 # Backend runtime/test artifacts
 backend/*.db
