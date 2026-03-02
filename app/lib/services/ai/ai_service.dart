@@ -7,6 +7,7 @@ import '../../core/constants.dart';
 import '../../models/chat_message.dart' as app;
 import '../../models/emergency_report.dart';
 import 'knowledge_loader.dart';
+import 'location_service.dart';
 import 'prompts.dart';
 
 class AiExtraction {
@@ -39,13 +40,16 @@ class AiService {
   CactusLM? _lm;
   CactusSTT? _stt;
   CactusRAG? _rag;
+  final LocationService _locationService = LocationService();
   bool _lmReady = false;
   bool _sttReady = false;
   String? _initError;
 
   bool get isReady => _lmReady;
   bool get isSttReady => _sttReady;
+  bool get isLocationReady => _locationService.isInitialized;
   String? get initError => _initError;
+  LocationService get locationService => _locationService;
 
   final _initController = StreamController<String>.broadcast();
   Stream<String> get initProgress => _initController.stream;
@@ -89,6 +93,15 @@ class AiService {
           print('[AiService] RAG loading failed: $e');
           // Continue without RAG
         }
+      }
+
+      // Load location data (independent of LLM)
+      _initController.add('Loading location data...');
+      try {
+        await _locationService.initialize();
+      } catch (e) {
+        print('[AiService] Location service init failed: $e');
+        // Continue without location service
       }
 
       // Download and init STT
@@ -147,7 +160,13 @@ class AiService {
     }
   }
 
-  Future<AiResponse> chat(String userText, {bool extractReport = false}) async {
+  Future<AiResponse> chat(
+    String userText, {
+    bool extractReport = false,
+    double? userLat,
+    double? userLon,
+    EmergencyType? emergencyType,
+  }) async {
     // If AI not ready, return a helpful fallback response
     if (!_lmReady || _lm == null) {
       return AiResponse(
@@ -167,10 +186,25 @@ class AiService {
         }
       }
 
+      // Get nearby resources if location provided
+      String locationContext = '';
+      if (userLat != null && userLon != null && _locationService.isInitialized) {
+        final eType = emergencyType ?? _inferEmergencyType(userText);
+        locationContext = _locationService.formatForLLM(
+          lat: userLat,
+          lon: userLon,
+          emergencyType: eType,
+          maxPerType: 3,
+        );
+      }
+
       // Build messages
       String fullSystemPrompt = systemPrompt;
       if (ragContext.isNotEmpty) {
         fullSystemPrompt += '\n\nRELEVANT VERIFIED PROCEDURES:\n$ragContext';
+      }
+      if (locationContext.isNotEmpty) {
+        fullSystemPrompt += '\n\n$locationContext';
       }
       if (extractReport) {
         fullSystemPrompt += '\n\n$extractionPrompt';
@@ -236,6 +270,30 @@ class AiService {
         confidence: app.ConfidenceLevel.unverified,
       );
     }
+  }
+
+  /// Infer emergency type from user text for location filtering.
+  EmergencyType _inferEmergencyType(String text) {
+    final lower = text.toLowerCase();
+    if (lower.contains('fire') || lower.contains('smoke') || lower.contains('burning')) {
+      return EmergencyType.fire;
+    }
+    if (lower.contains('hurt') || lower.contains('bleeding') || lower.contains('injured') ||
+        lower.contains('heart') || lower.contains('breathing') || lower.contains('medical') ||
+        lower.contains('sick') || lower.contains('pain')) {
+      return EmergencyType.medical;
+    }
+    if (lower.contains('earthquake') || lower.contains('collapse') || lower.contains('building')) {
+      return EmergencyType.structural;
+    }
+    if (lower.contains('flood') || lower.contains('water') || lower.contains('drowning')) {
+      return EmergencyType.flood;
+    }
+    if (lower.contains('chemical') || lower.contains('gas') || lower.contains('hazmat') ||
+        lower.contains('toxic') || lower.contains('spill')) {
+      return EmergencyType.hazmat;
+    }
+    return EmergencyType.other;
   }
 
   /// Fallback responses when AI is not available

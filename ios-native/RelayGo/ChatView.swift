@@ -11,64 +11,72 @@ struct ChatView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                // Messages
-                ScrollViewReader { proxy in
-                    ScrollView {
-                        LazyVStack(spacing: 12) {
-                            // Welcome message if empty
-                            if relay.chatMessages.isEmpty {
-                                WelcomeCard()
-                                    .padding(.top, 20)
-                            }
+            ZStack {
+                VStack(spacing: 0) {
+                    // Messages
+                    ScrollViewReader { proxy in
+                        ScrollView {
+                            LazyVStack(spacing: 12) {
+                                // Welcome message if empty
+                                if relay.chatMessages.isEmpty {
+                                    WelcomeCard()
+                                        .padding(.top, 20)
+                                }
 
-                            ForEach(relay.chatMessages) { message in
-                                MessageBubble(message: message)
-                                    .id(message.id)
-                            }
+                                ForEach(relay.chatMessages) { message in
+                                    MessageBubble(message: message)
+                                        .id(message.id)
+                                }
 
-                            if relay.isThinking {
-                                ThinkingIndicator()
+                                if relay.isThinking {
+                                    ThinkingIndicator()
+                                }
+                            }
+                            .padding()
+                        }
+                        .onChange(of: relay.chatMessages.count) { _, _ in
+                            if let last = relay.chatMessages.last {
+                                withAnimation {
+                                    proxy.scrollTo(last.id, anchor: .bottom)
+                                }
                             }
                         }
-                        .padding()
                     }
-                    .onChange(of: relay.chatMessages.count) { _, _ in
-                        if let last = relay.chatMessages.last {
-                            withAnimation {
-                                proxy.scrollTo(last.id, anchor: .bottom)
-                            }
+
+                    Divider()
+
+                    // Input bar
+                    HStack(spacing: 12) {
+                        // Microphone button
+                        Button(action: toggleRecording) {
+                            Image(systemName: isRecording ? "stop.circle.fill" : "mic.circle.fill")
+                                .font(.title)
+                                .foregroundStyle(isRecording ? .red : .orange)
                         }
+                        .disabled(relay.isThinking || !relay.isEngineReady)
+
+                        TextField("Describe your emergency...", text: $inputText, axis: .vertical)
+                            .textFieldStyle(.roundedBorder)
+                            .lineLimit(1...4)
+                            .focused($isInputFocused)
+                            .onSubmit(send)
+                            .disabled(!relay.isEngineReady)
+
+                        Button(action: send) {
+                            Image(systemName: "arrow.up.circle.fill")
+                                .font(.title)
+                                .foregroundStyle(inputText.isEmpty || !relay.isEngineReady ? .gray : .blue)
+                        }
+                        .disabled(inputText.isEmpty || relay.isThinking || !relay.isEngineReady)
                     }
+                    .padding()
+                    .background(.bar)
                 }
 
-                Divider()
-
-                // Input bar
-                HStack(spacing: 12) {
-                    // Microphone button
-                    Button(action: toggleRecording) {
-                        Image(systemName: isRecording ? "stop.circle.fill" : "mic.circle.fill")
-                            .font(.title)
-                            .foregroundStyle(isRecording ? .red : .orange)
-                    }
-                    .disabled(relay.isThinking)
-
-                    TextField("Describe your emergency...", text: $inputText, axis: .vertical)
-                        .textFieldStyle(.roundedBorder)
-                        .lineLimit(1...4)
-                        .focused($isInputFocused)
-                        .onSubmit(send)
-
-                    Button(action: send) {
-                        Image(systemName: "arrow.up.circle.fill")
-                            .font(.title)
-                            .foregroundStyle(inputText.isEmpty ? .gray : .blue)
-                    }
-                    .disabled(inputText.isEmpty || relay.isThinking)
+                // Setup overlay when engine not ready
+                if !relay.isEngineReady {
+                    SetupOverlay(progress: relay.initProgress)
                 }
-                .padding()
-                .background(.bar)
             }
             .navigationTitle("Emergency Assistant")
             .navigationBarTitleDisplayMode(.inline)
@@ -250,6 +258,34 @@ struct ThinkingIndicator: View {
 
             Spacer()
         }
+    }
+}
+
+// MARK: - Setup Overlay
+
+struct SetupOverlay: View {
+    let progress: String
+
+    var body: some View {
+        VStack(spacing: 16) {
+            ProgressView()
+                .scaleEffect(1.2)
+
+            Text("Setting up AI Assistant")
+                .font(.headline)
+
+            Text(progress)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+
+            Text("Other features are available while this completes")
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+        }
+        .padding(24)
+        .frame(maxWidth: 280)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
     }
 }
 

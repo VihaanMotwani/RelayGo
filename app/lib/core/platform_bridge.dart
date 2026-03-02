@@ -106,7 +106,15 @@ class PlatformBridge {
 
   /// Send message to AI and get response
   Future<Map<String, dynamic>> chat(String text, {bool extractReport = false}) async {
-    final response = await _aiService.chat(text, extractReport: extractReport);
+    // Get user location for nearby resources context
+    final location = await LocationService.getCurrentLocation();
+
+    final response = await _aiService.chat(
+      text,
+      extractReport: extractReport,
+      userLat: location?.latitude,
+      userLon: location?.longitude,
+    );
     return {
       'text': response.text,
       'confidence': response.confidence.name,
