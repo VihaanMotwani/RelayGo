@@ -13,6 +13,7 @@ function Dashboard() {
   const { reports, directives, connected, refetchDirectives } = useWebSocket();
   const { theme } = useTheme();
   const [tab, setTab] = useState('reports'); // 'reports' | 'directives'
+  const [focusedReport, setFocusedReport] = useState(null);
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -25,7 +26,11 @@ function Dashboard() {
       </div>
       <div className="app-body">
         <div className="app-map">
-          <Map reports={reports} />
+          <Map
+            reports={reports}
+            focusedReport={focusedReport}
+            onReportClick={setFocusedReport}
+          />
         </div>
         <div className="app-sidebar">
           {/* Tab bar */}
@@ -53,7 +58,11 @@ function Dashboard() {
           {/* Tab content */}
           <div style={s.tabContent}>
             {tab === 'reports' ? (
-              <ReportList reports={reports} />
+              <ReportList
+                reports={reports}
+                focusedReport={focusedReport}
+                onReportClick={setFocusedReport}
+              />
             ) : (
               <DirectiveList directives={directives} />
             )}

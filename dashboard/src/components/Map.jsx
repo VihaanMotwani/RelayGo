@@ -91,13 +91,13 @@ function createPinEl(color, code, urgency) {
 
 /* ---- Component ---- */
 
-export default function Map({ reports }) {
+export default function Map({ reports, focusedReport, onReportClick }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const mapRef = useRef(null);
   const sourceReady = useRef(false);
   const reportsRef = useRef(reports);
-  const markersRef = useRef([]);
+  const markersRef = useRef([]); // Will store { id, marker } objects
   const { theme } = useTheme();
 
   reportsRef.current = reports;
@@ -355,7 +355,7 @@ export default function Map({ reports }) {
 
   // Sync incident pin markers
   function syncMarkers(map, rpts) {
-    markersRef.current.forEach((m) => m.remove());
+    markersRef.current.forEach((m) => m.marker.remove());
     markersRef.current = [];
 
     rpts.forEach((r) => {
@@ -387,31 +387,36 @@ export default function Map({ reports }) {
       el.style.pointerEvents = 'auto'; // Re-enable pointer events for the pin itself
       wrapper.appendChild(el);
 
-      el.addEventListener('click', () => {
-        new mapboxgl.Popup({ closeButton: true, closeOnClick: true, maxWidth: '260px' })
-          .setLngLat([r.loc.lng, r.loc.lat])
-          .setHTML(
-            `<div style="font-family:var(--system-font);">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
-                <span style="width:8px;height:8px;border-radius:50%;background:${color};display:inline-block;"></span>
-                <strong style="font-size:12px;color:var(--text-primary);">${label}</strong>
-                <span style="margin-left:auto;font-size:10px;color:var(--text-tertiary);">U${urgency}</span>
-              </div>
-              <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;margin-bottom:6px;">${desc}</div>
-              <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary);">
-                <span>${tsStr}</span>
-                <span>${hops} hops</span>
-              </div>
-            </div>`
-          )
-          .addTo(map);
-      });
+      const popup = new mapboxgl.Popup({ closeButton: true, closeOnClick: true, maxWidth: '260px', offset: [0, -10] })
+        .setHTML(
+          `<div style="font-family:var(--system-font);">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:${color};display:inline-block;"></span>
+              <strong style="font-size:12px;color:var(--text-primary);">${label}</strong>
+              <span style="margin-left:auto;font-size:10px;color:var(--text-tertiary);">U${urgency}</span>
+            </div>
+            <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;margin-bottom:6px;">${desc}</div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary);">
+              <span>${tsStr}</span>
+              <span>${hops} hops</span>
+            </div>
+          </div>`
+        );
 
       const marker = new mapboxgl.Marker({ element: wrapper })
         .setLngLat([r.loc.lng, r.loc.lat])
+        .setPopup(popup)
         .addTo(map);
 
-      markersRef.current.push(marker);
+      // We still listen on `el` because `wrapper` ignores pointer events.
+      // E.stopPropagation() prevents Mapbox canvas click from immediately closing the popup.
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (onReportClick) onReportClick(r);
+        marker.togglePopup();
+      });
+
+      markersRef.current.push({ id: r.id, marker });
     });
   }
 
@@ -460,12 +465,12 @@ export default function Map({ reports }) {
     return () => {
       map.off('move', redraw);
       map.off('resize', redraw);
-      markersRef.current.forEach((m) => m.remove());
+      markersRef.current.forEach((m) => m.marker.remove());
       map.remove();
       mapRef.current = null;
       sourceReady.current = false;
     };
-  }, [drawRelayOverlay]);
+  }, [drawRelayOverlay, onReportClick]);
 
   // Switch map style when theme changes
   useEffect(() => {
@@ -533,7 +538,32 @@ export default function Map({ reports }) {
         });
       }
     }
-  }, [reports, drawRelayOverlay]);
+  }, [reports, drawRelayOverlay]); // Removed syncMarkers dependencies from effect array to avoid staleness issues inside syncMarkers? Actually syncMarkers is defined inside component. It will use latest onReportClick.
+
+  // Zoom to focused report
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !focusedReport) return;
+    if (focusedReport.loc?.lat == null || focusedReport.loc?.lng == null) return;
+
+    map.flyTo({
+      center: [focusedReport.loc.lng, focusedReport.loc.lat],
+      zoom: 16,
+      pitch: 60,
+      essential: true,
+      duration: 1500,
+    });
+
+    const mObj = markersRef.current.find(m => m.id === focusedReport.id);
+    if (mObj) {
+      // Close other popups? Mapbox `closeOnClick: true` doesn't auto-close other mapboxgl.Popups if we manually toggle, wait `mapboxgl` manages it natively if they are attached to markers. 
+      // Toggle popup opens it if closed
+      const popup = mObj.marker.getPopup();
+      if (popup && !popup.isOpen()) {
+        mObj.marker.togglePopup();
+      }
+    }
+  }, [focusedReport]);
 
   return (
     <div style={styles.wrapper}>
