@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:cactus/cactus.dart';
 
@@ -7,6 +6,7 @@ import '../../core/constants.dart';
 import '../../models/chat_message.dart' as app;
 import '../../models/emergency_report.dart';
 import 'knowledge_loader.dart';
+import 'location_service.dart';
 import 'prompts.dart';
 
 class AiExtraction {
@@ -35,17 +35,31 @@ class AiResponse {
   });
 }
 
+/// Streaming response that yields tokens as they arrive
+class AiStreamResponse {
+  final Stream<String> tokenStream;
+  final Future<app.ConfidenceLevel> confidence;
+
+  AiStreamResponse({
+    required this.tokenStream,
+    required this.confidence,
+  });
+}
+
 class AiService {
   CactusLM? _lm;
   CactusSTT? _stt;
   CactusRAG? _rag;
+  final LocationService _locationService = LocationService();
   bool _lmReady = false;
   bool _sttReady = false;
   String? _initError;
 
   bool get isReady => _lmReady;
   bool get isSttReady => _sttReady;
+  bool get isLocationReady => _locationService.isInitialized;
   String? get initError => _initError;
+  LocationService get locationService => _locationService;
 
   final _initController = StreamController<String>.broadcast();
   Stream<String> get initProgress => _initController.stream;
@@ -89,6 +103,15 @@ class AiService {
           print('[AiService] RAG loading failed: $e');
           // Continue without RAG
         }
+      }
+
+      // Load location data (independent of LLM)
+      _initController.add('Loading location data...');
+      try {
+        await _locationService.initialize();
+      } catch (e) {
+        print('[AiService] Location service init failed: $e');
+        // Continue without location service
       }
 
       // Download and init STT
@@ -147,7 +170,13 @@ class AiService {
     }
   }
 
-  Future<AiResponse> chat(String userText, {bool extractReport = false}) async {
+  Future<AiResponse> chat(
+    String userText, {
+    bool extractReport = false,
+    double? userLat,
+    double? userLon,
+    EmergencyType? emergencyType,
+  }) async {
     // If AI not ready, return a helpful fallback response
     if (!_lmReady || _lm == null) {
       return AiResponse(
@@ -167,10 +196,25 @@ class AiService {
         }
       }
 
+      // Get nearby resources if location provided
+      String locationContext = '';
+      if (userLat != null && userLon != null && _locationService.isInitialized) {
+        final eType = emergencyType ?? _inferEmergencyType(userText);
+        locationContext = _locationService.formatForLLM(
+          lat: userLat,
+          lon: userLon,
+          emergencyType: eType,
+          maxPerType: 3,
+        );
+      }
+
       // Build messages
       String fullSystemPrompt = systemPrompt;
       if (ragContext.isNotEmpty) {
         fullSystemPrompt += '\n\nRELEVANT VERIFIED PROCEDURES:\n$ragContext';
+      }
+      if (locationContext.isNotEmpty) {
+        fullSystemPrompt += '\n\n$locationContext';
       }
       if (extractReport) {
         fullSystemPrompt += '\n\n$extractionPrompt';
@@ -225,7 +269,7 @@ class AiService {
       }
 
       return AiResponse(
-        text: result.response,
+        text: _cleanResponse(result.response),
         confidence: confidence,
         extraction: extraction,
       );
@@ -236,6 +280,54 @@ class AiService {
         confidence: app.ConfidenceLevel.unverified,
       );
     }
+  }
+
+  /// Clean up model response by removing special tokens and artifacts
+  String _cleanResponse(String response) {
+    var cleaned = response;
+    // Remove common model artifacts
+    final artifactsToRemove = [
+      '<IM_end>',
+      '<|im_end|>',
+      '<|endoftext|>',
+      '<end>',
+      '[RelayGo]',
+      'User:',
+      'Assistant:',
+      'System:',
+    ];
+    for (final artifact in artifactsToRemove) {
+      cleaned = cleaned.replaceAll(artifact, '');
+    }
+    // Remove any text after "User:" pattern (model continuing the conversation)
+    final userPattern = RegExp(r'\nUser:\s*".*$', dotAll: true);
+    cleaned = cleaned.replaceAll(userPattern, '');
+    // Trim whitespace
+    return cleaned.trim();
+  }
+
+  /// Infer emergency type from user text for location filtering.
+  EmergencyType _inferEmergencyType(String text) {
+    final lower = text.toLowerCase();
+    if (lower.contains('fire') || lower.contains('smoke') || lower.contains('burning')) {
+      return EmergencyType.fire;
+    }
+    if (lower.contains('hurt') || lower.contains('bleeding') || lower.contains('injured') ||
+        lower.contains('heart') || lower.contains('breathing') || lower.contains('medical') ||
+        lower.contains('sick') || lower.contains('pain')) {
+      return EmergencyType.medical;
+    }
+    if (lower.contains('earthquake') || lower.contains('collapse') || lower.contains('building')) {
+      return EmergencyType.structural;
+    }
+    if (lower.contains('flood') || lower.contains('water') || lower.contains('drowning')) {
+      return EmergencyType.flood;
+    }
+    if (lower.contains('chemical') || lower.contains('gas') || lower.contains('hazmat') ||
+        lower.contains('toxic') || lower.contains('spill')) {
+      return EmergencyType.hazmat;
+    }
+    return EmergencyType.other;
   }
 
   /// Fallback responses when AI is not available
@@ -260,6 +352,110 @@ class AiService {
 
     return 'AI assistant is currently unavailable. For emergencies, call 911.\n\nBasic tips:\n- Stay calm and assess the situation\n- Move to a safe location if needed\n- Help others if you can do so safely\n- Wait for emergency services\n\n[AI offline - mesh networking and SOS features still work]';
   }
+
+  /// Stream chat response token by token
+  Stream<String> streamChat(
+    String userText, {
+    double? userLat,
+    double? userLon,
+    EmergencyType? emergencyType,
+  }) async* {
+    // If AI not ready, yield fallback response
+    if (!_lmReady || _lm == null) {
+      yield _getFallbackResponse(userText);
+      return;
+    }
+
+    try {
+      // Search RAG for relevant knowledge
+      String ragContext = '';
+      if (_rag != null) {
+        try {
+          ragContext = await KnowledgeLoader.searchKnowledge(_rag!, userText);
+        } catch (e) {
+          print('[AiService] RAG search failed: $e');
+        }
+      }
+
+      // Track RAG usage for confidence level
+      _lastResponseUsedRag = ragContext.isNotEmpty;
+
+      // Get nearby resources if location provided
+      String locationContext = '';
+      if (userLat != null && userLon != null && _locationService.isInitialized) {
+        final eType = emergencyType ?? _inferEmergencyType(userText);
+        locationContext = _locationService.formatForLLM(
+          lat: userLat,
+          lon: userLon,
+          emergencyType: eType,
+          maxPerType: 3,
+        );
+      }
+
+      // Build system prompt with context
+      String fullSystemPrompt = systemPrompt;
+      if (ragContext.isNotEmpty) {
+        fullSystemPrompt += '\n\nRELEVANT VERIFIED PROCEDURES:\n$ragContext';
+      }
+      if (locationContext.isNotEmpty) {
+        fullSystemPrompt += '\n\n$locationContext';
+      }
+
+      final messages = [
+        ChatMessage(content: fullSystemPrompt, role: 'system'),
+        ChatMessage(content: userText, role: 'user'),
+      ];
+
+      final params = CactusCompletionParams(
+        temperature: AiConfig.temperature,
+        maxTokens: AiConfig.maxTokens,
+      );
+
+      // Use streaming API
+      final streamedResult = await _lm!.generateCompletionStream(
+        messages: messages,
+        params: params,
+      );
+
+      // Stop sequences that indicate model is done or hallucinating
+      final stopPatterns = ['<IM_end>', '<|im_end|>', '<|endoftext|>', 'User:', '\nUser:'];
+      var buffer = '';
+      var shouldStop = false;
+
+      // Yield tokens as they arrive, but check for stop sequences
+      await for (final chunk in streamedResult.stream) {
+        if (shouldStop) break;
+
+        buffer += chunk;
+
+        // Check if buffer contains a stop pattern
+        for (final pattern in stopPatterns) {
+          if (buffer.contains(pattern)) {
+            // Yield everything before the stop pattern
+            final idx = buffer.indexOf(pattern);
+            if (idx > 0) {
+              yield buffer.substring(0, idx);
+            }
+            shouldStop = true;
+            break;
+          }
+        }
+
+        // If no stop pattern found, yield the chunk
+        if (!shouldStop) {
+          yield chunk;
+        }
+      }
+    } catch (e) {
+      print('[AiService] Stream chat error: $e');
+      _lastResponseUsedRag = false;
+      yield _getFallbackResponse(userText);
+    }
+  }
+
+  /// Check if last response used RAG (for confidence level)
+  bool _lastResponseUsedRag = false;
+  bool get lastResponseWasVerified => _lastResponseUsedRag;
 
   Future<String> generateAwarenessSummary(
     List<EmergencyReport> reports,
@@ -317,7 +513,7 @@ class AiService {
       );
 
       return result.success
-          ? result.response
+          ? _cleanResponse(result.response)
           : 'Unable to generate summary. Check reports list for raw data.';
     } catch (e) {
       print('[AiService] Summary generation error: $e');

@@ -38,17 +38,24 @@ struct Broadcast: Identifiable, Equatable {
 }
 
 struct ChatMessage: Identifiable, Equatable {
-    let id = UUID()
+    let id: UUID
     let isUser: Bool
-    let text: String
+    var text: String  // Mutable for streaming
     let timestamp: Date
-    let isVerified: Bool
+    var isVerified: Bool  // Mutable - set when streaming completes
+    var isStreaming: Bool  // Track if currently streaming
 
-    init(isUser: Bool, text: String, timestamp: Date = Date(), isVerified: Bool = false) {
+    init(id: UUID = UUID(), isUser: Bool, text: String = "", timestamp: Date = Date(), isVerified: Bool = false, isStreaming: Bool = false) {
+        self.id = id
         self.isUser = isUser
         self.text = text
         self.timestamp = timestamp
         self.isVerified = isVerified
+        self.isStreaming = isStreaming
+    }
+
+    static func == (lhs: ChatMessage, rhs: ChatMessage) -> Bool {
+        lhs.id == rhs.id && lhs.text == rhs.text && lhs.isStreaming == rhs.isStreaming && lhs.isVerified == rhs.isVerified
     }
 }
 
@@ -80,6 +87,8 @@ class RelayService: ObservableObject {
     // AI Chat
     @Published var chatMessages: [ChatMessage] = []
     @Published var isThinking = false
+    @Published var isStreaming = false
+    private var currentStreamingMessageId: UUID?
 
     // Settings
     @Published var relayEnabled: Bool {
@@ -130,6 +139,25 @@ class RelayService: ObservableObject {
         bridge.onMeshPacket = { [weak self] packet in
             Task { @MainActor in
                 self?.handleIncomingPacket(packet)
+            }
+        }
+
+        // Setup streaming callbacks
+        bridge.onStreamToken = { [weak self] token in
+            Task { @MainActor in
+                self?.handleStreamToken(token)
+            }
+        }
+
+        bridge.onStreamDone = { [weak self] confidence in
+            Task { @MainActor in
+                self?.handleStreamDone(confidence: confidence)
+            }
+        }
+
+        bridge.onStreamError = { [weak self] error in
+            Task { @MainActor in
+                self?.handleStreamError(error)
             }
         }
     }
@@ -299,29 +327,110 @@ class RelayService: ObservableObject {
     // MARK: - AI Chat
 
     func sendToAI(_ text: String) async {
+        // Add user message
         let userMessage = ChatMessage(isUser: true, text: text, isVerified: false)
         chatMessages.append(userMessage)
 
+        // Create placeholder AI message for streaming
+        let aiMessageId = UUID()
+        let aiMessage = ChatMessage(
+            id: aiMessageId,
+            isUser: false,
+            text: "",
+            isVerified: false,
+            isStreaming: true
+        )
+        chatMessages.append(aiMessage)
+        currentStreamingMessageId = aiMessageId
+
         isThinking = true
+        isStreaming = true
 
         do {
-            let response = try await bridge.chat(text, extractReport: false)
-            let aiMessage = ChatMessage(
-                isUser: false,
-                text: response.text,
-                isVerified: response.isVerified
-            )
-            chatMessages.append(aiMessage)
+            try await bridge.startStreamingChat(text)
+            // Tokens will arrive via handleStreamToken callback
         } catch {
+            // Fallback to non-streaming if streaming fails
+            handleStreamError(error.localizedDescription)
+        }
+    }
+
+    /// Handle incoming token from streaming
+    private func handleStreamToken(_ token: String) {
+        guard let messageId = currentStreamingMessageId,
+              let index = chatMessages.firstIndex(where: { $0.id == messageId }) else {
+            return
+        }
+
+        // Append token to the streaming message
+        chatMessages[index].text += token
+    }
+
+    /// Handle stream completion
+    private func handleStreamDone(confidence: String) {
+        guard let messageId = currentStreamingMessageId,
+              let index = chatMessages.firstIndex(where: { $0.id == messageId }) else {
+            return
+        }
+
+        // Mark message as complete
+        chatMessages[index].isStreaming = false
+        chatMessages[index].isVerified = (confidence == "verified")
+
+        // Reset state
+        currentStreamingMessageId = nil
+        isThinking = false
+        isStreaming = false
+
+        // Haptic feedback
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+
+    /// Handle stream error
+    private func handleStreamError(_ error: String) {
+        if let messageId = currentStreamingMessageId,
+           let index = chatMessages.firstIndex(where: { $0.id == messageId }) {
+            // Update the streaming message with error
+            chatMessages[index].text = "Sorry, I couldn't process that. Error: \(error)"
+            chatMessages[index].isStreaming = false
+        } else {
+            // Create error message if no streaming message exists
             let errorMessage = ChatMessage(
                 isUser: false,
-                text: "Sorry, I couldn't process that. Error: \(error.localizedDescription)",
+                text: "Sorry, I couldn't process that. Error: \(error)",
                 isVerified: false
             )
             chatMessages.append(errorMessage)
         }
 
+        // Reset state
+        currentStreamingMessageId = nil
         isThinking = false
+        isStreaming = false
+    }
+
+    /// Cancel ongoing streaming
+    func cancelStreaming() async {
+        guard isStreaming else { return }
+
+        do {
+            try await bridge.cancelStreamingChat()
+        } catch {
+            print("Failed to cancel streaming: \(error)")
+        }
+
+        if let messageId = currentStreamingMessageId,
+           let index = chatMessages.firstIndex(where: { $0.id == messageId }) {
+            chatMessages[index].isStreaming = false
+            if chatMessages[index].text.isEmpty {
+                chatMessages[index].text = "[Cancelled]"
+            }
+        }
+
+        currentStreamingMessageId = nil
+        isThinking = false
+        isStreaming = false
     }
 
     func transcribeAndSend(audioPath: String) async {
@@ -339,21 +448,19 @@ class RelayService: ObservableObject {
                 )
                 chatMessages.append(errorMessage)
                 isThinking = false
+                // Clean up audio file
+                try? FileManager.default.removeItem(atPath: audioPath)
                 return
             }
 
-            // Show transcription as user message
-            let userMessage = ChatMessage(isUser: true, text: transcription, isVerified: false)
-            chatMessages.append(userMessage)
+            // Clean up audio file
+            try? FileManager.default.removeItem(atPath: audioPath)
 
-            // Get AI response
-            let response = try await bridge.chat(transcription, extractReport: false)
-            let aiMessage = ChatMessage(
-                isUser: false,
-                text: response.text,
-                isVerified: response.isVerified
-            )
-            chatMessages.append(aiMessage)
+            // Reset thinking state - sendToAI will set it again
+            isThinking = false
+
+            // Use streaming for AI response
+            await sendToAI(transcription)
         } catch {
             let errorMessage = ChatMessage(
                 isUser: false,
@@ -361,12 +468,11 @@ class RelayService: ObservableObject {
                 isVerified: false
             )
             chatMessages.append(errorMessage)
+            isThinking = false
+
+            // Clean up audio file
+            try? FileManager.default.removeItem(atPath: audioPath)
         }
-
-        isThinking = false
-
-        // Clean up audio file
-        try? FileManager.default.removeItem(atPath: audioPath)
     }
 
     // MARK: - Awareness Summary

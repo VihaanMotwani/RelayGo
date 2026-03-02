@@ -28,14 +28,14 @@ struct SOSView: View {
 
                         VStack(spacing: 4) {
                             if relay.sosActive {
-                                Text("SOS")
+                                Text("RELAY")
                                     .font(.system(size: 42, weight: .bold, design: .rounded))
                                 Text("ACTIVE")
                                     .font(.caption.bold())
                             } else if relay.isConnected {
-                                Text("SOS")
+                                Text("CONNECT")
                                     .font(.system(size: 42, weight: .bold, design: .rounded))
-                                Text("Send Alert")
+                                Text("to Relay")
                                     .font(.caption.bold())
                             } else {
                                 Text("Connect")

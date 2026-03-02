@@ -50,9 +50,9 @@ class BackendConfig {
 
 /// AI model configuration.
 class AiConfig {
-  static const String modelSlug = 'smollm2-360m';
+  static const String modelSlug = 'lfm2-1.2b';
   static const double temperature = 0.3;
-  static const int maxTokens = 512;
+  static const int maxTokens = 256;
 }
 
 /// Packet defaults.
