@@ -50,11 +50,30 @@ export default function useWebSocket() {
 
     ws.onmessage = (event) => {
       try {
-        const data = JSON.parse(event.data);
-        if (data.kind === 'directive') {
-          setDirectives((prev) => [data, ...prev]);
-        } else {
-          setReports((prev) => [data, ...prev]);
+        const raw = JSON.parse(event.data);
+        const items = Array.isArray(raw) ? raw : [raw];
+        const newDirectives = [];
+        const newReports = [];
+        for (const item of items) {
+          if (item.kind === 'directive') {
+            newDirectives.push(item);
+          } else {
+            newReports.push(item);
+          }
+        }
+        if (newDirectives.length) {
+          setDirectives((prev) => {
+            const ids = new Set(prev.map((d) => d.id));
+            const fresh = newDirectives.filter((d) => !ids.has(d.id));
+            return fresh.length ? [...fresh, ...prev] : prev;
+          });
+        }
+        if (newReports.length) {
+          setReports((prev) => {
+            const ids = new Set(prev.map((r) => r.id));
+            const fresh = newReports.filter((r) => !ids.has(r.id));
+            return fresh.length ? [...fresh, ...prev] : prev;
+          });
         }
       } catch (err) {
         console.warn('Failed to parse WebSocket message:', err);
