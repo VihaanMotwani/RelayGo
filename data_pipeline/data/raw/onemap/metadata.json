@@ -1,0 +1,78 @@
+{
+  "fetch_timestamp": "2026-03-02T17:07:24.642216",
+  "searches": {
+    "hospital": {
+      "filename": "search_hospital.json",
+      "count": 52
+    },
+    "fire station": {
+      "filename": "search_fire_station.json",
+      "count": 35
+    },
+    "police station": {
+      "filename": "search_police_station.json",
+      "count": 6
+    },
+    "clinic": {
+      "filename": "search_clinic.json",
+      "count": 1
+    },
+    "shelter": {
+      "filename": "search_shelter.json",
+      "count": 10
+    },
+    "SCDF": {
+      "filename": "search_scdf.json",
+      "count": 2
+    },
+    "emergency": {
+      "filename": "search_emergency.json",
+      "count": 5
+    },
+    "polyclinic": {
+      "filename": "search_polyclinic.json",
+      "count": 56
+    },
+    "AED": {
+      "filename": "search_aed.json",
+      "count": 377
+    }
+  },
+  "themes": {
+    "moh_hospitals": {
+      "display_name": "Hospitals",
+      "filename": "theme_moh_hospitals.json",
+      "count": 32
+    },
+    "firestation": {
+      "display_name": "Fire Stations",
+      "filename": "theme_firestation.json",
+      "count": 21
+    },
+    "civildefencepublicshelters": {
+      "display_name": "Civil Defence Public Shelters",
+      "filename": "theme_civildefencepublicshelters.json",
+      "count": 596
+    },
+    "aed_locations": {
+      "display_name": "Public Access AEDs",
+      "filename": "theme_aed_locations.json",
+      "count": 9644
+    },
+    "scdfhq": {
+      "display_name": "SCDF HQs and Training Establishments",
+      "filename": "theme_scdfhq.json",
+      "count": 9
+    },
+    "spf_establishments": {
+      "display_name": "Singapore Police Force Establishments",
+      "filename": "theme_spf_establishments.json",
+      "count": 128
+    },
+    "vaccination_polyclinics": {
+      "display_name": "Vaccination Polyclinics",
+      "filename": "theme_vaccination_polyclinics.json",
+      "count": 8
+    }
+  }
+}

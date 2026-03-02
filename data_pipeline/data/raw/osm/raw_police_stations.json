@@ -1,0 +1,2494 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.10 2d4cfc48",
+  "osm3s": {
+    "timestamp_osm_base": "2026-03-02T09:07:30Z",
+    "timestamp_areas_base": "2026-01-22T23:45:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 986663231,
+      "lat": 1.3856255,
+      "lon": 103.9995397,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "4",
+        "addr:postcode": "819825",
+        "addr:street": "Airline Road",
+        "amenity": "police",
+        "name": "Police Pass Office"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1548436393,
+      "lat": 1.2788135,
+      "lon": 103.8396105,
+      "tags": {
+        "amenity": "police",
+        "name": "Bukit Merah East Neighbourhood Police Centre",
+        "name:en": "Bukit Merah East Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bukit Merah East",
+        "name:zh": "\u7ea2\u5c71\u4e1c\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bukit Merah East NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1754684146,
+      "lat": 1.4216241,
+      "lon": 103.9107432,
+      "tags": {
+        "amenity": "police",
+        "name": "Pungol Point Police kiosk",
+        "source": "GPS"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3336360586,
+      "lat": 1.2784698,
+      "lon": 103.839155,
+      "tags": {
+        "amenity": "police",
+        "name": "Criminal Investigation Department",
+        "name:en": "Criminal Investigation Department",
+        "name:ms": "Jabatan Siasatan Jenayah",
+        "operator": "Singapore Police Force"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3500795516,
+      "lat": 1.2780998,
+      "lon": 103.8396016,
+      "tags": {
+        "amenity": "police",
+        "name": "Central Narcotics Bureau",
+        "name:en": "Central Narcotics Bureau",
+        "name:ms": "Biro Narkotik Pusat",
+        "operator": "Ministry of Home Affairs",
+        "short_name": "CNB"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658625,
+      "lat": 1.3357727,
+      "lon": 103.8793008,
+      "tags": {
+        "amenity": "police",
+        "name": "Aljunied Neighbourhood Police Post",
+        "name:en": "Aljunied Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Aljunied",
+        "name:zh": "\u963f\u88d5\u5c3c\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Aljunied NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658626,
+      "lat": 1.3849385,
+      "lon": 103.8450845,
+      "tags": {
+        "amenity": "police",
+        "name": "Ang Mo Kio North Neighbourhood Police Centre",
+        "name:en": "Ang Mo Kio North Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Ang Mo Kio North",
+        "name:zh": "\u5b8f\u8302\u6865\u5317\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Ang Mo Kio North NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658627,
+      "lat": 1.3699103,
+      "lon": 103.8516532,
+      "tags": {
+        "amenity": "police",
+        "name": "Ang Mo Kio South Neighbourhood Police Centre",
+        "name:en": "Ang Mo Kio South Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Ang Mo Kio South",
+        "name:zh": "\u5b8f\u8302\u6865\u5357\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Ang Mo Kio South NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658628,
+      "lat": 1.3211029,
+      "lon": 103.7416737,
+      "tags": {
+        "amenity": "police",
+        "name": "Ayer Rajah Neighbourhood Police Post",
+        "name:en": "Ayer Rajah Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Ayer Rajah",
+        "name:zh": "\u4e9a\u9038\u62c9\u60f9\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Ayer Rajah NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658629,
+      "lat": 1.3209796,
+      "lon": 103.9360215,
+      "tags": {
+        "amenity": "police",
+        "name": "Bedok Neighbourhood Police Post",
+        "name:en": "Bedok Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Bedok",
+        "name:zh": "\u52ff\u6d1b\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bedok NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658630,
+      "lat": 1.3327097,
+      "lon": 103.9370613,
+      "tags": {
+        "amenity": "police",
+        "name": "Bedok North Neighbourhood Police Centre",
+        "name:en": "Bedok North Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bedok Norh",
+        "name:zh": "\u52ff\u6d1b\u5317\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bedok North NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658631,
+      "lat": 1.3237096,
+      "lon": 103.9198154,
+      "tags": {
+        "amenity": "police",
+        "name": "Bedok South Neighbourhood Police Centre",
+        "name:en": "Bedok South Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bedok South",
+        "name:zh": "\u52ff\u6d1b\u5357\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bedok South NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658633,
+      "lat": 1.3481683,
+      "lon": 103.8503118,
+      "tags": {
+        "amenity": "police",
+        "name": "Bishan Neighbourhood Police Post",
+        "name:en": "Bishan Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Bishan",
+        "name:zh": "\u78a7\u5c71\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bishan NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658634,
+      "lat": 1.3476407,
+      "lon": 103.7129647,
+      "tags": {
+        "amenity": "police",
+        "name": "Boon Lay Neighbourhood Police Post",
+        "name:en": "Boon Lay Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Boon Lay",
+        "name:zh": "\u6587\u793c\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Boon Lay NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658635,
+      "lat": 1.3424023,
+      "lon": 103.8452262,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "207",
+        "addr:postcode": "310207",
+        "addr:street": "Toa Payoh North",
+        "addr:unit": "01-1231",
+        "amenity": "police",
+        "name": "Boon Teck Neighbourhood Police Post",
+        "name:en": "Boon Teck Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Boon Teck",
+        "name:zh": "\u6587\u5fb7\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Boon Teck NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658637,
+      "lat": 1.3480609,
+      "lon": 103.7479193,
+      "tags": {
+        "amenity": "police",
+        "name": "Bukit Batok Neighbourhood Police Post",
+        "name:en": "Bukit Batok Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Bukit Batok",
+        "name:zh": "\u6b66\u5409\u5df4\u7763\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Bukit Batok NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658638,
+      "lat": 1.2856112,
+      "lon": 103.8232798,
+      "tags": {
+        "amenity": "police",
+        "name": "Bukit Merah West Neighbourhood Police Centre",
+        "name:en": "Bukit Merah West Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bukit Batok",
+        "name:zh": "\u7ea2\u5c71\u897f\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bukit Merah West NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658639,
+      "lat": 1.3867442,
+      "lon": 103.7715258,
+      "tags": {
+        "amenity": "police",
+        "name": "Bukit Panjang Neighbourhood Police Centre",
+        "name:en": "Bukit Panjang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bukit Merah West",
+        "name:zh": "\u6b66\u5409\u73ed\u8ba9\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bukit Panjang NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658641,
+      "lat": 1.3768405,
+      "lon": 103.7711086,
+      "tags": {
+        "amenity": "police",
+        "name": "Bukit Panjang South Neighbourhood Police Post",
+        "name:en": "Bukit Panjang South Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Bukit Panjang South",
+        "name:zh": "\u6b66\u5409\u73ed\u8ba9\u5357\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Bukit Panjang South NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658643,
+      "lat": 1.3395819,
+      "lon": 103.774586,
+      "tags": {
+        "addr:housenumber": "1",
+        "addr:street": "Toh Yi Drive",
+        "amenity": "police",
+        "name": "Bukit Timah Neighbourhood Police Post",
+        "name:en": "Bukit Timah Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Bukit Timah",
+        "name:zh": "\u6b66\u5409\u77e5\u9a6c\u90bb\u91cc\u8b66\u5c97",
+        "operator": "Singapore Police Force",
+        "short_name": "Bukit Timah NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658644,
+      "lat": 1.3093607,
+      "lon": 103.7932048,
+      "tags": {
+        "amenity": "police",
+        "name": "Buona Vista Neighbourhood Police Post",
+        "name:en": "Buona Vista Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Buona Vista",
+        "short_name": "Buona Vista NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658645,
+      "lat": 1.313892,
+      "lon": 103.8514541,
+      "tags": {
+        "amenity": "police",
+        "name": "Cairnhill Neighbourhood Police Post",
+        "name:en": "Cairnhill Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Cairnhill",
+        "short_name": "Cairnhill NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658646,
+      "lat": 1.3248544,
+      "lon": 103.9260377,
+      "tags": {
+        "amenity": "police",
+        "name": "Chai Chee Neighbourhood Police Post",
+        "name:en": "Chai Chee Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Chai Chee",
+        "short_name": "Chai Chee NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658647,
+      "lat": 1.344527,
+      "lon": 103.9548024,
+      "tags": {
+        "amenity": "police",
+        "name": "Changi Neighbourhood Police Centre",
+        "name:en": "Changi Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Changi",
+        "name:zh": "\u6a1f\u5b9c\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Changi NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973658648,
+      "lat": 1.3473853,
+      "lon": 103.9492205,
+      "tags": {
+        "amenity": "police",
+        "name": "Changkat Neighbourhood Police Post",
+        "name:en": "Changkat Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Changkat",
+        "short_name": "Changkat NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667069,
+      "lat": 1.3949179,
+      "lon": 103.7447275,
+      "tags": {
+        "addr:postcode": "689286",
+        "amenity": "police",
+        "name": "Choa Chu Kang Neighbourhood Police Centre",
+        "name:en": "Choa Chu Kang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Choa Chu Kang",
+        "name:zh": "\u8521\u539d\u6e2f\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Choa Chu Kang NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667070,
+      "lat": 1.3793537,
+      "lon": 103.7517986,
+      "tags": {
+        "amenity": "police",
+        "name": "Choa Chu Kang Neighbourhood Police Post",
+        "name:en": "Choa Chu Kang Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Choa Chu Kang",
+        "name:zh": "\u8521\u539d\u6e2f\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Choa Chu Kang NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667071,
+      "lat": 1.4311377,
+      "lon": 103.8299571,
+      "tags": {
+        "amenity": "police",
+        "name": "Chong Pang Neighbourhood Police Post",
+        "name:en": "Chong Pang Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Chong Pang",
+        "short_name": "Chong Pang NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667073,
+      "lat": 1.311971,
+      "lon": 103.7638027,
+      "tags": {
+        "amenity": "police",
+        "name": "Clementi Neighbourhood Police Post",
+        "name:en": "Clementi Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Clementi",
+        "name:zh": "\u91d1\u6587\u6cf0\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Clementi NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667074,
+      "lat": 1.2785109,
+      "lon": 103.8392493,
+      "tags": {
+        "amenity": "police",
+        "name": "Commercial Affairs Department",
+        "name:en": "Commercial Affairs Department",
+        "name:ms": "Jabatan Ehwal Komersial"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667075,
+      "lat": 1.3064786,
+      "lon": 103.7987496,
+      "tags": {
+        "amenity": "police",
+        "name": "Commonwealth Neighbourhood Police Post",
+        "name:en": "Commonwealth Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Commonwealth",
+        "short_name": "Commonwealth NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667076,
+      "lat": 1.3038028,
+      "lon": 103.78232,
+      "tags": {
+        "amenity": "police",
+        "name": "Dover Neighbourhood Police Post",
+        "name:en": "Dover Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Dover",
+        "short_name": "Dover NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667077,
+      "lat": 1.3341018,
+      "lon": 103.9149474,
+      "tags": {
+        "amenity": "police",
+        "name": "Eunos Neighbourhood Police Post",
+        "name:en": "Eunos Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Eunos",
+        "short_name": "Eunos NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667078,
+      "lat": 1.3262757,
+      "lon": 103.8907985,
+      "tags": {
+        "amenity": "police",
+        "name": "Geylang Neighbourhood Police Post",
+        "name:en": "Geylang Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Geylang",
+        "name:zh": "\u82bd\u7b3c\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Geylang NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667079,
+      "lat": 1.3203716,
+      "lon": 103.8840288,
+      "tags": {
+        "addr:street": "Geylang East Central",
+        "amenity": "police",
+        "name": "Geylang Serai Neighbourhood Police Post",
+        "name:en": "Geylang Serai Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Geylang Serai",
+        "short_name": "Geylang Serai NPP",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667080,
+      "lat": 1.3599577,
+      "lon": 103.749307,
+      "tags": {
+        "amenity": "police",
+        "name": "Hong Kah North Neighbourhood Police Post",
+        "name:en": "Hong Kah North Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Hong Kah North",
+        "short_name": "Hong Kah North NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667081,
+      "lat": 1.3485328,
+      "lon": 103.7198538,
+      "tags": {
+        "addr:housenumber": "510",
+        "addr:postcode": "640510",
+        "addr:street": "Jurong West Street 52",
+        "addr:unit": "#01-90",
+        "amenity": "police",
+        "name": "Hong Kah South Neighbourhood Police Post",
+        "name:en": "Hong Kah South Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Hong Kah South",
+        "short_name": "Hong Kah South NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667083,
+      "lat": 1.3729497,
+      "lon": 103.899211,
+      "tags": {
+        "amenity": "police",
+        "name": "Hougang Neighbourhood Police Post",
+        "name:en": "Hougang Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Hougang",
+        "short_name": "Hougang NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667084,
+      "lat": 1.3099102,
+      "lon": 103.9015011,
+      "tags": {
+        "addr:housenumber": "267",
+        "amenity": "police",
+        "name": "Joo Chiat Neighbourhood Police Post",
+        "name:en": "Joo Chiat Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Joo Chiat",
+        "short_name": "Joo Chiat NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667085,
+      "lat": 1.3401268,
+      "lon": 103.7372279,
+      "tags": {
+        "amenity": "police",
+        "name": "Jurong East Neighbourhood Police Centre",
+        "name:en": "Jurong East Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Jurong East",
+        "name:zh": "\u88d5\u5eca\u4e1c\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Jurong East NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667086,
+      "lat": 1.32855,
+      "lon": 103.723,
+      "tags": {
+        "addr:housenumber": "158",
+        "addr:postcode": "610158",
+        "addr:street": "Yung Loh Road",
+        "addr:unit": "#01-58",
+        "amenity": "police",
+        "name": "Jurong Neighbourhood Police Post",
+        "name:en": "Jurong Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Jurong",
+        "name:zh": "\u88d5\u5eca\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Jurong NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667087,
+      "lat": 1.3493328,
+      "lon": 103.7144559,
+      "tags": {
+        "addr:housenumber": "700",
+        "addr:postcode": "649818",
+        "addr:street": "Corporation Road",
+        "amenity": "police",
+        "name": "Jurong West Neighbourhood Police Centre",
+        "name:en": "Jurong West Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Jurong West",
+        "name:zh": "\u88d5\u5eca\u897f\u90bb\u91cc\u8b66\u5c40",
+        "phone": "+65 1800 268 9999",
+        "short_name": "Jurong West NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667088,
+      "lat": 1.3341482,
+      "lon": 103.9297352,
+      "tags": {
+        "amenity": "police",
+        "name": "Kaki Bukit Neighbourhood Police Post",
+        "name:en": "Kaki Bukit Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kaki Bukit",
+        "name:zh": "\u52a0\u57fa\u6b66\u5409\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Kaki Bukit NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667089,
+      "lat": 1.3204859,
+      "lon": 103.8610742,
+      "tags": {
+        "amenity": "police",
+        "name": "Kallang Neighbourhood Police Post",
+        "name:en": "Kallang Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kallang",
+        "name:zh": "\u52a0\u51b7\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Kallang NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667090,
+      "lat": 1.3039578,
+      "lon": 103.8634246,
+      "tags": {
+        "amenity": "police",
+        "name": "Kampong Glam Neighbourhood Police Post",
+        "name:en": "Kampong Glam Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kampong Glam",
+        "name:zh": "\u7518\u699c\u683c\u5357\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Kampong Glam NPP",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667091,
+      "lat": 1.3119105,
+      "lon": 103.8464728,
+      "tags": {
+        "amenity": "police",
+        "name": "Kampong Java Neighbourhood Police Centre",
+        "name:en": "Kampong Java Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Kampong Java",
+        "name:zh": "\u7518\u699c\u722a\u54c7\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Kampong Java NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667092,
+      "lat": 1.323574,
+      "lon": 103.9116524,
+      "tags": {
+        "amenity": "police",
+        "name": "Kampong Kembangan Neighbourhood Police Post",
+        "name:en": "Kampong Kembangan Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kampong Kembangan",
+        "short_name": "Kampong Kembangan NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667093,
+      "lat": 1.3218556,
+      "lon": 103.9032026,
+      "tags": {
+        "amenity": "police",
+        "name": "Kampong Ubi Neighbourhood Police Post",
+        "name:en": "Kampong Ubi Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kampong Ubi",
+        "name:zh": "\u7518\u699c\u4e4c\u7f8e\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Kampong Ubi NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667094,
+      "lat": 1.3708167,
+      "lon": 103.8369837,
+      "tags": {
+        "amenity": "police",
+        "name": "Kebun Baru Neighbourhood Police Post",
+        "name:en": "Kebun Baru Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kebun Baru",
+        "name:zh": "\u54e5\u672c\u5cc7\u9c81\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Kebun Baru NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667095,
+      "lat": 1.3369604,
+      "lon": 103.8594894,
+      "tags": {
+        "amenity": "police",
+        "name": "Kim Keat Neighbourhood Police Post",
+        "name:en": "Kim Keat Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kim Keat",
+        "short_name": "Kim Keat NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667096,
+      "lat": 1.2888527,
+      "lon": 103.8281363,
+      "tags": {
+        "amenity": "police",
+        "name": "Kim Seng Neighbourhood Police Post",
+        "name:en": "Kim Seng Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kim Seng",
+        "short_name": "Kim Seng NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667097,
+      "lat": 1.3219458,
+      "lon": 103.8710313,
+      "tags": {
+        "amenity": "police",
+        "name": "Kolam Ayer Neighbourhood Police Post",
+        "name:en": "Kolam Ayer Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kolam Ayer",
+        "short_name": "Kolam Ayer NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667100,
+      "lat": 1.2749691,
+      "lon": 103.849061,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "70",
+        "addr:postcode": "018962",
+        "alt_name": "Marina Bay NPC",
+        "amenity": "police",
+        "name": "Marina Bay Neighbourhood Police Centre",
+        "name:en": "Marina Bay Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Marina Bay",
+        "name:zh": "\u6ee8\u6d77\u6e7e\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Marina Bay NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667101,
+      "lat": 1.3062234,
+      "lon": 103.9144511,
+      "tags": {
+        "amenity": "police",
+        "check_date": "2026-02-03",
+        "name": "Marine Parade Neighbourhood Police Centre",
+        "name:en": "Marine Parade Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Marine Parade",
+        "name:zh": "\u9a6c\u6797\u767e\u5217\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Marine Parade NPC",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667102,
+      "lat": 1.3035478,
+      "lon": 103.9069668,
+      "tags": {
+        "amenity": "police",
+        "name": "Marine Parade Neighbourhood Police Post",
+        "name:en": "Marine Parade Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Marine Parade",
+        "short_name": "Marine Parade NPP",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667103,
+      "lat": 1.4423536,
+      "lon": 103.778295,
+      "tags": {
+        "addr:housenumber": "16",
+        "addr:postcode": "730016",
+        "addr:street": "Marsiling Lane",
+        "addr:unit": "#01-183/185",
+        "amenity": "police",
+        "name": "Marsiling Neighbourhood Police Post",
+        "name:en": "Marsiling Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Marsiling",
+        "name:zh": "\u9a6c\u897f\u5cad\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Marsiling NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667104,
+      "lat": 1.3287151,
+      "lon": 103.850545,
+      "tags": {
+        "addr:housenumber": "101",
+        "addr:street": "Jalan Rajah",
+        "amenity": "police",
+        "check_date": "2023-07-22",
+        "level": "0",
+        "name": "Moulmein Neighbourhood Police Post",
+        "name:en": "Moulmein Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Moulmein",
+        "short_name": "Moulmein NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667106,
+      "lat": 1.3511915,
+      "lon": 103.7023522,
+      "tags": {
+        "amenity": "police",
+        "name": "Nanyang Neighbourhood Police Centre",
+        "name:en": "Nanyang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Nanyang",
+        "name:zh": "\u5357\u6d0b\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Nanyang NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667107,
+      "lat": 1.4188062,
+      "lon": 103.8333484,
+      "tags": {
+        "amenity": "police",
+        "name": "Nee Soon South Neighbourhood Police Post",
+        "name:en": "Nee Soon South Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Nee Soon South",
+        "name:zh": "\u4e49\u987a\u5357\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Nee Soon South NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667108,
+      "lat": 1.2989573,
+      "lon": 103.8398524,
+      "tags": {
+        "amenity": "police",
+        "name": "Orchard Neighbourhood Police Centre",
+        "name:en": "Orchard Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Orchard",
+        "name:zh": "\u4e4c\u8282\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Orchard NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667110,
+      "lat": 1.368456,
+      "lon": 103.9596671,
+      "tags": {
+        "amenity": "police",
+        "name": "Pasir Ris Neighbourhood Police Centre",
+        "name:en": "Pasir Ris Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Pasir Ris",
+        "name:zh": "\u5df4\u897f\u7acb\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Pasir Ris NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667111,
+      "lat": 1.3528741,
+      "lon": 103.8887656,
+      "tags": {
+        "amenity": "police",
+        "name": "Paya Lebar Neighbourhood Police Post",
+        "name:en": "Paya Lebar Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Paya Lebar",
+        "short_name": "Paya Lebar NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667113,
+      "lat": 1.3297802,
+      "lon": 103.8342368,
+      "tags": {
+        "amenity": "police",
+        "name": "Police National Service Department"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667114,
+      "lat": 1.3330521,
+      "lon": 103.8669258,
+      "tags": {
+        "amenity": "police",
+        "name": "Potong Pasir Neighbourhood Police Post",
+        "name:en": "Potong Pasir Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Potong Pasir",
+        "short_name": "Potong Pasir NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667115,
+      "lat": 1.3241489,
+      "lon": 103.8451576,
+      "tags": {
+        "amenity": "police",
+        "name": "Public Affairs Department"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667116,
+      "lat": 1.32617,
+      "lon": 103.8908144,
+      "tags": {
+        "amenity": "police",
+        "name": "Public Transport Security Command TransCom"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667117,
+      "lat": 1.2882231,
+      "lon": 103.8031779,
+      "tags": {
+        "amenity": "police",
+        "name": "Queenstown Neighbourhood Police Centre",
+        "name:en": "Queenstown Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Queenstown",
+        "name:zh": "\u5973\u7687\u9547\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Queenstown NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973667118,
+      "lat": 1.2769895,
+      "lon": 103.8205408,
+      "tags": {
+        "amenity": "police",
+        "name": "Radin Mas Neighbourhood Police Post",
+        "name:en": "Radin Mas Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Radin Mas",
+        "short_name": "Radin Mas NPP",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670361,
+      "lat": 1.2917127,
+      "lon": 103.8263438,
+      "tags": {
+        "amenity": "police",
+        "name": "River Valley Neighbourhood Police Post",
+        "name:en": "River Valley Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan River Valley",
+        "short_name": "River Valley NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670362,
+      "lat": 1.3076599,
+      "lon": 103.8542696,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "11",
+        "addr:postcode": "208678",
+        "addr:street": "Kampong Kapor Road",
+        "amenity": "police",
+        "contact:facebook": "https://www.facebook.com/RochorNPC/",
+        "name": "Rochor Neighbourhood Police Centre",
+        "name:en": "Rochor Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Rochor",
+        "name:zh": "\u68a7\u69fd\u90bb\u91cc\u8b66\u5c40",
+        "opening_hours": "24/7",
+        "operator": "Singapore Police Force",
+        "short_name": "Rochor NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670363,
+      "lat": 1.3380094,
+      "lon": 103.8602693,
+      "tags": {
+        "amenity": "police",
+        "name": "Security Command"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670364,
+      "lat": 1.4452781,
+      "lon": 103.8196462,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "2",
+        "addr:postcode": "757632",
+        "addr:street": "Sembawang Crescent",
+        "amenity": "police",
+        "branch": "Canberra Community Club",
+        "name": "Sembawang Neighbourhood Police Centre",
+        "name:en": "Sembawang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Sembawang",
+        "name:zh": "\u4e09\u5df4\u65fa\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Sembawang NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670367,
+      "lat": 1.3516126,
+      "lon": 103.8703676,
+      "tags": {
+        "amenity": "police",
+        "name": "Serangoon Neighbourhood Police Centre",
+        "name:en": "Serangoon Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Serangooon",
+        "name:zh": "\u5b9e\u9f99\u5c97\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Serangoon NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670368,
+      "lat": 1.3699017,
+      "lon": 103.8712065,
+      "tags": {
+        "amenity": "police",
+        "name": "Serangoon North Neighbourhood Police Post",
+        "name:en": "Serangoon North Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Serangooon North",
+        "short_name": "Serangoon North NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670371,
+      "lat": 1.3533064,
+      "lon": 103.951144,
+      "tags": {
+        "amenity": "police",
+        "name": "Tampines East Neighbourhood Police Post",
+        "name:en": "Tampines East Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Tampines East",
+        "name:zh": "\u6de1\u6ee8\u5c3c\u4e1c\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Tampines East NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670373,
+      "lat": 1.3588399,
+      "lon": 103.9543513,
+      "tags": {
+        "amenity": "police",
+        "name": "Tampines North Neighbourhood Police Post",
+        "name:en": "Tampines North Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Tampines North",
+        "name:zh": "\u6de1\u6ee8\u5c3c\u5317\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Tampines North NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670374,
+      "lat": 1.3234362,
+      "lon": 103.942265,
+      "tags": {
+        "amenity": "police",
+        "name": "Tanah Merah Neighbourhood Police Post",
+        "name:en": "Tanah Merah Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Tanah Merah",
+        "name:zh": "\u4e39\u90a3\u7f8e\u62c9\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Tanah Merah NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670375,
+      "lat": 1.2773058,
+      "lon": 103.8299552,
+      "tags": {
+        "amenity": "police",
+        "name": "Tanjong Pagar Neighbourhood Police Post",
+        "name:en": "Tanjong Pagar Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Tanjong Pagar",
+        "name:zh": "\u4e39\u6212\u5df4\u845b\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Tanjong Pagar NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670376,
+      "lat": 1.365118,
+      "lon": 103.848396,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "321",
+        "addr:postcode": "560321",
+        "addr:street": "Ang Mo Kio Street 31",
+        "amenity": "police",
+        "name": "Teck Ghee Neighbourhood Police Post",
+        "name:en": "Teck Ghee Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Teck Ghee",
+        "name:zh": "\u5fb7\u4e49\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Teck Ghee NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670378,
+      "lat": 1.3549934,
+      "lon": 103.8374731,
+      "tags": {
+        "amenity": "police",
+        "name": "Thomson Neighbourhood Police Post",
+        "name:en": "Thomson Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Thomson",
+        "name:zh": "\u6c64\u7533\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Thomson NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670380,
+      "lat": 1.3345263,
+      "lon": 103.8504787,
+      "tags": {
+        "amenity": "police",
+        "name": "Toa Payoh Neighbourhood Police Centre",
+        "name:en": "Toa Payoh Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Toa Payoh",
+        "name:zh": "\u5927\u5df4\u7a91\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Toa Payoh NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670381,
+      "lat": 1.3301837,
+      "lon": 103.8913543,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "10",
+        "addr:postcode": "408865",
+        "addr:street": "Ubi Avenue 3",
+        "amenity": "police",
+        "building": "public",
+        "building:levels": "4",
+        "name": "Traffic Police Department",
+        "name:en": "Traffic Police Department",
+        "name:ms": "Jabatan Polis Trafik",
+        "short_name": "TPD"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670382,
+      "lat": 1.3739522,
+      "lon": 103.7215251,
+      "tags": {
+        "amenity": "police",
+        "name": "Training Command"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670383,
+      "lat": 1.3056131,
+      "lon": 103.7636023,
+      "tags": {
+        "amenity": "police",
+        "name": "West Coast Neighbourhood Police Post",
+        "name:en": "West Coast Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan West Coast",
+        "name:zh": "\u897f\u6d77\u5cb8\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "West Coast NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670384,
+      "lat": 1.3254079,
+      "lon": 103.8585652,
+      "tags": {
+        "amenity": "police",
+        "name": "Whampoa Neighbourhood Police Post",
+        "name:en": "Whampoa Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Whampoa",
+        "name:zh": "\u9ec4\u57d4\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Whampoa NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670385,
+      "lat": 1.3230353,
+      "lon": 103.8267038,
+      "tags": {
+        "amenity": "police",
+        "name": "CPIB Corruption Reporting & Heritage Centre",
+        "name:en": "CPIB Corruption Reporting & Heritage Centre"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670386,
+      "lat": 1.4388865,
+      "lon": 103.8023644,
+      "tags": {
+        "addr:housenumber": "3",
+        "addr:postcode": "737890",
+        "addr:street": "Woodlands Drive 63",
+        "amenity": "police",
+        "name": "Woodlands East Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Woodlands East",
+        "name:zh": "\u5140\u5170\u4e1c\u90bb\u91cc\u8b66\u5c40",
+        "phone": "+65 1800 767 9999",
+        "short_name": "Woodlands East NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3973670388,
+      "lat": 1.429343,
+      "lon": 103.8402815,
+      "tags": {
+        "addr:postcode": "768927",
+        "addr:street": "Yishun Central",
+        "amenity": "police",
+        "name": "Yishun North Neighbourhood Police Centre",
+        "name:en": "Yishun North Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Yishun North",
+        "name:zh": "\u4e49\u987a\u5317\u90bb\u91cc\u8b66\u5c40",
+        "opening_hours": "24/7",
+        "phone": "+65 1800 852 9999",
+        "short_name": "Yishun North NPC",
+        "website": "https://m.facebook.com/YishunNorthNPC/?ref=page_internal"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4722764287,
+      "lat": 1.347497,
+      "lon": 103.6371588,
+      "tags": {
+        "amenity": "police",
+        "name": "Tuas Checkpoint"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5702120068,
+      "lat": 1.3929566,
+      "lon": 103.8938383,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "2",
+        "addr:postcode": "545025",
+        "addr:street": "Sengkang Square",
+        "alt_name": "Sengkang NPC",
+        "amenity": "police",
+        "contact:facebook": "https://www.facebook.com/Sengkangnpc",
+        "name": "Sengkang Neighbourhood Police Centre",
+        "name:en": "Sengkang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Sengkang",
+        "name:zh": "\u76db\u6e2f\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Sengkang NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5729953953,
+      "lat": 1.2735126,
+      "lon": 103.8097031,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housename": "Blangah View",
+        "addr:housenumber": "51",
+        "addr:postcode": "100051",
+        "addr:street": "Telok Blangah Drive",
+        "amenity": "police",
+        "name": "Telok Blangah Neighbourhood Police Post",
+        "name:en": "Telok Blangah Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Telok Blangah",
+        "name:zh": "\u76f4\u843d\u5e03\u5170\u96c5\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Telok Blangah NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6606962785,
+      "lat": 1.4421211,
+      "lon": 103.7740205,
+      "tags": {
+        "addr:postcode": "730027",
+        "amenity": "police",
+        "name": "Bukit Panjang North Neighbourhood Police Post",
+        "name:en": "Bukit Panjang North Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Bukit Panjang North",
+        "name:zh": "\u6b66\u5409\u73ed\u8ba9\u5317\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Bukit Panjang North NPP"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7001579955,
+      "lat": 1.3261575,
+      "lon": 103.7209797,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "2",
+        "addr:postcode": "618594",
+        "addr:street": "Yung Ho Road",
+        "amenity": "police",
+        "branch": "Jurong Division",
+        "name": "Certis Cisco Auxiliary Police Force",
+        "name:en": "Certis Cisco Auxiliary Police Force",
+        "name:ms": "Polis Tambahan Certis Cisco"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7230981505,
+      "lat": 1.3242751,
+      "lon": 103.8454127,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "28",
+        "addr:postcode": "329560",
+        "addr:street": "Irrawaddy Road",
+        "amenity": "police",
+        "building:colour": "#C5CACC",
+        "building:levels": "6",
+        "building:material": "stone",
+        "building:part": "yes",
+        "name": "Police Headquaters",
+        "name:en": "Police Headquaters",
+        "name:ms": "Ibu Pejabat Polis",
+        "roof:colour": "#A6A4A5"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8208645736,
+      "lat": 1.3109641,
+      "lon": 103.8861279,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "1",
+        "addr:postcode": "397618",
+        "addr:street": "Cassia Link",
+        "amenity": "police",
+        "name": "Geylang Neighbourhood Police Centre",
+        "name:en": "Geylang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Geylang",
+        "name:zh": "\u82bd\u7b3c\u90bb\u91cc\u8b66\u5c40",
+        "operator": "Singapore Police Force",
+        "operator:wikidata": "Q11081257",
+        "operator:wikipedia": "en:Singapore Police Force",
+        "short_name": "Geylang NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 8209615287,
+      "lat": 1.3462626,
+      "lon": 103.9387107,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "6",
+        "addr:postcode": "529682",
+        "addr:street": "Tampines Avenue 4",
+        "amenity": "police",
+        "name": "Tampines Neighbourhood Police Centre",
+        "name:en": "Tampines Neighbourhood Police Centre",
+        "name:ms": "Pondok Polis Kejiranan Tampines",
+        "name:zh": "\u6de1\u6ee8\u5c3c\u90bb\u91cc\u8b66\u5c40",
+        "phone": "+65 1800 587 1999",
+        "short_name": "Tampines NPC",
+        "website": "https://www.facebook.com/spftampinesnpc/"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10891405956,
+      "lat": 1.3380972,
+      "lon": 103.8713357,
+      "tags": {
+        "amenity": "police",
+        "level": "0",
+        "name": "Woodleigh Neighbourhood Police Centre",
+        "name:en": "Woodleigh Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Woodleigh",
+        "short_name": "Woodleigh NPC"
+      }
+    },
+    {
+      "type": "node",
+      "id": 13592064803,
+      "lat": 1.3577922,
+      "lon": 103.8477235,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "20",
+        "addr:postcode": "579757",
+        "addr:street": "Bishan Street 23",
+        "amenity": "police",
+        "name": "Bishan Neighbourhood Police Centre",
+        "name:en": "Bishan Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bishan",
+        "name:zh": "\u78a7\u5c71\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bishan NPC"
+      }
+    },
+    {
+      "type": "way",
+      "id": 32507125,
+      "center": {
+        "lat": 1.2785027,
+        "lon": 103.8394723
+      },
+      "nodes": [
+        365498423,
+        3336359361,
+        3336359365,
+        365498424,
+        3336359381,
+        365498425,
+        3336361495,
+        365498426,
+        3336361396,
+        365498427,
+        3336361399,
+        365498428,
+        3336361502,
+        365498429,
+        3336359384,
+        3336359380,
+        365498430,
+        3336359374,
+        365498431,
+        3336359372,
+        3336359373,
+        365498432,
+        3336360580,
+        3336360577,
+        3336360576,
+        3336360574,
+        3336360571,
+        365498433,
+        3336360575,
+        3336360568,
+        365498434,
+        365498435,
+        365498436,
+        365498437,
+        365498438,
+        3336360590,
+        3336360587,
+        3336360585,
+        3336360581,
+        365498439,
+        3336360582,
+        365498423
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "391",
+        "addr:postcode": "088762",
+        "addr:street": "New Bridge Road",
+        "amenity": "police",
+        "building": "yes",
+        "height": "0",
+        "name": "Police Cantonment Complex",
+        "name:en": "Police Cantonment Complex",
+        "name:ms": "Kompleks Polis Cantonment",
+        "start_date": "2001",
+        "wikidata": "Q7209427"
+      }
+    },
+    {
+      "type": "way",
+      "id": 47198837,
+      "center": {
+        "lat": 1.3119103,
+        "lon": 103.8464991
+      },
+      "nodes": [
+        601487092,
+        601487093,
+        601487094,
+        601487095,
+        3201029267,
+        10161074263,
+        601487092
+      ],
+      "tags": {
+        "amenity": "police",
+        "barrier": "wall",
+        "name": "Tanglin Police HQ",
+        "name:en": "Tanglin Police HQ",
+        "name:ms": "Ibu Pejabat Divisyen Polis Tanglin"
+      }
+    },
+    {
+      "type": "way",
+      "id": 108124808,
+      "center": {
+        "lat": 1.3743105,
+        "lon": 103.884985
+      },
+      "nodes": [
+        3973667082,
+        1241001710,
+        1241001686,
+        8151479754,
+        1241001664,
+        1241001642,
+        1241001660,
+        1241001641,
+        3973667082
+      ],
+      "tags": {
+        "addr:street": "Hougang Avenue 4",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Hougang Neighbourhood Police Centre",
+        "name:en": "Hougang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Hougang",
+        "name:zh": "\u540e\u6e2f\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Hougang NPC",
+        "source": "Kaart Ground Survey 2017",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 142868919,
+      "center": {
+        "lat": 1.3431764,
+        "lon": 103.9808972
+      },
+      "nodes": [
+        1563358399,
+        1563358339,
+        1563358437,
+        1563358376,
+        1563358335,
+        1563358375,
+        1563358345,
+        1563358404,
+        1563358400,
+        1563358399
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "35",
+        "addr:postcode": "819645",
+        "addr:street": "Airport Boulevard",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Airport Police Division",
+        "name:en": "Airport Police Division",
+        "operator": "Singapore Police Force"
+      }
+    },
+    {
+      "type": "way",
+      "id": 162173856,
+      "center": {
+        "lat": 1.3490796,
+        "lon": 103.7585774
+      },
+      "nodes": [
+        1741083512,
+        1741083509,
+        1741083511,
+        1741083510,
+        1741083512
+      ],
+      "tags": {
+        "addr:housenumber": "21",
+        "addr:postcode": "659840",
+        "addr:street": "Bukit Batok East Avenue 4",
+        "amenity": "police",
+        "building": "yes",
+        "building:levels": "3",
+        "name": "Bukit Batok Neighbourhood Police Centre",
+        "name:en": "Bukit Batok Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bukit Batok",
+        "name:zh": "\u6b66\u5409\u5df4\u7763\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Bukit Batok NPC"
+      }
+    },
+    {
+      "type": "way",
+      "id": 171999302,
+      "center": {
+        "lat": 1.2865695,
+        "lon": 103.8471229
+      },
+      "nodes": [
+        1829571758,
+        1829571404,
+        1829571262,
+        1829570960,
+        1829571758
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "55",
+        "addr:postcode": "059282",
+        "addr:street": "North Canal Road",
+        "amenity": "police",
+        "building": "yes",
+        "building:facade:colour": "white",
+        "building:levels": "2",
+        "check_date": "2024-12-02",
+        "description": "NPP e-Kiosk",
+        "height": "8",
+        "name": "Kreta Ayer Neighbourhood Police Post",
+        "name:en": "Kreta Ayer Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Kreta Ayer",
+        "opening_hours": "24/7",
+        "roof:material": "roof_tiles",
+        "roof:shape": "hipped",
+        "short_name": "Kreta Ayer NPP"
+      }
+    },
+    {
+      "type": "way",
+      "id": 172522274,
+      "center": {
+        "lat": 1.2989586,
+        "lon": 103.8398438
+      },
+      "nodes": [
+        1834183326,
+        1834183413,
+        1834183416,
+        1834183410,
+        1834183320,
+        1834183323,
+        1834183326
+      ],
+      "tags": {
+        "amenity": "police",
+        "building": "yes",
+        "building:levels": "4",
+        "name": "Orchard Neighbourhood Police Centre",
+        "name:en": "Orchard Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Orchard",
+        "short_name": "Orchard NPC",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 173391660,
+      "center": {
+        "lat": 1.2951806,
+        "lon": 103.8007618
+      },
+      "nodes": [
+        1842170174,
+        1842170323,
+        1842170385,
+        1842170350,
+        1842170296,
+        1842170258,
+        1842170167,
+        1842169569,
+        6704321335,
+        1842170174
+      ],
+      "tags": {
+        "amenity": "police",
+        "landuse": "military",
+        "name": "Special Operations Command",
+        "name:en": "Special Operations Command"
+      }
+    },
+    {
+      "type": "way",
+      "id": 213638991,
+      "center": {
+        "lat": 1.3684087,
+        "lon": 103.959612
+      },
+      "nodes": [
+        2233039219,
+        2233039215,
+        2233039188,
+        2233039193,
+        2233039219
+      ],
+      "tags": {
+        "addr:country": "SG",
+        "addr:street": "Pasir Ris Drive 4",
+        "amenity": "police",
+        "building": "yes",
+        "building:levels": "5",
+        "name": "Pasir Ris Neighbourhood Police Centre",
+        "name:en": "Pasir Ris Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Pasir Ris",
+        "short_name": "Pasir Ris NPC",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "way",
+      "id": 256160606,
+      "center": {
+        "lat": 1.3513187,
+        "lon": 103.7022393
+      },
+      "nodes": [
+        2618496816,
+        2618497453,
+        2618497601,
+        2618497825,
+        2618497941,
+        2618498069,
+        2618498735,
+        2618498896,
+        2618498850,
+        2618498771,
+        2618498760,
+        2618498660,
+        2618496802,
+        2618496816
+      ],
+      "tags": {
+        "amenity": "police",
+        "barrier": "wall",
+        "name": "Jurong Police Division HQ",
+        "name:en": "Jurong Police Division HQ",
+        "name:ms": "Ibu Pejabat Divisyen Polis Jurong",
+        "website": "https://www.police.gov.sg/"
+      }
+    },
+    {
+      "type": "way",
+      "id": 298029812,
+      "center": {
+        "lat": 1.3060542,
+        "lon": 103.8220826
+      },
+      "nodes": [
+        3019430887,
+        3019430888,
+        3019430889,
+        6326775418,
+        3019430890,
+        3019430891,
+        3019430892,
+        3019430893,
+        3019430894,
+        3019430895,
+        3019430896,
+        3019430899,
+        6326775419,
+        3019430900,
+        6326775420,
+        3019430901,
+        3019430902,
+        3019430887
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "18",
+        "addr:street": "Nassim Hill",
+        "amenity": "police",
+        "building": "yes",
+        "building:levels": "5",
+        "name": "Interpol",
+        "name:en": "Interpol",
+        "name:ms": "Interpol",
+        "website": "https://www.interpol.int/About-INTERPOL/The-INTERPOL-Global-Complex-for-Innovation"
+      }
+    },
+    {
+      "type": "way",
+      "id": 325897234,
+      "center": {
+        "lat": 1.2754517,
+        "lon": 103.793369
+      },
+      "nodes": [
+        3973667109,
+        3325194816,
+        3325193929,
+        3325193942,
+        3973667109
+      ],
+      "tags": {
+        "addr:street": "Pasir Panjang Road",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Pasir Panjang Neighbourhood Police Post",
+        "name:en": "Pasir Panjang Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Pasir Panjang",
+        "name:zh": "\u5df4\u897f\u73ed\u8ba9\u90bb\u91cc\u8b66\u5c97",
+        "short_name": "Pasir Panjang NPP",
+        "source": "Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 376781183,
+      "center": {
+        "lat": 1.3698444,
+        "lon": 103.851701
+      },
+      "nodes": [
+        3801686933,
+        3801686934,
+        9710783928,
+        9710783927,
+        9710783926,
+        9710783925,
+        9710783924,
+        9710783929,
+        9710783931,
+        9710783930,
+        3801686935,
+        3801686936,
+        3801686937,
+        9710783932,
+        3801686939,
+        3801686940,
+        3801686933
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "81",
+        "addr:postcode": "569929",
+        "addr:street": "Ang Mo Kio Avenue 3",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Ang Mo Kio South Neighbourhood Police Centre",
+        "name:en": "Ang Mo Kio South Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Ang Mo Kio South",
+        "name:zh": "\u5b8f\u8302\u6865\u5357\u90bb\u91cc\u8b66\u5c40",
+        "phone": "+65 1800 451 9999",
+        "short_name": "Ang Mo Kio South NPC"
+      }
+    },
+    {
+      "type": "way",
+      "id": 393624158,
+      "center": {
+        "lat": 1.3109882,
+        "lon": 103.886124
+      },
+      "nodes": [
+        13061595544,
+        13061595545,
+        3946122365,
+        13061595546,
+        13061595547,
+        13061595544
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "amenity": "police",
+        "name": "Geylang Neighbourhood Police Centre",
+        "name:en": "Geylang Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Geylang",
+        "operator": "Singapore Police Force",
+        "operator:wikidata": "Q11081257",
+        "operator:wikipedia": "en:Singapore Police Force",
+        "short_name": "Geylang NPC"
+      }
+    },
+    {
+      "type": "way",
+      "id": 425243667,
+      "center": {
+        "lat": 1.321895,
+        "lon": 103.76013
+      },
+      "nodes": [
+        4245447490,
+        4245447491,
+        4245447492,
+        4245447493,
+        4245447494,
+        4245447495,
+        4245447496,
+        4931200197,
+        4245447497,
+        4245447498,
+        4245447499,
+        4245447500,
+        4245447501,
+        4931200198,
+        4931200201,
+        4245447502,
+        4245447503,
+        4245447504,
+        11680982527,
+        11680982528,
+        4245447505,
+        11680982529,
+        11680982530,
+        4931200211,
+        4245447506,
+        4931200203,
+        4245447507,
+        4931200186,
+        4931200187,
+        4931200188,
+        4931200189,
+        4245447509,
+        4245447510,
+        4245447511,
+        4245447512,
+        4245447513,
+        4245447514,
+        4245447515,
+        4245447516,
+        4245447517,
+        4931200190,
+        4931200191,
+        4931200192,
+        4931200193,
+        4931200194,
+        11680982531,
+        4245447518,
+        4245447490
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "6",
+        "addr:postcode": "128496",
+        "addr:street": "Lempeng Drive",
+        "amenity": "police",
+        "building": "yes",
+        "construction:amenity": "police",
+        "name": "Clementi Police Division Headquarters",
+        "old_name": "Former ITE Clementi",
+        "was:amenity": "school"
+      }
+    },
+    {
+      "type": "way",
+      "id": 449818142,
+      "center": {
+        "lat": 1.4334787,
+        "lon": 103.778861
+      },
+      "nodes": [
+        4467456805,
+        11731171627,
+        11731171626,
+        4467456806,
+        4467456807,
+        4467456808,
+        11731171623,
+        11731171624,
+        11731171625,
+        4467456805
+      ],
+      "tags": {
+        "amenity": "police",
+        "barrier": "wall",
+        "name": "Woodlands Police Divisional HQ",
+        "name:en": "Woodlands Police Divisional HQ",
+        "name:ms": "Ibu Pejabat Divisyen Polis Woodlands"
+      }
+    },
+    {
+      "type": "way",
+      "id": 452298547,
+      "center": {
+        "lat": 1.3227003,
+        "lon": 103.812359
+      },
+      "nodes": [
+        3973658642,
+        4491161119,
+        6755840214,
+        4491161116,
+        4491161087,
+        4491161090,
+        4491161108,
+        4491161097,
+        4491161106,
+        4491161118,
+        3973658642
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "1",
+        "addr:street": "Duke's Road",
+        "amenity": "police",
+        "building": "yes",
+        "building:levels": "4",
+        "check_date": "2026-01-27",
+        "name": "Bukit Timah Neighbourhood Police Centre",
+        "name:en": "Bukit Timah Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Bukit Timah",
+        "name:zh": "\u6b66\u5409\u77e5\u9a6c\u90bb\u91cc\u8b66\u5c40",
+        "short_name": "Bukit Timah NPC",
+        "source": "Kaart Ground Survey 2017",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 453590334,
+      "center": {
+        "lat": 1.3139683,
+        "lon": 103.9297511
+      },
+      "nodes": [
+        3973670369,
+        4503035665,
+        4503035664,
+        4503035661,
+        4503035660,
+        4503035663,
+        4503035662,
+        4503035668,
+        3973670369
+      ],
+      "tags": {
+        "addr:street": "Upper East Coast Road",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Siglap Neighbourhood Police Post",
+        "name:en": "Siglap Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Siglap",
+        "short_name": "Siglap NPP",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "way",
+      "id": 542737003,
+      "center": {
+        "lat": 1.4026403,
+        "lon": 103.9715651
+      },
+      "nodes": [
+        5247035000,
+        5247035001,
+        5247035002,
+        5247035003,
+        5247035000
+      ],
+      "tags": {
+        "amenity": "police",
+        "building": "yes",
+        "check_date": "2025-12-18",
+        "name": "Pulau Ubin Police Post",
+        "name:en": "Pulau Ubin Police Post",
+        "name:ms": "Pondok Polis Pulau Ubin",
+        "name:zh": "\u4e4c\u654f\u5c9b\u8b66\u5c40"
+      }
+    },
+    {
+      "type": "way",
+      "id": 542737004,
+      "center": {
+        "lat": 1.402688,
+        "lon": 103.9717347
+      },
+      "nodes": [
+        5247035004,
+        5247035005,
+        5247035006,
+        5247035007,
+        5247035004
+      ],
+      "tags": {
+        "amenity": "police",
+        "building": "yes",
+        "name": "Pulau Ubin Police Coast Guard",
+        "name:en": "Pulau Ubin Police Coast Guard",
+        "name:ms": "Polis Pengawal Pantai Pulau Ubin"
+      }
+    },
+    {
+      "type": "way",
+      "id": 546632790,
+      "center": {
+        "lat": 1.3863567,
+        "lon": 103.9716589
+      },
+      "nodes": [
+        5282382431,
+        5282382433,
+        5282382432,
+        5282382430,
+        5282382431
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "91",
+        "addr:postcode": "508773",
+        "addr:street": "Loyang Way",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Police Coast Guard Loyang Regional Base",
+        "name:en": "Police Coast Guard Loyang Regional Base"
+      }
+    },
+    {
+      "type": "way",
+      "id": 618134328,
+      "center": {
+        "lat": 1.3069894,
+        "lon": 103.6714784
+      },
+      "nodes": [
+        5843106187,
+        5843106188,
+        5843106189,
+        5843106190,
+        5843106187
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "9",
+        "addr:postcode": "627864",
+        "addr:street": "Pioneer Place",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Police Coast Guard Gul Base",
+        "name:en": "Police Coast Guard Gul Base",
+        "name:ms": "Polis Pengawal Pantai Gul Base"
+      }
+    },
+    {
+      "type": "way",
+      "id": 618203299,
+      "center": {
+        "lat": 1.4451855,
+        "lon": 103.70705
+      },
+      "nodes": [
+        5843448291,
+        5843465542,
+        5843465543,
+        5843448294,
+        5843448295,
+        5843448296,
+        5843448297,
+        5843448291
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "695",
+        "addr:postcode": "709654",
+        "addr:street": "Lim Chu Kang Road",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Police Coast Guard Lim Chu Kang Base",
+        "name:en": "Police Coast Guard Lim Chu Kang Base"
+      }
+    },
+    {
+      "type": "way",
+      "id": 618400321,
+      "center": {
+        "lat": 1.2560887,
+        "lon": 103.8338635
+      },
+      "nodes": [
+        5845201690,
+        5845201691,
+        5845201692,
+        5845201693,
+        7143132788,
+        7143132786,
+        7143132785,
+        7143132787,
+        5845201699,
+        5845201700,
+        5845201694,
+        5845201695,
+        5845201696,
+        5845201697,
+        5845201701,
+        5845201698,
+        5845201690
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "11",
+        "addr:postcode": "098658",
+        "addr:street": "Brani Way",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Police Coast Guard Headquarters Brani Base",
+        "name:en": "Police Coast Guard Headquarters Brani Base"
+      }
+    },
+    {
+      "type": "way",
+      "id": 737902311,
+      "center": {
+        "lat": 1.3634336,
+        "lon": 103.866422
+      },
+      "nodes": [
+        6909399343,
+        11810133103,
+        11810133104,
+        11810133099,
+        6909399340,
+        11810133100,
+        11810133102,
+        11810133101,
+        6910716833,
+        6909399341,
+        6909399343
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "51",
+        "addr:postcode": "555947",
+        "addr:street": "Serangoon Garden Way",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Serangoon Gardens Neighbourhood Police Post",
+        "name:en": "Serangoon Gardens Neighbourhood Police Post",
+        "name:ms": "Pondok Polis Kejiranan Serangoon Gardens",
+        "short_name": "Serangoon Gardens NPP"
+      }
+    },
+    {
+      "type": "way",
+      "id": 760260089,
+      "center": {
+        "lat": 1.4470083,
+        "lon": 103.7683411
+      },
+      "nodes": [
+        7102270904,
+        7102270905,
+        7102270906,
+        7102270907,
+        7102270904
+      ],
+      "tags": {
+        "amenity": "police",
+        "building": "yes",
+        "name": "Police",
+        "name:en": "Police",
+        "name:ms": "Polis"
+      }
+    },
+    {
+      "type": "way",
+      "id": 891417955,
+      "center": {
+        "lat": 1.3379746,
+        "lon": 103.8603002
+      },
+      "nodes": [
+        8285585437,
+        8285585438,
+        8285585439,
+        8285585440,
+        8285585437
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "31",
+        "addr:postcode": "319265",
+        "addr:street": "Lorong 8 Toa Payoh",
+        "amenity": "police",
+        "name": "Police Security Command",
+        "operator": "Singapore Poice Force"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1183615207,
+      "center": {
+        "lat": 1.3118991,
+        "lon": 103.8912757
+      },
+      "nodes": [
+        4005816939,
+        10991546725,
+        10991546726,
+        10991546727,
+        10694207169,
+        10991546731,
+        10991546734,
+        10694207168,
+        4005816939
+      ],
+      "tags": {
+        "amenity": "police",
+        "barrier": "fence",
+        "building": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1336815753,
+      "center": {
+        "lat": 1.3981154,
+        "lon": 103.9140622
+      },
+      "nodes": [
+        12364740793,
+        12364814310,
+        12364740792,
+        12364814306,
+        12364814304,
+        12364740790,
+        12364740789,
+        12364814307,
+        12364740799,
+        12364740798,
+        12364740797,
+        12364740796,
+        12364740795,
+        12364740794,
+        12364740793
+      ],
+      "tags": {
+        "amenity": "police",
+        "building:part": "yes",
+        "name": "Punggol Neighbourhood Police Centre",
+        "name:en": "Punggol Neighbourhood Police Centre",
+        "name:ms": "Pusat Polis Kejiranan Punggol",
+        "short_name": "Punggol NPC"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1414022620,
+      "center": {
+        "lat": 1.4152756,
+        "lon": 103.8349907
+      },
+      "nodes": [
+        12993787071,
+        12245874858,
+        12993787072,
+        12993787073,
+        12993787074,
+        12993787075,
+        12993787076,
+        12993787077,
+        12993787078,
+        12993787079,
+        12245874851,
+        12993787080,
+        12993787081,
+        12993787082,
+        12993787071
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "32",
+        "addr:postcode": "768456",
+        "addr:street": "Yishun Street 81",
+        "amenity": "police",
+        "building": "yes",
+        "description": "Neighbourhood Police Post",
+        "name": "Nee Soon South NPP"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 10734727,
+      "center": {
+        "lat": 1.323544,
+        "lon": 103.8442187
+      },
+      "members": [
+        {
+          "type": "way",
+          "ref": 775055907,
+          "role": "inner"
+        },
+        {
+          "type": "way",
+          "ref": 775055906,
+          "role": "inner"
+        },
+        {
+          "type": "way",
+          "ref": 775055905,
+          "role": "inner"
+        },
+        {
+          "type": "way",
+          "ref": 775055904,
+          "role": "inner"
+        },
+        {
+          "type": "way",
+          "ref": 140743444,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "30",
+        "addr:postcode": "329561",
+        "addr:street": "Irrawaddy Road",
+        "amenity": "police",
+        "building": "office",
+        "height": "0",
+        "name": "Internal Security Department",
+        "name:en": "Internal Security Department",
+        "name:ms": "Jabatan Keselamatan Dalam Negeri",
+        "short_name": "ISD",
+        "type": "multipolygon",
+        "wikidata": "Q1112557"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 10980953,
+      "center": {
+        "lat": 1.3976711,
+        "lon": 103.7421538
+      },
+      "members": [
+        {
+          "type": "way",
+          "ref": 790273057,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 313239820,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 790269861,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "amenity": "police",
+        "landuse": "military",
+        "name": "Police K-9 Unit",
+        "name:en": "Police K-9 Unit",
+        "name:ms": "Unit K-9 Polis",
+        "name:zh": "\u8b66\u64e6K-9\u5355\u4f4d",
+        "type": "multipolygon"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1214 @@
+[
+  {
+    "osm_id": 4004913148,
+    "osm_type": "node",
+    "lat": 1.3413012,
+    "lon": 103.9483102,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Integrated Building (CGH-SACH)",
+      "operator": "Eastern Healthcare Alliance"
+    }
+  },
+  {
+    "osm_id": 4800589700,
+    "osm_type": "node",
+    "lat": 1.3818667,
+    "lon": 103.8845994,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Institute of Mental Health",
+      "name:zh": "\u5fc3\u7406\u536b\u751f\u5b66\u9662",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 5479259728,
+    "osm_type": "node",
+    "lat": 1.2891999,
+    "lon": 103.8162752,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Pacific Family Clinic"
+    }
+  },
+  {
+    "osm_id": 5599594021,
+    "osm_type": "node",
+    "lat": 1.3010276,
+    "lon": 103.7931057,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Singapore Advanced Medicine Proton Therapy",
+      "name:en": "Singapore Institute of Advanced Medicine - Proton Therapy Centre",
+      "website": "http://www.proton.sg"
+    }
+  },
+  {
+    "osm_id": 5599599523,
+    "osm_type": "node",
+    "lat": 1.2813333,
+    "lon": 103.8380544,
+    "tags": {
+      "addr:housenumber": "20",
+      "addr:street": "Outram Road",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "National Cancer Centre Singapore Proton Therapy Centre",
+      "name:zh": "\u65b0\u764c\u75c7\u4e2d\u5fc3\u8d28\u5b50\u6cbb\u7597\u4e2d\u5fc3",
+      "website": "https://www.nccs.com.sg/"
+    }
+  },
+  {
+    "osm_id": 5717278581,
+    "osm_type": "node",
+    "lat": 1.2869166,
+    "lon": 103.8016072,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "healthcare:speciality": "emergency",
+      "level": "1",
+      "name": "Urgent Care Centre",
+      "name:zh": "\u6025\u8bca\u4e2d\u5fc3",
+      "operator": "Alexandra Hospital"
+    }
+  },
+  {
+    "osm_id": 6746490215,
+    "osm_type": "node",
+    "lat": 1.3126,
+    "lon": 103.854,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "1",
+      "addr:postcode": "217562",
+      "addr:street": "Farrer Park Station Road",
+      "amenity": "hospital",
+      "contact:email": "enquiries@farrerpark.com",
+      "contact:facebook": "https://www.facebook.com/farrerparkhospital",
+      "contact:fax": "+65 6705 2728",
+      "contact:instagram": "https://www.instagram.com/farrerparkhospital/",
+      "contact:website": "https://www.farrerpark.com/hospital/ContactUs/Pages/ContactUs.aspx",
+      "healthcare": "hospital",
+      "name": "Farrer Park Hospital",
+      "name:ms": "Hospital Farrer Park",
+      "name:zh": "\u82b1\u62c9\u516c\u56ed\u533b\u9662",
+      "opening_hours": "24/7",
+      "operator": "The Farrer Park Company",
+      "operator:type": "private_for_profit",
+      "phone": "+65 6363 1818",
+      "website": "https://www.farrerpark.com/hospital/"
+    }
+  },
+  {
+    "osm_id": 7143761653,
+    "osm_type": "node",
+    "lat": 1.3225665,
+    "lon": 103.8136561,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:postcode": "258748",
+      "addr:street": "Serene Centre #02-03",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "healthcare:speciality": "dermatology",
+      "name": "Priya Sen Skin & Laser Centre"
+    }
+  },
+  {
+    "osm_id": 8894273783,
+    "osm_type": "node",
+    "lat": 1.3206085,
+    "lon": 103.8484559,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Blk 101, TTSH Foot and Limb Center",
+      "name:en": "Blk 101, TTSH Foot and Limb Center",
+      "wheelchair": "yes"
+    }
+  },
+  {
+    "osm_id": 9152442812,
+    "osm_type": "node",
+    "lat": 1.2941992,
+    "lon": 103.7830593,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "National University Hospital"
+    }
+  },
+  {
+    "osm_id": 9723990867,
+    "osm_type": "node",
+    "lat": 1.3122814,
+    "lon": 103.8546429,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "12",
+      "addr:postcode": "217565",
+      "addr:street": "Farrer Park Station Road",
+      "addr:unit": "#05-01",
+      "amenity": "hospital",
+      "email": "info@starmedspecialist.com",
+      "mobile": "+65 96552101",
+      "name": "StarMed Specialist Centre",
+      "phone": "+65 63226333",
+      "website": "https://starmedspecialist.com/"
+    }
+  },
+  {
+    "osm_id": 10301741631,
+    "osm_type": "node",
+    "lat": 1.2870419,
+    "lon": 103.801972,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Nursing Training Centre"
+    }
+  },
+  {
+    "osm_id": 10899296569,
+    "osm_type": "node",
+    "lat": 1.4376172,
+    "lon": 103.7865619,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Woodlands Joint Testing & Vaccination Centre",
+      "name:ms": "Pusat Ujian & Vaksinasi Bersama Woodlands",
+      "name:zh": "\u5140\u5170\u8054\u5408\u68c0\u6d4b\u4e0e\u75ab\u82d7\u63a5\u79cd\u4e2d\u5fc3"
+    }
+  },
+  {
+    "osm_id": 11462165516,
+    "osm_type": "node",
+    "lat": 1.3224903,
+    "lon": 103.8450626,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "healthcare:speciality": "radiotherapy",
+      "man_made": "particle_accelerator",
+      "name": "Mount Elizabeth Proton Therapy Centre",
+      "operator": "Mount Elizabeth",
+      "particle_accelerator": "circular",
+      "substance": "proton"
+    }
+  },
+  {
+    "osm_id": 13199896801,
+    "osm_type": "node",
+    "lat": 1.3071589,
+    "lon": 103.8202554,
+    "tags": {
+      "addr:housenumber": "6",
+      "addr:postcode": "258499",
+      "addr:street": "Napier Road",
+      "amenity": "hospital",
+      "level": "8",
+      "name": "Gleneagles Medical Centre"
+    }
+  },
+  {
+    "osm_id": 13245292326,
+    "osm_type": "node",
+    "lat": 1.3063204,
+    "lon": 103.820416,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "6",
+      "addr:postcode": "258499",
+      "addr:street": "Napier Road",
+      "amenity": "hospital",
+      "contact:facebook": "https://www.linkedin.com/in/chi-chiu-tan-new-life-coach-doctor/",
+      "description": "Life coaching In Singapore",
+      "email": "tancc@gastromed.com.sg",
+      "healthcare": "hospital",
+      "healthcare:speciality": "coach",
+      "name": "New Life Coach Doctor",
+      "opening_hours": "Monday to Friday (9:00AM - 17:00PM)",
+      "phone": "+65 6471 2212",
+      "website": "https://newlifecoachdr.com/"
+    }
+  },
+  {
+    "osm_id": 33570275,
+    "osm_type": "way",
+    "lat": 1.3952091,
+    "lon": 103.8925269,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "110",
+      "addr:postcode": "544886",
+      "addr:street": "Sengkang East Way",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Sengkang General & Community Hospital",
+      "name:ms": "Hospital Masyarakat Sengkang",
+      "operator": "SingHealth",
+      "website": "https://www.skh.com.sg/",
+      "wikidata": "Q19646383",
+      "wikimedia_commons": "Category:Sengkang General Hospital",
+      "wikipedia": "en:Sengkang General Hospital"
+    }
+  },
+  {
+    "osm_id": 34403524,
+    "osm_type": "way",
+    "lat": 1.3403638,
+    "lon": 103.9491054,
+    "tags": {
+      "addr:street": "Simei Street 3",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Changi General Hospital",
+      "name:ms": "Hospital Besar Changi",
+      "wheelchair": "yes",
+      "wikidata": "Q5071993",
+      "wikimedia_commons": "Category:Changi General Hospital",
+      "wikipedia": "en:Changi General Hospital"
+    }
+  },
+  {
+    "osm_id": 34587438,
+    "osm_type": "way",
+    "lat": 1.3819475,
+    "lon": 103.8860997,
+    "tags": {
+      "amenity": "hospital",
+      "building": "yes",
+      "healthcare": "hospital",
+      "name": "Ren Ci Hospital",
+      "name:ms": "Hospital Ren Ci",
+      "name:zh": "\u4ec1\u6148\u533b\u9662"
+    }
+  },
+  {
+    "osm_id": 37410453,
+    "osm_type": "way",
+    "lat": 1.3840243,
+    "lon": 103.8402375,
+    "tags": {
+      "alt_name": "Thye Hua Kwan Hospital",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Ang Mo Kio Community Hospital",
+      "name:ms": "Hospital Masyarakat Ang Mo Kio",
+      "name:zh": "\u5b8f\u8302\u6865\u793e\u533a\u533b\u9662"
+    }
+  },
+  {
+    "osm_id": 41663272,
+    "osm_type": "way",
+    "lat": 1.3105457,
+    "lon": 103.8467818,
+    "tags": {
+      "alt_name": "KK Hospital",
+      "amenity": "hospital",
+      "building": "yes",
+      "building:levels": "2",
+      "building:part": "yes",
+      "emergency": "yes",
+      "full_name": "Kandang Kerbau Women's and Children's Hospital",
+      "healthcare": "hospital",
+      "name": "KK Women's and Children's Hospital",
+      "name:ms": "Hospital Wanita dan Kanak-kanak KK",
+      "name:zh": "\u7af9\u811a\u5987\u5e7c\u533b\u9662",
+      "wikidata": "Q6332329",
+      "wikipedia": "en:KK Women's and Children's Hospital"
+    }
+  },
+  {
+    "osm_id": 41890511,
+    "osm_type": "way",
+    "lat": 1.3073675,
+    "lon": 103.8198296,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "6",
+      "addr:street": "Napier Road",
+      "amenity": "hospital",
+      "contact:facebook": "https://www.facebook.com/GleneaglesHospitalSingapore",
+      "contact:whatsapp": "+65 8111 9777",
+      "emergency": "yes",
+      "healthcare": "hospital",
+      "name": "Gleneagles Hospital",
+      "name:ms": "Hospital Gleneagles",
+      "name:zh": "\u9e70\u9601\u533b\u9662",
+      "phone": "+65 6575 7575",
+      "start_date": "1957",
+      "website": "https://www.gleneagles.com.sg/",
+      "wikidata": "Q14874254",
+      "wikimedia_commons": "Category:Gleneagles Hospital and Medical Centre",
+      "wikipedia": "en:Gleneagles Hospital"
+    }
+  },
+  {
+    "osm_id": 47134077,
+    "osm_type": "way",
+    "lat": 1.3011633,
+    "lon": 103.857147,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "585",
+      "addr:postcode": "188770",
+      "addr:street": "North Bridge Road",
+      "amenity": "hospital",
+      "building": "hospital",
+      "healthcare": "hospital",
+      "height": "0",
+      "internet_access": "wlan",
+      "name": "Raffles Hospital",
+      "name:ms": "Hospital Raffles",
+      "name:zh": "\u83b1\u4f5b\u58eb\u533b\u9662",
+      "opening_hours": "24/7",
+      "start_date": "2001",
+      "wheelchair": "yes",
+      "wikidata": "Q7282578",
+      "wikimedia_commons": "Category:Raffles_Hospital",
+      "wikipedia": "en:Raffles Hospital"
+    }
+  },
+  {
+    "osm_id": 74715098,
+    "osm_type": "way",
+    "lat": 1.342202,
+    "lon": 103.8379314,
+    "tags": {
+      "addr:housenumber": "820",
+      "addr:postcode": "574623",
+      "addr:street": "Thomson Road",
+      "amenity": "hospital",
+      "emergency": "yes",
+      "healthcare": "hospital",
+      "name": "Mount Alvernia Hospital",
+      "name:ms": "Hospital Mount Alvernia",
+      "name:zh": "\u5b89\u5fae\u5c3c\u4e9a\u5c71\u533b\u9662",
+      "website": "https://mtalvernia.sg/",
+      "wikidata": "Q6919390",
+      "wikipedia": "en:Mount Alvernia Hospital"
+    }
+  },
+  {
+    "osm_id": 75468299,
+    "osm_type": "way",
+    "lat": 1.2794979,
+    "lon": 103.8347388,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Singapore General Hospital",
+      "name:en": "Singapore General Hospital",
+      "name:ms": "Hospital Besar Singapore",
+      "name:ta": "\u0b9a\u0bbf\u0b99\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0bc2\u0bb0\u0bcd \u0ba4\u0bc7\u0b9a\u0bbf\u0baf \u0bae\u0bb0\u0bc1\u0ba4\u0bcd\u0ba4\u0bc1\u0bb5\u0bae\u0ba9\u0bc8",
+      "name:th": "\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e2a\u0e34\u0e07\u0e04\u0e42\u0e1b\u0e23\u0e4c",
+      "name:zh": "\u65b0\u52a0\u5761\u4e2d\u592e\u533b\u9662",
+      "short_name": "SGH",
+      "url": "http://www.sgh.com.sg/",
+      "wikidata": "Q7522983",
+      "wikimedia_commons": "Category:Singapore General Hospital",
+      "wikipedia": "en:Singapore General Hospital"
+    }
+  },
+  {
+    "osm_id": 96696099,
+    "osm_type": "way",
+    "lat": 1.3407464,
+    "lon": 103.7045823,
+    "tags": {
+      "amenity": "hospital",
+      "building": "yes",
+      "healthcare": "hospital",
+      "layer": "1",
+      "name": "Jurong Medical Centre",
+      "name:en": "Jurong Medical Centre",
+      "name:zh": "\u88d5\u5eca\u533b\u7597\u4e2d\u5fc3"
+    }
+  },
+  {
+    "osm_id": 107830083,
+    "osm_type": "way",
+    "lat": 1.3525818,
+    "lon": 103.7268897,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "931",
+      "addr:postcode": "649370",
+      "addr:street": "Jurong West Street 42",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Jurong West Joint Testing & Vaccination Centre",
+      "name:ms": "Pusat Ujian & Vaksinasi Bersama Jurong West",
+      "name:zh": "\u88d5\u5eca\u897f\u8054\u5408\u68c0\u6d4b\u4e0e\u75ab\u82d7\u63a5\u79cd\u4e2d\u5fc3"
+    }
+  },
+  {
+    "osm_id": 108841365,
+    "osm_type": "way",
+    "lat": 1.3404883,
+    "lon": 103.7395646,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "450",
+      "addr:postcode": "609604",
+      "addr:street": "Jurong East Street 21",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Jurong East Joint Testing & Vaccination Centre",
+      "name:ms": "Pusat Ujian & Vaksinasi Bersama Jurong East",
+      "name:zh": "\u88d5\u5eca\u4e1c\u8054\u5408\u68c0\u6d4b\u4e0e\u75ab\u82d7\u63a5\u79cd\u4e2d\u5fc3"
+    }
+  },
+  {
+    "osm_id": 109100976,
+    "osm_type": "way",
+    "lat": 1.2864822,
+    "lon": 103.7995836,
+    "tags": {
+      "amenity": "hospital",
+      "building": "yes",
+      "description": "This used to be the Married Quarters of the British Military Hospital.",
+      "healthcare": "hospital",
+      "name": "Block 22 - Mortuary"
+    }
+  },
+  {
+    "osm_id": 109104578,
+    "osm_type": "way",
+    "lat": 1.2868961,
+    "lon": 103.8011777,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Alexandra Hospital",
+      "name:ms": "Hospital Alexandra",
+      "name:zh": "\u4e9a\u5386\u5c71\u5927\u533b\u9662",
+      "wikidata": "Q4720666",
+      "wikipedia": "en:Alexandra Hospital"
+    }
+  },
+  {
+    "osm_id": 117178559,
+    "osm_type": "way",
+    "lat": 1.4237475,
+    "lon": 103.8372373,
+    "tags": {
+      "amenity": "hospital",
+      "emergency": "yes",
+      "healthcare": "hospital",
+      "name": "Yishun Community Hospital",
+      "name:ms": "Hospital Masyarakat Yishun",
+      "name:zh": "\u4e49\u987a\u793e\u533a\u533b\u9662",
+      "wheelchair": "yes",
+      "wikidata": "Q65052043",
+      "wikipedia": "en:Yishun Community Hospital"
+    }
+  },
+  {
+    "osm_id": 117325081,
+    "osm_type": "way",
+    "lat": 1.3720577,
+    "lon": 103.8780282,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "5",
+      "addr:postcode": "547530",
+      "addr:street": "Lor Napiri",
+      "amenity": "hospital",
+      "email": "enquiries@bvh.org.sg",
+      "fax": "+65 6881 3872",
+      "healthcare": "hospital",
+      "name": "Bright Vision Hospital",
+      "name:ms": "Hospital Bright Vision",
+      "phone": "+65 6248 5755",
+      "website": "http://www.bvh.org.sg/",
+      "wikidata": "Q4967491",
+      "wikipedia": "en:Bright Vision Hospital"
+    }
+  },
+  {
+    "osm_id": 162644392,
+    "osm_type": "way",
+    "lat": 1.3494673,
+    "lon": 103.7421088,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "2",
+      "addr:postcode": "659674",
+      "addr:street": "Bukit Batok Street 11",
+      "amenity": "hospital",
+      "email": "general@stluke.org.sg",
+      "fax": "+65 65618205",
+      "name": "St Luke\u2019s Hospital",
+      "name:ms": "Hospital St Luke",
+      "phone": "+65 65632281",
+      "source": "https://www.slh.org.sg/",
+      "website": "https://www.slh.org.sg/",
+      "wheelchair": "yes",
+      "wikidata": "Q7594065",
+      "wikipedia": "en:St Luke's Hospital, Singapore"
+    }
+  },
+  {
+    "osm_id": 170744577,
+    "osm_type": "way",
+    "lat": 1.3416535,
+    "lon": 103.9488264,
+    "tags": {
+      "addr:street": "Simei Street 3",
+      "amenity": "hospital",
+      "emergency": "no",
+      "healthcare": "hospital",
+      "name": "Saint Andrew's Community Hospital",
+      "name:ms": "Hospital Masyarakat Saint Andrew's",
+      "operator": "St. Andrew's Mission Hospital",
+      "website": "https://www.sach.org.sg/"
+    }
+  },
+  {
+    "osm_id": 172520759,
+    "osm_type": "way",
+    "lat": 1.3051746,
+    "lon": 103.8353239,
+    "tags": {
+      "building": "yes",
+      "building:levels": "5",
+      "healthcare": "hospital"
+    }
+  },
+  {
+    "osm_id": 172530221,
+    "osm_type": "way",
+    "lat": 1.3228173,
+    "lon": 103.8459864,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "71",
+      "addr:postcode": "329562",
+      "addr:street": "Irrawaddy Road",
+      "amenity": "hospital",
+      "building": "yes",
+      "check_date": "2024-04-17",
+      "email": "renci@renci.org.sg",
+      "fax": "+65 63580900",
+      "height": "0",
+      "name": "Ren Ci Community Hospital",
+      "name:ms": "Hospital Masyarakat Ren Ci",
+      "name:zh": "\u4ec1\u6148\u793e\u533a\u533b\u9662",
+      "opening_hours": "Mo-Fr 08:30-17:30;Sa 08:00-13:00",
+      "phone": "+65 63850288",
+      "website": "https://www.renci.org.sg/",
+      "wikidata": "Q17053224",
+      "wikipedia": "en:Ren Ci Hospital"
+    }
+  },
+  {
+    "osm_id": 238933465,
+    "osm_type": "way",
+    "lat": 1.2943464,
+    "lon": 103.7831409,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "healthcare:speciality": "general",
+      "name": "National University Hospital",
+      "name:en": "National University Hospital",
+      "name:ms": "Hospital Universiti Nasional Singapura",
+      "name:ta": "\u0ba4\u0bc7\u0b9a\u0bbf\u0baf \u0baa\u0bb2\u0bcd\u0b95\u0bb2\u0bc8\u0b95\u0bcd\u0b95\u0bb4\u0b95 \u0bae\u0bb0\u0bc1\u0ba4\u0bcd\u0ba4\u0bc1\u0bb5\u0bae\u0ba9\u0bc8\u0baf\u0bbf\u0bb2\u0bcd",
+      "name:zh": "\u56fd\u7acb\u5927\u5b66\u533b\u9662",
+      "start_date": "1985",
+      "url": "http://www.nuh.com.sg/",
+      "wikidata": "Q6979219",
+      "wikimedia_commons": "Category:National University Hospital",
+      "wikipedia": "en:National University Hospital"
+    }
+  },
+  {
+    "osm_id": 260472491,
+    "osm_type": "way",
+    "lat": 1.3212804,
+    "lon": 103.8510187,
+    "tags": {
+      "amenity": "hospital",
+      "emergency": "no",
+      "healthcare": "hospital",
+      "name": "Communicable Disease Centre",
+      "wheelchair": "yes",
+      "wikidata": "Q5154059",
+      "wikipedia": "en:Communicable Disease Centre"
+    }
+  },
+  {
+    "osm_id": 260549167,
+    "osm_type": "way",
+    "lat": 1.3220014,
+    "lon": 103.8445055,
+    "tags": {
+      "addr:housenumber": "38",
+      "addr:street": "Irrawaddy Road",
+      "amenity": "hospital",
+      "check_date": "2024-12-27",
+      "email": "mnpac@parkwaypantai.com",
+      "healthcare": "hospital",
+      "name": "Mount Elizabeth Novena Hospital",
+      "name:ms": "Hospital Mount Elizabeth Novena",
+      "name:zh": "\u4f0a\u4e3d\u838e\u767d\u533b\u8bfa\u7ef4\u5a1c\u9662",
+      "operator": "Parkway Health",
+      "phone": "+65 69330000",
+      "website": "https://www.mountelizabeth.com.sg/",
+      "wikidata": "Q7138809",
+      "wikipedia": "en:Mount Elizabeth Novena Hospital"
+    }
+  },
+  {
+    "osm_id": 292420394,
+    "osm_type": "way",
+    "lat": 1.3749701,
+    "lon": 103.8573449,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "4300",
+      "addr:postcode": "569869",
+      "addr:street": "Ang Mo Kio Avenue 5",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Ang Mo Kio Joint Testing & Vaccination Centre",
+      "name:ms": "Pusat Ujian dan Vaksinasi Bersama Ang Mo Kio",
+      "name:zh": "\u5b8f\u8302\u6865\u8054\u5408\u68c0\u6d4b\u4e0e\u75ab\u82d7\u63a5\u79cd\u4e2d\u5fc3",
+      "source": "Kaart Ground Survey 2017"
+    }
+  },
+  {
+    "osm_id": 319962500,
+    "osm_type": "way",
+    "lat": 1.30467,
+    "lon": 103.8352479,
+    "tags": {
+      "amenity": "hospital",
+      "building:levels": "10",
+      "building:min_levels": "5",
+      "building:part": "yes",
+      "healthcare": "hospital",
+      "name": "Elizabeth Hospital Wards",
+      "name:zh": "\u4f0a\u4e3d\u838e\u767d\u533b\u9662\u75c5\u623f"
+    }
+  },
+  {
+    "osm_id": 320763066,
+    "osm_type": "way",
+    "lat": 1.3346266,
+    "lon": 103.7442056,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "1",
+      "addr:postcode": "609606",
+      "addr:street": "Jurong East Street 21",
+      "alt_name": "Ng Teng Fong General Hospital Tower A",
+      "amenity": "hospital",
+      "building": "hospital",
+      "height": "0",
+      "name": "Jurong Health Specialist Outpatient Clinics"
+    }
+  },
+  {
+    "osm_id": 320764872,
+    "osm_type": "way",
+    "lat": 1.3406555,
+    "lon": 103.9494359,
+    "tags": {
+      "amenity": "hospital",
+      "building": "yes",
+      "building:levels": "4",
+      "healthcare": "hospital"
+    }
+  },
+  {
+    "osm_id": 368005259,
+    "osm_type": "way",
+    "lat": 1.3327304,
+    "lon": 103.7465675,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "1",
+      "addr:postcode": "609606",
+      "addr:street": "Jurong East Street 21",
+      "alt_name": "Ng Teng Fong General Hospital Tower C",
+      "amenity": "hospital",
+      "building": "hospital",
+      "healthcare": "hospital",
+      "height": "0",
+      "name": "Jurong Community Hospital",
+      "name:ms": "Hospital Masyarakat Jurong",
+      "name:zh": "\u88d5\u5eca\u793e\u533a\u533b\u9662",
+      "wikidata": "Q23926492",
+      "wikipedia": "en:Jurong Community Hospital"
+    }
+  },
+  {
+    "osm_id": 368005260,
+    "osm_type": "way",
+    "lat": 1.334218,
+    "lon": 103.745174,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "1",
+      "addr:postcode": "609606",
+      "addr:street": "Jurong East Street 21",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Jurong Health Services"
+    }
+  },
+  {
+    "osm_id": 368005263,
+    "osm_type": "way",
+    "lat": 1.3333962,
+    "lon": 103.745529,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "1",
+      "addr:postcode": "609606",
+      "addr:street": "Jurong East Street 21",
+      "alt_name": "Ng Teng Fong General Hospital Tower B",
+      "amenity": "hospital",
+      "building": "yes",
+      "building:colour": "#543d45",
+      "building:levels": "4",
+      "building:material": "metal",
+      "emergency": "yes",
+      "healthcare": "hospital",
+      "name": "Ng Teng Fong General Hospital",
+      "name:ms": "Hospital Besar Ng Teng Fong",
+      "name:zh": "\u9ec4\u5ef7\u65b9\u7efc\u5408\u533b\u96620",
+      "operator": "Jurong Health",
+      "wikidata": "Q18639988",
+      "wikipedia": "en:Ng Teng Fong General Hospital"
+    }
+  },
+  {
+    "osm_id": 397219610,
+    "osm_type": "way",
+    "lat": 1.3151223,
+    "lon": 103.9089808,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Parkway East Hospital",
+      "name:ms": "Hospital Parkway East",
+      "name:zh": "\u767e\u6c47\u4e1c\u5cb8\u533b\u9662",
+      "opening_hours": "24/7",
+      "wheelchair": "yes",
+      "wikidata": "Q7138794",
+      "wikipedia": "en:Parkway East Hospital"
+    }
+  },
+  {
+    "osm_id": 454254134,
+    "osm_type": "way",
+    "lat": 1.3149667,
+    "lon": 103.8829355,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "260",
+      "addr:street": "Sims Avenue",
+      "amenity": "hospital",
+      "building": "yes",
+      "healthcare": "hospital",
+      "name": "ECM Building",
+      "source": "Kaart Ground Survey 2017"
+    }
+  },
+  {
+    "osm_id": 464928931,
+    "osm_type": "way",
+    "lat": 1.3174073,
+    "lon": 103.8590435,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "705",
+      "addr:postcode": "328127",
+      "addr:street": "Serangoon Road",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Kwong Wai Shiu Hospital",
+      "name:ms": "Hospital Kwong Wai Shiu",
+      "name:zh": "\u5e7f\u60e0\u8087\u533b\u9662",
+      "wikidata": "Q6450553"
+    }
+  },
+  {
+    "osm_id": 480737108,
+    "osm_type": "way",
+    "lat": 1.2889703,
+    "lon": 103.8252552,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "8",
+      "addr:street": "Lower Delta Road",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Bukit Merah Joint Testing & Vaccination Centre",
+      "name:ms": "Pusat Ujian & Vaksinasi Bersama Bukit Merah",
+      "source": "Kaart Ground Survey 2017"
+    }
+  },
+  {
+    "osm_id": 554570809,
+    "osm_type": "way",
+    "lat": 1.3497175,
+    "lon": 103.7306922,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    }
+  },
+  {
+    "osm_id": 575304529,
+    "osm_type": "way",
+    "lat": 1.3821353,
+    "lon": 103.8847334,
+    "tags": {
+      "amenity": "hospital",
+      "fixme:name:zh": "-",
+      "healthcare": "hospital",
+      "name": "Buangkok Green Medical Park",
+      "name:zh": "\u4e07\u56fd\u57d4\u533b\u7597\u56ed"
+    }
+  },
+  {
+    "osm_id": 586389089,
+    "osm_type": "way",
+    "lat": 1.424561,
+    "lon": 103.7945949,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Woodlands Health Campus"
+    }
+  },
+  {
+    "osm_id": 661998662,
+    "osm_type": "way",
+    "lat": 1.3908033,
+    "lon": 103.9035976,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "60",
+      "addr:street": "Sengkang East Way",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Sengkang Joint Testing & Vaccination Centre",
+      "name:ms": "Pusat Ujian & Vaksinasi Bersama Sengkang"
+    }
+  },
+  {
+    "osm_id": 678967931,
+    "osm_type": "way",
+    "lat": 1.3198366,
+    "lon": 103.8490258,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "landuse": "healthcare"
+    }
+  },
+  {
+    "osm_id": 695937161,
+    "osm_type": "way",
+    "lat": 1.363278,
+    "lon": 103.9376016,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    }
+  },
+  {
+    "osm_id": 727076984,
+    "osm_type": "way",
+    "lat": 1.3237311,
+    "lon": 103.8464927,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "1",
+      "addr:postcode": "307382",
+      "addr:street": "Tan Tock Seng Link",
+      "alt_name": "TTSH Integrated Care Hub",
+      "amenity": "hospital",
+      "building": "hospital",
+      "building:levels": "16",
+      "check_date": "2023-11-13",
+      "healthcare": "hospital",
+      "healthcare:speciality": "palliative;rehabilitation",
+      "name": "Tan Tock Seng Hospital Integrated Care Hub",
+      "operator": "Tan Tok Seng Hospital",
+      "operator:type": "public",
+      "short_name": "TTSH-ICH"
+    }
+  },
+  {
+    "osm_id": 746034993,
+    "osm_type": "way",
+    "lat": 1.4242698,
+    "lon": 103.8386476,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "90",
+      "addr:postcode": "768828",
+      "addr:street": "Yishun Central",
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Khoo Teck Puat Hospital",
+      "name:ms": "Hospital Khoo Teck Puat",
+      "name:zh": "\u90b1\u5fb7\u62d4\u533b\u9662",
+      "website": "https://www.ktph.com.sg/",
+      "wheelchair": "yes",
+      "wikidata": "Q6402273"
+    }
+  },
+  {
+    "osm_id": 751064398,
+    "osm_type": "way",
+    "lat": 1.3051574,
+    "lon": 103.8352868,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Mount Elizabeth Hospital",
+      "name:ms": "Hospital Mount Elizabeth",
+      "name:zh": "\u4f0a\u4e3d\u838e\u767d\u533b\u9662",
+      "wikidata": "Q1320916",
+      "wikimedia_commons": "Category:Mount Elizabeth Medical Centre",
+      "wikipedia": "en:Mount Elizabeth Hospital"
+    }
+  },
+  {
+    "osm_id": 809888784,
+    "osm_type": "way",
+    "lat": 1.3370448,
+    "lon": 103.8750694,
+    "tags": {
+      "addr:street": "Alkaff Crescent",
+      "amenity": "hospital",
+      "construction": "healthcare",
+      "emergency": "no",
+      "healthcare": "hospital",
+      "healthcare:speciality": "general;community",
+      "landuse": "construction",
+      "name": "Bidadari Polyclinic & Nursing Home",
+      "name:zh": "\u6bd4\u8fbe\u8fbe\u5229\u7efc\u5408\u8bca\u7597\u6240\u548c\u7597\u517b\u9662",
+      "operator": "National Healthcare Group",
+      "operator:type": "public"
+    }
+  },
+  {
+    "osm_id": 886859478,
+    "osm_type": "way",
+    "lat": 1.3215775,
+    "lon": 103.8467939,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "HealthCity Novena",
+      "name:zh": "\u7ef4\u5a1c\u5065\u5eb7\u57ce"
+    }
+  },
+  {
+    "osm_id": 893603790,
+    "osm_type": "way",
+    "lat": 1.3370467,
+    "lon": 103.9176372,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "Eastern General Hospital",
+      "name:ms": "Hospital Besar Timur",
+      "operator": "SingHealth",
+      "operator:type": "government"
+    }
+  },
+  {
+    "osm_id": 1041665295,
+    "osm_type": "way",
+    "lat": 1.3218621,
+    "lon": 103.8809421,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "St Andrew's Nursing Home (Aljunied)"
+    }
+  },
+  {
+    "osm_id": 1110683914,
+    "osm_type": "way",
+    "lat": 1.3122008,
+    "lon": 103.8460767,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "KKH@Halifax"
+    }
+  },
+  {
+    "osm_id": 1164409385,
+    "osm_type": "way",
+    "lat": 1.3310728,
+    "lon": 103.7229451,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "name": "West Point Hospital",
+      "name:ms": "Hospital West Point",
+      "name:zh": "\u5eb7\u88d5\u533b\u9662"
+    }
+  },
+  {
+    "osm_id": 1180351283,
+    "osm_type": "way",
+    "lat": 1.3104607,
+    "lon": 103.8467921,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    }
+  },
+  {
+    "osm_id": 1286187574,
+    "osm_type": "way",
+    "lat": 1.3266442,
+    "lon": 103.8545912,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "81",
+      "addr:postcode": "328836",
+      "addr:street": "Kim Keat Road",
+      "alt_name": "NKF Centre",
+      "amenity": "hospital",
+      "emergency": "no",
+      "healthcare": "hospital",
+      "name": "National Kidney Foundation Dialysis Centre",
+      "name:zh": "\u5168\u56fd\u80be\u810f\u57fa\u91d1\u4f1a\u6d17\u80be\u4e2d\u5fc3",
+      "source": "Bing",
+      "website": "https://www.nkfs.org/",
+      "wikidata": "Q6973911",
+      "wikipedia": "en:National Kidney Foundation Singapore"
+    }
+  },
+  {
+    "osm_id": 1332147158,
+    "osm_type": "way",
+    "lat": 1.3254213,
+    "lon": 103.841494,
+    "tags": {
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    }
+  },
+  {
+    "osm_id": 1345623876,
+    "osm_type": "way",
+    "lat": 1.3268013,
+    "lon": 103.8133285,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "19",
+      "addr:postcode": "289891",
+      "addr:street": "Adam Road",
+      "amenity": "hospital",
+      "emergency": "yes",
+      "healthcare": "hospital",
+      "name": "Crawfurd Hospital",
+      "name:ms": "Hospital Crawfurd",
+      "name:zh": "\u798f\u5fb7\u533b\u9662",
+      "operator": "Crawfurd Medical"
+    }
+  },
+  {
+    "osm_id": 1424056384,
+    "osm_type": "way",
+    "lat": 1.3154475,
+    "lon": 103.9322002,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:housenumber": "208",
+      "addr:postcode": "469726",
+      "addr:street": "Bedok South Avenue 1",
+      "amenity": "hospital",
+      "email": "general@sach.org.sg",
+      "emergency": "no",
+      "healthcare": "hospital",
+      "name": "St. Andrew's Community Hospital (Bedok)",
+      "phone": "+65 6399 3888"
+    }
+  },
+  {
+    "osm_id": 1726418,
+    "osm_type": "relation",
+    "lat": 1.3827907,
+    "lon": 103.8843179,
+    "tags": {
+      "amenity": "hospital",
+      "building": "yes",
+      "healthcare": "hospital",
+      "name": "Institute Of Mental Health",
+      "name:zh": "\u5fc3\u7406\u536b\u751f\u5b66\u9662",
+      "type": "multipolygon"
+    }
+  },
+  {
+    "osm_id": 2303411,
+    "osm_type": "relation",
+    "lat": 1.3212799,
+    "lon": 103.8462045,
+    "tags": {
+      "addr:city": "Singapore",
+      "addr:country": "SG",
+      "addr:housenumber": "11",
+      "addr:postcode": "308433",
+      "addr:street": "Jalan Tan Tock Seng",
+      "amenity": "hospital",
+      "building": "hospital",
+      "email": "contact@ttsh.com.sg",
+      "emergency": "yes",
+      "healthcare": "hospital",
+      "height": "0",
+      "layer": "1",
+      "name": "Tan Tock Seng Hospital",
+      "name:en": "Tan Tock Seng Hospital",
+      "name:ms": "Hospital Tan Tock Seng",
+      "name:zh": "\u9648\u7b03\u751f\u533b\u9662",
+      "name:zh-Hans": "\u9648\u7b03\u751f\u533b\u9662",
+      "name:zh-Hant": "\u9673\u7be4\u751f\u91ab\u9662",
+      "phone": "+65 62566011",
+      "short_name": "TTSH",
+      "type": "multipolygon",
+      "url": "http://www.ttsh.com.sg/",
+      "website": "https://www.ttsh.com.sg/",
+      "wheelchair": "yes",
+      "wikidata": "Q7682145",
+      "wikipedia": "en:Tan Tock Seng Hospital"
+    }
+  }
+]

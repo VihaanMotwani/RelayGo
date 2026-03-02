@@ -1,0 +1,770 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.10 2d4cfc48",
+  "osm3s": {
+    "timestamp_osm_base": "2026-03-02T09:07:30Z",
+    "timestamp_areas_base": "2026-01-22T23:45:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 671202380,
+      "lat": 1.2885357,
+      "lon": 103.8029519,
+      "tags": {
+        "amenity": "fire_station",
+        "check_date": "2026-01-28",
+        "name": "Alexandra Fire Station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1316762338,
+      "lat": 1.4190942,
+      "lon": 103.8386411,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Nee Soon Central Fire Post"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2413651464,
+      "lat": 1.3761575,
+      "lon": 103.7702465,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Bukit Panjang Fire Post"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2414220274,
+      "lat": 1.4401735,
+      "lon": 103.7935366,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Woodlands Fire Post"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3218855282,
+      "lat": 1.2747163,
+      "lon": 103.8488887,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "70",
+        "addr:postcode": "018962",
+        "amenity": "fire_station",
+        "name": "Marina Bay Fire Station",
+        "operator": "SCDF"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3325194771,
+      "lat": 1.2924754,
+      "lon": 103.7622254,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housename": "West Coast Pier",
+        "addr:housenumber": "60",
+        "addr:postcode": "117403",
+        "addr:street": "West Coast Ferry Road",
+        "alt_name": "West Coast Pier Maritime Fire Base",
+        "amenity": "fire_station",
+        "name": "West Coast Marine Fire Station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3780395447,
+      "lat": 1.3476409,
+      "lon": 103.7311981,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "318A",
+        "addr:postcode": "601318",
+        "addr:street": "Jurong East Street 31",
+        "amenity": "fire_station",
+        "name": "Jurong East Fire Post",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4846190558,
+      "lat": 1.3479977,
+      "lon": 103.7052141,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Jurong Fire Station",
+        "operator": "SCDF"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5249895821,
+      "lat": 1.4173233,
+      "lon": 103.7488343,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "SCDF Sungei Kadut Fire Post"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6260092100,
+      "lat": 1.3363941,
+      "lon": 103.8535184,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Toa Payoh Fire Post"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6418682349,
+      "lat": 1.2506979,
+      "lon": 103.8275117,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "37",
+        "addr:postcode": "099957",
+        "addr:street": "Artillery Avenue",
+        "amenity": "fire_station",
+        "name": "Sentosa Fire Station",
+        "name:zh": "\u5723\u6dd8\u6c99\u6d88\u9632\u5c40"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6476306093,
+      "lat": 1.3698811,
+      "lon": 103.9831986,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Changi Airport Fire Station 1",
+        "operator": "Airport Emergency Service, Changi Airport Group"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6530686885,
+      "lat": 1.2922778,
+      "lon": 103.849244,
+      "tags": {
+        "amenity": "fire_station",
+        "check_date": "2024-04-16",
+        "operator": "Singapore Civil Defence Force"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7100803228,
+      "lat": 1.3405942,
+      "lon": 103.7715447,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Bukit Timah Fire Post",
+        "operator": "SCDF"
+      }
+    },
+    {
+      "type": "node",
+      "id": 7617627945,
+      "lat": 1.3340303,
+      "lon": 103.8935477,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "91",
+        "addr:postcode": "408827",
+        "addr:street": "Ubi Avenue 4",
+        "amenity": "fire_station",
+        "name": "Paya Lebar Fire Station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9457392206,
+      "lat": 1.3482649,
+      "lon": 103.8386576,
+      "tags": {
+        "addr:housenumber": "1",
+        "addr:postcode": "574029",
+        "addr:street": "Marymount Lane",
+        "amenity": "fire_station",
+        "name": "Bishan Fire Station"
+      }
+    },
+    {
+      "type": "node",
+      "id": 9994866696,
+      "lat": 1.3049513,
+      "lon": 103.7619097,
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:street": "Clementi West Street 2",
+        "amenity": "fire_station",
+        "name": "Clementi West Fire Post"
+      }
+    },
+    {
+      "type": "node",
+      "id": 10677543504,
+      "lat": 1.2749136,
+      "lon": 103.8086312,
+      "tags": {
+        "amenity": "fire_station",
+        "name": "Telok Blangah Fire Post"
+      }
+    },
+    {
+      "type": "way",
+      "id": 33504662,
+      "center": {
+        "lat": 1.3802857,
+        "lon": 103.8954689
+      },
+      "nodes": [
+        381921172,
+        3071708630,
+        3071708627,
+        3071708863,
+        3071708870,
+        381921173,
+        3071708860,
+        3071708603,
+        3071708842,
+        3071708735,
+        3071708724,
+        3071708725,
+        3071708708,
+        3071708701,
+        3071708688,
+        3071708608,
+        381921174,
+        381921175,
+        3071708676,
+        381921172
+      ],
+      "tags": {
+        "addr:housenumber": "50",
+        "addr:postcode": "545064",
+        "addr:street": "Buangkok Drive",
+        "amenity": "fire_station",
+        "building": "yes",
+        "building:levels": "4",
+        "name": "Sengkang Fire Station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 117930117,
+      "center": {
+        "lat": 1.3197637,
+        "lon": 103.6614537
+      },
+      "nodes": [
+        1327341334,
+        1327341160,
+        1327341332,
+        1327341335,
+        1327341184,
+        1327341197,
+        1327341334
+      ],
+      "tags": {
+        "addr:housename": "Tuas Fire Station",
+        "addr:housenumber": "7",
+        "addr:postcode": "638483",
+        "addr:street": "Tuas Road",
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "Tuas Fire Station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 153583202,
+      "center": {
+        "lat": 1.3848112,
+        "lon": 103.8457058
+      },
+      "nodes": [
+        1662359186,
+        1662359187,
+        1662359189,
+        1662359188,
+        1662359190,
+        1662359186
+      ],
+      "tags": {
+        "addr:housename": "Ang Mo Kio Fire Station",
+        "addr:housenumber": "2874",
+        "addr:postcode": "569783",
+        "addr:street": "Ang Mo Kio Avenue 9",
+        "amenity": "fire_station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 172210938,
+      "center": {
+        "lat": 1.3579769,
+        "lon": 103.9293666
+      },
+      "nodes": [
+        1831400624,
+        1831400626,
+        1831400627,
+        1831400628,
+        1831400629,
+        1831400630,
+        1831400631,
+        1831400632,
+        1831400633,
+        1831400635,
+        1831400636,
+        1831400637,
+        4515297919,
+        4515297914,
+        4515297915,
+        4515297917,
+        4515297916,
+        4515297918,
+        4515297920,
+        1831400624
+      ],
+      "tags": {
+        "amenity": "fire_station",
+        "building": "yes",
+        "building:levels": "7",
+        "name": "Tampines Fire Station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 172915344,
+      "center": {
+        "lat": 1.274915,
+        "lon": 103.8488648
+      },
+      "nodes": [
+        1837544475,
+        1837544492,
+        1837544506,
+        1837544490,
+        1837544475
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "70",
+        "addr:postcode": "018962",
+        "addr:street": "Marina View",
+        "amenity": "fire_station",
+        "building": "yes",
+        "building:colour": "#92949A",
+        "building:levels": "4",
+        "building:material": "metal",
+        "start_date": "2012"
+      }
+    },
+    {
+      "type": "way",
+      "id": 175959572,
+      "center": {
+        "lat": 1.3219399,
+        "lon": 103.7617024
+      },
+      "nodes": [
+        1865254926,
+        4424703625,
+        679650258,
+        10611618059,
+        10611618058,
+        10611618057,
+        10611618060,
+        13328322443,
+        13328322427,
+        13328322428,
+        4424703591,
+        13328322430,
+        13328322429,
+        4424703600,
+        1865254925,
+        13328322433,
+        13328322434,
+        13328322436,
+        13328322438,
+        13328322437,
+        13328322435,
+        13328322432,
+        13328322431,
+        1865254924,
+        13328322444,
+        10611618061,
+        1865254926
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:postcode": "129577",
+        "addr:street": "Commonwealth Avenue West",
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "Clementi Fire Station",
+        "source": "Bing;KG Ground Survey 2016"
+      }
+    },
+    {
+      "type": "way",
+      "id": 266388264,
+      "center": {
+        "lat": 1.4445331,
+        "lon": 103.8368517
+      },
+      "nodes": [
+        2719494232,
+        2719494233,
+        2719494234,
+        2719494235,
+        2719494236,
+        2719494237,
+        2719494238,
+        2719494239,
+        2719494232
+      ],
+      "tags": {
+        "addr:housenumber": "533",
+        "addr:postcode": "768774",
+        "addr:street": "Yishun Industrial Park A",
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "3rd SCDF Division HQ / Yishun Fire Station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 266388959,
+      "center": {
+        "lat": 1.3733365,
+        "lon": 103.7527232
+      },
+      "nodes": [
+        2719500299,
+        2719500300,
+        2719500301,
+        2719500302,
+        10815212189,
+        2719500303,
+        10815212191,
+        10815212190,
+        2719500299
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "80",
+        "addr:postcode": "658072",
+        "addr:street": "Bukit Batok Road",
+        "amenity": "fire_station",
+        "barrier": "wall",
+        "name": "HQ 4th CD Division / Bukit Batok Fire Station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 266389836,
+      "center": {
+        "lat": 1.2888489,
+        "lon": 103.6275154
+      },
+      "nodes": [
+        2719507015,
+        2719507016,
+        2719507017,
+        5522839690,
+        5522839691,
+        2719507018,
+        5522839692,
+        5522839693,
+        2719507019,
+        2719507015
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:country": "SG",
+        "addr:housenumber": "130",
+        "addr:postcode": "637367",
+        "addr:street": "Tuas South Avenue 3",
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "Tuas View Fire Station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 294112375,
+      "center": {
+        "lat": 1.2541576,
+        "lon": 103.6740728
+      },
+      "nodes": [
+        2976865052,
+        2976865053,
+        2976865054,
+        2976865055,
+        2976865052
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "15",
+        "addr:postcode": "627642",
+        "addr:street": "Tembusu Crescent",
+        "amenity": "fire_station",
+        "area": "yes",
+        "name": "Banyan Fire Station",
+        "operator": "Singapore Civil Defence Force (SCDF)"
+      }
+    },
+    {
+      "type": "way",
+      "id": 294112376,
+      "center": {
+        "lat": 1.2719355,
+        "lon": 103.7081256
+      },
+      "nodes": [
+        2976865056,
+        2976865057,
+        2976865058,
+        2976865059,
+        2976865056
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "70",
+        "addr:postcode": "627880",
+        "addr:street": "Jurong Island Highway",
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "Jurong Island Fire Station",
+        "operator": "Singapore Civil Defence Force (SCDF)"
+      }
+    },
+    {
+      "type": "way",
+      "id": 452762137,
+      "center": {
+        "lat": 1.3350124,
+        "lon": 103.951494
+      },
+      "nodes": [
+        4495029222,
+        4495029229,
+        4495029230,
+        4495029232,
+        4495029236,
+        4495029234,
+        4495029237,
+        4495029242,
+        4495029244,
+        4495029231,
+        4495029228,
+        4495029226,
+        4495029222
+      ],
+      "tags": {
+        "addr:street": "Upper Changi Road",
+        "amenity": "fire_station",
+        "building": "yes",
+        "building:levels": "3",
+        "name": "Changi Fire Station",
+        "source": "Kaart Ground Survey 2017"
+      }
+    },
+    {
+      "type": "way",
+      "id": 548080248,
+      "center": {
+        "lat": 1.2746848,
+        "lon": 103.7073147
+      },
+      "nodes": [
+        5295235362,
+        5295235363,
+        5295235364,
+        5295235365,
+        5295235362
+      ],
+      "tags": {
+        "amenity": "fire_station",
+        "building": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 764611512,
+      "center": {
+        "lat": 1.2567703,
+        "lon": 103.838966
+      },
+      "nodes": [
+        7143074975,
+        7143074974,
+        7143074973,
+        7143074972,
+        7143074971,
+        7143074970,
+        7143074969,
+        7143074968,
+        7143074967,
+        7143074966,
+        7143074965,
+        7143074964,
+        7143074963,
+        7143074962,
+        7143074961,
+        7143074960,
+        7143074959,
+        7143074958,
+        7143074957,
+        7143074956,
+        7143074955,
+        7143074954,
+        7143074953,
+        7143074952,
+        7143074951,
+        7143074950,
+        7143074949,
+        7143074948,
+        7143074947,
+        7143074945,
+        7143074946,
+        7143074975
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "19",
+        "addr:postcode": "098002",
+        "addr:street": "Brani Way",
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "Singapore Civil Defence Force Marine Command Headquarters"
+      }
+    },
+    {
+      "type": "way",
+      "id": 961863554,
+      "center": {
+        "lat": 1.3632866,
+        "lon": 103.9078918
+      },
+      "nodes": [
+        8897467974,
+        8897467973,
+        8897467972,
+        8897467971,
+        8897467974
+      ],
+      "tags": {
+        "amenity": "fire_station",
+        "building": "yes",
+        "name": "Airport Emergency Services"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1212737658,
+      "center": {
+        "lat": 1.3093732,
+        "lon": 103.8790173
+      },
+      "nodes": [
+        11235658936,
+        11235720637,
+        11235720638,
+        11235720639,
+        11235720640,
+        11235720641,
+        11235720642,
+        11235720643,
+        11235720644,
+        11235720645,
+        11235720646,
+        11235720647,
+        11235658936
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "2",
+        "addr:postcode": "397623",
+        "addr:street": "Guillemard Close",
+        "amenity": "fire_station",
+        "building": "fire_station",
+        "building:levels": "6",
+        "name": "Kallang Fire Station"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1336815754,
+      "center": {
+        "lat": 1.3978188,
+        "lon": 103.914153
+      },
+      "nodes": [
+        12364740799,
+        12364814307,
+        12364740788,
+        12364740791,
+        12364814301,
+        12364814306,
+        12364740792,
+        12364740800,
+        12364740799
+      ],
+      "tags": {
+        "amenity": "fire_station",
+        "building:part": "yes",
+        "name": "Punggol Fire Station"
+      }
+    },
+    {
+      "type": "relation",
+      "id": 2749912,
+      "center": {
+        "lat": 1.4306839,
+        "lon": 103.7623477
+      },
+      "members": [
+        {
+          "type": "way",
+          "ref": 204876752,
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": 204877103,
+          "role": "outer"
+        }
+      ],
+      "tags": {
+        "addr:city": "Singapore",
+        "addr:housenumber": "1",
+        "addr:postcode": "738782",
+        "addr:street": "Woodlands Industrial Park D Street 2",
+        "amenity": "fire_station",
+        "name": "Woodlands Fire Station",
+        "type": "multipolygon"
+      }
+    }
+  ]
+}

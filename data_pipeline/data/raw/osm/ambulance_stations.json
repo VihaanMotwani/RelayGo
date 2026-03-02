@@ -1,0 +1,24 @@
+[
+  {
+    "osm_id": 213582725,
+    "osm_type": "way",
+    "lat": 1.3706767,
+    "lon": 103.9836587,
+    "tags": {
+      "building": "yes",
+      "emergency": "ambulance_station",
+      "name": "Casualty Clearance Station 1"
+    }
+  },
+  {
+    "osm_id": 1475366391,
+    "osm_type": "way",
+    "lat": 1.3207979,
+    "lon": 103.9857609,
+    "tags": {
+      "building": "yes",
+      "emergency": "ambulance_station",
+      "name": "Casualty Clearance Station 2"
+    }
+  }
+]
