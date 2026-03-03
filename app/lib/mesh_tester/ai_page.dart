@@ -1,7 +1,15 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'theme.dart';
+
+class _ChatMessage {
+  String text;
+  final bool isUser;
+  
+  _ChatMessage({required this.text, required this.isUser});
+}
 
 class AiPage extends StatefulWidget {
   const AiPage({super.key});
@@ -12,26 +20,92 @@ class AiPage extends StatefulWidget {
 
 class _AiPageState extends State<AiPage> {
   final TextEditingController _controller = TextEditingController();
-  final List<String> _messages = [];
+  final ScrollController _scrollController = ScrollController();
+  final List<_ChatMessage> _messages = [];
   bool _isRecording = false;
+  bool _isStreaming = false;
 
-  void _sendMessage(String text) {
+  void _sendMessage(String text, {bool isUser = true}) {
     if (text.trim().isEmpty) return;
     setState(() {
-      _messages.add(text);
-      _controller.clear();
+      _messages.add(_ChatMessage(text: text, isUser: isUser));
+      if (isUser) _controller.clear();
+    });
+    _scrollToBottom();
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
     });
   }
 
   void _toggleRecording() {
+    if (_isStreaming) return; // Prevent triggering multiple while already streaming
+    
+    if (_isRecording) {
+      // Stopping recording triggers the mock response
+      setState(() {
+        _isRecording = false;
+      });
+      _triggerMockScenario();
+    } else {
+      // Start recording
+      setState(() {
+        _isRecording = true;
+      });
+    }
+  }
+
+  void _triggerMockScenario() async {
+    // 1. Send user message
+    _sendMessage("There's an earthquake!", isUser: true);
+    
+    // 2. Wait a brief moment to simulate processing
+    setState(() => _isStreaming = true);
+    await Future.delayed(const Duration(milliseconds: 600));
+
+    // 3. Add an empty AI message to build upon
     setState(() {
-      _isRecording = !_isRecording;
+      _messages.add(_ChatMessage(text: "", isUser: false));
     });
+    _scrollToBottom();
+
+    // 4. Stream response
+    final responseWords = [
+      "Stay", " calm.", " I'm", " here", " to", " help.\n\n",
+      "1.", " Drop,", " Cover,", " and", " Hold", " On.\n",
+      "2.", " Stay", " away", " from", " windows", " and", " heavy", " furniture.\n",
+      "3.", " If", " indoors,", " stay", " there.", " Do", " not", " run", " outside.\n",
+      "4.", " If", " outdoors,", " move", " to", " a", " clear", " area.\n\n",
+      "I", " am", " monitoring", " the", " local", " RelayGo", " mesh", " sensor", " network", " for", " aftershock", " activity."
+    ];
+
+    for (var word in responseWords) {
+      await Future.delayed(const Duration(milliseconds: 150)); // typing speed
+      if (!mounted) return;
+      
+      setState(() {
+        _messages.last.text += word;
+      });
+      _scrollToBottom();
+    }
+    
+    if (mounted) {
+      setState(() => _isStreaming = false);
+    }
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -70,7 +144,7 @@ class _AiPageState extends State<AiPage> {
                       ),
                       const SizedBox(height: Spacing.sm),
                       Text(
-                        'Tap the mic or type a message to start.',
+                        'Tap the mic to simulate an emergency.',
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurface.withOpacity(0.5),
                         ),
@@ -79,30 +153,46 @@ class _AiPageState extends State<AiPage> {
                   ).animate().fadeIn(duration: 500.ms).slideY(begin: 0.1, end: 0),
                 )
               : ListView.separated(
+                  controller: _scrollController,
                   padding: const EdgeInsets.all(Spacing.md),
                   itemCount: _messages.length,
                   separatorBuilder: (_, __) => const SizedBox(height: Spacing.md),
                   itemBuilder: (context, index) {
+                    final msg = _messages[index];
+                    final isUser = msg.isUser;
+                    
                     return Align(
-                      alignment: Alignment.centerRight,
+                      alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
                       child: Container(
+                        constraints: BoxConstraints(
+                          maxWidth: MediaQuery.of(context).size.width * 0.75,
+                        ),
                         padding: const EdgeInsets.symmetric(horizontal: Spacing.md, vertical: Spacing.sm),
                         decoration: BoxDecoration(
-                          color: theme.colorScheme.primary,
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(16),
-                            topRight: Radius.circular(16),
-                            bottomLeft: Radius.circular(16),
-                            bottomRight: Radius.circular(4),
+                          color: isUser ? theme.colorScheme.primary : theme.colorScheme.surface,
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(16),
+                            topRight: const Radius.circular(16),
+                            bottomLeft: Radius.circular(isUser ? 16 : 4),
+                            bottomRight: Radius.circular(isUser ? 4 : 16),
                           ),
+                          border: isUser ? null : Border.all(color: Colors.grey.shade200),
+                          boxShadow: isUser ? [] : [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.02),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            )
+                          ],
                         ),
                         child: Text(
-                          _messages[index],
+                          msg.text,
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: Colors.white,
+                            color: isUser ? Colors.white : theme.colorScheme.onSurface,
+                            height: 1.4,
                           ),
                         ),
-                      ).animate().fadeIn(duration: 200.ms).slideX(begin: 0.1, end: 0),
+                      ).animate().fadeIn(duration: 200.ms).slideX(begin: isUser ? 0.1 : -0.1, end: 0),
                     );
                   },
                 ),
@@ -140,18 +230,19 @@ class _AiPageState extends State<AiPage> {
                           textCapitalization: TextCapitalization.sentences,
                           minLines: 1,
                           maxLines: 4,
+                          enabled: !_isStreaming,
                           decoration: const InputDecoration(
                             hintText: 'Type a message...',
                             border: InputBorder.none,
                             isDense: true,
                             contentPadding: EdgeInsets.symmetric(vertical: 12),
                           ),
-                          onSubmitted: _sendMessage,
+                          onSubmitted: (val) => _sendMessage(val),
                         ),
                       ),
                       IconButton(
                         icon: Icon(Icons.send_rounded, color: theme.colorScheme.primary),
-                        onPressed: () => _sendMessage(_controller.text),
+                        onPressed: _isStreaming ? null : () => _sendMessage(_controller.text),
                       ),
                     ],
                   ),
