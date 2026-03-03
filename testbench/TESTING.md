@@ -41,6 +41,20 @@ npm --version    # Should be 9+
 
 Note: Python will be automatically installed by uv if not present.
 
+### 3. Configure Mapbox Token
+
+The dashboard requires a Mapbox token for map visualization.
+
+1. Copy the example environment file:
+   ```bash
+   cp dashboard/.env.example dashboard/.env
+   ```
+
+2. Get the Mapbox token from the **Project Documentation PDF** (Appendix section) and paste it into `dashboard/.env`:
+   ```
+   VITE_MAPBOX_TOKEN=<token from PDF>
+   ```
+
 ## Quick Start (Recommended)
 
 ### Step 1: Start Backend and Dashboard

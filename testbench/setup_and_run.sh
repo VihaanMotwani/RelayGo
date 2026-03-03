@@ -45,6 +45,24 @@ fi
 check_command node || exit 1
 check_command npm || exit 1
 
+# Check for Mapbox token
+if [ ! -f "$ROOT_DIR/dashboard/.env" ]; then
+    echo ""
+    echo -e "${YELLOW}Mapbox token not configured.${NC}"
+    echo "Creating .env file from template..."
+    cp "$ROOT_DIR/dashboard/.env.example" "$ROOT_DIR/dashboard/.env"
+    echo ""
+    echo -e "${RED}ACTION REQUIRED:${NC}"
+    echo "  1. Open the Project Documentation PDF (docs/submission/RelayGo_Documentation.pdf)"
+    echo "  2. Find the Mapbox token in the Appendix section"
+    echo "  3. Edit dashboard/.env and paste the token"
+    echo "  4. Re-run this script"
+    echo ""
+    exit 1
+fi
+
+echo -e "${GREEN}[OK]${NC} Mapbox token configured"
+
 echo ""
 echo "========================================"
 echo "  Step 1: Setting up Python Environment"
