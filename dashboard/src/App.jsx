@@ -15,6 +15,7 @@ function Dashboard() {
   const [tab, setTab] = useState('reports'); // 'reports' | 'directives'
   const [focusedReport, setFocusedReport] = useState(null);
   const [enableBuildingHover, setEnableBuildingHover] = useState(true);
+  const [showRelayPaths, setShowRelayPaths] = useState(true);
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -29,6 +30,8 @@ function Dashboard() {
           connected={connected}
           enableBuildingHover={enableBuildingHover}
           setEnableBuildingHover={setEnableBuildingHover}
+          showRelayPaths={showRelayPaths}
+          setShowRelayPaths={setShowRelayPaths}
         />
       </div>
       <div className="app-body">
@@ -38,6 +41,7 @@ function Dashboard() {
             focusedReport={focusedReport}
             onReportClick={setFocusedReport}
             enableBuildingHover={enableBuildingHover}
+            showRelayPaths={showRelayPaths}
           />
         </div>
         <div className="app-sidebar">

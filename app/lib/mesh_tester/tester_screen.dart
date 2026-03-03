@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'demo_data.dart';
 import 'dummy_data.dart';
 import 'instrumented_mesh_service.dart';
 import 'log_service.dart';
@@ -26,6 +27,7 @@ class _TesterScreenState extends State<TesterScreen> {
   final InstrumentedMeshService _mesh = InstrumentedMeshService.create();
   final LogService _log = LogService.instance;
   final ScrollController _scrollController = ScrollController();
+  final TextEditingController _textController = TextEditingController();
 
   List<LogEntry> _logEntries = [];
   bool _meshRunning = false;
@@ -124,6 +126,42 @@ class _TesterScreenState extends State<TesterScreen> {
     return true;
   }
 
+  Future<void> _handleSpoofedInput() async {
+    final text = _textController.text.trim();
+    if (text.isEmpty) return;
+
+    _textController.clear();
+    _log.info('[User] "$text"');
+
+    // Simulate LLM processing delay
+    setState(() => _dataPreloaded = true); // Repurpose flag as "isProcessing"
+    await Future.delayed(const Duration(milliseconds: 1500));
+
+    final packet = DemoData.getNextPacket();
+    if (packet == null) {
+      _log.error(
+        '[AI] Error: No more demo scenarios available. Reset DB to restart sequence.',
+      );
+      setState(() => _dataPreloaded = false);
+      return;
+    }
+
+    final urg = packet.isReport ? packet.report!.urg : 0;
+    _log.info(
+      '[AI] Extracted: kind=${packet.kind} urg=$urg type=${packet.isReport ? packet.report!.type : 'broadcast'}',
+    );
+
+    // Sideload into MeshNet
+    if (packet.isReport) {
+      await _mesh.preloadReports([packet.report!]);
+    } else if (packet.isMessage) {
+      await _mesh.preloadMessages([packet.message!]);
+    }
+
+    await _mesh.refreshStoredIds();
+    setState(() => _dataPreloaded = false);
+  }
+
   Future<void> _preloadData() async {
     if (_dataPreloaded) {
       _log.info('Data already preloaded — skipping');
@@ -141,6 +179,7 @@ class _TesterScreenState extends State<TesterScreen> {
 
   Future<void> _resetDb() async {
     await _mesh.resetDatabase();
+    DemoData.reset();
     setState(() => _dataPreloaded = false);
   }
 
@@ -244,6 +283,78 @@ class _TesterScreenState extends State<TesterScreen> {
 
           // ── Log Panel ──
           Expanded(child: _buildLogPanel()),
+
+          // ── Spoofed AI Input Bar ──
+          _buildInputBar(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInputBar() {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 12,
+        vertical: 8,
+      ).copyWith(bottom: 24),
+      decoration: const BoxDecoration(
+        color: Color(0xFF161B22),
+        border: Border(top: BorderSide(color: Color(0xFF30363D))),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              controller: _textController,
+              enabled: !_dataPreloaded, // Disabled while processing
+              style: const TextStyle(color: Colors.white, fontSize: 13),
+              decoration: InputDecoration(
+                hintText: _dataPreloaded
+                    ? 'AI is extracting context...'
+                    : 'Report an emergency via AI...',
+                hintStyle: const TextStyle(color: Color(0xFF8B949E)),
+                filled: true,
+                fillColor: const Color(0xFF0D1117),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: const BorderSide(color: Color(0xFF30363D)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: const BorderSide(color: Color(0xFF30363D)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(24),
+                  borderSide: const BorderSide(color: Color(0xFF58A6FF)),
+                ),
+              ),
+              onSubmitted: (_) => _handleSpoofedInput(),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Container(
+            decoration: const BoxDecoration(
+              color: Color(0xFF238636),
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: _dataPreloaded
+                  ? const SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: Colors.white,
+                      ),
+                    )
+                  : const Icon(Icons.send, color: Colors.white, size: 18),
+              onPressed: _dataPreloaded ? null : _handleSpoofedInput,
+            ),
+          ),
         ],
       ),
     );
