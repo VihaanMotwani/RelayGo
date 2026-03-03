@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'theme.dart';
 
@@ -27,7 +26,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: Spacing.md, vertical: Spacing.md),
       children: [
         // ── TEST DATA ──
         _SectionHeader(title: 'TEST DATA'),
@@ -35,20 +34,20 @@ class SettingsPage extends StatelessWidget {
           children: [
             _SettingsTile(
               icon: Icons.dataset_rounded,
-              iconColor: AppColors.blue,
+              iconColor: Theme.of(context).colorScheme.primary,
               title: 'Preload Sample Data',
               subtitle: dataPreloaded ? 'Data loaded' : 'Load test reports & messages',
               onTap: dataPreloaded ? null : onPreloadData,
               trailing: dataPreloaded
                   ? const Icon(Icons.check_circle_rounded,
-                      size: 20, color: AppColors.green)
-                  : const Icon(Icons.chevron_right_rounded,
-                      size: 20, color: AppColors.textTertiary),
+                      size: 20, color: Colors.green)
+                  : Icon(Icons.chevron_right_rounded,
+                      size: 20, color: Colors.grey.shade400),
             ),
             const _TileDivider(),
             _SettingsTile(
               icon: Icons.restart_alt_rounded,
-              iconColor: AppColors.orange,
+              iconColor: Colors.orange.shade500,
               title: 'Reset Database',
               subtitle: meshRunning
                   ? 'Stop relay first'
@@ -59,7 +58,7 @@ class SettingsPage extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: Spacing.xl),
 
         // ── DEVICE ──
         _SectionHeader(title: 'DEVICE'),
@@ -67,7 +66,7 @@ class SettingsPage extends StatelessWidget {
           children: [
             _SettingsTile(
               icon: Icons.bluetooth_rounded,
-              iconColor: AppColors.blue,
+              iconColor: Colors.blue.shade500,
               title: 'Bluetooth Adapter',
               subtitle: adapterName,
               onTap: null,
@@ -75,7 +74,7 @@ class SettingsPage extends StatelessWidget {
             const _TileDivider(),
             _SettingsTile(
               icon: Icons.storage_rounded,
-              iconColor: AppColors.purple,
+              iconColor: Colors.purple.shade500,
               title: 'Stored Packets',
               subtitle: '$storedCount packets in database',
               onTap: null,
@@ -83,7 +82,7 @@ class SettingsPage extends StatelessWidget {
           ],
         ),
 
-        const SizedBox(height: 24),
+        const SizedBox(height: Spacing.xl),
 
         // ── DEBUG ──
         _SectionHeader(title: 'DEBUG'),
@@ -91,7 +90,7 @@ class SettingsPage extends StatelessWidget {
           children: [
             _SettingsTile(
               icon: Icons.delete_sweep_rounded,
-              iconColor: AppColors.textTertiary,
+              iconColor: Colors.grey.shade500,
               title: 'Clear Log',
               subtitle: 'Remove all log entries',
               onTap: onClearLog,
@@ -112,9 +111,17 @@ class _SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(left: 4, bottom: 8),
-      child: Text(title, style: AppType.sectionHeader()),
+      padding: const EdgeInsets.only(left: 4, bottom: Spacing.sm),
+      child: Text(
+        title, 
+        style: theme.textTheme.labelSmall?.copyWith(
+          fontWeight: FontWeight.w600,
+          color: theme.colorScheme.onSurface.withOpacity(0.5),
+          letterSpacing: 1.2,
+        ),
+      ),
     );
   }
 }
@@ -128,12 +135,7 @@ class _GroupedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.separator.withAlpha(150)),
-      ),
+    return Card(
       child: Column(children: children),
     );
   }
@@ -147,9 +149,9 @@ class _TileDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 52),
+      margin: const EdgeInsets.only(left: 56),
       height: 1,
-      color: AppColors.separator.withAlpha(120),
+      color: Theme.of(context).dividerColor,
     );
   }
 }
@@ -177,57 +179,56 @@ class _SettingsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final enabled = onTap != null;
     final titleColor = destructive && enabled
-        ? AppColors.red
-        : (enabled ? AppColors.textPrimary : AppColors.textTertiary);
+        ? Colors.red.shade600
+        : (enabled ? theme.colorScheme.onSurface : theme.colorScheme.onSurface.withOpacity(0.4));
 
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
-      behavior: HitTestBehavior.opaque,
+      borderRadius: BorderRadius.circular(16),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: Spacing.md, vertical: 14),
         child: Row(
           children: [
             Container(
-              width: 28,
-              height: 28,
+              width: 32,
+              height: 32,
               decoration: BoxDecoration(
-                color: (enabled ? iconColor : AppColors.textTertiary)
-                    .withAlpha(18),
-                borderRadius: BorderRadius.circular(7),
+                color: (enabled ? iconColor : Colors.grey.shade400).withOpacity(0.1),
+                borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
                 icon,
-                size: 16,
-                color: enabled ? iconColor : AppColors.textTertiary,
+                size: 18,
+                color: enabled ? iconColor : Colors.grey.shade400,
               ),
             ),
-            const SizedBox(width: 12),
+            const SizedBox(width: Spacing.md),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
-                    style: GoogleFonts.inter(
+                    style: theme.textTheme.titleMedium?.copyWith(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       color: titleColor,
                     ),
                   ),
-                  const SizedBox(height: 1),
+                  const SizedBox(height: 2),
                   Text(
                     subtitle,
-                    style: GoogleFonts.inter(
-                      fontSize: 12,
-                      color: AppColors.textTertiary,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurface.withOpacity(0.5),
                     ),
                   ),
                 ],
               ),
             ),
-            ?trailing,
+            if (trailing != null) trailing!,
           ],
         ),
       ),

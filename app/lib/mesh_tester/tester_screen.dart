@@ -2,17 +2,16 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'dummy_data.dart';
 import 'home_page.dart';
+import 'ai_page.dart';
 import 'instrumented_mesh_service.dart';
 import 'log_page.dart';
 import 'log_service.dart';
 import 'messages_page.dart';
 import 'settings_page.dart';
-import 'theme.dart';
 
 /// Root shell for the RelayGo app.
 ///
@@ -169,20 +168,9 @@ class _TesterScreenState extends State<TesterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffold,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        scrolledUnderElevation: 0.5,
-        surfaceTintColor: Colors.transparent,
         title: Text(
           _tabTitle(_currentTab),
-          style: GoogleFonts.inter(
-            fontWeight: FontWeight.w700,
-            fontSize: 17,
-            color: AppColors.textPrimary,
-            letterSpacing: -0.3,
-          ),
         ),
         actions: [
           if (_currentTab == 0)
@@ -204,6 +192,7 @@ class _TesterScreenState extends State<TesterScreen> {
             meshRunning: _meshRunning,
             onToggleMesh: _toggleMesh,
           ),
+          const AiPage(),
           MessagesPage(mesh: _mesh),
           LogPage(
             entries: _logEntries,
@@ -222,32 +211,29 @@ class _TesterScreenState extends State<TesterScreen> {
         ],
       ),
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
+          color: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
           border: Border(
-            top: BorderSide(color: AppColors.separator, width: 0.5),
+            top: BorderSide(color: Theme.of(context).dividerColor, width: 1),
           ),
         ),
         child: BottomNavigationBar(
           currentIndex: _currentTab,
           onTap: (i) => setState(() => _currentTab = i),
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
-          selectedItemColor: AppColors.blue,
-          unselectedItemColor: AppColors.textTertiary,
-          selectedFontSize: 11,
-          unselectedFontSize: 11,
-          selectedLabelStyle:
-              GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 11),
-          unselectedLabelStyle:
-              GoogleFonts.inter(fontWeight: FontWeight.w500, fontSize: 11),
-          elevation: 0,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.cell_tower_rounded),
               label: 'Home',
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.smart_toy_outlined),
+              activeIcon: Icon(Icons.smart_toy_rounded),
+              label: 'AI',
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.chat_bubble_outline_rounded),
+              activeIcon: Icon(Icons.chat_bubble_rounded),
               label: 'Messages',
             ),
             BottomNavigationBarItem(
@@ -269,10 +255,12 @@ class _TesterScreenState extends State<TesterScreen> {
       case 0:
         return 'RelayGo';
       case 1:
-        return 'Messages';
+        return 'Assistant';
       case 2:
-        return 'Log';
+        return 'Messages';
       case 3:
+        return 'Log';
+      case 4:
         return 'Settings';
       default:
         return 'RelayGo';
@@ -294,18 +282,19 @@ class _PeerBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isRunning ? AppColors.green : AppColors.textTertiary;
+    final color = isRunning ? Colors.green.shade600 : Colors.grey.shade500;
+    
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color: isRunning
-            ? AppColors.green.withAlpha(20)
-            : AppColors.separator.withAlpha(120),
-        borderRadius: BorderRadius.circular(16),
+            ? Colors.green.shade50
+            : Colors.grey.shade100,
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: isRunning
-              ? AppColors.green.withAlpha(80)
-              : AppColors.separator,
+              ? Colors.green.shade200
+              : Colors.grey.shade300,
         ),
       ),
       child: Row(
@@ -318,12 +307,12 @@ class _PeerBadge extends StatelessWidget {
             size: 14,
             color: color,
           ),
-          const SizedBox(width: 5),
+          const SizedBox(width: 6),
           Text(
             isRunning ? '$peerCount peers' : 'Offline',
-            style: GoogleFonts.inter(
+            style: TextStyle(
               fontSize: 12,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
               color: color,
             ),
           ),

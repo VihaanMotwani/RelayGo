@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'log_service.dart';
 import 'theme.dart';
@@ -19,38 +18,35 @@ class LogPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       children: [
         // ── Header ──
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: Spacing.lg, vertical: Spacing.md),
           child: Row(
             children: [
-              const Icon(Icons.terminal_rounded,
-                  size: 16, color: AppColors.textTertiary),
-              const SizedBox(width: 8),
+              Icon(Icons.terminal_rounded, size: 18, color: theme.colorScheme.onSurface.withOpacity(0.5)),
+              const SizedBox(width: Spacing.sm),
               Text(
                 'Live Log',
-                style: GoogleFonts.inter(
-                  fontSize: 15,
+                style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w600,
-                  color: AppColors.textSecondary,
                 ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: Spacing.sm),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: AppColors.separator.withAlpha(100),
-                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   '${entries.length}',
-                  style: GoogleFonts.inter(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.textTertiary,
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey.shade700,
                   ),
                 ),
               ),
@@ -60,10 +56,9 @@ class LogPage extends StatelessWidget {
                   onTap: onClear,
                   child: Text(
                     'Clear',
-                    style: GoogleFonts.inter(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.red,
+                    style: theme.textTheme.labelLarge?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.red.shade600,
                     ),
                   ),
                 ),
@@ -74,29 +69,28 @@ class LogPage extends StatelessWidget {
         // ── Log entries ──
         Expanded(
           child: Container(
-            margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+            margin: const EdgeInsets.fromLTRB(Spacing.md, 0, Spacing.md, Spacing.lg),
             decoration: BoxDecoration(
-              color: AppColors.logBackground,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: AppColors.separator.withAlpha(150)),
+              color: Colors.grey.shade50,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: Colors.grey.shade200),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(11),
+              borderRadius: BorderRadius.circular(15),
               child: entries.isEmpty
                   ? Center(
                       child: Text(
                         'Tap Start Relay or Preload Data\nto see log entries here.',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.inter(
-                          fontSize: 13,
-                          color: AppColors.textTertiary,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurface.withOpacity(0.4),
                         ),
                       ),
                     ).animate().fadeIn(duration: 400.ms)
                   : ListView.builder(
                       controller: scrollController,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 6),
+                          horizontal: Spacing.sm, vertical: Spacing.sm),
                       itemCount: entries.length,
                       itemBuilder: (_, i) => _LogRow(
                         key: ValueKey(
@@ -130,41 +124,51 @@ class _LogRow extends StatelessWidget {
     final tagColor = _tagColor(entry.tag);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2),
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(time, style: AppType.monoSmall()),
-          const SizedBox(width: 6),
+          Text(
+            time, 
+            style: TextStyle(
+              fontFamily: 'RobotoMono',
+              fontSize: 10,
+              color: Colors.grey.shade500,
+            ),
+          ),
+          const SizedBox(width: 8),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
             decoration: BoxDecoration(
-              color: tagColor.withAlpha(20),
+              color: tagColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(4),
             ),
             child: Text(
               entry.tag,
-              style: GoogleFonts.sourceCodePro(
+              style: TextStyle(
+                fontFamily: 'RobotoMono',
                 fontSize: 9,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.bold,
                 color: tagColor,
               ),
             ),
           ),
-          const SizedBox(width: 6),
+          const SizedBox(width: 8),
           Expanded(
             child: Text(
               entry.message,
-              style: GoogleFonts.sourceCodePro(
-                fontSize: 11,
-                color: AppColors.textPrimary,
+              style: TextStyle(
+                fontFamily: 'RobotoMono',
+                fontSize: 12,
+                color: Colors.grey.shade800,
+                height: 1.4,
               ),
             ),
           ),
         ],
       ),
     ).animate().fadeIn(duration: 180.ms).slideY(
-          begin: 0.15,
+          begin: 0.1,
           end: 0,
           duration: 180.ms,
           curve: Curves.easeOut,
@@ -174,19 +178,19 @@ class _LogRow extends StatelessWidget {
   static Color _tagColor(String tag) {
     switch (tag) {
       case 'BLE-CENTRAL':
-        return AppColors.blue;
+        return Colors.blue.shade600;
       case 'BLE-PERIPH':
-        return AppColors.green;
+        return Colors.green.shade600;
       case 'STORE':
-        return AppColors.purple;
+        return Colors.purple.shade600;
       case 'MESH':
-        return AppColors.orange;
+        return Colors.orange.shade600;
       case 'ERROR':
-        return AppColors.red;
+        return Colors.red.shade600;
       case 'INFO':
-        return AppColors.blue;
+        return Colors.blue.shade600;
       default:
-        return AppColors.textSecondary;
+        return Colors.grey.shade600;
     }
   }
 }

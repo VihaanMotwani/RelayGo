@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../models/emergency_report.dart';
 import '../models/mesh_message.dart';
@@ -50,13 +49,13 @@ class _MessagesPageState extends State<MessagesPage> {
       children: [
         // ── Segmented control ──
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
+          padding: const EdgeInsets.fromLTRB(Spacing.md, Spacing.md, Spacing.md, Spacing.sm),
           child: Container(
             decoration: BoxDecoration(
-              color: AppColors.separator.withAlpha(80),
-              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(12),
             ),
-            padding: const EdgeInsets.all(3),
+            padding: const EdgeInsets.all(4),
             child: Row(
               children: [
                 Expanded(
@@ -82,7 +81,10 @@ class _MessagesPageState extends State<MessagesPage> {
 
         // ── Content ──
         Expanded(
-          child: _showReports ? _buildReportsList() : _buildMessagesList(),
+          child: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            child: _showReports ? _buildReportsList() : _buildMessagesList(),
+          ),
         ),
       ],
     );
@@ -90,35 +92,41 @@ class _MessagesPageState extends State<MessagesPage> {
 
   Widget _buildReportsList() {
     if (_reports.isEmpty) {
-      return _EmptyState(
+      return const _EmptyState(
+        key: ValueKey('empty_reports'),
         icon: Icons.assignment_outlined,
         text: 'No reports yet.\nPreload data or receive via mesh.',
       );
     }
     return ListView.separated(
-      padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+      key: const ValueKey('reports_list'),
+      padding: const EdgeInsets.fromLTRB(Spacing.md, Spacing.sm, Spacing.md, Spacing.lg),
       itemCount: _reports.length,
-      separatorBuilder: (_, _) => const SizedBox(height: 10),
+      separatorBuilder: (_, _) => const SizedBox(height: Spacing.sm),
       itemBuilder: (_, i) => _ReportCard(report: _reports[i])
           .animate()
-          .fadeIn(duration: 200.ms, delay: (i * 50).ms),
+          .fadeIn(duration: 200.ms, delay: (i * 30).ms)
+          .slideY(begin: 0.1, end: 0, duration: 200.ms, curve: Curves.easeOut),
     );
   }
 
   Widget _buildMessagesList() {
     if (_messages.isEmpty) {
-      return _EmptyState(
+      return const _EmptyState(
+        key: ValueKey('empty_msgs'),
         icon: Icons.chat_bubble_outline_rounded,
         text: 'No messages yet.\nPreload data or receive via mesh.',
       );
     }
     return ListView.separated(
-      padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+      key: const ValueKey('msgs_list'),
+      padding: const EdgeInsets.fromLTRB(Spacing.md, Spacing.sm, Spacing.md, Spacing.lg),
       itemCount: _messages.length,
-      separatorBuilder: (_, _) => const SizedBox(height: 10),
+      separatorBuilder: (_, _) => const SizedBox(height: Spacing.sm),
       itemBuilder: (_, i) => _MessageCard(message: _messages[i])
           .animate()
-          .fadeIn(duration: 200.ms, delay: (i * 50).ms),
+          .fadeIn(duration: 200.ms, delay: (i * 30).ms)
+          .slideY(begin: 0.1, end: 0, duration: 200.ms, curve: Curves.easeOut),
     );
   }
 }
@@ -140,18 +148,21 @@ class _SegmentButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    
     return GestureDetector(
       onTap: onTap,
+      behavior: HitTestBehavior.opaque,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
-          color: selected ? AppColors.surface : Colors.transparent,
+          color: selected ? Colors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(8),
           boxShadow: selected
               ? [
                   BoxShadow(
-                    color: Colors.black.withAlpha(10),
+                    color: Colors.black.withOpacity(0.04),
                     blurRadius: 4,
                     offset: const Offset(0, 1),
                   ),
@@ -164,33 +175,30 @@ class _SegmentButton extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: GoogleFonts.inter(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
+                style: theme.textTheme.labelLarge?.copyWith(
+                  fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
                   color: selected
-                      ? AppColors.textPrimary
-                      : AppColors.textTertiary,
+                      ? theme.colorScheme.onSurface
+                      : theme.colorScheme.onSurface.withOpacity(0.5),
                 ),
               ),
               if (count > 0) ...[
-                const SizedBox(width: 6),
+                const SizedBox(width: Spacing.sm),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
                     color: selected
-                        ? AppColors.blue.withAlpha(20)
-                        : AppColors.separator.withAlpha(120),
-                    borderRadius: BorderRadius.circular(8),
+                        ? theme.colorScheme.primary.withOpacity(0.1)
+                        : Colors.grey.shade300,
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
                     '$count',
-                    style: GoogleFonts.inter(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w600,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
                       color: selected
-                          ? AppColors.blue
-                          : AppColors.textTertiary,
+                          ? theme.colorScheme.primary
+                          : Colors.grey.shade600,
                     ),
                   ),
                 ),
@@ -212,74 +220,80 @@ class _ReportCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final color = _typeColor(report.type);
     final time = DateTime.fromMillisecondsSinceEpoch(report.ts * 1000);
     final ago = _timeAgo(time);
 
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.separator.withAlpha(150)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Top row: type badge + urgency + time
-          Row(
-            children: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: color.withAlpha(20),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Text(
-                  report.type.toUpperCase(),
-                  style: GoogleFonts.inter(
-                    fontSize: 11,
-                    fontWeight: FontWeight.w700,
-                    color: color,
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.md),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Top row: type badge + time
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: color.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text(
+                    report.type.toUpperCase(),
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: color,
+                    ),
                   ),
                 ),
+                const SizedBox(width: Spacing.sm),
+                _UrgencyDots(urgency: report.urg),
+                const Spacer(),
+                Text(
+                  ago,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withOpacity(0.4),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: Spacing.md),
+            // Description
+            Text(
+              report.desc,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                height: 1.4,
               ),
-              const SizedBox(width: 8),
-              _UrgencyDots(urgency: report.urg),
-              const Spacer(),
-              Text(ago, style: AppType.monoSmall()),
-            ],
-          ),
-          const SizedBox(height: 10),
-          // Description
-          Text(
-            report.desc,
-            style: AppType.body(),
-          ),
-          const SizedBox(height: 8),
-          // Bottom row: hops + source
-          Row(
-            children: [
-              Icon(Icons.route_rounded, size: 13, color: AppColors.textTertiary),
-              const SizedBox(width: 4),
-              Text(
-                '${report.hops} hops',
-                style: AppType.monoSmall(),
-              ),
-              const SizedBox(width: 12),
-              Icon(Icons.device_hub_rounded,
-                  size: 13, color: AppColors.textTertiary),
-              const SizedBox(width: 4),
-              Text(
-                report.src.length > 8
-                    ? report.src.substring(0, 8)
-                    : report.src,
-                style: AppType.monoSmall(),
-              ),
-            ],
-          ),
-        ],
+            ),
+            const SizedBox(height: Spacing.md),
+            // Bottom row: hops + source
+            Row(
+              children: [
+                Icon(Icons.route_rounded, size: 14, color: theme.colorScheme.onSurface.withOpacity(0.4)),
+                const SizedBox(width: 4),
+                Text(
+                  '${report.hops} hops',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
+                ),
+                const SizedBox(width: Spacing.md),
+                Icon(Icons.device_hub_rounded, size: 14, color: theme.colorScheme.onSurface.withOpacity(0.4)),
+                const SizedBox(width: 4),
+                Text(
+                  report.src.length > 8 ? report.src.substring(0, 8) : report.src,
+                  style: TextStyle(
+                    fontFamily: 'RobotoMono',
+                    fontSize: 12,
+                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -287,17 +301,17 @@ class _ReportCard extends StatelessWidget {
   static Color _typeColor(String type) {
     switch (type) {
       case 'fire':
-        return AppColors.red;
+        return Colors.red.shade600;
       case 'medical':
-        return AppColors.blue;
+        return Colors.blue.shade600;
       case 'structural':
-        return AppColors.orange;
+        return Colors.orange.shade600;
       case 'flood':
-        return const Color(0xFF5AC8FA); // iOS teal
+        return Colors.cyan.shade600;
       case 'hazmat':
-        return AppColors.purple;
+        return Colors.purple.shade600;
       default:
-        return AppColors.textSecondary;
+        return Colors.grey.shade600;
     }
   }
 }
@@ -322,8 +336,8 @@ class _UrgencyDots extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: active
-                ? (urgency >= 4 ? AppColors.red : AppColors.orange)
-                : AppColors.separator,
+                ? (urgency >= 4 ? Colors.red.shade500 : Colors.orange.shade500)
+                : Colors.grey.shade200,
           ),
         );
       }),
@@ -340,69 +354,88 @@ class _MessageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final time = DateTime.fromMillisecondsSinceEpoch(message.ts * 1000);
     final ago = _timeAgo(time);
 
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: AppColors.surface,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.separator.withAlpha(150)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Top row: sender + badge + time
-          Row(
-            children: [
-              Text(
-                message.name,
-                style: GoogleFonts.inter(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textPrimary,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                decoration: BoxDecoration(
-                  color: message.isBroadcast
-                      ? AppColors.blue.withAlpha(18)
-                      : AppColors.green.withAlpha(18),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Text(
-                  message.isBroadcast ? 'Broadcast' : 'DM',
-                  style: GoogleFonts.inter(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                    color: message.isBroadcast
-                        ? AppColors.blue
-                        : AppColors.green,
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.md),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Top row: sender + badge + time
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 12,
+                  backgroundColor: theme.colorScheme.primary.withOpacity(0.1),
+                  child: Text(
+                    message.name.isNotEmpty ? message.name[0].toUpperCase() : '?',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.primary,
+                    ),
                   ),
                 ),
+                const SizedBox(width: Spacing.sm),
+                Text(
+                  message.name,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(width: Spacing.sm),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: message.isBroadcast
+                        ? Colors.blue.shade50
+                        : Colors.green.shade50,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    message.isBroadcast ? 'Broadcast' : 'DM',
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: message.isBroadcast ? Colors.blue.shade700 : Colors.green.shade700,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  ago,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withOpacity(0.4),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: Spacing.sm),
+            // Body
+            Text(
+              message.body,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                height: 1.4,
               ),
-              const Spacer(),
-              Text(ago, style: AppType.monoSmall()),
-            ],
-          ),
-          const SizedBox(height: 8),
-          // Body
-          Text(message.body, style: AppType.body()),
-          const SizedBox(height: 8),
-          // Hops
-          Row(
-            children: [
-              Icon(Icons.route_rounded,
-                  size: 13, color: AppColors.textTertiary),
-              const SizedBox(width: 4),
-              Text('${message.hops} hops', style: AppType.monoSmall()),
-            ],
-          ),
-        ],
+            ),
+            const SizedBox(height: Spacing.sm),
+            // Hops
+            Row(
+              children: [
+                Icon(Icons.route_rounded, size: 14, color: theme.colorScheme.onSurface.withOpacity(0.4)),
+                const SizedBox(width: 4),
+                Text(
+                  '${message.hops} hops',
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -414,22 +447,29 @@ class _EmptyState extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const _EmptyState({required this.icon, required this.text});
+  const _EmptyState({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 48, color: AppColors.separator),
-          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.all(Spacing.lg),
+            decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, size: 48, color: Colors.grey.shade400),
+          ),
+          const SizedBox(height: Spacing.md),
           Text(
             text,
             textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              fontSize: 14,
-              color: AppColors.textTertiary,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.onSurface.withOpacity(0.5),
             ),
           ),
         ],

@@ -1,26 +1,91 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// iOS system colors used throughout the app.
-abstract class AppColors {
-  static const scaffold = Color(0xFFF2F2F7);
-  static const surface = Color(0xFFFFFFFF);
-  static const separator = Color(0xFFE5E5EA);
-  static const textPrimary = Color(0xFF1C1C1E);
-  static const textSecondary = Color(0xFF6D6D72);
-  static const textTertiary = Color(0xFFAEAEB2);
-  static const blue = Color(0xFF007AFF);
-  static const green = Color(0xFF34C759);
-  static const red = Color(0xFFFF3B30);
-  static const orange = Color(0xFFFF9500);
-  static const purple = Color(0xFFAF52DE);
-  static const logBackground = Color(0xFFF8F8FB);
+class Spacing {
+  static const double xs = 4;
+  static const double sm = 8;
+  static const double md = 16;
+  static const double lg = 24;
+  static const double xl = 32;
+  static const double xxl = 48;
 }
 
-/// Typography helpers — Inter for UI, Source Code Pro for monospace.
+class ModernMinimalTheme {
+  static const _primary = Color(0xFF6366F1);    // Indigo
+  static const _surface = Color(0xFFFAFAFA);
+  static const _card = Colors.white;
+  static const _text = Color(0xFF1F2937);
+  static const _textMuted = Color(0xFF6B7280);
+
+  static ThemeData get light => ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.light,
+    colorScheme: ColorScheme.light(
+      primary: _primary,
+      secondary: _primary.withOpacity(0.8),
+      surface: _surface,
+    ),
+    scaffoldBackgroundColor: _surface,
+    textTheme: GoogleFonts.interTextTheme().apply(
+      bodyColor: _text,
+      displayColor: _text,
+    ),
+    dividerColor: Colors.grey.shade200,
+    cardTheme: CardThemeData(
+      color: _card,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Colors.grey.shade200),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _primary,
+        foregroundColor: Colors.white,
+        elevation: 0,
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        textStyle: GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 15),
+      ),
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: _surface,
+      foregroundColor: _text,
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: GoogleFonts.inter(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: _text,
+      ),
+    ),
+  );
+}
+
+/// Kept for backwards compatibility while migrating screens to Spacing/ModernMinimalTheme concepts
+abstract class AppColors {
+  static const scaffold = Color(0xFFFAFAFA);
+  static const surface = Colors.white;
+  static const separator = Color(0xFFE5E7EB);
+  static const textPrimary = Color(0xFF1F2937);
+  static const textSecondary = Color(0xFF4B5563);
+  static const textTertiary = Color(0xFF9CA3AF);
+  static const primary = Color(0xFF6366F1); // Indigo
+  
+  // Incident type colors adjusted to be modern and slightly muted from raw bold colors
+  static const blue = Color(0xFF3B82F6);
+  static const green = Color(0xFF10B981);
+  static const red = Color(0xFFEF4444);
+  static const orange = Color(0xFFF59E0B);
+  static const purple = Color(0xFF8B5CF6);
+  static const logBackground = Color(0xFFF3F4F6);
+}
+
+/// Kept for compatibility with existing widgets
 abstract class AppType {
   static TextStyle stat() => GoogleFonts.inter(
-        fontSize: 22,
+        fontSize: 24,
         fontWeight: FontWeight.w700,
         color: AppColors.textPrimary,
       );
@@ -52,7 +117,7 @@ abstract class AppType {
 
   static TextStyle monoSmall() => GoogleFonts.sourceCodePro(
         fontSize: 10,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
         color: AppColors.textTertiary,
       );
 }
