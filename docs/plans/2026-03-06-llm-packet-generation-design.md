@@ -169,6 +169,43 @@ Modal bottom sheet with:
 
 ---
 
+## Multi-Packet & Location Update Flow
+
+### SentReportCache (in-memory, session-scoped)
+
+Stores `List<SentReportEntry>` where each entry holds:
+- `ExtractionResult` (the confirmed extraction data)
+- `eventId` (from the built EmergencyReport)
+- `DateTime sentAt`
+
+Powers the "Update Location" button and allows the chat to detect re-triggers.
+
+### Chat re-trigger (new message about a previously reported incident)
+
+When the intent filter fires on a subsequent message and extraction produces an `eventId` that matches an entry in `SentReportCache`:
+- The bottom sheet title changes to **"Update Existing Report?"**
+- The existing `type`/`urg`/`desc` pre-fill from the cached extraction
+- Overwritten fields are highlighted as changed
+- On send: a new packet goes out with **same `eventId`, new `id`** (because lat/lng or desc changed)
+
+The backend's `insert_report` already handles this: same `eventId` + better accuracy → upserts in-place.
+
+### "Update Location" button
+
+Visible in the AI page toolbar (persistent chip at top) **only after** at least one report has been sent.
+
+Tap flow:
+1. Get current GPS via `LocationService.getCurrentLocation()`
+2. Check `hasMoved(threshold: 25m)` against the last-sent report's GPS
+3. If not moved enough → toast: "Location hasn't changed significantly"
+4. If moved → rebuild packet from cached `ExtractionResult` + new GPS
+5. Inject directly into mesh (**no bottom sheet** — content already confirmed)
+6. Update `SentReportCache` entry with new GPS
+
+This produces a new `id` (lat/lng changed) but **same `eventId`**, which is exactly how the backend dedup handles GPS refinements.
+
+---
+
 ## Error Handling
 
 | Scenario | Behaviour |
@@ -178,6 +215,8 @@ Modal bottom sheet with:
 | GPS unavailable | Sheet shows "Location unavailable" — Send still allowed (report sent with `acc=999` as sentinel) |
 | User dismisses sheet | Nothing sent; conversation continues |
 | Desc > 100 chars after edit | Character counter shown, Send disabled until ≤100 |
+| Update Location but no previous report | Button not shown |
+| Update Location but GPS unchanged | Toast message, no packet sent |
 
 ---
 
@@ -186,5 +225,7 @@ Modal bottom sheet with:
 - Unit: `EmergencyIntentFilter` with positive/negative/edge cases
 - Unit: JSON parser with valid, malformed, and null-type responses
 - Unit: `PacketBuilder` desc truncation, GPS injection, field correctness
+- Unit: `SentReportCache` — add, lookup by eventId, hasMoved threshold
 - Widget: `ReportConfirmationSheet` — confirm/dismiss flow, Send enable/disable logic
+- Widget: "Update Location" button visibility and flow
 - Integration: full flow from typed message → packet injected into `InstrumentedMeshService`
