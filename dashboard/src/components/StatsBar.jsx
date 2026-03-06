@@ -1,7 +1,7 @@
 import { TYPE_COLORS, TYPE_LABELS } from '../utils/mapStyles';
 import { useTheme } from '../hooks/useTheme';
 
-export default function StatsBar({ reports, directives = [], connected, enableBuildingHover, setEnableBuildingHover }) {
+export default function StatsBar({ reports, directives = [], connected, enableBuildingHover, setEnableBuildingHover, showRelayPaths, setShowRelayPaths }) {
   const { theme, toggle } = useTheme();
 
   const typeCounts = {};
@@ -66,6 +66,25 @@ export default function StatsBar({ reports, directives = [], connected, enableBu
         </div>
 
         <ToolbarSep />
+
+        {/* Hop Path toggle */}
+        <button
+          onClick={() => setShowRelayPaths(prev => !prev)}
+          style={{
+            ...s.themeToggle,
+            color: showRelayPaths ? 'var(--tint)' : 'var(--text-secondary)',
+            background: showRelayPaths ? 'var(--tint-dim)' : 'var(--chip-bg)',
+            borderColor: showRelayPaths ? 'transparent' : 'var(--separator)',
+          }}
+          title={showRelayPaths ? 'Hide Relay Paths' : 'Show Relay Paths'}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 12c3-4 5-8 9-8s6 4 9 8" />
+            <circle cx="3" cy="12" r="2" />
+            <circle cx="12" cy="4" r="2" />
+            <circle cx="21" cy="12" r="2" />
+          </svg>
+        </button>
 
         {/* Building Hover toggle */}
         <button

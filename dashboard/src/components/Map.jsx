@@ -91,7 +91,7 @@ function createPinEl(color, code, urgency) {
 
 /* ---- Component ---- */
 
-export default function Map({ reports, focusedReport, onReportClick, enableBuildingHover }) {
+export default function Map({ reports, focusedReport, onReportClick, enableBuildingHover, showRelayPaths = true }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const mapRef = useRef(null);
@@ -101,6 +101,14 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
   const { theme } = useTheme();
 
   const enableBuildingHoverRef = useRef(enableBuildingHover);
+  const showRelayPathsRef = useRef(showRelayPaths);
+
+  useEffect(() => {
+    showRelayPathsRef.current = showRelayPaths;
+    if (mapRef.current && reportsRef.current) {
+      drawRelayOverlay(mapRef.current, reportsRef.current);
+    }
+  }, [showRelayPaths]);
 
   useEffect(() => {
     enableBuildingHoverRef.current = enableBuildingHover;
@@ -137,6 +145,8 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
     const ctx = canvas.getContext('2d');
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
+
+    if (!showRelayPathsRef.current) return;
 
     const pitchRad = map.getPitch() * Math.PI / 180;
     const zoom = map.getZoom();
