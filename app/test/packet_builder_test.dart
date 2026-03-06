@@ -92,8 +92,8 @@ void main() {
         deviceId: 'dev01',
       );
 
-      expect(report.lat, 0.0);
-      expect(report.lng, 0.0);
+      expect(report.lat, 1.3521);
+      expect(report.lng, 103.8198);
       expect(report.acc, 999.0);
     });
   });

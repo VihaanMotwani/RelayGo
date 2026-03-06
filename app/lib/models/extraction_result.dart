@@ -94,17 +94,28 @@ class ExtractionResult {
   }
 
   /// Try to parse an [ExtractionResult] from a raw string that may contain
-  /// JSON embedded in prose. Extracts the first `{...}` block.
+  /// JSON embedded in prose. Extracts the first balanced `{...}` block.
+  ///
+  /// Uses a balanced-brace scanner instead of greedy indexOf/lastIndexOf
+  /// to correctly handle nested objects (like `"c":{"t":"high"}`) and
+  /// ignore trailing text or additional JSON blocks.
   static ExtractionResult? tryParse(String raw) {
     try {
-      // Find the first { and last } to extract JSON
       final start = raw.indexOf('{');
-      final end = raw.lastIndexOf('}');
-      if (start < 0 || end <= start) return null;
+      if (start < 0) return null;
 
-      final jsonStr = raw.substring(start, end + 1);
-      final map = jsonDecode(jsonStr) as Map<String, dynamic>;
-      return fromJson(map);
+      // Walk forward from the first '{', tracking brace depth.
+      int depth = 0;
+      for (int i = start; i < raw.length; i++) {
+        if (raw[i] == '{') depth++;
+        if (raw[i] == '}') depth--;
+        if (depth == 0) {
+          final jsonStr = raw.substring(start, i + 1);
+          final map = jsonDecode(jsonStr) as Map<String, dynamic>;
+          return fromJson(map);
+        }
+      }
+      return null; // Unbalanced braces
     } catch (_) {
       return null;
     }

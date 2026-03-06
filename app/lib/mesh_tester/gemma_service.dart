@@ -2,8 +2,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_gemma/flutter_gemma.dart';
 
-import '../models/extraction_result.dart';
-
 /// Status of the Gemma model lifecycle.
 enum GemmaStatus { idle, downloading, initializing, ready, error }
 
@@ -26,13 +24,35 @@ class GemmaService {
   final _statusController = StreamController<GemmaStatus>.broadcast();
   Stream<GemmaStatus> get onStatusChanged => _statusController.stream;
 
+  // ── Serialization & Stop ─────────────────────────────────────────
+
+  /// True while any inference (chat or extraction) is running.
+  bool _isBusy = false;
+  bool get isBusy => _isBusy;
+
+  /// Set to true to request cancellation of the current inference.
+  bool _stopRequested = false;
+
+  /// Request that the current streaming inference stop as soon as possible.
+  void stopInference() {
+    _stopRequested = true;
+  }
+
+  // ── Token limits ─────────────────────────────────────────────────
+
+  /// Max tokens for the main chat response. The 0.5B model tends to
+  /// repeat itself; 500 tokens is ~375 words — more than enough for
+  /// emergency guidance. Anything beyond that is a repetition loop.
+  static const _maxChatTokens = 500;
+
+  /// Max tokens for extraction output. Well-formed JSON is ~50-80 tokens.
+  static const _maxExtractionTokens = 200;
+
   /// Initialize: download model (if needed) and load it.
   Future<void> initialize() async {
     try {
       _setStatus(GemmaStatus.downloading);
 
-      // Always install — ensures correct model is active
-      // (clears any stale model specs from previous failed installs)
       await FlutterGemma.installModel(
         modelType: ModelType.qwen,
       ).fromNetwork(_modelUrl).withProgress((progress) {
@@ -42,10 +62,6 @@ class GemmaService {
 
       _setStatus(GemmaStatus.initializing);
 
-      // CPU backend works reliably on both iOS and Android.
-      // GPU path initialises successfully but crashes at inference time on
-      // Android (DetokenizerCalculator gets token id=-1 from the GPU→CPU
-      // op fallback), so try-catch at init cannot intercept it.
       _model = await FlutterGemma.getActiveModel(
         maxTokens: 1280,
         preferredBackend: PreferredBackend.cpu,
@@ -53,8 +69,7 @@ class GemmaService {
 
       _setStatus(GemmaStatus.ready);
 
-      // Warm up: create chat session and prime system prompt in background
-      // so the first user message doesn't have to wait
+      // Warm up: create chat session and prime system prompt
       _getOrCreateChat();
     } catch (e) {
       _error = e.toString();
@@ -71,19 +86,17 @@ class GemmaService {
 
     _chat = await _model!.createChat(temperature: 0.3, topK: 1);
 
-    // Prime with system instruction on first message
     await _chat!.addQueryChunk(
       Message.text(
         text:
             'You are an emergency response AI assistant. '
             'Always respond in English. Be concise and helpful. '
-            'Provide clear, actionable guidance for emergencies.',
+            'Provide clear, actionable guidance for emergencies. '
+            'Keep responses under 150 words.',
         isUser: true,
       ),
     );
 
-    // Generate and discard the system-level reply so the model
-    // "acknowledges" the instruction before real user input
     await for (final _ in _chat!.generateChatResponseAsync()) {}
 
     _chatInitialized = true;
@@ -91,84 +104,136 @@ class GemmaService {
   }
 
   /// Stream a chat response token by token.
+  ///
+  /// Has a [_maxChatTokens] safety limit and repetition detection
+  /// to handle the 0.5B model's tendency to loop.
   Stream<String> streamChat(String userText) async* {
     if (_model == null || _status != GemmaStatus.ready) {
       yield 'AI model not ready. Please wait for initialization.';
       return;
     }
+    if (_isBusy) {
+      yield 'Model is busy. Please wait for the current response to finish.';
+      return;
+    }
+
+    _isBusy = true;
+    _stopRequested = false;
 
     try {
       final chat = await _getOrCreateChat();
 
       await chat.addQueryChunk(Message.text(text: userText, isUser: true));
 
-      // Stream the response
-      final responseStream = chat.generateChatResponseAsync();
+      var tokenCount = 0;
+      final fullResponse = StringBuffer();
 
-      await for (final response in responseStream) {
+      await for (final response in chat.generateChatResponseAsync()) {
+        if (_stopRequested) {
+          debugPrint('[streamChat] stop requested — breaking');
+          break;
+        }
+
+        tokenCount++;
+        if (tokenCount > _maxChatTokens) {
+          debugPrint('[streamChat] hit $tokenCount tokens — breaking');
+          break;
+        }
+
         if (response is TextResponse) {
+          fullResponse.write(response.token);
           yield response.token;
+
+          // Repetition detection: if the response so far is > 200 chars,
+          // check if the last 40 chars have appeared before in the output.
+          // This catches the "If you're in a car... If you're in a building..."
+          // loop pattern.
+          if (fullResponse.length > 200) {
+            final text = fullResponse.toString();
+            final tail = text.substring(text.length - 40);
+            final beforeTail = text.substring(0, text.length - 40);
+            if (beforeTail.contains(tail)) {
+              debugPrint('[streamChat] repetition detected — breaking');
+              break;
+            }
+          }
         }
       }
     } catch (e) {
       yield '\n[Error: $e]';
+    } finally {
+      _isBusy = false;
+      _stopRequested = false;
     }
   }
 
-  // ── Extraction (Turn 2 — Silent) ──────────────────────────────────
+  // ── Description Shortener ──────────────────────────────────────────
 
-  static const _extractionPrompt =
-      '''Extract emergency data from this conversation as JSON only. No other text.
-
-Schema (desc max 100 chars):
-{"type":"...","urg":N,"haz":[],"desc":"...","c":{"t":"high|medium|low","u":"high|medium|low","d":"high|medium|low"}}
-
-Types: fire, medical, structural, flood, hazmat, other
-Urgency: 1-5 (5=life threatening)
-Hazards: gas_leak,fire_spread,structural_collapse,flooding,chemical_spill,downed_power_lines,trapped_people
-If not an emergency: {"type":null}
-''';
-
-  /// Run a silent second inference call to extract structured emergency data.
+  /// Shorten a description to fit the 100-character BLE wire budget.
   ///
-  /// Uses a separate chat session so we don't pollute the main conversation
-  /// history with extraction prompts.
-  Future<ExtractionResult?> extractEmergency(
-    String userText,
-    String aiResponse,
-  ) async {
+  /// Uses a one-shot LLM session to rephrase without losing critical details.
+  /// Returns the shortened text, or `null` on failure.
+  Future<String?> shortenDescription(String longDesc) async {
     if (_model == null || _status != GemmaStatus.ready) return null;
 
+    // Wait briefly if busy
+    if (_isBusy) {
+      debugPrint('[shortenDesc] model busy — waiting up to 500ms');
+      for (int i = 0; i < 10; i++) {
+        await Future.delayed(const Duration(milliseconds: 50));
+        if (!_isBusy) break;
+      }
+      if (_isBusy) {
+        debugPrint('[shortenDesc] still busy after 500ms — skipping');
+        return null;
+      }
+    }
+
+    _isBusy = true;
+    _stopRequested = false;
+    debugPrint('[shortenDesc] starting (input ${longDesc.length} chars)');
+
     try {
-      // Create a one-shot session for extraction
-      final extractChat = await _model!.createChat(
-        temperature: 0.1, // low temperature for deterministic JSON
-        topK: 1,
-      );
+      final chat = await _model!.createChat(temperature: 0.2, topK: 1);
 
       final prompt =
-          '$_extractionPrompt\n'
-          'User said: $userText\n'
-          'AI responded: $aiResponse\n'
-          'JSON:';
+          'Shorten this emergency description to under 100 characters. '
+          'Keep all critical details. Return ONLY the shortened text, '
+          'nothing else.\n\n$longDesc';
 
-      await extractChat.addQueryChunk(Message.text(text: prompt, isUser: true));
+      await chat.addQueryChunk(Message.text(text: prompt, isUser: true));
 
-      // Collect the full response (non-streaming)
       final buffer = StringBuffer();
-      await for (final response in extractChat.generateChatResponseAsync()) {
+      var tokenCount = 0;
+      await for (final response in chat.generateChatResponseAsync()) {
+        if (_stopRequested) break;
+        tokenCount++;
+        if (tokenCount > _maxExtractionTokens) break;
         if (response is TextResponse) {
           buffer.write(response.token);
         }
       }
 
-      final rawOutput = buffer.toString().trim();
-      debugPrint('[extractEmergency] raw output: $rawOutput');
+      final result = buffer.toString().trim();
+      debugPrint(
+        '[shortenDesc] output ($tokenCount tokens, ${result.length} chars): $result',
+      );
 
-      return ExtractionResult.tryParse(rawOutput);
-    } catch (e) {
-      debugPrint('[extractEmergency] error: $e');
+      // Only accept if it's actually shorter and non-empty
+      if (result.isNotEmpty && result.length <= 100) {
+        return result;
+      }
+      // If still > 100, hard truncate
+      if (result.isNotEmpty) {
+        return result.substring(0, 100);
+      }
       return null;
+    } catch (e) {
+      debugPrint('[shortenDesc] error: $e');
+      return null;
+    } finally {
+      _isBusy = false;
+      _stopRequested = false;
     }
   }
 
@@ -178,6 +243,7 @@ If not an emergency: {"type":null}
   }
 
   Future<void> dispose() async {
+    _stopRequested = true;
     await _model?.close();
     await _statusController.close();
   }

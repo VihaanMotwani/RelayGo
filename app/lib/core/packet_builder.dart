@@ -31,8 +31,8 @@ class PacketBuilder {
 
     return EmergencyReport(
       ts: DateTime.now().millisecondsSinceEpoch ~/ 1000,
-      lat: position?.latitude ?? 0.0,
-      lng: position?.longitude ?? 0.0,
+      lat: position?.latitude ?? 1.3521,
+      lng: position?.longitude ?? 103.8198,
       acc: position?.accuracy ?? 999.0,
       type: extraction.type,
       urg: extraction.urg,
