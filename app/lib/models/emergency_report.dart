@@ -6,6 +6,7 @@ import '../core/packet_hash.dart';
 class EmergencyReport {
   final String kind = 'report';
   final String id;
+  final String eventId; // stable across GPS refinements — excludes lat/lng
   final int ts;
   final double lat;
   final double lng;
@@ -20,6 +21,7 @@ class EmergencyReport {
 
   EmergencyReport({
     String? id,
+    String? eventId,
     required this.ts,
     required this.lat,
     required this.lng,
@@ -31,12 +33,21 @@ class EmergencyReport {
     required this.src,
     this.hops = 0,
     this.ttl = 10,
-  }) : id = id ?? PacketHash.computeReportId(src, ts, type, lat, lng, desc);
+  }) : id = id ?? PacketHash.computeReportId(src, ts, type, lat, lng, desc),
+       eventId =
+           eventId ??
+           PacketHash.computeReportEventId(
+             src: src,
+             ts: ts,
+             type: type,
+             desc: desc,
+           );
 
   /// Full JSON for SQLite storage and backend sync.
   Map<String, dynamic> toJson() => {
     'kind': kind,
     'id': id,
+    'event_id': eventId,
     'ts': ts,
     'loc': {'lat': lat, 'lng': lng, 'acc': acc},
     'type': type,
@@ -53,6 +64,7 @@ class EmergencyReport {
   Map<String, dynamic> toWireJson() => {
     'k': 'r',
     'i': id,
+    'ei': eventId,
     't': ts,
     'y': type,
     'u': urg,
@@ -68,6 +80,7 @@ class EmergencyReport {
     final loc = json['loc'] as Map<String, dynamic>;
     return EmergencyReport(
       id: json['id'] as String,
+      eventId: json['event_id'] as String?,
       ts: json['ts'] as int,
       lat: (loc['lat'] as num).toDouble(),
       lng: (loc['lng'] as num).toDouble(),
@@ -86,6 +99,7 @@ class EmergencyReport {
   factory EmergencyReport.fromWireJson(Map<String, dynamic> j) {
     return EmergencyReport(
       id: j['i'] as String,
+      eventId: j['ei'] as String?,
       ts: j['t'] as int,
       lat: (j['a'] as num).toDouble(),
       lng: (j['o'] as num).toDouble(),
