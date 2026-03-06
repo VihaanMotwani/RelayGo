@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RelayGo — Disaster Response Simulation</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e1a;--panel:#0f1526;--border:#1a2240;
+  --red:#ff4757;--red-glow:rgba(255,71,87,.35);
+  --blue:#3b82f6;--blue-glow:rgba(59,130,246,.3);
+  --green:#10b981;--green-glow:rgba(16,185,129,.25);
+  --gold:#f59e0b;--gold-glow:rgba(245,158,11,.3);
+  --rescued:#a78bfa;--rescued-glow:rgba(167,139,250,.3);
+  --mesh-line:rgba(59,130,246,.12);
+  --text:#e2e8f0;--text-dim:#64748b;--text-bright:#f8fafc;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow:hidden}
+
+/* ── Header ── */
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 28px;border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(15,21,38,.95),rgba(10,14,26,.98));
+}
+.header h1{font-weight:900;font-size:1.35rem;letter-spacing:-.02em}
+.header h1 span{color:var(--blue);font-family:'JetBrains Mono',monospace}
+.controls{display:flex;gap:10px;align-items:center}
+.controls button{
+  background:var(--panel);border:1px solid var(--border);color:var(--text);
+  font-family:'JetBrains Mono',monospace;font-size:.8rem;
+  padding:7px 18px;border-radius:6px;cursor:pointer;transition:all .15s;
+}
+.controls button:hover{background:#1a2240;border-color:var(--blue)}
+.controls button.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.speed-label{font-size:.75rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace}
+
+/* ── Main Layout ── */
+.main{display:flex;height:calc(100vh - 57px)}
+
+/* ── Scenario Panel ── */
+.scenario{
+  flex:1;display:flex;flex-direction:column;
+  border-right:1px solid var(--border);position:relative;
+}
+.scenario:last-child{border-right:none}
+.scenario-header{
+  padding:12px 20px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(90deg,rgba(15,21,38,.9),transparent);
+}
+.scenario-header h2{font-size:.95rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.scenario-header .tag{
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:700;
+  padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.05em
+}
+.tag-a{background:rgba(255,71,87,.15);color:var(--red)}
+.tag-b{background:rgba(16,185,129,.15);color:var(--green)}
+
+.stats-bar{
+  display:flex;gap:16px;padding:8px 20px;
+  border-bottom:1px solid var(--border);
+  background:rgba(10,14,26,.6);font-family:'JetBrains Mono',monospace;font-size:.72rem;
+}
+.stat{display:flex;align-items:center;gap:5px}
+.stat .dot{width:7px;height:7px;border-radius:50%}
+.stat .val{color:var(--text-bright);font-weight:700}
+
+.canvas-wrap{flex:1;position:relative;overflow:hidden}
+.canvas-wrap canvas{display:block;width:100%;height:100%}
+
+/* ── Legend ── */
+.legend{
+  position:absolute;bottom:12px;left:12px;
+  background:rgba(10,14,26,.85);border:1px solid var(--border);
+  border-radius:8px;padding:10px 14px;font-size:.68rem;
+  font-family:'JetBrains Mono',monospace;
+  display:flex;flex-direction:column;gap:5px;
+  backdrop-filter:blur(8px);
+}
+.legend-item{display:flex;align-items:center;gap:7px}
+.legend-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* ── Outcome Banner ── */
+.outcome{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:rgba(10,14,26,.92);border:2px solid var(--border);
+  border-radius:12px;padding:20px 32px;text-align:center;
+  backdrop-filter:blur(12px);display:none;z-index:10;
+}
+.outcome h3{font-size:1.1rem;font-weight:900;margin-bottom:4px}
+.outcome p{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text-dim)}
+
+/* ── Timer ── */
+.timer{
+  position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:700;
+  color:var(--text-dim);background:rgba(10,14,26,.8);
+  padding:4px 14px;border-radius:6px;border:1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span>RelayGo</span> Disaster Response Simulation</h1>
+  <div class="controls">
+    <button id="btnPlay" class="active">▶ Play</button>
+    <button id="btnPause">⏸ Pause</button>
+    <button id="btnReset">↻ Reset</button>
+    <span class="speed-label">Speed:</span>
+    <button id="btnSlow">1×</button>
+    <button id="btnFast" class="active">2×</button>
+    <button id="btnTurbo">5×</button>
+  </div>
+</div>
+
+<div class="main">
+  <!-- Scenario A -->
+  <div class="scenario" id="panelA">
+    <div class="scenario-header">
+      <h2><span class="tag tag-a">A</span> Without Communication</h2>
+    </div>
+    <div class="stats-bar" id="statsA">
+      <div class="stat"><div class="dot" style="background:var(--red)"></div>Stranded:<span class="val" id="strandedA">8</span></div>
+      <div class="stat"><div class="dot" style="background:var(--rescued)"></div>Rescued:<span class="val" id="rescuedA">0</span></div>
+      <div class="stat"><div class="dot" style="background:var(--blue)"></div>Responders:<span class="val" id="respondersA">4</span></div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="canvasA"></canvas>
+      <div class="timer" id="timerA">00:00</div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Affected Agent</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div>Has Internet</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Response Agent</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Safe Zone</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--rescued)"></div>Rescued</div>
+      </div>
+      <div class="outcome" id="outcomeA"><h3></h3><p></p></div>
+    </div>
+  </div>
+
+  <!-- Scenario B -->
+  <div class="scenario" id="panelB">
+    <div class="scenario-header">
+      <h2><span class="tag tag-b">B</span> With RelayGo Mesh</h2>
+    </div>
+    <div class="stats-bar" id="statsB">
+      <div class="stat"><div class="dot" style="background:var(--red)"></div>Stranded:<span class="val" id="strandedB">8</span></div>
+      <div class="stat"><div class="dot" style="background:var(--rescued)"></div>Rescued:<span class="val" id="rescuedB">0</span></div>
+      <div class="stat"><div class="dot" style="background:var(--blue)"></div>Responders:<span class="val" id="respondersB">4</span></div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="canvasB"></canvas>
+      <div class="timer" id="timerB">00:00</div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Affected Agent</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Response Agent</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>Safe Zone</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--rescued)"></div>Rescued</div>
+        <div class="legend-item" style="color:var(--blue)">── Mesh Link</div>
+      </div>
+      <div class="outcome" id="outcomeB"><h3></h3><p></p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  RelayGo Disaster Response Simulation
+// ═══════════════════════════════════════════════════════════════
+
+const CONFIG = {
+  NUM_AFFECTED: 8,
+  NUM_RESPONDERS: 4,
+  NUM_SAFE_ZONES: 3,
+  AGENT_RADIUS: 6,
+  SAFE_ZONE_RADIUS: 40,
+  VISUAL_RANGE: 55,       // how close a responder must be to "see" a victim (Scenario A)
+  MESH_RANGE: 130,        // BLE mesh communication range (Scenario B)
+  RESCUE_RANGE: 14,       // contact → rescued
+  AGENT_SPEED: 0.6,
+  RESPONDER_SPEED: 0.9,
+  WANDER_JITTER: 0.35,
+  INTERNET_AGENT_INDEX: 0, // which affected agent has internet in Scenario A
+};
+
+let speed = 2;
+let running = true;
+let simTime = 0; // simulation seconds elapsed
+
+// ── Canvas Setup ──
+const cA = document.getElementById('canvasA');
+const cB = document.getElementById('canvasB');
+const ctxA = cA.getContext('2d');
+const ctxB = cB.getContext('2d');
+
+function resize() {
+  const wrapA = cA.parentElement;
+  const wrapB = cB.parentElement;
+  cA.width = wrapA.clientWidth * devicePixelRatio;
+  cA.height = wrapA.clientHeight * devicePixelRatio;
+  cB.width = wrapB.clientWidth * devicePixelRatio;
+  cB.height = wrapB.clientHeight * devicePixelRatio;
+  cA.style.width = wrapA.clientWidth + 'px';
+  cA.style.height = wrapA.clientHeight + 'px';
+  cB.style.width = wrapB.clientWidth + 'px';
+  cB.style.height = wrapB.clientHeight + 'px';
+}
+window.addEventListener('resize', resize);
+resize();
+
+// ── Utilities ──
+const rand = (min, max) => Math.random() * (max - min) + min;
+const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
+// ── Agent Factory ──
+function createAgent(type, x, y, extra = {}) {
+  return {
+    type, x, y,
+    vx: rand(-1, 1), vy: rand(-1, 1),
+    rescued: false,
+    rescuedTime: null,
+    knowsSafeZone: false,
+    targetSafeZone: null,
+    targetAgent: null,
+    trail: [],
+    ...extra,
+  };
+}
+
+// ── World State ──
+let worldA, worldB;
+
+function initWorld(w, h) {
+  const margin = 60;
+  const safeZones = [];
+  // Place safe zones around edges
+  const szPositions = [
+    { x: margin + 30, y: margin + 30 },
+    { x: w - margin - 30, y: h - margin - 30 },
+    { x: w - margin - 30, y: margin + 60 },
+  ];
+  for (let i = 0; i < CONFIG.NUM_SAFE_ZONES; i++) {
+    safeZones.push({ x: szPositions[i].x, y: szPositions[i].y, r: CONFIG.SAFE_ZONE_RADIUS });
+  }
+
+  // Affected agents: scattered in center disaster zone
+  const cx = w / 2, cy = h / 2;
+  const affectedPositions = [];
+  for (let i = 0; i < CONFIG.NUM_AFFECTED; i++) {
+    affectedPositions.push({
+      x: cx + rand(-w * 0.25, w * 0.25),
+      y: cy + rand(-h * 0.25, h * 0.25),
+    });
+  }
+
+  // Response agents: start from bottom-left cluster
+  const responderPositions = [];
+  for (let i = 0; i < CONFIG.NUM_RESPONDERS; i++) {
+    responderPositions.push({
+      x: margin + rand(0, 60),
+      y: h - margin - rand(0, 60),
+    });
+  }
+
+  function buildWorld() {
+    const affected = affectedPositions.map((p, i) => createAgent('affected', p.x, p.y, {
+      hasInternet: i === CONFIG.INTERNET_AGENT_INDEX,
+    }));
+    const responders = responderPositions.map(p => createAgent('responder', p.x, p.y));
+    return { affected, responders, safeZones, w, h, finishTime: null };
+  }
+
+  return { buildA: buildWorld, buildB: buildWorld };
+}
+
+function resetSim() {
+  resize();
+  const w = cA.width / devicePixelRatio;
+  const h = cA.height / devicePixelRatio;
+  const { buildA, buildB } = initWorld(w, h);
+  worldA = buildA();
+  worldB = buildB();
+  simTime = 0;
+  document.getElementById('outcomeA').style.display = 'none';
+  document.getElementById('outcomeB').style.display = 'none';
+}
+resetSim();
+
+// ═══════════════════════════════════════════════════════════════
+//  SIMULATION LOGIC
+// ═══════════════════════════════════════════════════════════════
+
+function wander(agent, w, h, dt) {
+  agent.vx += rand(-CONFIG.WANDER_JITTER, CONFIG.WANDER_JITTER) * dt * 60;
+  agent.vy += rand(-CONFIG.WANDER_JITTER, CONFIG.WANDER_JITTER) * dt * 60;
+  const mag = Math.hypot(agent.vx, agent.vy) || 1;
+  const spd = agent.type === 'responder' ? CONFIG.RESPONDER_SPEED : CONFIG.AGENT_SPEED;
+  agent.vx = (agent.vx / mag) * spd;
+  agent.vy = (agent.vy / mag) * spd;
+  agent.x += agent.vx * dt * 60;
+  agent.y += agent.vy * dt * 60;
+  // Bounce off walls
+  const m = 15;
+  if (agent.x < m) { agent.x = m; agent.vx *= -1; }
+  if (agent.x > w - m) { agent.x = w - m; agent.vx *= -1; }
+  if (agent.y < m) { agent.y = m; agent.vy *= -1; }
+  if (agent.y > h - m) { agent.y = h - m; agent.vy *= -1; }
+}
+
+function steerToward(agent, tx, ty, dt) {
+  const dx = tx - agent.x;
+  const dy = ty - agent.y;
+  const d = Math.hypot(dx, dy) || 1;
+  const spd = agent.type === 'responder' ? CONFIG.RESPONDER_SPEED : CONFIG.AGENT_SPEED;
+  agent.vx = (dx / d) * spd;
+  agent.vy = (dy / d) * spd;
+  agent.x += agent.vx * dt * 60;
+  agent.y += agent.vy * dt * 60;
+}
+
+function updateTrail(agent) {
+  agent.trail.push({ x: agent.x, y: agent.y });
+  if (agent.trail.length > 30) agent.trail.shift();
+}
+
+// ── Scenario A: Without Communication ──
+function tickA(dt) {
+  const world = worldA;
+  const active = world.affected.filter(a => !a.rescued);
+  const responders = world.responders;
+
+  // The internet agent: its position is known to responders
+  const internetAgent = world.affected[CONFIG.INTERNET_AGENT_INDEX];
+  const internetAgentActive = !internetAgent.rescued;
+
+  for (const r of responders) {
+    // Check if any active affected agent is within VISUAL range
+    let nearest = null;
+    let nearestDist = Infinity;
+    for (const a of active) {
+      const d = dist(r, a);
+      if (d < CONFIG.VISUAL_RANGE) {
+        if (d < nearestDist) { nearestDist = d; nearest = a; }
+      }
+    }
+
+    // If responder can see someone, go to them
+    if (nearest) {
+      steerToward(r, nearest.x, nearest.y, dt);
+    }
+    // Otherwise, if internet agent is active and not yet reached, go to internet agent
+    else if (internetAgentActive && !r._reachedInternet) {
+      steerToward(r, internetAgent.x, internetAgent.y, dt);
+      if (dist(r, internetAgent) < CONFIG.RESCUE_RANGE) {
+        r._reachedInternet = true;
+      }
+    }
+    // Otherwise wander blindly
+    else {
+      wander(r, world.w, world.h, dt);
+    }
+    updateTrail(r);
+  }
+
+  // Affected agents: wander randomly
+  for (const a of active) {
+    // Check if stumbled into safe zone
+    for (const sz of world.safeZones) {
+      if (dist(a, sz) < sz.r) {
+        a.rescued = true;
+        a.rescuedTime = simTime;
+        break;
+      }
+    }
+    if (!a.rescued) {
+      wander(a, world.w, world.h, dt);
+    }
+    updateTrail(a);
+  }
+
+  // Rescue check: responder contacts affected
+  for (const r of responders) {
+    for (const a of active) {
+      if (!a.rescued && dist(r, a) < CONFIG.RESCUE_RANGE) {
+        a.rescued = true;
+        a.rescuedTime = simTime;
+      }
+    }
+  }
+
+  // Check completion
+  const stillActive = world.affected.filter(a => !a.rescued).length;
+  if (stillActive === 0 && !world.finishTime) {
+    world.finishTime = simTime;
+    const el = document.getElementById('outcomeA');
+    el.querySelector('h3').textContent = `All Rescued — ${formatTime(world.finishTime)}`;
+    el.querySelector('p').textContent = 'Blind search, slow rescue';
+    el.style.display = 'block';
+  }
+
+  // Update stats
+  document.getElementById('strandedA').textContent = stillActive;
+  document.getElementById('rescuedA').textContent = CONFIG.NUM_AFFECTED - stillActive;
+  document.getElementById('timerA').textContent = formatTime(simTime);
+}
+
+// ── Scenario B: With RelayGo Mesh ──
+function tickB(dt) {
+  const world = worldB;
+  const active = world.affected.filter(a => !a.rescued);
+  const responders = world.responders;
+
+  // Responders know ALL affected positions via mesh → go to nearest
+  for (const r of responders) {
+    let nearest = null;
+    let nearestDist = Infinity;
+    for (const a of active) {
+      const d = dist(r, a);
+      if (d < nearestDist) { nearestDist = d; nearest = a; }
+    }
+    if (nearest) {
+      steerToward(r, nearest.x, nearest.y, dt);
+    } else {
+      wander(r, world.w, world.h, dt);
+    }
+    updateTrail(r);
+  }
+
+  // Affected agents: if they know a safe zone, move toward it; otherwise, check mesh
+  for (const a of active) {
+    // All affected agents in Scenario B know safe zone locations via mesh
+    if (!a.targetSafeZone) {
+      // Pick closest safe zone
+      let best = null, bestD = Infinity;
+      for (const sz of world.safeZones) {
+        const d = dist(a, sz);
+        if (d < bestD) { bestD = d; best = sz; }
+      }
+      a.targetSafeZone = best;
+    }
+
+    if (a.targetSafeZone) {
+      steerToward(a, a.targetSafeZone.x, a.targetSafeZone.y, dt);
+    } else {
+      wander(a, world.w, world.h, dt);
+    }
+
+    // Check safe zone arrival
+    for (const sz of world.safeZones) {
+      if (dist(a, sz) < sz.r) {
+        a.rescued = true;
+        a.rescuedTime = simTime;
+        break;
+      }
+    }
+    updateTrail(a);
+  }
+
+  // Rescue check: responder contacts affected
+  for (const r of responders) {
+    for (const a of active) {
+      if (!a.rescued && dist(r, a) < CONFIG.RESCUE_RANGE) {
+        a.rescued = true;
+        a.rescuedTime = simTime;
+      }
+    }
+  }
+
+  // Check completion
+  const stillActive = world.affected.filter(a => !a.rescued).length;
+  if (stillActive === 0 && !world.finishTime) {
+    world.finishTime = simTime;
+    const el = document.getElementById('outcomeB');
+    el.querySelector('h3').textContent = `All Rescued — ${formatTime(world.finishTime)}`;
+    el.querySelector('p').textContent = 'Mesh coordination, rapid rescue';
+    el.style.display = 'block';
+  }
+
+  // Update stats
+  document.getElementById('strandedB').textContent = stillActive;
+  document.getElementById('rescuedB').textContent = CONFIG.NUM_AFFECTED - stillActive;
+  document.getElementById('timerB').textContent = formatTime(simTime);
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  RENDERING
+// ═══════════════════════════════════════════════════════════════
+
+function drawSafeZone(ctx, sz, t) {
+  const pulse = 1 + Math.sin(t * 2) * 0.08;
+  const r = sz.r * pulse;
+  // Outer glow
+  const grd = ctx.createRadialGradient(sz.x, sz.y, r * 0.3, sz.x, sz.y, r);
+  grd.addColorStop(0, 'rgba(16,185,129,.18)');
+  grd.addColorStop(0.7, 'rgba(16,185,129,.06)');
+  grd.addColorStop(1, 'rgba(16,185,129,0)');
+  ctx.fillStyle = grd;
+  ctx.beginPath(); ctx.arc(sz.x, sz.y, r, 0, Math.PI * 2); ctx.fill();
+  // Border ring
+  ctx.strokeStyle = 'rgba(16,185,129,.4)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.arc(sz.x, sz.y, r * 0.85, 0, Math.PI * 2); ctx.stroke();
+  ctx.setLineDash([]);
+  // Label
+  ctx.fillStyle = 'rgba(16,185,129,.6)';
+  ctx.font = '600 9px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('SAFE ZONE', sz.x, sz.y + 3);
+}
+
+function drawAgent(ctx, agent, t, scenario) {
+  const r = CONFIG.AGENT_RADIUS;
+
+  // Trail
+  if (agent.trail.length > 1) {
+    ctx.beginPath();
+    ctx.moveTo(agent.trail[0].x, agent.trail[0].y);
+    for (let i = 1; i < agent.trail.length; i++) {
+      ctx.lineTo(agent.trail[i].x, agent.trail[i].y);
+    }
+    const trailColor = agent.rescued ? 'rgba(167,139,250,.08)' :
+      agent.type === 'responder' ? 'rgba(59,130,246,.1)' :
+      agent.hasInternet ? 'rgba(245,158,11,.1)' : 'rgba(255,71,87,.08)';
+    ctx.strokeStyle = trailColor;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  if (agent.rescued) {
+    // Rescued: purple faded node
+    ctx.globalAlpha = 0.5;
+    ctx.fillStyle = '#a78bfa';
+    ctx.beginPath(); ctx.arc(agent.x, agent.y, r * 0.7, 0, Math.PI * 2); ctx.fill();
+    // Checkmark
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(agent.x - 3, agent.y);
+    ctx.lineTo(agent.x - 1, agent.y + 3);
+    ctx.lineTo(agent.x + 4, agent.y - 3);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    return;
+  }
+
+  // Glow
+  const glow = ctx.createRadialGradient(agent.x, agent.y, 0, agent.x, agent.y, r * 3);
+  if (agent.type === 'responder') {
+    glow.addColorStop(0, 'rgba(59,130,246,.25)');
+    glow.addColorStop(1, 'rgba(59,130,246,0)');
+  } else if (agent.hasInternet) {
+    glow.addColorStop(0, 'rgba(245,158,11,.3)');
+    glow.addColorStop(1, 'rgba(245,158,11,0)');
+  } else {
+    glow.addColorStop(0, 'rgba(255,71,87,.2)');
+    glow.addColorStop(1, 'rgba(255,71,87,0)');
+  }
+  ctx.fillStyle = glow;
+  ctx.beginPath(); ctx.arc(agent.x, agent.y, r * 3, 0, Math.PI * 2); ctx.fill();
+
+  // Main circle
+  const pulse = 1 + Math.sin(t * 4 + agent.x) * 0.12;
+  const color = agent.type === 'responder' ? '#3b82f6' :
+    agent.hasInternet ? '#f59e0b' : '#ff4757';
+  ctx.fillStyle = color;
+  ctx.beginPath(); ctx.arc(agent.x, agent.y, r * pulse, 0, Math.PI * 2); ctx.fill();
+
+  // Inner highlight
+  ctx.fillStyle = 'rgba(255,255,255,.25)';
+  ctx.beginPath(); ctx.arc(agent.x - r * 0.2, agent.y - r * 0.2, r * 0.35, 0, Math.PI * 2); ctx.fill();
+
+  // Responder visual range ring (Scenario A only)
+  if (scenario === 'A' && agent.type === 'responder') {
+    ctx.strokeStyle = 'rgba(59,130,246,.12)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 5]);
+    ctx.beginPath(); ctx.arc(agent.x, agent.y, CONFIG.VISUAL_RANGE, 0, Math.PI * 2); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Internet icon for internet agent
+  if (agent.hasInternet && scenario === 'A') {
+    ctx.fillStyle = 'rgba(245,158,11,.8)';
+    ctx.font = '700 8px "JetBrains Mono"';
+    ctx.textAlign = 'center';
+    ctx.fillText('📡', agent.x, agent.y - r - 5);
+  }
+}
+
+function drawMeshLinks(ctx, world, t) {
+  const all = [...world.affected.filter(a => !a.rescued), ...world.responders];
+  ctx.strokeStyle = 'rgba(59,130,246,.1)';
+  ctx.lineWidth = 1;
+
+  for (let i = 0; i < all.length; i++) {
+    for (let j = i + 1; j < all.length; j++) {
+      const d = dist(all[i], all[j]);
+      if (d < CONFIG.MESH_RANGE) {
+        const alpha = 0.04 + (1 - d / CONFIG.MESH_RANGE) * 0.12;
+        ctx.strokeStyle = `rgba(59,130,246,${alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(all[i].x, all[i].y);
+        ctx.lineTo(all[j].x, all[j].y);
+        ctx.stroke();
+
+        // Animated data pulse traveling along the link
+        const progress = ((t * 0.8 + i * 0.3 + j * 0.7) % 2) / 2; // 0→1 repeating
+        const px = lerp(all[i].x, all[j].x, progress);
+        const py = lerp(all[i].y, all[j].y, progress);
+        ctx.fillStyle = `rgba(59,130,246,${0.25 * (1 - d / CONFIG.MESH_RANGE)})`;
+        ctx.beginPath(); ctx.arc(px, py, 2, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+  }
+}
+
+// Internet connection line in Scenario A (internet agent to responders)
+function drawInternetLink(ctx, world, t) {
+  const ia = world.affected[CONFIG.INTERNET_AGENT_INDEX];
+  if (ia.rescued) return;
+  for (const r of world.responders) {
+    if (r._reachedInternet) continue;
+    // Dashed line from internet agent to approaching responders
+    const alpha = 0.15 + Math.sin(t * 3) * 0.05;
+    ctx.strokeStyle = `rgba(245,158,11,${alpha})`;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([6, 8]);
+    ctx.beginPath();
+    ctx.moveTo(ia.x, ia.y);
+    ctx.lineTo(r.x, r.y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+}
+
+// Disaster zone overlay
+function drawDisasterZone(ctx, w, h, t) {
+  const cx = w / 2, cy = h / 2;
+  const rw = w * 0.35, rh = h * 0.35;
+  // Subtle red zone
+  ctx.fillStyle = 'rgba(255,71,87,.03)';
+  ctx.fillRect(cx - rw, cy - rh, rw * 2, rh * 2);
+  ctx.strokeStyle = 'rgba(255,71,87,.08)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([8, 8]);
+  ctx.strokeRect(cx - rw, cy - rh, rw * 2, rh * 2);
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(255,71,87,.12)';
+  ctx.font = '700 10px "JetBrains Mono"';
+  ctx.textAlign = 'center';
+  ctx.fillText('⚠ DISASTER ZONE', cx, cy - rh + 14);
+}
+
+function renderWorld(ctx, canvas, world, scenario, t) {
+  const w = canvas.width / devicePixelRatio;
+  const h = canvas.height / devicePixelRatio;
+
+  ctx.save();
+  ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+
+  // Background
+  ctx.fillStyle = '#0a0e1a';
+  ctx.fillRect(0, 0, w, h);
+
+  // Subtle grid
+  ctx.strokeStyle = 'rgba(26,34,64,.4)';
+  ctx.lineWidth = 0.5;
+  const gridSize = 40;
+  for (let x = 0; x < w; x += gridSize) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+  }
+  for (let y = 0; y < h; y += gridSize) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+  }
+
+  // Disaster zone overlay
+  drawDisasterZone(ctx, w, h, t);
+
+  // Safe zones
+  for (const sz of world.safeZones) drawSafeZone(ctx, sz, t);
+
+  // Mesh links (Scenario B only)
+  if (scenario === 'B') drawMeshLinks(ctx, world, t);
+
+  // Internet link (Scenario A only)
+  if (scenario === 'A') drawInternetLink(ctx, world, t);
+
+  // Agents
+  for (const a of world.affected) drawAgent(ctx, a, t, scenario);
+  for (const r of world.responders) drawAgent(ctx, r, t, scenario);
+
+  ctx.restore();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  GAME LOOP
+// ═══════════════════════════════════════════════════════════════
+
+let lastTime = performance.now();
+
+function loop(now) {
+  requestAnimationFrame(loop);
+  const rawDt = (now - lastTime) / 1000;
+  lastTime = now;
+  if (!running) return;
+
+  const dt = rawDt * speed;
+  simTime += dt;
+  const t = simTime;
+
+  // Tick simulations (only if not finished)
+  if (!worldA.finishTime) tickA(dt);
+  if (!worldB.finishTime) tickB(dt);
+
+  // Render both
+  renderWorld(ctxA, cA, worldA, 'A', t);
+  renderWorld(ctxB, cB, worldB, 'B', t);
+}
+requestAnimationFrame(loop);
+
+// ── Controls ──
+document.getElementById('btnPlay').addEventListener('click', () => { running = true; setActiveBtn('play'); });
+document.getElementById('btnPause').addEventListener('click', () => { running = false; setActiveBtn('pause'); });
+document.getElementById('btnReset').addEventListener('click', () => { resetSim(); lastTime = performance.now(); });
+document.getElementById('btnSlow').addEventListener('click', () => { speed = 1; setSpeedBtn('slow'); });
+document.getElementById('btnFast').addEventListener('click', () => { speed = 2; setSpeedBtn('fast'); });
+document.getElementById('btnTurbo').addEventListener('click', () => { speed = 5; setSpeedBtn('turbo'); });
+
+function setActiveBtn(which) {
+  document.getElementById('btnPlay').classList.toggle('active', which === 'play');
+  document.getElementById('btnPause').classList.toggle('active', which === 'pause');
+}
+function setSpeedBtn(which) {
+  document.getElementById('btnSlow').classList.toggle('active', which === 'slow');
+  document.getElementById('btnFast').classList.toggle('active', which === 'fast');
+  document.getElementById('btnTurbo').classList.toggle('active', which === 'turbo');
+}
+</script>
+</body>
+</html>
