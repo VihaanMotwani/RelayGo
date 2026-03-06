@@ -44,7 +44,7 @@ enum EmergencyType {
 /// Backend configuration.
 class BackendConfig {
   static const String baseUrl =
-      'https://polyarticular-glinda-uncongressional.ngrok-free.dev'; // CHANGE TO ACTUAL NGROK URL WHEN RUNNING
+      'http://localhost:8000'; // CHANGE TO ACTUAL NGROK URL WHEN RUNNING
   static const String reportsEndpoint = '/api/reports';
   static const Duration syncInterval = Duration(seconds: 15);
 }
