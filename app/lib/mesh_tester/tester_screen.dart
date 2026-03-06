@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'demo_data.dart';
 import 'dummy_data.dart';
 import 'home_page.dart';
 import 'ai_page.dart';
@@ -155,6 +156,7 @@ class _TesterScreenState extends State<TesterScreen> {
 
   Future<void> _resetDb() async {
     await _mesh.resetDatabase();
+    DemoData.reset();
     setState(() => _dataPreloaded = false);
   }
 

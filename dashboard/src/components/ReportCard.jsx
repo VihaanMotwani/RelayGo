@@ -33,7 +33,7 @@ function formatTime(ts) {
   return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
-export default function ReportCard({ report }) {
+export default function ReportCard({ report, isFocused, onClick }) {
   const type = report.type?.toLowerCase() || 'other';
   const color = getMarkerColor(type);
   const urgency = report.urgency ?? report.urg ?? 1;
@@ -43,12 +43,22 @@ export default function ReportCard({ report }) {
 
   return (
     <div
-      style={{ ...s.row, background: urgBg(urgency) }}
+      style={{
+        ...s.row,
+        background: isFocused ? 'var(--bg-row-selected)' : urgBg(urgency),
+        border: isFocused ? '1px solid var(--tint)' : '1px solid transparent',
+        margin: isFocused ? '0 0 1px 0' : '1px 0',
+      }}
+      onClick={onClick}
       onMouseEnter={(e) => {
-        e.currentTarget.style.background = urgency >= 3 ? urgBg(urgency) : 'var(--bg-row-hover)';
+        if (!isFocused) {
+          e.currentTarget.style.background = urgency >= 3 ? urgBg(urgency) : 'var(--bg-row-hover)';
+        }
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.background = urgBg(urgency);
+        if (!isFocused) {
+          e.currentTarget.style.background = urgBg(urgency);
+        }
       }}
     >
       {/* Color indicator */}

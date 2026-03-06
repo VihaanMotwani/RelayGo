@@ -43,7 +43,8 @@ enum EmergencyType {
 
 /// Backend configuration.
 class BackendConfig {
-  static const String baseUrl = 'http://localhost:8000';
+  static const String baseUrl =
+      'https://polyarticular-glinda-uncongressional.ngrok-free.dev'; // CHANGE TO ACTUAL NGROK URL WHEN RUNNING
   static const String reportsEndpoint = '/api/reports';
   static const Duration syncInterval = Duration(seconds: 15);
 }
@@ -51,6 +52,7 @@ class BackendConfig {
 /// AI model configuration.
 class AiConfig {
   static const String modelSlug = 'lfm2-1.2b';
+  // lfm2-700m, qwen3-0.6
   static const double temperature = 0.3;
   static const int maxTokens = 256;
 }

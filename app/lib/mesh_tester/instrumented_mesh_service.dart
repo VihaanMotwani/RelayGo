@@ -191,6 +191,11 @@ class InstrumentedMeshService {
 
   int get peerCount => _meshService.peerCount;
 
+  /// Manually force a sync to the backend. Returns the status message.
+  Future<String> forceBackendSync() async {
+    return await _meshService.forceBackendSync();
+  }
+
   /// Stop the mesh.
   Future<void> stop() async {
     _log.mesh('Stopping mesh service...');

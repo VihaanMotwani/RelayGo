@@ -1,7 +1,7 @@
 import { TYPE_COLORS, TYPE_LABELS } from '../utils/mapStyles';
 import { useTheme } from '../hooks/useTheme';
 
-export default function StatsBar({ reports, connected }) {
+export default function StatsBar({ reports, directives = [], connected, enableBuildingHover, setEnableBuildingHover, showRelayPaths, setShowRelayPaths }) {
   const { theme, toggle } = useTheme();
 
   const typeCounts = {};
@@ -42,6 +42,16 @@ export default function StatsBar({ reports, connected }) {
           );
         })}
 
+        {directives.length > 0 && (
+          <div style={s.typeChip}>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--tint)' }}>
+              <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
+            </svg>
+            <span style={s.chipText}>Directives</span>
+            <span style={s.chipCount}>{directives.length}</span>
+          </div>
+        )}
+
         <div style={s.statusPill}>
           <div style={{
             ...s.statusDot,
@@ -56,6 +66,48 @@ export default function StatsBar({ reports, connected }) {
         </div>
 
         <ToolbarSep />
+
+        {/* Hop Path toggle */}
+        <button
+          onClick={() => setShowRelayPaths(prev => !prev)}
+          style={{
+            ...s.themeToggle,
+            color: showRelayPaths ? 'var(--tint)' : 'var(--text-secondary)',
+            background: showRelayPaths ? 'var(--tint-dim)' : 'var(--chip-bg)',
+            borderColor: showRelayPaths ? 'transparent' : 'var(--separator)',
+          }}
+          title={showRelayPaths ? 'Hide Relay Paths' : 'Show Relay Paths'}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 12c3-4 5-8 9-8s6 4 9 8" />
+            <circle cx="3" cy="12" r="2" />
+            <circle cx="12" cy="4" r="2" />
+            <circle cx="21" cy="12" r="2" />
+          </svg>
+        </button>
+
+        {/* Building Hover toggle */}
+        <button
+          onClick={() => setEnableBuildingHover(prev => !prev)}
+          style={{
+            ...s.themeToggle,
+            color: enableBuildingHover ? 'var(--tint)' : 'var(--text-secondary)',
+            background: enableBuildingHover ? 'var(--tint-dim)' : 'var(--chip-bg)',
+            borderColor: enableBuildingHover ? 'transparent' : 'var(--separator)',
+          }}
+          title={enableBuildingHover ? 'Disable 3D Building Insights' : 'Enable 3D Building Insights'}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill={enableBuildingHover ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 21h18" />
+            <path d="M9 8h1" />
+            <path d="M9 12h1" />
+            <path d="M9 16h1" />
+            <path d="M14 8h1" />
+            <path d="M14 12h1" />
+            <path d="M14 16h1" />
+            <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
+          </svg>
+        </button>
 
         {/* Theme toggle */}
         <button onClick={toggle} style={s.themeToggle} title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}>

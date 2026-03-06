@@ -15,6 +15,10 @@ class KnowledgeLoader {
   static int _documentsLoaded = 0;
   static int get documentsLoaded => _documentsLoaded;
 
+  /// In-memory cache of file contents, keyed by filename (without path).
+  /// Populated during [loadIntoRag] so keyword fallback can use them.
+  static final Map<String, String> _cache = {};
+
   static Future<void> loadIntoRag(CactusRAG rag, CactusLM lm) async {
     print('[KnowledgeLoader] Initializing RAG...');
     await rag.initialize();
@@ -31,16 +35,17 @@ class KnowledgeLoader {
     for (final path in _knowledgeFiles) {
       final fileName = path.split('/').last;
 
-      // Skip if already loaded
-      final existing = await rag.getDocumentByFileName(fileName);
-      if (existing != null) {
-        print('[KnowledgeLoader] $fileName already loaded, skipping');
-        _documentsLoaded++;
-        continue;
-      }
-
       try {
         final content = await rootBundle.loadString(path);
+        _cache[fileName] = content; // Cache regardless of RAG status
+
+        // Skip RAG insert if already stored
+        final existing = await rag.getDocumentByFileName(fileName);
+        if (existing != null) {
+          _documentsLoaded++;
+          continue;
+        }
+
         await rag.storeDocument(
           fileName: fileName,
           filePath: path,
@@ -57,24 +62,111 @@ class KnowledgeLoader {
     print('[KnowledgeLoader] Loaded $_documentsLoaded/${_knowledgeFiles.length} knowledge files');
   }
 
+  /// Searches for relevant knowledge using vector search with a keyword
+  /// fallback. The fallback is critical because smollm2-360M embeddings
+  /// may not produce high enough similarity scores to trigger vector results.
+  ///
+  /// Strategy:
+  ///   1. Try CactusRAG vector search (top-3 results)
+  ///   2. If empty, select the best-matching file by keyword scoring
+  ///   3. Return formatted context string, or '' if nothing matches
   static Future<String> searchKnowledge(CactusRAG rag, String query) async {
     try {
+      // 1. Vector search
       final results = await rag.search(text: query, limit: 3);
-      if (results.isEmpty) {
-        print('[KnowledgeLoader] No RAG results for: $query');
-        return '';
+      if (results.isNotEmpty) {
+        final buffer = StringBuffer('[EMERGENCY PROCEDURES]\n');
+        for (final result in results) {
+          buffer.writeln(result.chunk.content);
+          buffer.writeln('---');
+        }
+        return buffer.toString();
       }
-
-      print('[KnowledgeLoader] Found ${results.length} results for: $query');
-      final buffer = StringBuffer();
-      for (final result in results) {
-        buffer.writeln(result.chunk.content);
-        buffer.writeln('---');
-      }
-      return buffer.toString();
     } catch (e) {
       print('[KnowledgeLoader] RAG search failed: $e');
-      return '';
     }
+
+    // 2. Keyword fallback — select the most relevant knowledge file
+    final matched = _keywordFallback(query);
+    if (matched == null) return '';
+
+    return '[EMERGENCY PROCEDURES]\n$matched';
+  }
+
+  /// Selects the most relevant knowledge file by keyword scoring.
+  /// Returns the file content, or null if nothing is a clear match.
+  static String? _keywordFallback(String query) {
+    final lower = query.toLowerCase();
+
+    // Score each file based on keyword matches in the query
+    final scores = <String, int>{};
+
+    // Fire
+    scores['fire_evacuation.txt'] = _count(lower, [
+      'fire', 'burning', 'flames', 'smoke', 'wildfire', 'evacuate', 'blaze',
+      'trapped in room', 'smoke alarm', 'exit', 'building fire',
+    ]);
+
+    // CPR / cardiac
+    scores['cpr_instructions.txt'] = _count(lower, [
+      'cpr', 'cardiac', 'heart', 'not breathing', 'stopped breathing',
+      'no pulse', 'resuscitat', 'unconscious', 'chest compression',
+      'rescue breath',
+    ]);
+
+    // First aid
+    scores['first_aid_basics.txt'] = _count(lower, [
+      'bleed', 'wound', 'fracture', 'broken bone', 'burn', 'choke', 'choking',
+      'shock', 'first aid', 'injured', 'injury', 'cut', 'blood', 'bandage',
+      'tourniquet',
+    ]);
+
+    // Flood
+    scores['flood_response.txt'] = _count(lower, [
+      'flood', 'flooding', 'water rising', 'flash flood', 'submerged',
+      'river', 'drown', 'swept away', 'water level',
+    ]);
+
+    // Hazmat
+    scores['hazmat_safety.txt'] = _count(lower, [
+      'gas', 'gas leak', 'chemical', 'hazmat', 'spill', 'toxic', 'fumes',
+      'inhale', 'vapour', 'vapor', 'propane', 'natural gas', 'hissing',
+      'rotten egg', 'power line', 'downed line',
+    ]);
+
+    // Earthquake
+    scores['earthquake_response.txt'] = _count(lower, [
+      'earthquake', 'aftershock', 'rubble', 'tremor', 'seismic', 'shaking',
+      'quake', 'debris', 'structural collapse', 'tsunami',
+    ]);
+
+    // General
+    scores['general_emergency.txt'] = _count(lower, [
+      'emergency kit', 'survival', 'missing person', 'communication',
+      'shelter', 'help', 'lost', 'stranded', 'triage',
+    ]);
+
+    // Pick the highest-scoring file
+    String? bestFile;
+    int bestScore = 0;
+    scores.forEach((file, score) {
+      if (score > bestScore) {
+        bestScore = score;
+        bestFile = file;
+      }
+    });
+
+    // Require at least one keyword match to avoid returning irrelevant content
+    if (bestScore == 0 || bestFile == null) {
+      // Default to general emergency for any unmatched query
+      return _cache['general_emergency.txt'];
+    }
+
+    return _cache[bestFile];
+  }
+
+  /// Counts how many keywords from [terms] appear in [text].
+  static int _count(String text, List<String> terms) {
+    return terms.where((t) => text.contains(t)).length;
   }
 }

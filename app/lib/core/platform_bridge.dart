@@ -47,6 +47,7 @@ class PlatformBridge {
   bool _isInitialized = false;
   bool get isInitialized => _isInitialized;
   bool get isAiReady => _aiService.isReady;
+  bool get isSttReady => _aiService.isSttReady;
   bool get isMeshConnected => _meshService.isConnected;
   int get peerCount => _meshService.peerCount;
 
@@ -437,6 +438,7 @@ class PlatformBridge {
           return {
             'isInitialized': isInitialized,
             'isAiReady': isAiReady,
+            'isSttReady': isSttReady,
             'isMeshConnected': isMeshConnected,
             'peerCount': peerCount,
             'isRelayEnabled': isRelayEnabled,
