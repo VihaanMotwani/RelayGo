@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'theme.dart';
 import 'tester_screen.dart';
 
 /// Minimal MaterialApp for the BLE mesh tester.
@@ -13,16 +14,7 @@ class MeshTesterApp extends StatelessWidget {
     return MaterialApp(
       title: 'RelayGo Mesh Tester',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF0D1117),
-        colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF58A6FF),
-          surface: Color(0xFF161B22),
-          error: Color(0xFFF85149),
-        ),
-        fontFamily: 'Roboto',
-      ),
+      theme: ModernMinimalTheme.light,
       home: const TesterScreen(),
     );
   }
