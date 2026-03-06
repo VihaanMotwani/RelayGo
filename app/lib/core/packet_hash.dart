@@ -18,6 +18,23 @@ class PacketHash {
     return _hashParams(canonical);
   }
 
+  /// Computes a stable INCIDENT-level ID that does NOT include coordinates.
+  ///
+  /// Used as [EmergencyReport.eventId] so that GPS refinements of the same
+  /// physical incident share an identifier, preventing duplicate map pins
+  /// when coordinates update and [id] changes.
+  ///
+  /// Format: SHA-256("event|{src}|{ts}|{type}|{desc}")
+  static String computeReportEventId({
+    required String src,
+    required int ts,
+    required String type,
+    required String desc,
+  }) {
+    final canonical = 'event|$src|$ts|$type|$desc';
+    return _hashParams(canonical);
+  }
+
   /// Computes a deterministic ID for a MeshMessage.
   /// Format: SHA-256("msg|{src}|{ts}|{to}|{body}")
   static String computeMessageId(String src, int ts, String? to, String body) {

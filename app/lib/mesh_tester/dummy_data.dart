@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '../models/emergency_report.dart';
 import '../models/mesh_message.dart';
 
@@ -10,14 +12,32 @@ class DummyData {
   static const String _deviceId = 'dev01';
   static const String _deviceName = 'Tester';
 
-  /// Generate 5 emergency reports covering different types and locations.
-  static List<EmergencyReport> generateReports() {
+  // Fallback coordinates (Singapore)
+  static const double _fallbackLat = 1.2830;
+  static const double _fallbackLng = 103.8520;
+
+  /// Generate 5 emergency reports.
+  /// If [lat]/[lng] are provided, uses real device GPS with slight jitter.
+  /// Otherwise falls back to hardcoded Singapore coordinates.
+  static List<EmergencyReport> generateReports({
+    double? lat,
+    double? lng,
+    double? acc,
+  }) {
     final now = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+    final rng = Random();
+    final baseLat = lat ?? _fallbackLat;
+    final baseLng = lng ?? _fallbackLng;
+
+    // Jitter offsets (±~100m) to spread reports around the device location
+    double jitter() => (rng.nextDouble() - 0.5) * 0.002;
+
     return [
       EmergencyReport(
         ts: now,
-        lat: 1.2830,
-        lng: 103.8520,
+        lat: baseLat + jitter(),
+        lng: baseLng + jitter(),
+        acc: acc ?? 10,
         type: 'fire',
         urg: 5,
         desc: 'Building fire 3rd floor',
@@ -25,8 +45,9 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 30,
-        lat: 1.2850,
-        lng: 103.8480,
+        lat: baseLat + jitter(),
+        lng: baseLng + jitter(),
+        acc: acc ?? 10,
         type: 'medical',
         urg: 4,
         desc: 'Person collapsed Market St',
@@ -34,8 +55,9 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 60,
-        lat: 1.2810,
-        lng: 103.8550,
+        lat: baseLat + jitter(),
+        lng: baseLng + jitter(),
+        acc: acc ?? 10,
         type: 'structural',
         urg: 3,
         desc: 'Wall collapse 5th Ave',
@@ -43,8 +65,9 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 90,
-        lat: 1.2880,
-        lng: 103.8450,
+        lat: baseLat + jitter(),
+        lng: baseLng + jitter(),
+        acc: acc ?? 10,
         type: 'flood',
         urg: 3,
         desc: 'Street flooding Main St',
@@ -52,8 +75,9 @@ class DummyData {
       ),
       EmergencyReport(
         ts: now - 120,
-        lat: 1.2790,
-        lng: 103.8590,
+        lat: baseLat + jitter(),
+        lng: baseLng + jitter(),
+        acc: acc ?? 10,
         type: 'hazmat',
         urg: 4,
         desc: 'Gas leak at intersection',

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../services/location_service.dart';
 import 'demo_data.dart';
 import 'dummy_data.dart';
 import 'home_page.dart';
@@ -35,6 +36,8 @@ class _TesterScreenState extends State<TesterScreen> {
   bool _dataPreloaded = false;
   String _adapterName = '...';
   int _currentTab = 0;
+  double? _lat;
+  double? _lng;
 
   StreamSubscription? _logSub;
   StreamSubscription? _statsSub;
@@ -80,10 +83,7 @@ class _TesterScreenState extends State<TesterScreen> {
 
     List<Permission> permissionsToRequest = [];
     if (Platform.isIOS) {
-      permissionsToRequest = [
-        Permission.location,
-        Permission.bluetooth,
-      ];
+      permissionsToRequest = [Permission.location, Permission.bluetooth];
     } else {
       permissionsToRequest = [
         Permission.location,
@@ -93,8 +93,8 @@ class _TesterScreenState extends State<TesterScreen> {
       ];
     }
 
-    Map<Permission, PermissionStatus> statuses =
-        await permissionsToRequest.request();
+    Map<Permission, PermissionStatus> statuses = await permissionsToRequest
+        .request();
 
     bool allGranted = true;
     statuses.forEach((permission, status) {
@@ -134,6 +134,26 @@ class _TesterScreenState extends State<TesterScreen> {
         _log.error('Cannot start mesh without required permissions.');
         return;
       }
+
+      // Fetch real GPS coordinates before starting the mesh
+      _log.info('📍 Fetching device location...');
+      final position = await LocationService.getCurrentLocation();
+      if (position != null) {
+        setState(() {
+          _lat = position.latitude;
+          _lng = position.longitude;
+        });
+        _log.info(
+          '📍 Location acquired: ${position.latitude.toStringAsFixed(6)}, '
+          '${position.longitude.toStringAsFixed(6)} '
+          '(accuracy: ${position.accuracy.toStringAsFixed(1)}m)',
+        );
+      } else {
+        _log.error(
+          '⚠️ Could not acquire GPS location — packets will use fallback coords.',
+        );
+      }
+
       setState(() => _meshRunning = true);
       await _mesh.start();
     }
@@ -144,7 +164,7 @@ class _TesterScreenState extends State<TesterScreen> {
       _log.info('Data already preloaded — skipping');
       return;
     }
-    final reports = DummyData.generateReports();
+    final reports = DummyData.generateReports(lat: _lat, lng: _lng);
     final messages = DummyData.generateMessages();
     await _mesh.preloadReports(reports);
     await _mesh.preloadMessages(messages);
@@ -171,9 +191,7 @@ class _TesterScreenState extends State<TesterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _tabTitle(_currentTab),
-        ),
+        title: Text(_tabTitle(_currentTab)),
         actions: [
           if (_currentTab == 0)
             Padding(
@@ -193,6 +211,8 @@ class _TesterScreenState extends State<TesterScreen> {
             mesh: _mesh,
             meshRunning: _meshRunning,
             onToggleMesh: _toggleMesh,
+            lat: _lat,
+            lng: _lng,
           ),
           const AiPage(),
           MessagesPage(mesh: _mesh),
@@ -285,18 +305,14 @@ class _PeerBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = isRunning ? Colors.green.shade600 : Colors.grey.shade500;
-    
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: isRunning
-            ? Colors.green.shade50
-            : Colors.grey.shade100,
+        color: isRunning ? Colors.green.shade50 : Colors.grey.shade100,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: isRunning
-              ? Colors.green.shade200
-              : Colors.grey.shade300,
+          color: isRunning ? Colors.green.shade200 : Colors.grey.shade300,
         ),
       ),
       child: Row(

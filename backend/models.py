@@ -23,6 +23,7 @@ class RelayPoint(BaseModel):
 class EmergencyReport(BaseModel):
     kind: Literal["report"] = "report"
     id: str = Field(default_factory=lambda: str(uuid4()))
+    event_id: Optional[str] = None  # stable across GPS refinements; excludes lat/lng
     ts: int
     loc: Location
     type: Literal["fire", "medical", "structural", "flood", "hazmat", "other"]

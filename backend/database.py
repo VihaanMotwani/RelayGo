@@ -15,6 +15,7 @@ DB_PATH = Path(__file__).resolve().parent / "relaygo.db"
 _CREATE_REPORTS = """
 CREATE TABLE IF NOT EXISTS reports (
     id         TEXT PRIMARY KEY,
+    event_id   TEXT,
     ts         INTEGER NOT NULL,
     lat        REAL    NOT NULL,
     lng        REAL    NOT NULL,
@@ -74,26 +75,41 @@ async def init_db() -> None:
         await db.execute(_CREATE_REPORTS)
         await db.execute(_CREATE_MESSAGES)
         await db.execute(_CREATE_DIRECTIVES)
-        # Migration: add zone column to existing directives table.
-        try:
-            await db.execute("ALTER TABLE directives ADD COLUMN zone TEXT")
-        except Exception:
-            pass  # Column already exists
+        # Migrations: add columns to existing tables.
+        for migration in [
+            "ALTER TABLE directives ADD COLUMN zone TEXT",
+            "ALTER TABLE reports ADD COLUMN event_id TEXT",
+            "CREATE INDEX IF NOT EXISTS idx_reports_event_id ON reports(event_id)",
+        ]:
+            try:
+                await db.execute(migration)
+            except Exception:
+                pass  # Column / index already exists
         await db.commit()
     finally:
         await db.close()
 
 
 async def insert_report(report: EmergencyReport) -> bool:
-    """Insert a report. Returns True if a new row was created (not a dup)."""
+    """Insert or merge a report.
+
+    Strategy:
+    - If no row exists with the same ``id`` (content hash), insert fresh → returns True.
+    - If same ``id`` already exists (exact dup including coordinates), silently drop → False.
+    - If a different ``id`` but same ``event_id`` exists AND the new fix has better GPS
+      accuracy (lower acc), update lat/lng/acc/hops/relay_path in-place → returns False
+      (not a new incident, but the dashboard WebSocket broadcast still fires upstream).
+    """
     db = await _get_db()
     try:
+        # Step 1: attempt plain insert on content-hash id.
         cursor = await db.execute(
             """INSERT OR IGNORE INTO reports
-               (id, ts, lat, lng, acc, type, urg, haz, desc, src, hops, ttl, relay_path)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+               (id, event_id, ts, lat, lng, acc, type, urg, haz, desc, src, hops, ttl, relay_path)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 report.id,
+                report.event_id,
                 report.ts,
                 report.loc.lat,
                 report.loc.lng,
@@ -108,8 +124,33 @@ async def insert_report(report: EmergencyReport) -> bool:
                 json.dumps([p.model_dump() for p in report.relay_path]),
             ),
         )
+        inserted = cursor.rowcount > 0
+
+        # Step 2: if duplicate on id but we have an event_id, try location merge.
+        if not inserted and report.event_id:
+            existing = await db.execute(
+                "SELECT acc FROM reports WHERE event_id = ? LIMIT 1",
+                (report.event_id,),
+            )
+            row = await existing.fetchone()
+            if row and report.loc.acc < dict(row)["acc"]:
+                # Better GPS fix for the same incident — update location in place.
+                await db.execute(
+                    """UPDATE reports
+                       SET lat=?, lng=?, acc=?, hops=?, relay_path=?
+                       WHERE event_id=?""",
+                    (
+                        report.loc.lat,
+                        report.loc.lng,
+                        report.loc.acc,
+                        report.hops,
+                        json.dumps([p.model_dump() for p in report.relay_path]),
+                        report.event_id,
+                    ),
+                )
+
         await db.commit()
-        return cursor.rowcount > 0
+        return inserted
     finally:
         await db.close()
 
