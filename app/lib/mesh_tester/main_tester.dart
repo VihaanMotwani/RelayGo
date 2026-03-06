@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gemma/flutter_gemma.dart';
 
 import 'mesh_tester_app.dart';
 
@@ -9,7 +10,8 @@ import 'mesh_tester_app.dart';
 ///
 /// This launches a standalone tester app that exercises the real
 /// BLE mesh stack without the full RelayGo AI/chat/dashboard UI.
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await FlutterGemma.initialize();
   runApp(const MeshTesterApp());
 }

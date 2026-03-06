@@ -4,10 +4,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'ai_page.dart';
 import 'demo_data.dart';
 import 'dummy_data.dart';
+import 'gemma_service.dart';
 import 'home_page.dart';
-import 'ai_page.dart';
 import 'instrumented_mesh_service.dart';
 import 'log_page.dart';
 import 'log_service.dart';
@@ -29,6 +30,7 @@ class _TesterScreenState extends State<TesterScreen> {
   final InstrumentedMeshService _mesh = InstrumentedMeshService.create();
   final LogService _log = LogService.instance;
   final ScrollController _logScrollController = ScrollController();
+  final GemmaService _gemma = GemmaService();
 
   List<LogEntry> _logEntries = [];
   bool _meshRunning = false;
@@ -62,6 +64,11 @@ class _TesterScreenState extends State<TesterScreen> {
     _statsSub = _mesh.onStatsChanged.listen((_) {
       setState(() {});
     });
+
+    // Initialize Gemma LLM
+    _gemma.initialize().then((_) {
+      if (mounted) setState(() {});
+    });
   }
 
   @override
@@ -69,6 +76,7 @@ class _TesterScreenState extends State<TesterScreen> {
     _logSub?.cancel();
     _statsSub?.cancel();
     _mesh.dispose();
+    _gemma.dispose();
     _logScrollController.dispose();
     super.dispose();
   }
@@ -194,7 +202,7 @@ class _TesterScreenState extends State<TesterScreen> {
             meshRunning: _meshRunning,
             onToggleMesh: _toggleMesh,
           ),
-          const AiPage(),
+          AiPage(gemma: _gemma),
           MessagesPage(mesh: _mesh),
           LogPage(
             entries: _logEntries,
