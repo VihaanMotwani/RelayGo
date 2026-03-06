@@ -34,19 +34,20 @@ class GemmaService {
       // (clears any stale model specs from previous failed installs)
       await FlutterGemma.installModel(
         modelType: ModelType.qwen,
-      )
-          .fromNetwork(_modelUrl)
-          .withProgress((progress) {
-            _downloadProgress = progress / 100.0;
-            _statusController.add(_status);
-          })
-          .install();
+      ).fromNetwork(_modelUrl).withProgress((progress) {
+        _downloadProgress = progress / 100.0;
+        _statusController.add(_status);
+      }).install();
 
       _setStatus(GemmaStatus.initializing);
 
+      // CPU backend works reliably on both iOS and Android.
+      // GPU path initialises successfully but crashes at inference time on
+      // Android (DetokenizerCalculator gets token id=-1 from the GPU→CPU
+      // op fallback), so try-catch at init cannot intercept it.
       _model = await FlutterGemma.getActiveModel(
         maxTokens: 1280,
-        preferredBackend: PreferredBackend.gpu,
+        preferredBackend: PreferredBackend.cpu,
       );
 
       _setStatus(GemmaStatus.ready);
@@ -67,18 +68,18 @@ class GemmaService {
   Future<InferenceChat> _getOrCreateChat() async {
     if (_chat != null && _chatInitialized) return _chat!;
 
-    _chat = await _model!.createChat(
-      temperature: 0.3,
-      topK: 1,
-    );
+    _chat = await _model!.createChat(temperature: 0.3, topK: 1);
 
     // Prime with system instruction on first message
-    await _chat!.addQueryChunk(Message.text(
-      text: 'You are an emergency response AI assistant. '
-          'Always respond in English. Be concise and helpful. '
-          'Provide clear, actionable guidance for emergencies.',
-      isUser: true,
-    ));
+    await _chat!.addQueryChunk(
+      Message.text(
+        text:
+            'You are an emergency response AI assistant. '
+            'Always respond in English. Be concise and helpful. '
+            'Provide clear, actionable guidance for emergencies.',
+        isUser: true,
+      ),
+    );
 
     // Generate and discard the system-level reply so the model
     // "acknowledges" the instruction before real user input
@@ -98,10 +99,7 @@ class GemmaService {
     try {
       final chat = await _getOrCreateChat();
 
-      await chat.addQueryChunk(Message.text(
-        text: userText,
-        isUser: true,
-      ));
+      await chat.addQueryChunk(Message.text(text: userText, isUser: true));
 
       // Stream the response
       final responseStream = chat.generateChatResponseAsync();
