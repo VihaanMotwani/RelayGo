@@ -153,6 +153,28 @@ class InstrumentedMeshService {
     await refreshStoredIds();
   }
 
+  /// Inject a single user-confirmed emergency report into the mesh.
+  ///
+  /// Wraps the report as a [MeshPacket], stores it, and refreshes the outbox
+  /// so the Central advertises it on the next scan cycle.
+  Future<bool> injectReport(EmergencyReport report) async {
+    final packet = MeshPacket.fromReport(report);
+    final isNew = await _store.insertIfNew(packet);
+    if (isNew) {
+      _log.store(
+        '📡 Injected report ${report.id.substring(0, 8)}... '
+        'type=${report.type} urg=${report.urg}',
+      );
+      await _meshService.refreshOutbox();
+      await refreshStoredIds();
+    } else {
+      _log.store(
+        '🔁 DEDUP: report ${report.id.substring(0, 8)}... already exists',
+      );
+    }
+    return isNew;
+  }
+
   /// Clear database and reset counters.
   Future<void> resetDatabase() async {
     _log.info('Resetting database...');

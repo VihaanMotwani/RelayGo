@@ -14,7 +14,9 @@ class _ChatMsg {
   _ChatMsg({required this.text, required this.isUser});
 }
 
-/// AI chat page backed by on-device LLM via flutter_gemma.
+/// Pure AI chat page backed by on-device LLM via flutter_gemma.
+///
+/// No extraction, no packet creation — just emergency guidance chat.
 class AiPage extends StatefulWidget {
   final GemmaService gemma;
 
@@ -87,15 +89,20 @@ class _AiPageState extends State<AiPage> {
       _scrollToBottom();
     }
 
-    if (mounted) {
-      setState(() => _isStreaming = false);
-    }
+    if (!mounted) return;
+    setState(() => _isStreaming = false);
   }
 
   void _toggleRecording() {
     if (_isStreaming) return;
     setState(() => _isRecording = !_isRecording);
     // STT will be wired here later
+  }
+
+  /// Stop the current LLM inference.
+  void _stopGeneration() {
+    widget.gemma.stopInference();
+    setState(() => _isStreaming = false);
   }
 
   @override
@@ -111,46 +118,57 @@ class _AiPageState extends State<AiPage> {
         Expanded(
           child: _messages.isEmpty
               ? Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(Spacing.xl),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.primary.withOpacity(0.05),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.smart_toy_rounded,
-                          size: 64,
-                          color: theme.colorScheme.primary.withOpacity(0.5),
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.lg),
-                      Text(
-                        'RelayGo AI Assistant',
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onSurface.withOpacity(0.8),
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                      Text(
-                        widget.gemma.status == GemmaStatus.ready
-                            ? 'Type a message to get emergency guidance.'
-                            : 'Waiting for model to load…',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurface.withOpacity(0.5),
-                        ),
-                      ),
-                    ],
-                  ).animate().fadeIn(duration: 500.ms).slideY(begin: 0.1, end: 0),
+                  child:
+                      Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(Spacing.xl),
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.primary.withOpacity(
+                                    0.05,
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  Icons.smart_toy_rounded,
+                                  size: 64,
+                                  color: theme.colorScheme.primary.withOpacity(
+                                    0.5,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: Spacing.lg),
+                              Text(
+                                'RelayGo AI Assistant',
+                                style: theme.textTheme.titleLarge?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.onSurface
+                                      .withOpacity(0.8),
+                                ),
+                              ),
+                              const SizedBox(height: Spacing.sm),
+                              Text(
+                                widget.gemma.status == GemmaStatus.ready
+                                    ? 'Ask for emergency guidance.'
+                                    : 'Waiting for model to load…',
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withOpacity(0.5),
+                                ),
+                              ),
+                            ],
+                          )
+                          .animate()
+                          .fadeIn(duration: 500.ms)
+                          .slideY(begin: 0.1, end: 0),
                 )
               : ListView.separated(
                   controller: _scrollController,
                   padding: const EdgeInsets.all(Spacing.md),
                   itemCount: _messages.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: Spacing.md),
+                  separatorBuilder: (_, __) =>
+                      const SizedBox(height: Spacing.md),
                   itemBuilder: (context, index) {
                     final msg = _messages[index];
                     return _buildBubble(theme, msg);
@@ -190,7 +208,8 @@ class _AiPageState extends State<AiPage> {
         break;
       case GemmaStatus.error:
         final errText = widget.gemma.error ?? 'unknown';
-        label = 'AI Error: ${errText.length > 80 ? '${errText.substring(0, 80)}…' : errText}';
+        label =
+            'AI Error: ${errText.length > 80 ? '${errText.substring(0, 80)}…' : errText}';
         color = Colors.red.shade500;
         break;
       case GemmaStatus.ready:
@@ -254,40 +273,53 @@ class _AiPageState extends State<AiPage> {
 
     return Align(
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.75,
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: Spacing.md, vertical: Spacing.sm),
-        decoration: BoxDecoration(
-          color: isUser ? theme.colorScheme.primary : theme.colorScheme.surface,
-          borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(16),
-            topRight: const Radius.circular(16),
-            bottomLeft: Radius.circular(isUser ? 16 : 4),
-            bottomRight: Radius.circular(isUser ? 4 : 16),
-          ),
-          border: isUser ? null : Border.all(color: Colors.grey.shade200),
-          boxShadow: isUser
-              ? []
-              : [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.02),
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-        ),
-        child: isEmpty
-            ? _buildTypingIndicator(theme)
-            : Text(
-                msg.text,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: isUser ? Colors.white : theme.colorScheme.onSurface,
-                  height: 1.4,
+      child:
+          Container(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.75,
                 ),
-              ),
-      ).animate().fadeIn(duration: 200.ms).slideX(begin: isUser ? 0.1 : -0.1, end: 0),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spacing.md,
+                  vertical: Spacing.sm,
+                ),
+                decoration: BoxDecoration(
+                  color: isUser
+                      ? theme.colorScheme.primary
+                      : theme.colorScheme.surface,
+                  borderRadius: BorderRadius.only(
+                    topLeft: const Radius.circular(16),
+                    topRight: const Radius.circular(16),
+                    bottomLeft: Radius.circular(isUser ? 16 : 4),
+                    bottomRight: Radius.circular(isUser ? 4 : 16),
+                  ),
+                  border: isUser
+                      ? null
+                      : Border.all(color: Colors.grey.shade200),
+                  boxShadow: isUser
+                      ? []
+                      : [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.02),
+                            blurRadius: 4,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                ),
+                child: isEmpty
+                    ? _buildTypingIndicator(theme)
+                    : Text(
+                        msg.text,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: isUser
+                              ? Colors.white
+                              : theme.colorScheme.onSurface,
+                          height: 1.4,
+                        ),
+                      ),
+              )
+              .animate()
+              .fadeIn(duration: 200.ms)
+              .slideX(begin: isUser ? 0.1 : -0.1, end: 0),
     );
   }
 
@@ -296,14 +328,14 @@ class _AiPageState extends State<AiPage> {
       mainAxisSize: MainAxisSize.min,
       children: List.generate(3, (i) {
         return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 2),
-          width: 7,
-          height: 7,
-          decoration: BoxDecoration(
-            color: theme.colorScheme.onSurface.withOpacity(0.3),
-            shape: BoxShape.circle,
-          ),
-        )
+              margin: const EdgeInsets.symmetric(horizontal: 2),
+              width: 7,
+              height: 7,
+              decoration: BoxDecoration(
+                color: theme.colorScheme.onSurface.withOpacity(0.3),
+                shape: BoxShape.circle,
+              ),
+            )
             .animate(onPlay: (c) => c.repeat())
             .fadeIn(delay: Duration(milliseconds: i * 200))
             .then()
@@ -316,7 +348,12 @@ class _AiPageState extends State<AiPage> {
     final isReady = widget.gemma.status == GemmaStatus.ready;
 
     return Container(
-      padding: const EdgeInsets.fromLTRB(Spacing.md, Spacing.sm, Spacing.md, Spacing.md),
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.md,
+        Spacing.sm,
+        Spacing.md,
+        Spacing.md,
+      ),
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         boxShadow: [
@@ -349,27 +386,31 @@ class _AiPageState extends State<AiPage> {
                       enabled: isReady && !_isStreaming,
                       decoration: InputDecoration(
                         hintText: isReady
-                            ? 'Describe your emergency…'
+                            ? 'Ask for emergency guidance…'
                             : 'Waiting for AI model…',
                         border: InputBorder.none,
                         isDense: true,
-                        contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                        ),
                       ),
                       onSubmitted: (val) => _sendMessage(val),
                     ),
                   ),
                   IconButton(
                     icon: _isStreaming
-                        ? SizedBox(
-                            width: 16,
-                            height: 16,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                              color: theme.colorScheme.primary,
-                            ),
+                        ? Icon(
+                            Icons.stop_rounded,
+                            color: Colors.red.shade500,
+                            size: 22,
                           )
-                        : Icon(Icons.send_rounded, color: theme.colorScheme.primary),
-                    onPressed: isReady && !_isStreaming
+                        : Icon(
+                            Icons.send_rounded,
+                            color: theme.colorScheme.primary,
+                          ),
+                    onPressed: _isStreaming
+                        ? _stopGeneration
+                        : isReady
                         ? () => _sendMessage(_controller.text)
                         : null,
                   ),
@@ -380,30 +421,38 @@ class _AiPageState extends State<AiPage> {
           const SizedBox(width: Spacing.sm),
           GestureDetector(
             onTap: isReady ? _toggleRecording : null,
-            child: Container(
-              width: 48,
-              height: 48,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _isRecording ? Colors.red.shade500 : theme.colorScheme.primary,
-                boxShadow: [
-                  BoxShadow(
-                    color: (_isRecording ? Colors.red.shade500 : theme.colorScheme.primary)
-                        .withOpacity(0.3),
-                    blurRadius: 8,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
-              ),
-              child: Icon(
-                _isRecording ? Icons.stop_rounded : Icons.mic_rounded,
-                color: Colors.white,
-              ),
-            ).animate(target: _isRecording ? 1 : 0).scale(
-                  begin: const Offset(1, 1),
-                  end: const Offset(1.1, 1.1),
-                  duration: 200.ms,
-                ),
+            child:
+                Container(
+                      width: 48,
+                      height: 48,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _isRecording
+                            ? Colors.red.shade500
+                            : theme.colorScheme.primary,
+                        boxShadow: [
+                          BoxShadow(
+                            color:
+                                (_isRecording
+                                        ? Colors.red.shade500
+                                        : theme.colorScheme.primary)
+                                    .withOpacity(0.3),
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Icon(
+                        _isRecording ? Icons.stop_rounded : Icons.mic_rounded,
+                        color: Colors.white,
+                      ),
+                    )
+                    .animate(target: _isRecording ? 1 : 0)
+                    .scale(
+                      begin: const Offset(1, 1),
+                      end: const Offset(1.1, 1.1),
+                      duration: 200.ms,
+                    ),
           ),
         ],
       ),

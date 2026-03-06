@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../core/sent_report_cache.dart';
 import '../services/location_service.dart';
 import 'ai_page.dart';
 import 'demo_data.dart';
@@ -32,6 +33,7 @@ class _TesterScreenState extends State<TesterScreen> {
   final LogService _log = LogService.instance;
   final ScrollController _logScrollController = ScrollController();
   final GemmaService _gemma = GemmaService();
+  final SentReportCache _reportCache = SentReportCache();
 
   List<LogEntry> _logEntries = [];
   bool _meshRunning = false;
@@ -143,27 +145,38 @@ class _TesterScreenState extends State<TesterScreen> {
         return;
       }
 
-      // Fetch real GPS coordinates before starting the mesh
-      _log.info('📍 Fetching device location...');
-      final position = await LocationService.getCurrentLocation();
-      if (position != null) {
-        setState(() {
-          _lat = position.latitude;
-          _lng = position.longitude;
-        });
-        _log.info(
-          '📍 Location acquired: ${position.latitude.toStringAsFixed(6)}, '
-          '${position.longitude.toStringAsFixed(6)} '
-          '(accuracy: ${position.accuracy.toStringAsFixed(1)}m)',
-        );
-      } else {
-        _log.error(
-          '⚠️ Could not acquire GPS location — packets will use fallback coords.',
-        );
-      }
-
       setState(() => _meshRunning = true);
-      await _mesh.start();
+
+      // Start mesh in the background
+      _mesh.start().catchError((e) {
+        _log.error('Mesh start failed: $e');
+      });
+
+      // Fetch real GPS coordinates asynchronously, DO NOT block the UI
+      _log.info('📍 Fetching device location...');
+      LocationService.getCurrentLocation()
+          .then((position) {
+            if (position != null) {
+              if (mounted) {
+                setState(() {
+                  _lat = position.latitude;
+                  _lng = position.longitude;
+                });
+              }
+              _log.info(
+                '📍 Location acquired: ${position.latitude.toStringAsFixed(6)}, '
+                '${position.longitude.toStringAsFixed(6)} '
+                '(accuracy: ${position.accuracy.toStringAsFixed(1)}m)',
+              );
+            } else {
+              _log.error(
+                '⚠️ Could not acquire GPS location — packets will use fallback coords.',
+              );
+            }
+          })
+          .catchError((e) {
+            _log.error('⚠️ Location error: $e');
+          });
     }
   }
 
@@ -221,6 +234,8 @@ class _TesterScreenState extends State<TesterScreen> {
             onToggleMesh: _toggleMesh,
             lat: _lat,
             lng: _lng,
+            gemma: _gemma,
+            reportCache: _reportCache,
           ),
           AiPage(gemma: _gemma),
           MessagesPage(mesh: _mesh),
