@@ -1,7 +1,8 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_gemma/flutter_gemma.dart';
 
-import '../services/ai/prompts.dart';
+import '../models/extraction_result.dart';
 
 /// Status of the Gemma model lifecycle.
 enum GemmaStatus { idle, downloading, initializing, ready, error }
@@ -111,6 +112,63 @@ class GemmaService {
       }
     } catch (e) {
       yield '\n[Error: $e]';
+    }
+  }
+
+  // ── Extraction (Turn 2 — Silent) ──────────────────────────────────
+
+  static const _extractionPrompt =
+      '''Extract emergency data from this conversation as JSON only. No other text.
+
+Schema (desc max 100 chars):
+{"type":"...","urg":N,"haz":[],"desc":"...","c":{"t":"high|medium|low","u":"high|medium|low","d":"high|medium|low"}}
+
+Types: fire, medical, structural, flood, hazmat, other
+Urgency: 1-5 (5=life threatening)
+Hazards: gas_leak,fire_spread,structural_collapse,flooding,chemical_spill,downed_power_lines,trapped_people
+If not an emergency: {"type":null}
+''';
+
+  /// Run a silent second inference call to extract structured emergency data.
+  ///
+  /// Uses a separate chat session so we don't pollute the main conversation
+  /// history with extraction prompts.
+  Future<ExtractionResult?> extractEmergency(
+    String userText,
+    String aiResponse,
+  ) async {
+    if (_model == null || _status != GemmaStatus.ready) return null;
+
+    try {
+      // Create a one-shot session for extraction
+      final extractChat = await _model!.createChat(
+        temperature: 0.1, // low temperature for deterministic JSON
+        topK: 1,
+      );
+
+      final prompt =
+          '$_extractionPrompt\n'
+          'User said: $userText\n'
+          'AI responded: $aiResponse\n'
+          'JSON:';
+
+      await extractChat.addQueryChunk(Message.text(text: prompt, isUser: true));
+
+      // Collect the full response (non-streaming)
+      final buffer = StringBuffer();
+      await for (final response in extractChat.generateChatResponseAsync()) {
+        if (response is TextResponse) {
+          buffer.write(response.token);
+        }
+      }
+
+      final rawOutput = buffer.toString().trim();
+      debugPrint('[extractEmergency] raw output: $rawOutput');
+
+      return ExtractionResult.tryParse(rawOutput);
+    } catch (e) {
+      debugPrint('[extractEmergency] error: $e');
+      return null;
     }
   }
 

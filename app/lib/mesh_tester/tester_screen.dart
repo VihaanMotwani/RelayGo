@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../core/sent_report_cache.dart';
 import '../services/location_service.dart';
 import 'ai_page.dart';
 import 'demo_data.dart';
@@ -32,6 +33,7 @@ class _TesterScreenState extends State<TesterScreen> {
   final LogService _log = LogService.instance;
   final ScrollController _logScrollController = ScrollController();
   final GemmaService _gemma = GemmaService();
+  final SentReportCache _reportCache = SentReportCache();
 
   List<LogEntry> _logEntries = [];
   bool _meshRunning = false;
@@ -222,7 +224,7 @@ class _TesterScreenState extends State<TesterScreen> {
             lat: _lat,
             lng: _lng,
           ),
-          AiPage(gemma: _gemma),
+          AiPage(gemma: _gemma, mesh: _mesh, reportCache: _reportCache),
           MessagesPage(mesh: _mesh),
           LogPage(
             entries: _logEntries,
