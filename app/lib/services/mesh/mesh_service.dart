@@ -16,7 +16,7 @@ class MeshService {
   final PacketStore _store;
   final BlePeripheralService _peripheral;
   final BleCentralService _central;
-  final BackendSync _backendSync;
+  late final BackendSync _backendSync;
   StreamSubscription? _peripheralSub;
 
   /// Optional log callback for observability.
@@ -59,8 +59,12 @@ class MeshService {
   MeshService({PacketStore? store, this.onLog})
     : _store = store ?? PacketStore(),
       _peripheral = BlePeripheralService(onLog: onLog),
-      _central = BleCentralService(onLog: onLog),
-      _backendSync = BackendSync(store ?? PacketStore(), onLog: onLog) {
+      _central = BleCentralService(onLog: onLog) {
+    _backendSync = BackendSync(
+      _store,
+      onLog: onLog,
+      getDeviceId: () => _deviceId,
+    );
     _initIdentity();
   }
 

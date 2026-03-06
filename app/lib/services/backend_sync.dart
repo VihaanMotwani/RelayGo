@@ -5,6 +5,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 
 import '../core/constants.dart';
+import 'location_service.dart';
 import 'mesh/packet_store.dart';
 
 class BackendSync {
@@ -16,12 +17,15 @@ class BackendSync {
   /// Optional log callback.
   final void Function(String)? onLog;
 
+  /// Callback to get the current device ID for relay paths
+  final String Function()? getDeviceId;
+
   bool get isOnline => _isOnline;
 
   final _connectivityController = StreamController<bool>.broadcast();
   Stream<bool> get onConnectivityChanged => _connectivityController.stream;
 
-  BackendSync(this._store, {this.onLog});
+  BackendSync(this._store, {this.onLog, this.getDeviceId});
 
   void _log(String msg) => onLog?.call(msg);
 
@@ -56,9 +60,34 @@ class BackendSync {
 
       _log('Sync: Found ${packets.length} packets to upload.');
 
-      final body = jsonEncode({
-        'packets': packets.map((p) => p.toJson()).toList(),
-      });
+      // Fetch our current location to append to the relay path
+      final position = await LocationService.getCurrentLocation();
+      final myDeviceId = getDeviceId?.call() ?? 'unknown-uplink';
+
+      final jsonPackets = packets.map((p) {
+        final j = p.toJson();
+        // If it's a report from a DIFFERENT device, and we have GPS, add the jump!
+        if (p.isReport &&
+            position != null &&
+            j['loc'] != null &&
+            j['src'] != myDeviceId) {
+          j['relay_path'] = [
+            {
+              "lat": j['loc']['lat'],
+              "lng": j['loc']['lng'],
+              "device": j['src'],
+            },
+            {
+              "lat": position.latitude,
+              "lng": position.longitude,
+              "device": myDeviceId,
+            },
+          ];
+        }
+        return j;
+      }).toList();
+
+      final body = jsonEncode({'packets': jsonPackets});
 
       final uri = Uri.parse(
         '${BackendConfig.baseUrl}${BackendConfig.reportsEndpoint}',

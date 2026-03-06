@@ -6,15 +6,15 @@
 Problem: During disasters (earthquakes, hurricanes, fires), cellular networks and power grids fail, leaving people unable to report emergencies or get help. Existing 911 infrastructure is centralized and fragile.
 
 Solution: RelayGo is an offline-first emergency response app that:
-1. Uses on-device AI (Cactus Compute) to calm users and provide verified emergency guidance
-2. Transcribes voice reports and extracts structured JSON via tool calling
+1. Uses on-device AI (Cactus Compute / Gemma) to calm users and provide verified emergency guidance
+2. Users manually create structured SOS reports (Type, Urgency, Description) via a dedicated UI form
 3. Broadcasts tiny JSON packets over a BLE mesh network (phone-to-phone)
 4. Enables P2P messaging (broadcast alerts + direct 1-to-1 messages) over the same BLE mesh — no internet needed
 5. Provides a Disaster Awareness screen where AI aggregates all incoming mesh data (reports + messages) into a live situational summary with guidance
 6. Uploads aggregated data to a backend when any node regains connectivity
 7. Visualizes emergency data on a real-time dashboard map
 
-Tech Stack: Flutter (iOS + Android) | Cactus Compute (on-device AI) | Raw BLE mesh | FastAPI (Python backend) | React + Mapbox (dashboard)
+Tech Stack: Flutter (iOS + Android) | On-device LLM | Raw BLE mesh | FastAPI (Python backend) | React + Mapbox (dashboard)
 
 ---
 ## Architecture Overview
@@ -24,15 +24,14 @@ Tech Stack: Flutter (iOS + Android) | Cactus Compute (on-device AI) | Raw BLE me
 │                       FLUTTER APP                            │
 │                                                              │
 │  ┌──────────┐  ┌───────────┐  ┌───────────────────────────┐  │
-│  │  Voice   │→ │  Cactus   │→ │  Tool Calling             │  │
-│  │ Record   │  │  Whisper  │  │  extract_emergency()      │  │
-│  └──────────┘  │  (STT)    │  │  → structured JSON packet │  │
-│                └───────────┘  └────────────┬──────────────┘  │
-│  ┌──────────┐  ┌───────────┐               │                 │
-│  │  Text    │→ │  Cactus   │               ▼                 │
-│  │  Input   │  │  LLM+RAG  │  ┌────────────────────────┐     │
-│  └──────────┘  │  (Chat)   │  │  BLE Mesh Service      │     │
-│                └───────────┘  │  Peripheral + Central  │     │
+│  │  Manual  │→ │  Packet   │→ │  BLE Mesh Service         │  │
+│  │  Form    │  │  Builder  │  │  Peripheral + Central     │  │
+│  └──────────┘  └───────────┘  │  Reports + Messages       │  │
+│                               │  Store & Forward          │  │
+│  ┌──────────┐  ┌───────────┐  │                           │  │
+│  │  Text &  │→ │  AI Chat  │  │                           │  │
+│  │  Voice   │  │  Guidance │  │                           │  │
+│  └──────────┘  └───────────┘  └────────────┬──────────────┘  │
 │                               │  Reports + Messages    │     │
 │  ┌───────────────────────┐    │  Store & Forward       │     │
 │  │  P2P Messaging        │───→│                        │     │
