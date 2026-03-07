@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../models/directive.dart';
 import '../../models/emergency_report.dart';
 import '../../models/mesh_message.dart';
 import '../../models/mesh_packet.dart';
@@ -25,11 +26,13 @@ class MeshService {
 
   final _reportController = StreamController<EmergencyReport>.broadcast();
   final _messageController = StreamController<MeshMessage>.broadcast();
+  final _directiveController = StreamController<Directive>.broadcast();
   final _packetController = StreamController<Map<String, dynamic>>.broadcast();
   final _connectionStatusController = StreamController<String>.broadcast();
 
   Stream<EmergencyReport> get onNewReport => _reportController.stream;
   Stream<MeshMessage> get onNewMessage => _messageController.stream;
+  Stream<Directive> get onNewDirective => _directiveController.stream;
   Stream<List<PeerInfo>> get onPeersChanged => _central.onPeersChanged;
   Stream<Map<String, dynamic>> get onPacketReceived => _packetController.stream;
   Stream<String> get onConnectionStatusChanged =>
@@ -51,10 +54,12 @@ class MeshService {
   List<EmergencyReport> _reports = [];
   List<MeshMessage> _messages = [];
   List<PeerInfo> _peers = [];
+  List<Directive> _directives = [];
 
   List<EmergencyReport> get reports => _reports;
   List<MeshMessage> get messages => _messages;
   List<PeerInfo> get peers => _peers;
+  List<Directive> get directives => _directives;
 
   MeshService({PacketStore? store, this.onLog})
     : _store = store ?? PacketStore(),
@@ -64,6 +69,7 @@ class MeshService {
       _store,
       onLog: onLog,
       getDeviceId: () => _deviceId,
+      onNewDirective: _handleIncomingDirective,
     );
     _initIdentity();
   }
@@ -118,6 +124,7 @@ class MeshService {
     // Load cached data
     _reports = await _store.getAllReports();
     _messages = await _store.getAllMessages();
+    _directives = await _store.getAllDirectives();
 
     _isConnected = true;
     _connectionStatusController.add('connected');
@@ -143,6 +150,9 @@ class MeshService {
       _reports.insert(0, packet.report!);
       _reportController.add(packet.report!);
       _packetController.add({'kind': 'report', ...packet.report!.toJson()});
+    } else if (packet.isDirective && packet.directive != null) {
+      _directives.insert(0, packet.directive!);
+      _directiveController.add(packet.directive!);
     }
 
     // Update central's packet list for forwarding
@@ -159,6 +169,25 @@ class MeshService {
     _packetController.add({'kind': 'message', ...message.toJson()});
   }
 
+  /// Called by BackendSync when a new directive is fetched from the backend.
+  /// Stores it as a MeshPacket in the flood-outbox so it gets pushed to BLE peers.
+  Future<void> _handleIncomingDirective(Directive directive) async {
+    _log(
+      '[MESH] Received directive from ${directive.name} priority=${directive.priority}',
+    );
+    final packet = MeshPacket.fromDirective(directive);
+    final isNew = await _store.insertIfNew(packet);
+    if (isNew) {
+      _directives.insert(0, directive);
+      _directiveController.add(directive);
+      // Re-arm the central so it floods this directive to BLE peers
+      await refreshOutbox();
+      _log(
+        '[MESH] Directive ${directive.id.substring(0, 8)}... queued for BLE flood',
+      );
+    }
+  }
+
   /// Manually force a sync to the backend. Returns the status message.
   Future<String> forceBackendSync() async {
     return await _backendSync.syncNow();
@@ -168,11 +197,14 @@ class MeshService {
   /// Call after preloading data to ensure the central picks it up.
   Future<void> refreshOutbox() async {
     final reports = await _store.getAllReports();
-    // Messages are excluded from the outbox to prevent mesh-flooding.
-    final allPackets = reports.map(MeshPacket.fromReport).toList();
+    final directives = await _store.getAllDirectives();
+    final allPackets = [
+      ...reports.map(MeshPacket.fromReport),
+      ...directives.map(MeshPacket.fromDirective),
+    ];
 
     _log(
-      '[MESH] Refreshed central queue: ${allPackets.length} packets (Reports only)',
+      '[MESH] Refreshed central queue: ${allPackets.length} packets (${reports.length} reports, ${directives.length} directives)',
     );
     _central.updateLocalPackets(allPackets);
   }
@@ -214,6 +246,7 @@ class MeshService {
     _backendSync.dispose();
     _reportController.close();
     _messageController.close();
+    _directiveController.close();
     _packetController.close();
     _connectionStatusController.close();
   }

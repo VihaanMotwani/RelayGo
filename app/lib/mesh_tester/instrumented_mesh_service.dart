@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
+import '../models/directive.dart';
 import '../models/emergency_report.dart';
 import '../models/mesh_message.dart';
 import '../models/mesh_packet.dart';
@@ -221,6 +222,8 @@ class InstrumentedMeshService {
   Stream<MeshMessage> get onNewMessage => _meshService.onNewMessage;
   Stream<EmergencyReport> get onNewReport => _meshService.onNewReport;
   List<MeshMessage> get messages => _meshService.messages;
+  Stream<Directive> get onNewDirective => _meshService.onNewDirective;
+  List<Directive> get directives => _meshService.directives;
 
   Future<bool> sendDirectMessage(
     String targetDeviceId,
