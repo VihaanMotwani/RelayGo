@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
+import 'chat_service.dart';
 import 'gemma_service.dart';
 import 'speech_chunker.dart';
 import 'theme.dart';
@@ -12,8 +13,21 @@ import 'voice_service.dart';
 class _ChatMsg {
   String text;
   final bool isUser;
+  bool fromCache;
+  bool usedRag;
+  List<String> sourceLabels;
+  bool fallback;
+  int nearbyCount;
 
-  _ChatMsg({required this.text, required this.isUser});
+  _ChatMsg({
+    required this.text,
+    required this.isUser,
+    this.fromCache = false,
+    this.usedRag = false,
+    this.sourceLabels = const [],
+    this.fallback = false,
+    this.nearbyCount = 0,
+  });
 }
 
 /// Pure AI chat page backed by on-device LLM via flutter_gemma.
@@ -22,8 +36,14 @@ class _ChatMsg {
 class AiPage extends StatefulWidget {
   final GemmaService gemma;
   final VoiceService voice;
+  final ChatService chat;
 
-  const AiPage({super.key, required this.gemma, required this.voice});
+  const AiPage({
+    super.key,
+    required this.gemma,
+    required this.voice,
+    required this.chat,
+  });
 
   @override
   State<AiPage> createState() => _AiPageState();
@@ -105,8 +125,8 @@ class _AiPageState extends State<AiPage> {
     });
     _scrollToBottom();
 
-    // Stream tokens from LLM; feed each token to the TTS chunker.
-    await for (final token in widget.gemma.streamChat(trimmed)) {
+    // Stream tokens via ChatService (RAG + cache + LLM).
+    await for (final token in widget.chat.streamAnswer(trimmed)) {
       if (!mounted) return;
       setState(() {
         _messages.last.text += token;
@@ -127,7 +147,18 @@ class _AiPageState extends State<AiPage> {
     }
 
     if (!mounted) return;
-    setState(() => _isStreaming = false);
+
+    // Stamp the assistant bubble with provenance metadata.
+    final meta = widget.chat.lastMeta;
+    setState(() {
+      _isStreaming = false;
+      _messages.last
+        ..fromCache = meta.fromCache
+        ..usedRag = meta.usedRag
+        ..sourceLabels = meta.sourceLabels
+        ..fallback = meta.fallback
+        ..nearbyCount = meta.nearbyCount;
+    });
   }
 
   Future<void> _toggleRecording() async {
@@ -402,55 +433,53 @@ class _AiPageState extends State<AiPage> {
     final isUser = msg.isUser;
     final isEmpty = msg.text.isEmpty;
 
+    final bubbleWidget = Container(
+      constraints: BoxConstraints(
+        maxWidth: MediaQuery.of(context).size.width * 0.75,
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.md,
+        vertical: Spacing.sm,
+      ),
+      decoration: BoxDecoration(
+        color: isUser
+            ? theme.colorScheme.primary
+            : theme.colorScheme.surface,
+        borderRadius: BorderRadius.only(
+          topLeft: const Radius.circular(16),
+          topRight: const Radius.circular(16),
+          bottomLeft: Radius.circular(isUser ? 16 : 4),
+          bottomRight: Radius.circular(isUser ? 4 : 16),
+        ),
+        border: isUser ? null : Border.all(color: Colors.grey.shade200),
+        boxShadow: isUser
+            ? []
+            : [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.02),
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+      ),
+      child: isEmpty
+          ? _buildTypingIndicator(theme)
+          : Text(
+              msg.text,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color:
+                    isUser ? Colors.white : theme.colorScheme.onSurface,
+                height: 1.4,
+              ),
+            ),
+    )
+        .animate()
+        .fadeIn(duration: 200.ms)
+        .slideX(begin: isUser ? 0.1 : -0.1, end: 0);
+
     return Align(
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
-      child:
-          Container(
-                constraints: BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width * 0.75,
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.md,
-                  vertical: Spacing.sm,
-                ),
-                decoration: BoxDecoration(
-                  color: isUser
-                      ? theme.colorScheme.primary
-                      : theme.colorScheme.surface,
-                  borderRadius: BorderRadius.only(
-                    topLeft: const Radius.circular(16),
-                    topRight: const Radius.circular(16),
-                    bottomLeft: Radius.circular(isUser ? 16 : 4),
-                    bottomRight: Radius.circular(isUser ? 4 : 16),
-                  ),
-                  border: isUser
-                      ? null
-                      : Border.all(color: Colors.grey.shade200),
-                  boxShadow: isUser
-                      ? []
-                      : [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.02),
-                            blurRadius: 4,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
-                ),
-                child: isEmpty
-                    ? _buildTypingIndicator(theme)
-                    : Text(
-                        msg.text,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: isUser
-                              ? Colors.white
-                              : theme.colorScheme.onSurface,
-                          height: 1.4,
-                        ),
-                      ),
-              )
-              .animate()
-              .fadeIn(duration: 200.ms)
-              .slideX(begin: isUser ? 0.1 : -0.1, end: 0),
+      child: bubbleWidget,
     );
   }
 
@@ -617,3 +646,4 @@ class _AiPageState extends State<AiPage> {
     );
   }
 }
+

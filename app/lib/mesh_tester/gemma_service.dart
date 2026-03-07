@@ -186,6 +186,70 @@ class GemmaService {
     }
   }
 
+  // ── Per-turn prompt streaming ──────────────────────────────────────
+
+  /// Stream a response for a pre-assembled prompt using a **fresh** chat
+  /// session. Unlike [streamChat], this never touches the persistent chat
+  /// history, making it safe for per-turn RAG calls from ChatService.
+  Stream<String> streamPrompt(String fullPrompt) async* {
+    if (_model == null || _status != GemmaStatus.ready) {
+      yield 'AI model not ready. Please wait for initialization.';
+      return;
+    }
+    if (_isBusy) {
+      yield 'Model is busy. Please wait for the current response to finish.';
+      return;
+    }
+
+    _isBusy = true;
+    _stopRequested = false;
+
+    try {
+      final chat = await _model!.createChat(temperature: 0.3, topK: 1);
+      await chat.addQueryChunk(Message.text(text: fullPrompt, isUser: true));
+
+      var tokenCount = 0;
+      final fullResponse = StringBuffer();
+      var brokeEarly = false;
+
+      await for (final response in chat.generateChatResponseAsync()) {
+        if (_stopRequested) {
+          brokeEarly = true;
+          break;
+        }
+        tokenCount++;
+        if (tokenCount > _maxChatTokens) {
+          brokeEarly = true;
+          break;
+        }
+        if (response is TextResponse) {
+          fullResponse.write(response.token);
+          yield response.token;
+
+          if (fullResponse.length > 200) {
+            final text = fullResponse.toString();
+            final tail = text.substring(text.length - 40);
+            final beforeTail = text.substring(0, text.length - 40);
+            if (beforeTail.contains(tail)) {
+              brokeEarly = true;
+              break;
+            }
+          }
+        }
+      }
+
+      if (brokeEarly) {
+        await Future.delayed(const Duration(milliseconds: 600));
+      }
+    } catch (e) {
+      await Future.delayed(const Duration(milliseconds: 600));
+      yield '[Error: $e]';
+    } finally {
+      _isBusy = false;
+      _stopRequested = false;
+    }
+  }
+
   // ── Description Shortener ──────────────────────────────────────────
 
   /// Shorten a description to fit the 100-character BLE wire budget.
