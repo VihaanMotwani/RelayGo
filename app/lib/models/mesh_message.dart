@@ -14,6 +14,12 @@ class MeshMessage {
   int hops;
   final int ttl;
 
+  /// The BLE hardware address of the device that wrote this message
+  /// over the peripheral characteristic. Set at reception time — NOT
+  /// persisted or transmitted on the wire. Used for UI conversation
+  /// filtering (maps to PeerInfo.deviceId).
+  String? fromBleId;
+
   MeshMessage({
     String? id,
     required this.ts,
@@ -23,6 +29,7 @@ class MeshMessage {
     required this.body,
     this.hops = 0,
     this.ttl = 10,
+    this.fromBleId,
   }) : id = id ?? PacketHash.computeMessageId(src, ts, to, body);
 
   bool get isBroadcast => to == null;

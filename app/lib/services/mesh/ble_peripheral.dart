@@ -131,8 +131,11 @@ class BlePeripheralService {
     try {
       final packet = MeshPacket.fromBytes(data);
       if (packet.message != null) {
+        // Tag the message with the sender's BLE hardware address
+        // so the UI can filter conversations per-peer.
+        packet.message!.fromBleId = fromDevice;
         _log(
-          '  📥 Direct Message from \${packet.message!.name} (id=\${packet.id.substring(0, 8)}...)',
+          '  📥 Direct Message from ${packet.message!.name} (id=${packet.id.substring(0, 8)}... ble=$fromDevice)',
         );
         _messageController.add(packet.message!);
       }

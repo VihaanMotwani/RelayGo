@@ -68,22 +68,13 @@ class _MessagesPageState extends State<MessagesPage> {
   void _openChat(PeerInfo peer) => setState(() => _selectedPeer = peer);
   void _closeChat() => setState(() => _selectedPeer = null);
 
-  // Returns the messages for a given conversation.
-  // NOTE: We use the live in-memory list from MeshService (widget.mesh.messages)
-  // because peer.deviceId is the BLE MAC address while msg.src is a UUID —
-  // they will never match. Since DMs are 1-to-1 sessions, we show all messages
-  // to/from the selected peer by matching on msg.to == peer.deviceId OR
-  // msg.src == peer.deviceId (software UUID), but fall back to all messages
-  // when there's no src match (single peer scenario).
+  // Returns the messages for a conversation with a specific peer.
+  // Outgoing: m.to == peerId (sent to this peer's BLE MAC)
+  // Incoming: m.fromBleId == peerId (received from this peer's BLE MAC)
   List<MeshMessage> _messagesForPeer(String peerId) {
     final live = widget.mesh.messages;
-    // Try both the BLE hardware ID (peerId) and the stored messages.
-    // Messages sent by US have src == our deviceId, to == peer's UUID (unknown)
-    // Messages received from peer have src == peer's UUID (not MAC)
-    //
-    // Best we can do: if there's only one conversation happening, show all msgs.
-    // Sorted oldest → newest.
-    return List<MeshMessage>.from(live)..sort((a, b) => a.ts.compareTo(b.ts));
+    return live.where((m) => m.to == peerId || m.fromBleId == peerId).toList()
+      ..sort((a, b) => a.ts.compareTo(b.ts));
   }
 
   // Returns the last message for preview in the peer list.
