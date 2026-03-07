@@ -4,7 +4,7 @@ class BleConstants {
   static const String packetCharUuid = '300a7b48-d3e2-4114-8f43-8f0a05a41de1';
   static const String messageCharUuid = 'e8c45f49-5f12-4ebf-897b-8919b48624bd';
 
-  static const Duration scanInterval = Duration(seconds: 15);
+  static const Duration scanInterval = Duration(seconds: 3);
   static const Duration connectionTimeout = Duration(seconds: 10);
   static const int requestMtu = 247;
   static const int fallbackMtu = 185; // iOS BLE MTU limit / fallback
