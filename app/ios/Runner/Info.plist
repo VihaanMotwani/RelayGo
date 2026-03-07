@@ -38,6 +38,8 @@
 	<string>RelayGo needs your location to tag emergency reports with GPS coordinates for first responders.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>RelayGo uses the microphone to transcribe voice emergency reports using on-device AI.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>RelayGo uses speech recognition to convert your voice into emergency reports.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

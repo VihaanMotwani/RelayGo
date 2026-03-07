@@ -67,10 +67,11 @@ class GemmaService {
         preferredBackend: PreferredBackend.cpu,
       );
 
-      _setStatus(GemmaStatus.ready);
+      // Warm up the chat session while still in initializing state,
+      // so the first user message responds immediately.
+      await _getOrCreateChat();
 
-      // Warm up: create chat session and prime system prompt
-      _getOrCreateChat();
+      _setStatus(GemmaStatus.ready);
     } catch (e) {
       _error = e.toString();
       _setStatus(GemmaStatus.error);
@@ -127,16 +128,19 @@ class GemmaService {
 
       var tokenCount = 0;
       final fullResponse = StringBuffer();
+      var brokeEarly = false;
 
       await for (final response in chat.generateChatResponseAsync()) {
         if (_stopRequested) {
           debugPrint('[streamChat] stop requested — breaking');
+          brokeEarly = true;
           break;
         }
 
         tokenCount++;
         if (tokenCount > _maxChatTokens) {
           debugPrint('[streamChat] hit $tokenCount tokens — breaking');
+          brokeEarly = true;
           break;
         }
 
@@ -154,12 +158,27 @@ class GemmaService {
             final beforeTail = text.substring(0, text.length - 40);
             if (beforeTail.contains(tail)) {
               debugPrint('[streamChat] repetition detected — breaking');
+              brokeEarly = true;
               break;
             }
           }
         }
       }
+
+      // If we broke out before the native engine called PredictDone,
+      // reset the session AND give the native engine time to settle
+      // before allowing a new inference. Without the delay the next
+      // addQueryChunk call races against the pending PredictDone.
+      if (brokeEarly) {
+        _chat = null;
+        _chatInitialized = false;
+        await Future.delayed(const Duration(milliseconds: 600));
+      }
     } catch (e) {
+      // Session may be corrupt after an error — reset it.
+      _chat = null;
+      _chatInitialized = false;
+      await Future.delayed(const Duration(milliseconds: 600));
       yield '\n[Error: $e]';
     } finally {
       _isBusy = false;

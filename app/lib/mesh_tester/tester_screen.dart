@@ -11,6 +11,7 @@ import 'demo_data.dart';
 import 'dummy_data.dart';
 import 'gemma_service.dart';
 import 'home_page.dart';
+import 'voice_service.dart';
 import 'instrumented_mesh_service.dart';
 import 'log_page.dart';
 import 'log_service.dart';
@@ -33,6 +34,7 @@ class _TesterScreenState extends State<TesterScreen> {
   final LogService _log = LogService.instance;
   final ScrollController _logScrollController = ScrollController();
   final GemmaService _gemma = GemmaService();
+  final VoiceService _voice = VoiceService();
   final SentReportCache _reportCache = SentReportCache();
 
   List<LogEntry> _logEntries = [];
@@ -74,6 +76,9 @@ class _TesterScreenState extends State<TesterScreen> {
     _gemma.initialize().then((_) {
       if (mounted) setState(() {});
     });
+
+    // Initialize voice (STT + TTS) in the background
+    _voice.initialize();
   }
 
   @override
@@ -82,6 +87,7 @@ class _TesterScreenState extends State<TesterScreen> {
     _statsSub?.cancel();
     _mesh.dispose();
     _gemma.dispose();
+    _voice.dispose();
     _logScrollController.dispose();
     super.dispose();
   }
@@ -237,7 +243,7 @@ class _TesterScreenState extends State<TesterScreen> {
             gemma: _gemma,
             reportCache: _reportCache,
           ),
-          AiPage(gemma: _gemma),
+          AiPage(gemma: _gemma, voice: _voice),
           MessagesPage(mesh: _mesh),
           LogPage(
             entries: _logEntries,

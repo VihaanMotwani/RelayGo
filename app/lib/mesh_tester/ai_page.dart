@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'gemma_service.dart';
+import 'speech_chunker.dart';
 import 'theme.dart';
+import 'voice_service.dart';
 
 /// Chat message model for the AI page.
 class _ChatMsg {
@@ -19,8 +21,9 @@ class _ChatMsg {
 /// No extraction, no packet creation — just emergency guidance chat.
 class AiPage extends StatefulWidget {
   final GemmaService gemma;
+  final VoiceService voice;
 
-  const AiPage({super.key, required this.gemma});
+  const AiPage({super.key, required this.gemma, required this.voice});
 
   @override
   State<AiPage> createState() => _AiPageState();
@@ -35,6 +38,11 @@ class _AiPageState extends State<AiPage> {
   bool _isRecording = false;
   StreamSubscription? _statusSub;
 
+  final SpeechChunker _chunker = SpeechChunker();
+  String? _voiceStatusText;
+  String? _voiceErrorText;
+  bool _voiceRepliesEnabled = true;
+
   @override
   void initState() {
     super.initState();
@@ -46,6 +54,8 @@ class _AiPageState extends State<AiPage> {
   @override
   void dispose() {
     _statusSub?.cancel();
+    widget.voice.stopListening();
+    widget.voice.stopSpeaking();
     _controller.dispose();
     _scrollController.dispose();
     super.dispose();
@@ -67,10 +77,25 @@ class _AiPageState extends State<AiPage> {
     final trimmed = text.trim();
     if (trimmed.isEmpty || _isStreaming) return;
 
+    // If the LLM was interrupted, it needs a moment to call PredictDone
+    // before a new inference can start. Poll for up to 2 s.
+    if (widget.gemma.isBusy) {
+      for (int i = 0; i < 20; i++) {
+        await Future.delayed(const Duration(milliseconds: 100));
+        if (!widget.gemma.isBusy) break;
+      }
+      if (widget.gemma.isBusy) return; // still busy — give up
+    }
+
+    // Stop any ongoing TTS and reset chunker for the new response.
+    await widget.voice.stopSpeaking();
+    _chunker.reset();
+
     _controller.clear();
     setState(() {
       _messages.add(_ChatMsg(text: trimmed, isUser: true));
       _isStreaming = true;
+      _voiceErrorText = null;
     });
     _scrollToBottom();
 
@@ -80,28 +105,134 @@ class _AiPageState extends State<AiPage> {
     });
     _scrollToBottom();
 
-    // Stream tokens from LLM
+    // Stream tokens from LLM; feed each token to the TTS chunker.
     await for (final token in widget.gemma.streamChat(trimmed)) {
       if (!mounted) return;
       setState(() {
         _messages.last.text += token;
       });
       _scrollToBottom();
+
+      if (_voiceRepliesEnabled) {
+        for (final chunk in _chunker.push(token)) {
+          await widget.voice.speakChunk(chunk);
+        }
+      }
+    }
+
+    // Flush remaining buffered text when the stream ends.
+    if (_voiceRepliesEnabled && mounted) {
+      final tail = _chunker.flush();
+      if (tail != null) await widget.voice.speakChunk(tail);
     }
 
     if (!mounted) return;
     setState(() => _isStreaming = false);
   }
 
-  void _toggleRecording() {
-    if (_isStreaming) return;
-    setState(() => _isRecording = !_isRecording);
-    // STT will be wired here later
+  Future<void> _toggleRecording() async {
+    // ── Already listening: user tapped to stop ──────────────────────
+    if (_isRecording) {
+      // Clear _isRecording BEFORE awaiting stopListening so that any onResult
+      // callback firing during the poll (see VoiceService) is ignored and
+      // doesn't trigger a double _sendMessage call.
+      setState(() {
+        _isRecording = false;
+        _voiceStatusText = null;
+      });
+      final finalText = await widget.voice.stopListening();
+      if (finalText != null && finalText.trim().isNotEmpty) {
+        await _sendMessage(finalText);
+      } else {
+        setState(() => _voiceErrorText = 'No speech detected');
+      }
+      return;
+    }
+
+    // ── Not listening: start ────────────────────────────────────────
+    // If LLM is still streaming, interrupt it first.
+    if (_isStreaming) {
+      widget.gemma.stopInference();
+      _chunker.reset();
+      setState(() => _isStreaming = false);
+    }
+    if (widget.voice.isSpeaking) await widget.voice.stopSpeaking();
+
+    setState(() {
+      _voiceStatusText = 'Initializing…';
+      _voiceErrorText = null;
+    });
+
+    final ready = await widget.voice.ensureSpeechReady();
+    if (!ready) {
+      setState(() {
+        _voiceStatusText = null;
+        _voiceErrorText =
+            widget.voice.lastError ?? 'Speech recognition unavailable';
+      });
+      return;
+    }
+
+    setState(() {
+      _isRecording = true;
+      _voiceStatusText = 'Listening…';
+    });
+
+    final started = await widget.voice.startListening(
+      onResult: (text, isFinal) {
+        if (!mounted) return;
+        // Only process results if we explicitly started recording.
+        // Guards against spurious OS-level STT callbacks.
+        if (!_isRecording) return;
+        if (isFinal) {
+          setState(() {
+            _isRecording = false;
+            _voiceStatusText = null;
+          });
+          if (text.trim().isNotEmpty) {
+            _sendMessage(text);
+          }
+        }
+      },
+      // Called when STT auto-stops (silence timeout, error).
+      // Only acts if onResult(isFinal=true) hasn't already handled the result
+      // (i.e. _isRecording is still true — onResult sets it to false).
+      onStopped: () {
+        if (!mounted) return;
+        if (!_isRecording) return; // onResult already handled the final result
+        final recognized = widget.voice.lastRecognizedText?.trim() ?? '';
+        setState(() {
+          _isRecording = false;
+          _voiceStatusText = null;
+          if (recognized.isEmpty) {
+            _voiceErrorText =
+                widget.voice.lastError == null ||
+                        widget.voice.lastError!.contains('No speech')
+                    ? 'No speech detected'
+                    : widget.voice.lastError;
+          }
+        });
+        if (recognized.isNotEmpty) {
+          _sendMessage(recognized);
+        }
+      },
+    );
+
+    if (!started) {
+      setState(() {
+        _isRecording = false;
+        _voiceStatusText = null;
+        _voiceErrorText =
+            widget.voice.lastError ?? 'Could not start recording';
+      });
+    }
   }
 
-  /// Stop the current LLM inference.
+  /// Stop LLM inference, TTS playback, and reset the speech chunker.
   void _stopGeneration() {
     widget.gemma.stopInference();
+    widget.voice.stopSpeaking();
+    _chunker.reset();
     setState(() => _isStreaming = false);
   }
 
@@ -364,7 +495,32 @@ class _AiPageState extends State<AiPage> {
           ),
         ],
       ),
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (_voiceStatusText != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6, left: 4),
+              child: Text(
+                _voiceStatusText!,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: theme.colorScheme.primary,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          if (_voiceErrorText != null)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6, left: 4),
+              child: Text(
+                _voiceErrorText!,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  color: Colors.red.shade500,
+                ),
+              ),
+            ),
+          Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(
@@ -420,7 +576,7 @@ class _AiPageState extends State<AiPage> {
           ),
           const SizedBox(width: Spacing.sm),
           GestureDetector(
-            onTap: isReady ? _toggleRecording : null,
+            onTap: (isReady || _isStreaming) ? () { _toggleRecording(); } : null,
             child:
                 Container(
                       width: 48,
@@ -455,7 +611,9 @@ class _AiPageState extends State<AiPage> {
                     ),
           ),
         ],
-      ),
+      ),        // end Row
+        ],
+      ),        // end Column
     );
   }
 }
