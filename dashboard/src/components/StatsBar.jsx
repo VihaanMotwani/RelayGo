@@ -1,7 +1,7 @@
 import { TYPE_COLORS, TYPE_LABELS } from '../utils/mapStyles';
 import { useTheme } from '../hooks/useTheme';
 
-export default function StatsBar({ reports, directives = [], connected, enableBuildingHover, setEnableBuildingHover, showRelayPaths, setShowRelayPaths }) {
+export default function StatsBar({ reports, directives = [], sensors, connected, enableBuildingHover, setEnableBuildingHover, showRelayPaths, setShowRelayPaths, showSensorLayers, setShowSensorLayers }) {
   const { theme, toggle } = useTheme();
 
   const typeCounts = {};
@@ -52,6 +52,14 @@ export default function StatsBar({ reports, directives = [], connected, enableBu
           </div>
         )}
 
+        {sensors && (
+          <div style={s.typeChip}>
+            <div style={{ ...s.chipDot, background: 'var(--green)', boxShadow: '0 0 4px var(--green)' }} />
+            <span style={s.chipText}>Infrastructure</span>
+            <span style={s.chipCount}>{sensors.infra?.length || 0} POIs</span>
+          </div>
+        )}
+
         <div style={s.statusPill}>
           <div style={{
             ...s.statusDot,
@@ -83,6 +91,24 @@ export default function StatsBar({ reports, directives = [], connected, enableBu
             <circle cx="3" cy="12" r="2" />
             <circle cx="12" cy="4" r="2" />
             <circle cx="21" cy="12" r="2" />
+          </svg>
+        </button>
+
+        {/* Infra layers toggle */}
+        <button
+          onClick={() => setShowSensorLayers(prev => !prev)}
+          style={{
+            ...s.themeToggle,
+            color: showSensorLayers ? 'var(--cyan)' : 'var(--text-secondary)',
+            background: showSensorLayers ? 'rgba(100, 210, 255, 0.12)' : 'var(--chip-bg)',
+            borderColor: showSensorLayers ? 'transparent' : 'var(--separator)',
+          }}
+          title={showSensorLayers ? 'Hide Infra Layers' : 'Show Infra Layers'}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
           </svg>
         </button>
 

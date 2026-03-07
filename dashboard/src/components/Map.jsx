@@ -40,6 +40,85 @@ function reportsToGeoJSON(reports) {
   };
 }
 
+function getDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371e3;
+  const p1 = (lat1 * Math.PI) / 180;
+  const p2 = (lat2 * Math.PI) / 180;
+  const dp = ((lat2 - lat1) * Math.PI) / 180;
+  const dl = ((lon2 - lon1) * Math.PI) / 180;
+  const a = Math.sin(dp / 2) * Math.sin(dp / 2) + Math.cos(p1) * Math.cos(p2) * Math.sin(dl / 2) * Math.sin(dl / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
+
+function camerasToGeoJSON(sensors, selectedRegion = null) {
+  const cams = sensors?.cameras?.cameras || [];
+  return {
+    type: 'FeatureCollection',
+    features: cams
+      .filter((c) => c.lat != null && c.lng != null)
+      .map((c) => {
+        let inRegion = -1; // -1: normal, 1: inside, 0: outside
+        if (selectedRegion) {
+          const dist = getDistance(selectedRegion.lat, selectedRegion.lng, c.lat, c.lng);
+          inRegion = dist <= 3000 ? 1 : 0;
+        }
+        return {
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [c.lng, c.lat] },
+          properties: { id: c.id, image_url: c.image_url || '', in_region: inRegion },
+        };
+      }),
+  };
+}
+
+// distinct geometric shapes: ✚ (cross) for hospital, ▲ (triangle) for shelter, 
+// ■ (square) for fire station, ★ (star) for police, ⬢ (hexagon/circle fallback) for clinic
+const INFRA_SHAPES = {
+  hospital: { shape: '✚', color: '#ff4444' },     // Red Cross
+  fire_station: { shape: '■', color: '#ff8800' }, // Orange Square
+  shelter: { shape: '▲', color: '#00C851' },      // Green Triangle
+  police: { shape: '★', color: '#33b5e5' },       // Blue Star
+  clinic: { shape: '⬢', color: '#aa66cc' },       // Purple Hexagon
+};
+
+function infraToGeoJSON(sensors, reports = [], focusedReport = null) {
+  const items = sensors?.infra || [];
+  return {
+    type: 'FeatureCollection',
+    features: items
+      .filter((st) => st.lat != null && st.lon != null)
+      .map((st) => {
+        let minDist = Infinity;
+        if (focusedReport?.loc?.lat != null) {
+          minDist = getDistance(focusedReport.loc.lat, focusedReport.loc.lng, st.lat, st.lon);
+        } else if (reports.length > 0) {
+          reports.forEach(r => {
+            if (r.loc?.lat) {
+              const d = getDistance(r.loc.lat, r.loc.lng, st.lat, st.lon);
+              if (d < minDist) minDist = d;
+            }
+          });
+        }
+
+        return {
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [st.lon, st.lat] },
+          properties: {
+            id: st.id,
+            name: st.name || '',
+            type: st.type || 'unknown',
+            shape: INFRA_SHAPES[st.type]?.shape || '●',
+            color: INFRA_SHAPES[st.type]?.color || '#888888',
+            dist: minDist,
+          },
+        };
+      })
+      // Only include facilities within 2km of an incident
+      .filter(f => f.properties.dist <= 2000),
+  };
+}
+
 /* ---- Styles ---- */
 
 const styles = {
@@ -91,17 +170,20 @@ function createPinEl(color, code, urgency) {
 
 /* ---- Component ---- */
 
-export default function Map({ reports, focusedReport, onReportClick, enableBuildingHover, showRelayPaths = true }) {
+export default function Map({ reports, sensors, focusedReport, onReportClick, enableBuildingHover, showRelayPaths = true, showSensorLayers = true, selectedRegion, onRegionSelect }) {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const mapRef = useRef(null);
   const sourceReady = useRef(false);
+  const sensorSourceReady = useRef(false);
   const reportsRef = useRef(reports);
+  const sensorsRef = useRef(sensors);
   const markersRef = useRef([]); // Will store { id, marker } objects
   const { theme } = useTheme();
 
   const enableBuildingHoverRef = useRef(enableBuildingHover);
   const showRelayPathsRef = useRef(showRelayPaths);
+  const showSensorLayersRef = useRef(showSensorLayers);
 
   useEffect(() => {
     showRelayPathsRef.current = showRelayPaths;
@@ -109,6 +191,31 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
       drawRelayOverlay(mapRef.current, reportsRef.current);
     }
   }, [showRelayPaths]);
+
+  useEffect(() => {
+    showSensorLayersRef.current = showSensorLayers;
+    const map = mapRef.current;
+    if (map && map.getStyle()) {
+      if (map.getLayer('sensor-cameras')) {
+        map.setLayoutProperty('sensor-cameras', 'visibility', showSensorLayers ? 'visible' : 'none');
+      }
+      if (map.getLayer('sensor-cameras-label')) {
+        map.setLayoutProperty('sensor-cameras-label', 'visibility', showSensorLayers ? 'visible' : 'none');
+      }
+      if (map.getLayer('sensor-infra')) {
+        map.setLayoutProperty('sensor-infra', 'visibility', showSensorLayers ? 'visible' : 'none');
+      }
+      if (map.getLayer('sensor-infra-label')) {
+        map.setLayoutProperty('sensor-infra-label', 'visibility', showSensorLayers ? 'visible' : 'none');
+      }
+      if (map.getLayer('sensor-stations-label')) {
+        map.setLayoutProperty('sensor-stations-label', 'visibility', showSensorLayers ? 'visible' : 'none');
+      }
+      if (map.getLayer('sensor-rainfall')) {
+        map.setLayoutProperty('sensor-rainfall', 'visibility', showSensorLayers ? 'visible' : 'none');
+      }
+    }
+  }, [showSensorLayers]);
 
   useEffect(() => {
     enableBuildingHoverRef.current = enableBuildingHover;
@@ -122,6 +229,7 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
   }, [enableBuildingHover]);
 
   reportsRef.current = reports;
+  sensorsRef.current = sensors;
 
   /* ---- Canvas relay arc rendering (draws OVER 3D buildings) ---- */
   /* Arcs are 3D-aware: points are sampled along the geographic path,
@@ -447,9 +555,131 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
   // All Mapbox sources and layers in one setup call
   function setupLayers(map, isDark, data) {
     addReportSource(map, data);
+    addSensorLayers(map);
     add3DLayers(map, isDark);
     addBuildingHover(map, isDark);
     stripPOIs(map);
+  }
+
+  // Sensor data layers: traffic cameras + rainfall stations
+  function addSensorLayers(map) {
+    // Camera source + layer
+    map.addSource('sensor-cameras', {
+      type: 'geojson',
+      data: camerasToGeoJSON(sensorsRef.current, selectedRegion),
+    });
+
+    map.addLayer({
+      id: 'sensor-cameras',
+      type: 'circle',
+      source: 'sensor-cameras',
+      paint: {
+        'circle-radius': [
+          'case',
+          ['==', ['get', 'in_region'], 1], 8,
+          4
+        ],
+        'circle-color': [
+          'case',
+          ['==', ['get', 'in_region'], 1], '#00ffcc', // bright cyan inside region
+          ['==', ['get', 'in_region'], -1], '#64d2ff', // default blue
+          'rgba(100, 210, 255, 0.2)' // dimmed outside region
+        ],
+        'circle-stroke-width': 1.5,
+        'circle-stroke-color': [
+          'case',
+          ['==', ['get', 'in_region'], 1], '#ffffff',
+          'rgba(255,255,255,0)' // No stroke otherwise to reduce clutter
+        ],
+        'circle-opacity': [
+          'case',
+          ['==', ['get', 'in_region'], 1], 1.0,
+          ['==', ['get', 'in_region'], -1], 0.1, // very dim default
+          0.05 // almost invisible outside region
+        ],
+      },
+      layout: {
+        visibility: showSensorLayersRef.current ? 'visible' : 'none',
+      },
+    });
+
+    map.addLayer({
+      id: 'sensor-cameras-label',
+      type: 'symbol',
+      source: 'sensor-cameras',
+      paint: {
+        'text-opacity': [
+          'case',
+          ['==', ['get', 'in_region'], 1], 1.0,
+          ['==', ['get', 'in_region'], -1], 0.8,
+          0.2
+        ],
+      },
+      layout: {
+        'text-field': '📹',
+        'text-size': [
+          'interpolate', ['linear'], ['zoom'],
+          8, 10,
+          12, 14,
+          15, 18,
+        ],
+        'text-offset': [0, -0.8],
+        'text-allow-overlap': false,
+        visibility: showSensorLayersRef.current ? 'visible' : 'none',
+      },
+    });
+
+    // Infrastructure POIs (Hospitals, Fire Stations, Shelters)
+    map.addSource('sensor-infra', {
+      type: 'geojson',
+      data: infraToGeoJSON(sensorsRef.current, reportsRef.current, null),
+    });
+
+    // Layer 1: Geometric text symbols
+    map.addLayer({
+      id: 'sensor-infra-shape',
+      type: 'symbol',
+      source: 'sensor-infra',
+      layout: {
+        'text-field': ['get', 'shape'],
+        'text-size': [
+          'interpolate', ['linear'], ['zoom'],
+          10, 12,
+          14, 18,
+          18, 26,
+        ],
+        'text-allow-overlap': true,
+        visibility: showSensorLayersRef.current ? 'visible' : 'none',
+      },
+      paint: {
+        'text-color': ['get', 'color'],
+        'text-halo-color': 'rgba(255,255,255,0.8)',
+        'text-halo-width': 1.5,
+      }
+    });
+
+    // Layer 2: Labels (visible at higher zoom)
+    map.addLayer({
+      id: 'sensor-infra-label',
+      type: 'symbol',
+      source: 'sensor-infra',
+      minzoom: 13,
+      layout: {
+        'text-field': ['get', 'name'],
+        'text-size': 10,
+        'text-offset': [0, 1.2],
+        'text-allow-overlap': false,
+        'text-font': ['DIN Pro Regular', 'Arial Unicode MS Regular'],
+        visibility: showSensorLayersRef.current ? 'visible' : 'none',
+      },
+      paint: {
+        'text-color': 'rgba(255, 255, 255, 0.9)',
+        'text-halo-color': 'rgba(0,0,0,0.8)',
+        'text-halo-width': 1.5,
+      },
+    });
+
+    sensorSourceReady.current = true;
   }
 
   /* ---- Effects ---- */
@@ -493,6 +723,7 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
       map.remove();
       mapRef.current = null;
       sourceReady.current = false;
+      sensorSourceReady.current = false;
     };
   }, [drawRelayOverlay, onReportClick]);
 
@@ -516,6 +747,7 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
       map.setBearing(bearing);
 
       sourceReady.current = false;
+      sensorSourceReady.current = false;
       setupLayers(map, isDark, reportsToGeoJSON(reportsRef.current));
       syncMarkers(map, reportsRef.current);
       drawRelayOverlay(map, reportsRef.current);
@@ -588,6 +820,69 @@ export default function Map({ reports, focusedReport, onReportClick, enableBuild
       }
     }
   }, [focusedReport]);
+
+  // Update sensor layers when sensor data changes
+  const hasFittedSensors = useRef(false);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !sensorSourceReady.current) return;
+
+    const geoJSON = infraToGeoJSON(sensors, reports, focusedReport);
+    const camGeoJSON = camerasToGeoJSON(sensors, selectedRegion);
+
+    const infraSrc = map.getSource('sensor-infra');
+    if (infraSrc) infraSrc.setData(geoJSON);
+
+    const camSrc = map.getSource('sensor-cameras');
+    if (camSrc) camSrc.setData(camGeoJSON);
+
+    // Auto-fly to infra network on first load (if no incidents took us elsewhere)
+    if (!hasFittedSensors.current && geoJSON.features.length > 0 && (!reportsRef.current || reportsRef.current.length === 0)) {
+      hasFittedSensors.current = true;
+      const bounds = new mapboxgl.LngLatBounds();
+      geoJSON.features.forEach((f) => bounds.extend(f.geometry.coordinates));
+      map.fitBounds(bounds, {
+        padding: { top: 80, bottom: 80, left: 80, right: 400 },
+        pitch: 45,
+        duration: 2500,
+        maxZoom: 12,
+      });
+    }
+  }, [sensors, selectedRegion, focusedReport]);
+
+  // Handle empty map clicks to show Region Scan popup
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    const popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: true, maxWidth: '200px' });
+
+    const onClick = (e) => {
+      // Don't trigger if clicked on a pin/cluster
+      const features = map.queryRenderedFeatures(e.point, { layers: ['unclustered-point', 'clusters', 'sensor-cameras', 'sensor-infra'] });
+      if (features.length > 0) return;
+
+      const node = document.createElement('div');
+      node.style.padding = '4px';
+      node.innerHTML = `<button id="scan-btn" style="background:var(--tint);color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;width:100%;font-family:var(--system-font);">Scan Region for CCTV</button>`;
+
+      popup.setLngLat(e.lngLat).setDOMContent(node).addTo(map);
+
+      node.querySelector('#scan-btn').onclick = () => {
+        popup.remove();
+        if (onRegionSelect) {
+          onRegionSelect({ lat: e.lngLat.lat, lng: e.lngLat.lng });
+        }
+      };
+    };
+
+    map.on('click', onClick);
+    return () => {
+      map.off('click', onClick);
+      popup.remove();
+    };
+  }, [onRegionSelect]);
 
   return (
     <div style={styles.wrapper}>

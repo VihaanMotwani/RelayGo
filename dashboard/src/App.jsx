@@ -6,16 +6,20 @@ import Map from './components/Map';
 import ReportList from './components/ReportList';
 import DirectiveList from './components/DirectiveList';
 import DirectivePanel from './components/DirectivePanel';
+import InfraPanel from './components/InfraPanel';
 import Legend from './components/Legend';
+import RegionalCCTVPanel from './components/RegionalCCTVPanel';
 import './App.css';
 
 function Dashboard() {
-  const { reports, directives, connected, refetchDirectives } = useWebSocket();
+  const { reports, directives, sensors, connected, refetchDirectives } = useWebSocket();
   const { theme } = useTheme();
-  const [tab, setTab] = useState('reports'); // 'reports' | 'directives'
+  const [tab, setTab] = useState('reports'); // 'reports' | 'directives' | 'infra'
   const [focusedReport, setFocusedReport] = useState(null);
   const [enableBuildingHover, setEnableBuildingHover] = useState(true);
   const [showRelayPaths, setShowRelayPaths] = useState(true);
+  const [showSensorLayers, setShowSensorLayers] = useState(true);
+  const [selectedRegion, setSelectedRegion] = useState(null);
 
   useEffect(() => {
     document.body.setAttribute('data-theme', theme);
@@ -27,21 +31,28 @@ function Dashboard() {
         <StatsBar
           reports={reports}
           directives={directives}
+          sensors={sensors}
           connected={connected}
           enableBuildingHover={enableBuildingHover}
           setEnableBuildingHover={setEnableBuildingHover}
           showRelayPaths={showRelayPaths}
           setShowRelayPaths={setShowRelayPaths}
+          showSensorLayers={showSensorLayers}
+          setShowSensorLayers={setShowSensorLayers}
         />
       </div>
       <div className="app-body">
         <div className="app-map">
           <Map
             reports={reports}
+            sensors={sensors}
             focusedReport={focusedReport}
             onReportClick={setFocusedReport}
             enableBuildingHover={enableBuildingHover}
             showRelayPaths={showRelayPaths}
+            showSensorLayers={showSensorLayers}
+            selectedRegion={selectedRegion}
+            onRegionSelect={setSelectedRegion}
           />
         </div>
         <div className="app-sidebar">
@@ -65,18 +76,29 @@ function Dashboard() {
                 <span style={{ ...s.tabBadge, background: 'var(--tint)' }}>{directives.length}</span>
               )}
             </button>
+            <button
+              style={{ ...s.tab, ...(tab === 'infra' ? s.tabActive : {}) }}
+              onClick={() => setTab('infra')}
+            >
+              Infra
+              <span style={{ ...s.tabBadge, background: sensors?.infra ? 'var(--green)' : 'var(--text-tertiary)' }}>LIVE</span>
+            </button>
           </div>
 
           {/* Tab content */}
           <div style={s.tabContent}>
-            {tab === 'reports' ? (
+            {tab === 'reports' && (
               <ReportList
                 reports={reports}
                 focusedReport={focusedReport}
                 onReportClick={setFocusedReport}
               />
-            ) : (
+            )}
+            {tab === 'directives' && (
               <DirectiveList directives={directives} />
+            )}
+            {tab === 'infra' && (
+              <InfraPanel sensors={sensors} focusedReport={focusedReport} />
             )}
           </div>
 
@@ -87,6 +109,11 @@ function Dashboard() {
 
           {tab === 'reports' && <Legend />}
         </div>
+        <RegionalCCTVPanel
+          sensors={sensors}
+          region={selectedRegion}
+          onClose={() => setSelectedRegion(null)}
+        />
       </div>
     </div>
   );

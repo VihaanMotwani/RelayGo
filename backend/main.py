@@ -11,14 +11,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import init_db
 from routes.directives import router as directives_router
 from routes.reports import router as reports_router
+from routes.sensors import router as sensors_router
 from routes.websocket import router as ws_router
+from sensors import start_polling
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Startup / shutdown lifecycle hook."""
     await init_db()
+    sensor_tasks = await start_polling()
     yield
+    # Cancel sensor polling on shutdown
+    for t in sensor_tasks:
+        t.cancel()
 
 
 app = FastAPI(
@@ -40,6 +46,7 @@ app.add_middleware(
 # ---------- Routers ----------
 app.include_router(reports_router)
 app.include_router(directives_router)
+app.include_router(sensors_router)
 app.include_router(ws_router)
 
 

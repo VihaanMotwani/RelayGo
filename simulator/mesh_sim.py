@@ -17,15 +17,15 @@ logging.basicConfig(
 logger = logging.getLogger("mesh_sim")
 
 # --- Configuration ---
-NUM_NODES = 50
-PERCENT_ONLINE = 0.05  # 5% of nodes have internet (uplinks) to force long multi-hop chains
-TICK_INTERVAL = 0.5   # faster ticks for smoother animations
-COMM_RANGE_KM = 0.2   # reduced range to force long multi-hop chains
+NUM_NODES = 30
+PERCENT_ONLINE = 0.1  # 10% of nodes have internet
+TICK_INTERVAL = 0.5
+COMM_RANGE_KM = 0.2
 BACKEND_URL = "http://localhost:8000/api/reports"
 
-# Tehran Bounding Box (approx central)
-LAT_MIN, LAT_MAX = 35.6800, 35.7300
-LNG_MIN, LNG_MAX = 51.3600, 51.4200
+# Kallang / Aljunied Bounding Box
+LAT_MIN, LAT_MAX = 1.3150, 1.3300
+LNG_MIN, LNG_MAX = 103.8650, 103.8850
 
 # Emergency Templates
 EMERGENCIES = [
@@ -74,47 +74,37 @@ class MeshNode:
 class MeshSimulator:
     def __init__(self):
         self.nodes = []
-        # Start at a random location
-        lat = random.uniform(LAT_MIN, LAT_MAX)
-        lng = random.uniform(LNG_MIN, LNG_MAX)
+        center_lat = 1.3216872
+        center_lng = 103.8764305
         
         for i in range(NUM_NODES):
-            # Force at least the first node to be an uplink, then 5% chance
+            # Force at least the first node to be an uplink, then 10% chance
             is_online = (i == 0) or (random.random() < PERCENT_ONLINE)
+            
+            # Scatter nodes tightly within ~300m radius of the incidents
+            lat = center_lat + random.uniform(-0.003, 0.003)
+            lng = center_lng + random.uniform(-0.003, 0.003)
+            
             self.nodes.append(MeshNode(f"node_{i}", lat, lng, is_online))
             
-            # Random walk step (100m to 180m) to guarantee chain connectivity and prevent bubbles
-            angle = random.uniform(0, 2 * 3.14159)
-            dist_km = random.uniform(0.1, 0.18)
-            lat += (dist_km * 0.009) * cos(angle)
-            lng += (dist_km * 0.009 / cos(radians(lat))) * sin(angle)
-            
-            # Bounce off bounding box to keep nodes in Tehran
-            lat = max(LAT_MIN, min(LAT_MAX, lat))
-            lng = max(LNG_MIN, min(LNG_MAX, lng))
-            
         self.online_nodes = [n for n in self.nodes if n.is_online]
-        logger.info(f"Initialized {NUM_NODES} connected nodes (Random Walk) in Tehran ({len(self.online_nodes)} have uplink).")
+        logger.info(f"Initialized {NUM_NODES} connected nodes (Clustered) in Singapore ({len(self.online_nodes)} have uplink).")
 
-    def generate_incident(self):
-        """Randomly pick an offline node and generate a new emergency report."""
+    def fire_specific_incident(self, lat, lng, etype, urg, desc):
+        """Pick the closest offline node and generate a specific incident."""
         offline_nodes = [n for n in self.nodes if not n.is_online]
         if not offline_nodes:
             return
             
-        node = random.choice(offline_nodes)
-        etype, urg, desc = random.choice(EMERGENCIES)
-        
-        # Add slight jitter to the incident location compared to the node reporting it
-        ilat = node.lat + random.uniform(-0.001, 0.001)
-        ilng = node.lng + random.uniform(-0.001, 0.001)
+        # find closest offline node
+        node = min(offline_nodes, key=lambda n: haversine(lat, lng, n.lat, n.lng))
         
         packet_id = str(uuid.uuid4())
         packet = {
             "kind": "report",
             "id": packet_id,
             "ts": int(time.time()),
-            "loc": {"lat": ilat, "lng": ilng, "acc": 10},
+            "loc": {"lat": lat, "lng": lng, "acc": 10},
             "type": etype,
             "urg": urg,
             "haz": [],
@@ -122,11 +112,11 @@ class MeshSimulator:
             "src": node.node_id,
             "hops": 0,
             "ttl": 15,
-            "relay_path": [{"lat": ilat, "lng": ilng, "device": node.node_id}]
+            "relay_path": [{"lat": lat, "lng": lng, "device": node.node_id}]
         }
         
         node.receive_packet(packet)
-        logger.warning(f"🚨 New Incident at [{ilat:.4f}, {ilng:.4f}]: {desc} (from {node.node_id})")
+        logger.warning(f"🚨 New Incident at [{lat:.4f}, {lng:.4f}]: {desc} (from {node.node_id})")
 
     async def simulate_gossip(self):
         """Simulate one tick of mesh routing."""
@@ -199,11 +189,19 @@ class MeshSimulator:
         logger.info("Starting Mesh Simulator. Press Ctrl+C to exit.")
         async with aiohttp.ClientSession() as session:
             tick_count = 0
+            incidents_generated = 0
             while True:
                 try:
-                    # Every 5 ticks (~5 seconds), generate a new incident
-                    if tick_count % 5 == 0:
-                        self.generate_incident()
+                    if tick_count == 2 and incidents_generated == 0:
+                        self.fire_specific_incident(1.3216872, 103.8764305, "structural", 5, "Multi-story residential collapse. Voices heard under rubble.")
+                        incidents_generated += 1
+                    elif tick_count == 6 and incidents_generated == 1:
+                        self.fire_specific_incident(1.3219500, 103.8768000, "fire", 4, "Secondary vehicle fire spreading to nearby structure due to collapse.")
+                        incidents_generated += 1
+                        
+                    if tick_count > 30:
+                        logger.info("Simulation complete. Target incidents generated and gossiped.")
+                        break
 
                     # Gossip and Uplink
                     await self.simulate_gossip()
