@@ -7,10 +7,12 @@ import 'package:permission_handler/permission_handler.dart';
 import '../core/sent_report_cache.dart';
 import '../services/location_service.dart';
 import 'ai_page.dart';
+import 'chat_service.dart';
 import 'demo_data.dart';
 import 'dummy_data.dart';
 import 'gemma_service.dart';
 import 'home_page.dart';
+import 'voice_service.dart';
 import 'instrumented_mesh_service.dart';
 import 'log_page.dart';
 import 'log_service.dart';
@@ -33,7 +35,9 @@ class _TesterScreenState extends State<TesterScreen> {
   final LogService _log = LogService.instance;
   final ScrollController _logScrollController = ScrollController();
   final GemmaService _gemma = GemmaService();
+  final VoiceService _voice = VoiceService();
   final SentReportCache _reportCache = SentReportCache();
+  late final ChatService _chat = ChatService(gemma: _gemma);
 
   List<LogEntry> _logEntries = [];
   bool _meshRunning = false;
@@ -70,10 +74,28 @@ class _TesterScreenState extends State<TesterScreen> {
       setState(() {});
     });
 
-    // Initialize Gemma LLM
+    // Initialize Gemma LLM, then ChatService (knowledge + cache)
     _gemma.initialize().then((_) {
       if (mounted) setState(() {});
+      _chat.initialize();
     });
+
+    // Fetch GPS at startup so the AI can give real nearby results
+    // without waiting for the user to start the mesh.
+    LocationService.getCurrentLocation().then((pos) {
+      if (pos != null) {
+        _chat.updateLocation(pos.latitude, pos.longitude);
+        if (mounted) {
+          setState(() {
+            _lat = pos.latitude;
+            _lng = pos.longitude;
+          });
+        }
+      }
+    }).catchError((_) {});
+
+    // Initialize voice (STT + TTS) in the background
+    _voice.initialize();
   }
 
   @override
@@ -82,6 +104,8 @@ class _TesterScreenState extends State<TesterScreen> {
     _statsSub?.cancel();
     _mesh.dispose();
     _gemma.dispose();
+    _chat.dispose();
+    _voice.dispose();
     _logScrollController.dispose();
     super.dispose();
   }
@@ -163,6 +187,7 @@ class _TesterScreenState extends State<TesterScreen> {
                   _lng = position.longitude;
                 });
               }
+              _chat.updateLocation(position.latitude, position.longitude);
               _log.info(
                 '📍 Location acquired: ${position.latitude.toStringAsFixed(6)}, '
                 '${position.longitude.toStringAsFixed(6)} '
@@ -237,7 +262,7 @@ class _TesterScreenState extends State<TesterScreen> {
             gemma: _gemma,
             reportCache: _reportCache,
           ),
-          AiPage(gemma: _gemma),
+          AiPage(gemma: _gemma, voice: _voice, chat: _chat),
           MessagesPage(mesh: _mesh),
           LogPage(
             entries: _logEntries,
@@ -252,6 +277,8 @@ class _TesterScreenState extends State<TesterScreen> {
             onPreloadData: _preloadData,
             onResetDb: _resetDb,
             onClearLog: _clearLog,
+            onRebuildAiIndex: () => _chat.rebuildIndex(),
+            onClearAiCache: () => _chat.clearCache(),
           ),
         ],
       ),

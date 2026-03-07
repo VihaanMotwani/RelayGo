@@ -67,10 +67,11 @@ class GemmaService {
         preferredBackend: PreferredBackend.cpu,
       );
 
-      _setStatus(GemmaStatus.ready);
+      // Warm up the chat session while still in initializing state,
+      // so the first user message responds immediately.
+      await _getOrCreateChat();
 
-      // Warm up: create chat session and prime system prompt
-      _getOrCreateChat();
+      _setStatus(GemmaStatus.ready);
     } catch (e) {
       _error = e.toString();
       _setStatus(GemmaStatus.error);
@@ -127,16 +128,19 @@ class GemmaService {
 
       var tokenCount = 0;
       final fullResponse = StringBuffer();
+      var brokeEarly = false;
 
       await for (final response in chat.generateChatResponseAsync()) {
         if (_stopRequested) {
           debugPrint('[streamChat] stop requested — breaking');
+          brokeEarly = true;
           break;
         }
 
         tokenCount++;
         if (tokenCount > _maxChatTokens) {
           debugPrint('[streamChat] hit $tokenCount tokens — breaking');
+          brokeEarly = true;
           break;
         }
 
@@ -154,13 +158,92 @@ class GemmaService {
             final beforeTail = text.substring(0, text.length - 40);
             if (beforeTail.contains(tail)) {
               debugPrint('[streamChat] repetition detected — breaking');
+              brokeEarly = true;
               break;
             }
           }
         }
       }
+
+      // If we broke out before the native engine called PredictDone,
+      // reset the session AND give the native engine time to settle
+      // before allowing a new inference. Without the delay the next
+      // addQueryChunk call races against the pending PredictDone.
+      if (brokeEarly) {
+        _chat = null;
+        _chatInitialized = false;
+        await Future.delayed(const Duration(milliseconds: 600));
+      }
     } catch (e) {
+      // Session may be corrupt after an error — reset it.
+      _chat = null;
+      _chatInitialized = false;
+      await Future.delayed(const Duration(milliseconds: 600));
       yield '\n[Error: $e]';
+    } finally {
+      _isBusy = false;
+      _stopRequested = false;
+    }
+  }
+
+  // ── Per-turn prompt streaming ──────────────────────────────────────
+
+  /// Stream a response for a pre-assembled prompt using a **fresh** chat
+  /// session. Unlike [streamChat], this never touches the persistent chat
+  /// history, making it safe for per-turn RAG calls from ChatService.
+  Stream<String> streamPrompt(String fullPrompt) async* {
+    if (_model == null || _status != GemmaStatus.ready) {
+      yield 'AI model not ready. Please wait for initialization.';
+      return;
+    }
+    if (_isBusy) {
+      yield 'Model is busy. Please wait for the current response to finish.';
+      return;
+    }
+
+    _isBusy = true;
+    _stopRequested = false;
+
+    try {
+      final chat = await _model!.createChat(temperature: 0.3, topK: 1);
+      await chat.addQueryChunk(Message.text(text: fullPrompt, isUser: true));
+
+      var tokenCount = 0;
+      final fullResponse = StringBuffer();
+      var brokeEarly = false;
+
+      await for (final response in chat.generateChatResponseAsync()) {
+        if (_stopRequested) {
+          brokeEarly = true;
+          break;
+        }
+        tokenCount++;
+        if (tokenCount > _maxChatTokens) {
+          brokeEarly = true;
+          break;
+        }
+        if (response is TextResponse) {
+          fullResponse.write(response.token);
+          yield response.token;
+
+          if (fullResponse.length > 200) {
+            final text = fullResponse.toString();
+            final tail = text.substring(text.length - 40);
+            final beforeTail = text.substring(0, text.length - 40);
+            if (beforeTail.contains(tail)) {
+              brokeEarly = true;
+              break;
+            }
+          }
+        }
+      }
+
+      if (brokeEarly) {
+        await Future.delayed(const Duration(milliseconds: 600));
+      }
+    } catch (e) {
+      await Future.delayed(const Duration(milliseconds: 600));
+      yield '[Error: $e]';
     } finally {
       _isBusy = false;
       _stopRequested = false;

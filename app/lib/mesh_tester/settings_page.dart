@@ -11,6 +11,8 @@ class SettingsPage extends StatelessWidget {
   final VoidCallback onPreloadData;
   final VoidCallback onResetDb;
   final VoidCallback onClearLog;
+  final VoidCallback? onRebuildAiIndex;
+  final VoidCallback? onClearAiCache;
 
   const SettingsPage({
     super.key,
@@ -21,6 +23,8 @@ class SettingsPage extends StatelessWidget {
     required this.onPreloadData,
     required this.onResetDb,
     required this.onClearLog,
+    this.onRebuildAiIndex,
+    this.onClearAiCache,
   });
 
   @override
@@ -78,6 +82,31 @@ class SettingsPage extends StatelessWidget {
               title: 'Stored Packets',
               subtitle: '$storedCount packets in database',
               onTap: null,
+            ),
+          ],
+        ),
+
+        const SizedBox(height: Spacing.xl),
+
+        // ── AI ──
+        _SectionHeader(title: 'AI'),
+        _GroupedCard(
+          children: [
+            _SettingsTile(
+              icon: Icons.refresh_rounded,
+              iconColor: Colors.teal.shade500,
+              title: 'Rebuild Knowledge Index',
+              subtitle: 'Reload passages and clear AI cache',
+              onTap: onRebuildAiIndex,
+            ),
+            const _TileDivider(),
+            _SettingsTile(
+              icon: Icons.cleaning_services_rounded,
+              iconColor: Colors.orange.shade500,
+              title: 'Clear AI Cache',
+              subtitle: 'Delete all cached AI responses',
+              onTap: onClearAiCache,
+              destructive: true,
             ),
           ],
         ),
