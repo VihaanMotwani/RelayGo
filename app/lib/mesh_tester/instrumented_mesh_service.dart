@@ -5,6 +5,7 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import '../models/emergency_report.dart';
 import '../models/mesh_message.dart';
 import '../models/mesh_packet.dart';
+import '../models/peer_info.dart';
 import '../services/mesh/mesh_service.dart';
 import '../services/mesh/packet_store.dart';
 import 'log_service.dart';
@@ -102,7 +103,9 @@ class InstrumentedMeshService {
 
     _reportSub = _meshService.onNewReport.listen(_onReport);
     _messageSub = _meshService.onNewMessage.listen(_onMessage);
-    _peerSub = _meshService.onPeerCountChanged.listen(_onPeerCount);
+    _peerSub = _meshService.onPeersChanged.listen(
+      (p) => _onPeerCount(p.length),
+    );
 
     try {
       await _meshService.start();
@@ -212,6 +215,17 @@ class InstrumentedMeshService {
   }
 
   int get peerCount => _meshService.peerCount;
+  List<PeerInfo> get peers => _meshService.peers;
+  String get deviceId => _meshService.deviceId;
+  String get displayName => _meshService.displayName;
+
+  Future<bool> sendDirectMessage(
+    String targetDeviceId,
+    MeshMessage message,
+  ) async {
+    _log.mesh('📤 Sending DM to $targetDeviceId');
+    return await _meshService.sendDirectMessage(targetDeviceId, message);
+  }
 
   /// Manually force a sync to the backend. Returns the status message.
   Future<String> forceBackendSync() async {

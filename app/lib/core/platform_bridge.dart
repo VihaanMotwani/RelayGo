@@ -33,7 +33,8 @@ class PlatformBridge {
 
   // Stream controllers for pushing events to listeners (Flutter UI or native)
   final _initProgressController = StreamController<String>.broadcast();
-  final _meshPacketController = StreamController<Map<String, dynamic>>.broadcast();
+  final _meshPacketController =
+      StreamController<Map<String, dynamic>>.broadcast();
   final _peerCountController = StreamController<int>.broadcast();
   final _connectionStatusController = StreamController<String>.broadcast();
 
@@ -41,7 +42,8 @@ class PlatformBridge {
   Stream<String> get initProgress => _initProgressController.stream;
   Stream<Map<String, dynamic>> get onMeshPacket => _meshPacketController.stream;
   Stream<int> get onPeerCountChanged => _peerCountController.stream;
-  Stream<String> get onConnectionStatusChanged => _connectionStatusController.stream;
+  Stream<String> get onConnectionStatusChanged =>
+      _connectionStatusController.stream;
 
   // State
   bool _isInitialized = false;
@@ -86,9 +88,9 @@ class PlatformBridge {
       _pushToNative('onMeshPacket', packet);
     });
 
-    _meshService.onPeerCountChanged.listen((count) {
-      _peerCountController.add(count);
-      _pushToNative('onPeerCountChanged', {'count': count});
+    _meshService.onPeersChanged.listen((peers) {
+      _peerCountController.add(peers.length);
+      _pushToNative('onPeerCountChanged', {'count': peers.length});
     });
 
     _meshService.onConnectionStatusChanged.listen((status) {
@@ -111,12 +113,17 @@ class PlatformBridge {
 
   /// Send message to AI and get response
   /// If extractAndBroadcast is true and mesh is connected, extracts emergency data and broadcasts it
-  Future<Map<String, dynamic>> chat(String text, {bool extractReport = false, bool extractAndBroadcast = false}) async {
+  Future<Map<String, dynamic>> chat(
+    String text, {
+    bool extractReport = false,
+    bool extractAndBroadcast = false,
+  }) async {
     // Get user location for nearby resources context
     final location = await LocationService.getCurrentLocation();
 
     // If we should extract and broadcast, force extraction
-    final shouldExtract = extractReport || (extractAndBroadcast && _meshService.isConnected);
+    final shouldExtract =
+        extractReport || (extractAndBroadcast && _meshService.isConnected);
 
     final response = await _aiService.chat(
       text,
@@ -126,7 +133,9 @@ class PlatformBridge {
     );
 
     // If extraction succeeded and mesh is connected, broadcast the report
-    if (extractAndBroadcast && _meshService.isConnected && response.extraction != null) {
+    if (extractAndBroadcast &&
+        _meshService.isConnected &&
+        response.extraction != null) {
       await _broadcastExtraction(response.extraction!, location);
     }
 
@@ -145,10 +154,15 @@ class PlatformBridge {
   }
 
   /// Broadcast an extracted emergency report to the mesh network
-  Future<void> _broadcastExtraction(AiExtraction extraction, dynamic location) async {
+  Future<void> _broadcastExtraction(
+    AiExtraction extraction,
+    dynamic location,
+  ) async {
     // Only broadcast if urgency is significant (3+)
     if (extraction.urgency < 3) {
-      print('[PlatformBridge] Skipping broadcast - urgency ${extraction.urgency} below threshold');
+      print(
+        '[PlatformBridge] Skipping broadcast - urgency ${extraction.urgency} below threshold',
+      );
       return;
     }
 
@@ -168,7 +182,9 @@ class PlatformBridge {
     );
 
     await _meshService.broadcastReport(report);
-    print('[PlatformBridge] Broadcast emergency report: ${extraction.type} urg=${extraction.urgency}');
+    print(
+      '[PlatformBridge] Broadcast emergency report: ${extraction.type} urg=${extraction.urgency}',
+    );
   }
 
   /// Extract emergency data from text and broadcast if significant
@@ -238,7 +254,7 @@ class PlatformBridge {
   /// Generate situational awareness summary from mesh data
   Future<String> generateAwarenessSummary() async {
     final reports = _meshService.reports;
-    final broadcasts = _meshService.broadcastMessages.map((m) => m.body).toList();
+    final broadcasts = _meshService.messages.map((m) => m.body).toList();
     return await _aiService.generateAwarenessSummary(reports, broadcasts);
   }
 
@@ -280,19 +296,11 @@ class PlatformBridge {
     await _meshService.broadcastReport(report);
   }
 
-  /// Send a broadcast message to nearby devices
+  /// Send a broadcast message to nearby devices (DEPRECATED)
   Future<void> sendBroadcast(String message) async {
-    final msg = MeshMessage(
-      id: DateTime.now().millisecondsSinceEpoch.toString(),
-      ts: DateTime.now().millisecondsSinceEpoch ~/ 1000,
-      src: _meshService.deviceId,
-      name: _meshService.displayName,
-      to: null, // Broadcast
-      body: message,
-      hops: 0,
-      ttl: 10,
+    print(
+      '[PlatformBridge] sendBroadcast is deprecated and no longer supported in P2P chat mode.',
     );
-    await _meshService.broadcastMessage(msg);
   }
 
   /// Send direct message to specific device
@@ -307,7 +315,10 @@ class PlatformBridge {
       hops: 0,
       ttl: 10,
     );
-    await _meshService.broadcastMessage(msg);
+    final success = await _meshService.sendDirectMessage(peerId, msg);
+    if (!success) {
+      print('[PlatformBridge] Failed to send DM to $peerId');
+    }
   }
 
   /// Get all received reports
@@ -315,18 +326,22 @@ class PlatformBridge {
     return _meshService.reports.map((r) => r.toJson()).toList();
   }
 
-  /// Get all broadcast messages
+  /// Get all broadcast messages (now returns all direct messages)
   List<Map<String, dynamic>> getBroadcasts() {
-    return _meshService.broadcastMessages.map((m) => m.toJson()).toList();
+    return _meshService.messages.map((m) => m.toJson()).toList();
   }
 
   /// Get list of nearby peers
   List<Map<String, dynamic>> getPeers() {
-    return _meshService.peers.map((p) => {
-      'id': p.deviceId,
-      'name': p.displayName,
-      'lastSeen': p.lastSeen.millisecondsSinceEpoch,
-    }).toList();
+    return _meshService.peers
+        .map(
+          (p) => {
+            'id': p.deviceId,
+            'name': p.displayName,
+            'lastSeen': p.lastSeen.millisecondsSinceEpoch,
+          },
+        )
+        .toList();
   }
 
   // ============================================================
@@ -368,8 +383,13 @@ class PlatformBridge {
         case 'chat':
           final text = call.arguments['text'] as String;
           final extract = call.arguments['extractReport'] as bool? ?? false;
-          final extractAndBroadcast = call.arguments['extractAndBroadcast'] as bool? ?? false;
-          return await chat(text, extractReport: extract, extractAndBroadcast: extractAndBroadcast);
+          final extractAndBroadcast =
+              call.arguments['extractAndBroadcast'] as bool? ?? false;
+          return await chat(
+            text,
+            extractReport: extract,
+            extractAndBroadcast: extractAndBroadcast,
+          );
 
         case 'extractAndBroadcast':
           final text = call.arguments['text'] as String;
@@ -475,9 +495,11 @@ class PlatformBridge {
   }
 
   void _pushStreamDone(String confidence) {
-    _channel.invokeMethod('onStreamDone', {'confidence': confidence}).catchError((e) {
-      // Native side might not be listening
-    });
+    _channel
+        .invokeMethod('onStreamDone', {'confidence': confidence})
+        .catchError((e) {
+          // Native side might not be listening
+        });
   }
 
   void _pushStreamError(String error) {

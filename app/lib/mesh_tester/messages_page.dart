@@ -45,48 +45,228 @@ class _MessagesPageState extends State<MessagesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        // ── Segmented control ──
-        Padding(
-          padding: const EdgeInsets.fromLTRB(Spacing.md, Spacing.md, Spacing.md, Spacing.sm),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(4),
-            child: Row(
-              children: [
-                Expanded(
-                  child: _SegmentButton(
-                    label: 'Reports',
-                    count: _reports.length,
-                    selected: _showReports,
-                    onTap: () => setState(() => _showReports = true),
-                  ),
+        Column(
+          children: [
+            // ── Segmented control ──
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                Spacing.md,
+                Spacing.md,
+                Spacing.md,
+                Spacing.sm,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                Expanded(
-                  child: _SegmentButton(
-                    label: 'Messages',
-                    count: _messages.length,
-                    selected: !_showReports,
-                    onTap: () => setState(() => _showReports = false),
-                  ),
+                padding: const EdgeInsets.all(4),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _SegmentButton(
+                        label: 'Reports',
+                        count: _reports.length,
+                        selected: _showReports,
+                        onTap: () => setState(() => _showReports = true),
+                      ),
+                    ),
+                    Expanded(
+                      child: _SegmentButton(
+                        label: 'Messages',
+                        count: _messages.length,
+                        selected: !_showReports,
+                        onTap: () => setState(() => _showReports = false),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
+
+            // ── Content ──
+            Expanded(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: _showReports
+                    ? _buildReportsList()
+                    : _buildMessagesList(),
+              ),
+            ),
+          ],
         ),
 
-        // ── Content ──
-        Expanded(
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
-            child: _showReports ? _buildReportsList() : _buildMessagesList(),
+        // ── Floating Action Button (DMs) ──
+        if (!_showReports)
+          Positioned(
+            bottom: Spacing.lg,
+            right: Spacing.lg,
+            child: FloatingActionButton.extended(
+              onPressed: () => _showNewMessageSheet(context),
+              icon: const Icon(Icons.send_rounded),
+              label: const Text('Direct Message'),
+            ).animate().scale(duration: 200.ms, curve: Curves.easeOutBack),
           ),
-        ),
       ],
+    );
+  }
+
+  void _showNewMessageSheet(BuildContext context) {
+    String? selectedPeerId;
+    if (widget.mesh.peers.isNotEmpty) {
+      selectedPeerId = widget.mesh.peers.first.deviceId;
+    }
+    final textController = TextEditingController();
+    bool isSending = false;
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            final theme = Theme.of(context);
+            final peers = widget.mesh.peers;
+
+            return Padding(
+              padding: EdgeInsets.fromLTRB(
+                Spacing.lg,
+                Spacing.lg,
+                Spacing.lg,
+                MediaQuery.of(context).viewInsets.bottom + Spacing.lg,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'New Direct Message',
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  if (peers.isEmpty)
+                    Container(
+                      padding: const EdgeInsets.all(Spacing.md),
+                      decoration: BoxDecoration(
+                        color: Colors.orange.shade50,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.warning_amber_rounded,
+                            color: Colors.orange.shade700,
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          const Expanded(
+                            child: Text(
+                              'No peers discovered yet. Wait for a scan cycle (15s).',
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  else ...[
+                    DropdownButtonFormField<String>(
+                      value: selectedPeerId,
+                      decoration: const InputDecoration(
+                        labelText: 'To Peer',
+                        border: OutlineInputBorder(),
+                      ),
+                      items: peers.map((p) {
+                        return DropdownMenuItem(
+                          value: p.deviceId,
+                          child: Text(
+                            '${p.displayName} (${p.deviceId.substring(0, 5)}...) RSSI: ${p.rssi}',
+                          ),
+                        );
+                      }).toList(),
+                      onChanged: (val) =>
+                          setModalState(() => selectedPeerId = val),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    TextField(
+                      controller: textController,
+                      maxLength: 100,
+                      decoration: const InputDecoration(
+                        labelText: 'Message (Max 100 chars)',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    ValueListenableBuilder<TextEditingValue>(
+                      valueListenable: textController,
+                      builder: (context, textValue, _) {
+                        return ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Spacing.md,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed:
+                              isSending ||
+                                  selectedPeerId == null ||
+                                  textValue.text.trim().isEmpty
+                              ? null
+                              : () async {
+                                  setModalState(() => isSending = true);
+                                  final msg = MeshMessage(
+                                    ts:
+                                        DateTime.now().millisecondsSinceEpoch ~/
+                                        1000,
+                                    src: widget.mesh.deviceId,
+                                    name: widget.mesh.displayName,
+                                    to: selectedPeerId,
+                                    body: textValue.text.trim(),
+                                  );
+                                  final success = await widget.mesh
+                                      .sendDirectMessage(selectedPeerId!, msg);
+
+                                  if (context.mounted) {
+                                    Navigator.pop(context);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          success
+                                              ? 'Message sent!'
+                                              : 'Failed to send direct message.',
+                                        ),
+                                        backgroundColor: success
+                                            ? Colors.green.shade600
+                                            : Colors.red.shade600,
+                                      ),
+                                    );
+                                  }
+                                },
+                          child: isSending
+                              ? const SizedBox(
+                                  height: 20,
+                                  width: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                )
+                              : const Text('Send Message'),
+                        );
+                      },
+                    ),
+                  ],
+                ],
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
@@ -100,7 +280,12 @@ class _MessagesPageState extends State<MessagesPage> {
     }
     return ListView.separated(
       key: const ValueKey('reports_list'),
-      padding: const EdgeInsets.fromLTRB(Spacing.md, Spacing.sm, Spacing.md, Spacing.lg),
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.md,
+        Spacing.sm,
+        Spacing.md,
+        Spacing.lg,
+      ),
       itemCount: _reports.length,
       separatorBuilder: (_, _) => const SizedBox(height: Spacing.sm),
       itemBuilder: (_, i) => _ReportCard(report: _reports[i])
@@ -120,13 +305,30 @@ class _MessagesPageState extends State<MessagesPage> {
     }
     return ListView.separated(
       key: const ValueKey('msgs_list'),
-      padding: const EdgeInsets.fromLTRB(Spacing.md, Spacing.sm, Spacing.md, Spacing.lg),
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.md,
+        Spacing.sm,
+        Spacing.md,
+        100, // Clear the FAB
+      ),
       itemCount: _messages.length,
       separatorBuilder: (_, _) => const SizedBox(height: Spacing.sm),
-      itemBuilder: (_, i) => _MessageCard(message: _messages[i])
-          .animate()
-          .fadeIn(duration: 200.ms, delay: (i * 30).ms)
-          .slideY(begin: 0.1, end: 0, duration: 200.ms, curve: Curves.easeOut),
+      itemBuilder: (_, i) {
+        final msg = _messages[_messages.length - 1 - i];
+        final isMe = msg.src == widget.mesh.deviceId;
+        return _MessageCard(message: msg, isMe: isMe)
+            .animate()
+            .fadeIn(
+              duration: 200.ms,
+              delay: ((_messages.length - 1 - i) * 30).ms,
+            )
+            .slideY(
+              begin: 0.1,
+              end: 0,
+              duration: 200.ms,
+              curve: Curves.easeOut,
+            );
+      },
     );
   }
 }
@@ -149,7 +351,7 @@ class _SegmentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
@@ -185,7 +387,10 @@ class _SegmentButton extends StatelessWidget {
               if (count > 0) ...[
                 const SizedBox(width: Spacing.sm),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 2,
+                  ),
                   decoration: BoxDecoration(
                     color: selected
                         ? theme.colorScheme.primary.withOpacity(0.1)
@@ -235,7 +440,10 @@ class _ReportCard extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: color.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(6),
@@ -263,15 +471,17 @@ class _ReportCard extends StatelessWidget {
             // Description
             Text(
               report.desc,
-              style: theme.textTheme.bodyLarge?.copyWith(
-                height: 1.4,
-              ),
+              style: theme.textTheme.bodyLarge?.copyWith(height: 1.4),
             ),
             const SizedBox(height: Spacing.md),
             // Bottom row: hops + source
             Row(
               children: [
-                Icon(Icons.route_rounded, size: 14, color: theme.colorScheme.onSurface.withOpacity(0.4)),
+                Icon(
+                  Icons.route_rounded,
+                  size: 14,
+                  color: theme.colorScheme.onSurface.withOpacity(0.4),
+                ),
                 const SizedBox(width: 4),
                 Text(
                   '${report.hops} hops',
@@ -280,10 +490,16 @@ class _ReportCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: Spacing.md),
-                Icon(Icons.device_hub_rounded, size: 14, color: theme.colorScheme.onSurface.withOpacity(0.4)),
+                Icon(
+                  Icons.device_hub_rounded,
+                  size: 14,
+                  color: theme.colorScheme.onSurface.withOpacity(0.4),
+                ),
                 const SizedBox(width: 4),
                 Text(
-                  report.src.length > 8 ? report.src.substring(0, 8) : report.src,
+                  report.src.length > 8
+                      ? report.src.substring(0, 8)
+                      : report.src,
                   style: TextStyle(
                     fontFamily: 'RobotoMono',
                     fontSize: 12,
@@ -349,8 +565,9 @@ class _UrgencyDots extends StatelessWidget {
 
 class _MessageCard extends StatelessWidget {
   final MeshMessage message;
+  final bool isMe;
 
-  const _MessageCard({required this.message});
+  const _MessageCard({required this.message, required this.isMe});
 
   @override
   Widget build(BuildContext context) {
@@ -358,78 +575,64 @@ class _MessageCard extends StatelessWidget {
     final time = DateTime.fromMillisecondsSinceEpoch(message.ts * 1000);
     final ago = _timeAgo(time);
 
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(Spacing.md),
+    return Align(
+      alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        margin: EdgeInsets.only(
+          left: isMe ? 60 : 0,
+          right: isMe ? 0 : 60,
+          bottom: 2,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: isMe
+              ? theme.colorScheme.primary.withValues(alpha: 0.2)
+              : theme.colorScheme.onSurface.withValues(alpha: 0.08),
+          borderRadius: BorderRadius.only(
+            topLeft: const Radius.circular(16),
+            topRight: const Radius.circular(16),
+            bottomLeft: Radius.circular(isMe ? 16 : 4),
+            bottomRight: Radius.circular(isMe ? 4 : 16),
+          ),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: isMe
+              ? CrossAxisAlignment.end
+              : CrossAxisAlignment.start,
           children: [
-            // Top row: sender + badge + time
-            Row(
-              children: [
-                CircleAvatar(
-                  radius: 12,
-                  backgroundColor: theme.colorScheme.primary.withOpacity(0.1),
-                  child: Text(
-                    message.name.isNotEmpty ? message.name[0].toUpperCase() : '?',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
+            if (!isMe) ...[
+              Text(
+                message.name == 'User' || message.name == 'Unknown'
+                    ? 'Device ${message.src.substring(0, 4).toUpperCase()}'
+                    : message.name,
+                style: theme.textTheme.labelMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
                 ),
-                const SizedBox(width: Spacing.sm),
-                Text(
-                  message.name,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(width: Spacing.sm),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: message.isBroadcast
-                        ? Colors.blue.shade50
-                        : Colors.green.shade50,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text(
-                    message.isBroadcast ? 'Broadcast' : 'DM',
-                    style: theme.textTheme.labelSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: message.isBroadcast ? Colors.blue.shade700 : Colors.green.shade700,
-                    ),
-                  ),
-                ),
-                const Spacer(),
-                Text(
-                  ago,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withOpacity(0.4),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: Spacing.sm),
-            // Body
+              ),
+              const SizedBox(height: 2),
+            ],
             Text(
               message.body,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                height: 1.4,
-              ),
+              style: theme.textTheme.bodyMedium?.copyWith(height: 1.3),
             ),
-            const SizedBox(height: Spacing.sm),
-            // Hops
+            const SizedBox(height: 4),
             Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.route_rounded, size: 14, color: theme.colorScheme.onSurface.withOpacity(0.4)),
-                const SizedBox(width: 4),
+                if (!message.isBroadcast) ...[
+                  Icon(
+                    Icons.lock_rounded,
+                    size: 10,
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                  ),
+                  const SizedBox(width: 4),
+                ],
                 Text(
-                  '${message.hops} hops',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                  '$ago • ${message.hops} hops',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                    fontSize: 10,
                   ),
                 ),
               ],
