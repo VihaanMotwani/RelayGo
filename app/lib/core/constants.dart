@@ -49,6 +49,7 @@ class BackendConfig {
   static const String baseUrl =
       'https://localhost:8000'; // CHANGE TO ACTUAL NGROK URL WHEN RUNNING
   static const String reportsEndpoint = '/api/reports';
+  static const String directivesEndpoint = '/api/directives/pending';
   static const Duration syncInterval = Duration(seconds: 15);
 }
 

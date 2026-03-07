@@ -1,10 +1,9 @@
 import 'dart:async';
-import 'dart:math' show max;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-import '../models/emergency_report.dart';
+import '../models/directive.dart';
 import '../models/mesh_message.dart';
 import '../models/peer_info.dart';
 import 'instrumented_mesh_service.dart';
@@ -24,29 +23,28 @@ class MessagesPage extends StatefulWidget {
 }
 
 class _MessagesPageState extends State<MessagesPage> {
-  bool _showReports = true;
-  List<EmergencyReport> _reports = [];
+  bool _showDirectives = true;
+  List<Directive> _directives = [];
   List<MeshMessage> _messages = [];
 
   // When non-null we're in the chat view for that peer.
   PeerInfo? _selectedPeer;
 
   StreamSubscription? _msgSub;
-  StreamSubscription? _reportSub;
+  StreamSubscription? _directiveSub;
 
   @override
   void initState() {
     super.initState();
     _loadData();
-    // Subscribe to live stream updates so chat auto-refreshes when BLE receives
     _msgSub = widget.mesh.onNewMessage.listen((_) => _loadData());
-    _reportSub = widget.mesh.onNewReport.listen((_) => _loadData());
+    _directiveSub = widget.mesh.onNewDirective.listen((_) => _loadData());
   }
 
   @override
   void dispose() {
     _msgSub?.cancel();
-    _reportSub?.cancel();
+    _directiveSub?.cancel();
     super.dispose();
   }
 
@@ -57,11 +55,11 @@ class _MessagesPageState extends State<MessagesPage> {
   }
 
   Future<void> _loadData() async {
-    final reports = await widget.mesh.store.getAllReports();
+    final directives = await widget.mesh.store.getAllDirectives();
     final messages = await widget.mesh.store.getAllMessages();
     if (mounted) {
       setState(() {
-        _reports = reports;
+        _directives = directives;
         _messages = messages;
       });
     }
@@ -116,12 +114,12 @@ class _MessagesPageState extends State<MessagesPage> {
               children: [
                 Expanded(
                   child: _SegmentButton(
-                    label: 'Reports',
-                    count: _reports.length,
-                    selected: _showReports,
+                    label: 'Directives',
+                    count: _directives.length,
+                    selected: _showDirectives,
                     onTap: () {
                       setState(() {
-                        _showReports = true;
+                        _showDirectives = true;
                         _selectedPeer = null;
                       });
                     },
@@ -131,9 +129,9 @@ class _MessagesPageState extends State<MessagesPage> {
                   child: _SegmentButton(
                     label: 'Messages',
                     count: _messages.length,
-                    selected: !_showReports,
+                    selected: !_showDirectives,
                     onTap: () => setState(() {
-                      _showReports = false;
+                      _showDirectives = false;
                       _selectedPeer = null;
                     }),
                   ),
@@ -149,8 +147,8 @@ class _MessagesPageState extends State<MessagesPage> {
             duration: const Duration(milliseconds: 250),
             transitionBuilder: (child, anim) =>
                 FadeTransition(opacity: anim, child: child),
-            child: _showReports
-                ? _buildReportsList()
+            child: _showDirectives
+                ? _buildDirectivesList()
                 : _selectedPeer != null
                 ? _ChatView(
                     key: ValueKey(_selectedPeer!.deviceId),
@@ -173,25 +171,33 @@ class _MessagesPageState extends State<MessagesPage> {
     );
   }
 
-  Widget _buildReportsList() {
-    if (_reports.isEmpty) {
+  Widget _buildDirectivesList() {
+    // Merge live in-memory + loaded from DB (live takes precedence)
+    final live = widget.mesh.directives;
+    final all = live.isNotEmpty ? live : _directives;
+    final sorted = List<Directive>.from(all)
+      ..sort((a, b) => b.ts.compareTo(a.ts));
+
+    if (sorted.isEmpty) {
       return const _EmptyState(
-        key: ValueKey('empty_reports'),
-        icon: Icons.assignment_outlined,
-        text: 'No reports yet.\nPreload data or receive via mesh.',
+        key: ValueKey('empty_directives'),
+        icon: Icons.campaign_outlined,
+        text:
+            'No directives yet.\nOperator instructions will appear here when the backend is reachable.',
+        pulsing: false,
       );
     }
     return ListView.separated(
-      key: const ValueKey('reports_list'),
+      key: const ValueKey('directives_list'),
       padding: const EdgeInsets.fromLTRB(
         Spacing.md,
         Spacing.sm,
         Spacing.md,
         Spacing.lg,
       ),
-      itemCount: _reports.length,
+      itemCount: sorted.length,
       separatorBuilder: (_, __) => const SizedBox(height: Spacing.sm),
-      itemBuilder: (_, i) => _ReportCard(report: _reports[i])
+      itemBuilder: (_, i) => _DirectiveCard(directive: sorted[i])
           .animate()
           .fadeIn(duration: 200.ms, delay: (i * 30).ms)
           .slideY(begin: 0.08, end: 0, duration: 200.ms, curve: Curves.easeOut),
@@ -960,128 +966,157 @@ class _SegmentButton extends StatelessWidget {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// Report Card (unchanged)
+// Directive Card
 // ────────────────────────────────────────────────────────────────────────────
 
-class _ReportCard extends StatelessWidget {
-  final EmergencyReport report;
+class _DirectiveCard extends StatelessWidget {
+  final Directive directive;
 
-  const _ReportCard({required this.report});
+  const _DirectiveCard({required this.directive});
+
+  static const _prioColors = {
+    'high': Color(0xFFC83228),
+    'medium': Color(0xFFC87800),
+    'low': Color(0xFF2E7D32),
+  };
+
+  static const _prioBgColors = {
+    'high': Color(0x0AC83228),
+    'medium': Color(0x0AC87800),
+    'low': Color(0x00000000),
+  };
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final time = DateTime.fromMillisecondsSinceEpoch(report.ts * 1000);
-    final ago = _timeAgo(time);
+    final prio = directive.priority.toLowerCase();
+    final prioColor = _prioColors[prio] ?? _prioColors['medium']!;
+    final prioBg = _prioBgColors[prio] ?? Colors.transparent;
+    final ago = _timeAgo(directive.dateTime);
 
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(Spacing.md),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      color: prioBg,
+      child: IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Header row
-            Row(
-              children: [
-                Container(
-                  width: 8,
-                  height: 8,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: _typeColor(report.type),
-                  ),
+            // Priority accent bar
+            Container(
+              width: 4,
+              decoration: BoxDecoration(
+                color: prioColor,
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  bottomLeft: Radius.circular(12),
                 ),
-                const SizedBox(width: Spacing.sm),
-                Text(
-                  report.type.toUpperCase(),
-                  style: theme.textTheme.labelMedium?.copyWith(
-                    color: _typeColor(report.type),
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 0.5,
-                  ),
-                ),
-                const Spacer(),
-                _UrgencyDots(urgency: report.urg),
-                const SizedBox(width: Spacing.sm),
-                Text(
-                  ago,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
-                  ),
-                ),
-              ],
+              ),
             ),
-            const SizedBox(height: Spacing.sm),
-            Text(
-              report.desc,
-              style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
-            ),
-            const SizedBox(height: Spacing.sm),
-            Row(
-              children: [
-                Icon(
-                  Icons.route_rounded,
-                  size: 14,
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(Spacing.md),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Top row: badges + time
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 2,
+                          ),
+                          decoration: BoxDecoration(
+                            color: prioColor.withValues(alpha: 0.12),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            prio.toUpperCase(),
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              color: prioColor,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 0.8,
+                            ),
+                          ),
+                        ),
+                        if (directive.zone != null) ...[
+                          const SizedBox(width: 6),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2,
+                            ),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.primary.withValues(
+                                alpha: 0.08,
+                              ),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              directive.zone!.toUpperCase(),
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                color: theme.colorScheme.primary,
+                                fontWeight: FontWeight.w600,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                          ),
+                        ],
+                        const Spacer(),
+                        Text(
+                          ago,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurface.withValues(
+                              alpha: 0.4,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    // Sender name
+                    Text(
+                      directive.name.isNotEmpty
+                          ? directive.name
+                          : directive.src,
+                      style: theme.textTheme.labelMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    // Body
+                    Text(
+                      directive.body,
+                      style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    // Meta: TTL · hops
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.timer_outlined,
+                          size: 12,
+                          color: theme.colorScheme.onSurface.withValues(
+                            alpha: 0.4,
+                          ),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          'TTL ${directive.ttl}  •  ${directive.hops} hops',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onSurface.withValues(
+                              alpha: 0.45,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 4),
-                Text(
-                  '${report.hops} hops  •  ${report.src.substring(0, max(0, report.src.length - 20))}…',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
-                  ),
-                ),
-              ],
+              ),
             ),
           ],
         ),
       ),
-    );
-  }
-
-  Color _typeColor(String type) {
-    switch (type.toLowerCase()) {
-      case 'fire':
-        return Colors.red.shade600;
-      case 'medical':
-        return Colors.blue.shade600;
-      case 'structural':
-        return Colors.orange.shade600;
-      case 'flood':
-        return Colors.cyan.shade600;
-      case 'hazmat':
-        return Colors.purple.shade600;
-      default:
-        return Colors.grey.shade600;
-    }
-  }
-}
-
-// ── Urgency Dots ──
-
-class _UrgencyDots extends StatelessWidget {
-  final int urgency;
-
-  const _UrgencyDots({required this.urgency});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(5, (i) {
-        final active = i < urgency;
-        return Container(
-          width: 6,
-          height: 6,
-          margin: const EdgeInsets.only(right: 3),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: active
-                ? (urgency >= 4 ? Colors.red.shade500 : Colors.orange.shade500)
-                : Colors.grey.shade200,
-          ),
-        );
-      }),
     );
   }
 }
