@@ -12,10 +12,12 @@ import 'chat_models.dart';
 ///   and ~300 tokens for the response.
 class PromptBuilder {
   static const String _system =
-      'Emergency assistant. English only. Under 60 words. Direct and actionable.';
+      'You are a calm, caring emergency response assistant. '
+      'Speak naturally and conversationally. Be warm and reassuring. '
+      'Give clear, practical guidance. Respond in English. Under 100 words.';
 
   // Maximum characters for a single passage — keeps token count predictable.
-  static const int _maxPassageChars = 200;
+  static const int _maxPassageChars = 350;
 
   static String build(
     String userQuery,
