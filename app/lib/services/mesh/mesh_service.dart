@@ -18,6 +18,7 @@ class MeshService {
   final BleCentralService _central;
   late final BackendSync _backendSync;
   StreamSubscription? _peripheralSub;
+  StreamSubscription? _peripheralMessageSub;
 
   /// Optional log callback for observability.
   final void Function(String)? onLog;
@@ -29,7 +30,7 @@ class MeshService {
 
   Stream<EmergencyReport> get onNewReport => _reportController.stream;
   Stream<MeshMessage> get onNewMessage => _messageController.stream;
-  Stream<int> get onPeerCountChanged => _central.onPeerCountChanged;
+  Stream<List<PeerInfo>> get onPeersChanged => _central.onPeersChanged;
   Stream<Map<String, dynamic>> get onPacketReceived => _packetController.stream;
   Stream<String> get onConnectionStatusChanged =>
       _connectionStatusController.stream;
@@ -52,8 +53,7 @@ class MeshService {
   List<PeerInfo> _peers = [];
 
   List<EmergencyReport> get reports => _reports;
-  List<MeshMessage> get broadcastMessages =>
-      _messages.where((m) => m.to == null).toList();
+  List<MeshMessage> get messages => _messages;
   List<PeerInfo> get peers => _peers;
 
   MeshService({PacketStore? store, this.onLog})
@@ -101,8 +101,13 @@ class MeshService {
   Future<void> start() async {
     // Listen for incoming packets from peripheral
     _peripheralSub = _peripheral.onPacketReceived.listen(_handleIncomingPacket);
+    _peripheralMessageSub = _peripheral.onMessageReceived.listen(
+      _handleIncomingMessage,
+    );
 
-    // Start both BLE roles and backend sync
+    _central.onPeersChanged.listen((newPeers) {
+      _peers = newPeers;
+    });
     await _peripheral.start();
     await _central.start();
     await _backendSync.start();
@@ -138,14 +143,20 @@ class MeshService {
       _reports.insert(0, packet.report!);
       _reportController.add(packet.report!);
       _packetController.add({'kind': 'report', ...packet.report!.toJson()});
-    } else if (packet.isMessage && packet.message != null) {
-      _messages.insert(0, packet.message!);
-      _messageController.add(packet.message!);
-      _packetController.add({'kind': 'message', ...packet.message!.toJson()});
     }
 
     // Update central's packet list for forwarding
     await refreshOutbox();
+  }
+
+  Future<void> _handleIncomingMessage(MeshMessage message) async {
+    _log('[MESH] Received DM from ${message.name}');
+    final isNew = await _store.insertMessage(message);
+    if (!isNew) return; // Prevent duplicates
+
+    _messages.insert(0, message);
+    _messageController.add(message);
+    _packetController.add({'kind': 'message', ...message.toJson()});
   }
 
   /// Manually force a sync to the backend. Returns the status message.
@@ -157,13 +168,11 @@ class MeshService {
   /// Call after preloading data to ensure the central picks it up.
   Future<void> refreshOutbox() async {
     final reports = await _store.getAllReports();
-    final messages = await _store.getAllMessages();
-    final allPackets = [
-      ...reports.map(MeshPacket.fromReport),
-      ...messages.map(MeshPacket.fromMessage),
-    ];
+    // Messages are excluded from the outbox to prevent mesh-flooding.
+    final allPackets = reports.map(MeshPacket.fromReport).toList();
+
     _log(
-      '[MESH] Refreshed central queue: ${allPackets.length} packets (${reports.length} reports + ${messages.length} msgs)',
+      '[MESH] Refreshed central queue: ${allPackets.length} packets (Reports only)',
     );
     _central.updateLocalPackets(allPackets);
   }
@@ -175,15 +184,22 @@ class MeshService {
     await refreshOutbox();
   }
 
-  Future<void> broadcastMessage(MeshMessage message) async {
-    final packet = MeshPacket.fromMessage(message);
-    await _store.insertIfNew(packet);
-    _messageController.add(message);
-    await refreshOutbox();
+  Future<bool> sendDirectMessage(
+    String targetDeviceId,
+    MeshMessage message,
+  ) async {
+    final success = await _central.sendDirectMessage(targetDeviceId, message);
+    if (success) {
+      await _store.insertMessage(message);
+      _messages.insert(0, message);
+      _messageController.add(message);
+    }
+    return success;
   }
 
   Future<void> stop() async {
     await _peripheralSub?.cancel();
+    await _peripheralMessageSub?.cancel();
     await _peripheral.stop();
     await _central.stop();
     _backendSync.stop();

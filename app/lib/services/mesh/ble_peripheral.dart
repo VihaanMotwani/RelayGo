@@ -5,11 +5,14 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart' as fbp;
 import 'dart:typed_data';
 
 import '../../core/constants.dart';
+import '../../models/mesh_message.dart';
 import '../../models/mesh_packet.dart';
 
 class BlePeripheralService {
   final _packetController = StreamController<MeshPacket>.broadcast();
+  final _messageController = StreamController<MeshMessage>.broadcast();
   Stream<MeshPacket> get onPacketReceived => _packetController.stream;
+  Stream<MeshMessage> get onMessageReceived => _messageController.stream;
   bool _isAdvertising = false;
 
   /// Optional log callback — wired by InstrumentedMeshService for the tester.
@@ -42,9 +45,12 @@ class BlePeripheralService {
         characteristics: [
           BleCharacteristic(
             uuid: BleConstants.packetCharUuid,
-            properties: [
-              CharacteristicProperties.writeWithoutResponse.index,
-            ],
+            properties: [CharacteristicProperties.writeWithoutResponse.index],
+            permissions: [AttributePermissions.writeable.index],
+          ),
+          BleCharacteristic(
+            uuid: BleConstants.messageCharUuid,
+            properties: [CharacteristicProperties.writeWithoutResponse.index],
             permissions: [AttributePermissions.writeable.index],
           ),
         ],
@@ -66,9 +72,13 @@ class BlePeripheralService {
           characteristicId.toLowerCase() ==
               BleConstants.packetCharUuid.toLowerCase()) {
         _handleIncomingData(Uint8List.fromList(value), deviceId);
+      } else if (value != null &&
+          characteristicId.toLowerCase() ==
+              BleConstants.messageCharUuid.toLowerCase()) {
+        _handleIncomingMessage(Uint8List.fromList(value), deviceId);
       } else if (value != null) {
         _log(
-          '  ⚠️ Characteristic mismatch — got: $characteristicId, expected: ${BleConstants.packetCharUuid}',
+          '  ⚠️ Characteristic mismatch — got: $characteristicId, expected packet/message chars',
         );
       }
       return WriteRequestResult(
@@ -117,6 +127,20 @@ class BlePeripheralService {
     }
   }
 
+  void _handleIncomingMessage(Uint8List data, String fromDevice) {
+    try {
+      final packet = MeshPacket.fromBytes(data);
+      if (packet.message != null) {
+        _log(
+          '  📥 Direct Message from \${packet.message!.name} (id=\${packet.id.substring(0, 8)}...)',
+        );
+        _messageController.add(packet.message!);
+      }
+    } catch (e) {
+      _log('  ❌ Failed to decode Direct Message (${data.length}B): $e');
+    }
+  }
+
   Future<void> stop() async {
     if (_isAdvertising) {
       _log('Stopping advertisement...');
@@ -128,5 +152,6 @@ class BlePeripheralService {
 
   void dispose() {
     _packetController.close();
+    _messageController.close();
   }
 }

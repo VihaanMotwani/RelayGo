@@ -1,9 +1,12 @@
 /// BLE service and characteristic UUIDs for the RelayGo mesh network.
 class BleConstants {
-  static const String serviceUuid = '12345678-1234-5678-1234-56789abcdef0';
-  static const String packetCharUuid = '12345678-1234-5678-1234-56789abcdef1';
-  static const Duration scanInterval = Duration(seconds: 30);
-  static const int requestMtu = 512; // Request this from the remote device
+  static const String serviceUuid = '70f2fef4-754d-4560-af60-0cc3d4ddff50';
+  static const String packetCharUuid = '300a7b48-d3e2-4114-8f43-8f0a05a41de1';
+  static const String messageCharUuid = 'e8c45f49-5f12-4ebf-897b-8919b48624bd';
+
+  static const Duration scanInterval = Duration(seconds: 15);
+  static const Duration connectionTimeout = Duration(seconds: 10);
+  static const int requestMtu = 247;
   static const int fallbackMtu = 185; // iOS BLE MTU limit / fallback
 }
 

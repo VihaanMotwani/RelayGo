@@ -5,6 +5,8 @@ import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 import '../../core/constants.dart';
 import '../../models/mesh_packet.dart';
+import '../../models/mesh_message.dart';
+import '../../models/peer_info.dart';
 
 /// BLE Central — Flood-Then-Dedup with Probabilistic Convergence
 ///
@@ -20,7 +22,7 @@ class BleCentralService {
   Timer? _scanTimer;
   final Set<String> _connectedDeviceIds = {};
   List<MeshPacket> _localPackets = [];
-  int _peerCount = 0;
+  List<PeerInfo> _discoveredPeers = [];
   bool _syncing = false;
 
   // ── Convergence tracking ──
@@ -35,11 +37,12 @@ class BleCentralService {
   /// Optional log callback.
   final void Function(String)? onLog;
 
-  int get peerCount => _peerCount;
+  int get peerCount => _discoveredPeers.length;
+  List<PeerInfo> get discoveredPeers => _discoveredPeers;
   bool get isConverged => _converged;
 
-  final _peerCountController = StreamController<int>.broadcast();
-  Stream<int> get onPeerCountChanged => _peerCountController.stream;
+  final _peersController = StreamController<List<PeerInfo>>.broadcast();
+  Stream<List<PeerInfo>> get onPeersChanged => _peersController.stream;
 
   BleCentralService({this.onLog});
 
@@ -121,11 +124,22 @@ class BleCentralService {
       await Future.delayed(const Duration(seconds: 11));
       sub.cancel();
 
-      _log('Scan: ${foundPeers.length} peer(s)');
-      if (_peerCount != foundPeers.length) {
-        _peerCount = foundPeers.length;
-        _peerCountController.add(_peerCount);
-      }
+      final newPeers = foundPeers.entries
+          .map(
+            (e) => PeerInfo(
+              deviceId: e.key,
+              displayName: e.value.platformName.isNotEmpty
+                  ? e.value.platformName
+                  : 'Relay Node',
+              rssi:
+                  0, // We could track RSSI if needed but FlutterBlue doesn't cache it on device easily outside of the result.
+            ),
+          )
+          .toList();
+
+      _log('Scan: ${newPeers.length} peer(s)');
+      _discoveredPeers = newPeers;
+      _peersController.add(_discoveredPeers);
 
       // ── Phase 2: Flood if needed ──
       if (!shouldFlood) {
@@ -265,6 +279,70 @@ class BleCentralService {
     _log('[$peerId] $sent/${packets.length} sent');
   }
 
+  Future<bool> sendDirectMessage(
+    String targetDeviceId,
+    MeshMessage message,
+  ) async {
+    final device = BluetoothDevice.fromId(targetDeviceId);
+    _log('DM: Connecting to [$targetDeviceId]...');
+    try {
+      await device.connect(
+        timeout: const Duration(seconds: 10),
+        autoConnect: false,
+      );
+      _log('DM: Connected to [$targetDeviceId] ✅');
+
+      int mtu = BleConstants.fallbackMtu;
+      try {
+        mtu = await device.requestMtu(BleConstants.requestMtu);
+      } catch (_) {
+        _log('DM: MTU request failed, using fallback.');
+      }
+      final maxPayload = mtu - 3;
+
+      final services = await device.discoverServices();
+      BluetoothCharacteristic? messageChar;
+      for (final svc in services) {
+        if (svc.uuid.str.toLowerCase() ==
+            BleConstants.serviceUuid.toLowerCase()) {
+          for (final char in svc.characteristics) {
+            if (char.uuid.str.toLowerCase() ==
+                BleConstants.messageCharUuid.toLowerCase()) {
+              messageChar = char;
+              break;
+            }
+          }
+        }
+        if (messageChar != null) break;
+      }
+
+      if (messageChar == null) {
+        _log('DM: ⚠️ messageChar not found on [$targetDeviceId]');
+        await device.disconnect();
+        return false;
+      }
+
+      final packet = MeshPacket.fromMessage(message);
+      final bytes = packet.toBytes();
+      if (bytes.length > maxPayload) {
+        _log('DM: ⚠️ Message too large (${bytes.length} > $maxPayload)');
+        await device.disconnect();
+        return false;
+      }
+
+      await messageChar.write(bytes, withoutResponse: true);
+      _log('DM: ✅ Successfully sent to [$targetDeviceId]');
+      await device.disconnect();
+      return true;
+    } catch (e) {
+      _log('DM: ❌ Failed to send to [$targetDeviceId]: $e');
+      try {
+        await device.disconnect();
+      } catch (_) {}
+      return false;
+    }
+  }
+
   Future<void> stop() async {
     _log('Stopping central...');
     _scanTimer?.cancel();
@@ -275,6 +353,6 @@ class BleCentralService {
 
   void dispose() {
     stop();
-    _peerCountController.close();
+    _peersController.close();
   }
 }
