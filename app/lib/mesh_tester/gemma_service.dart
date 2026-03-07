@@ -90,10 +90,10 @@ class GemmaService {
     await _chat!.addQueryChunk(
       Message.text(
         text:
-            'You are a calm, caring emergency response assistant. '
-            'Speak naturally and conversationally, like a knowledgeable friend helping in a crisis. '
-            'Be warm, reassuring, and clear. Give practical step-by-step guidance when needed. '
-            'Always respond in English. Keep responses focused and under 120 words.',
+            'You are an emergency response AI assistant. '
+            'Always respond in English. Be concise and helpful. '
+            'Provide clear, actionable guidance for emergencies. '
+            'Keep responses under 150 words.',
         isUser: true,
       ),
     );

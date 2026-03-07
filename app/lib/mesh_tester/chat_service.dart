@@ -125,14 +125,9 @@ class ChatService {
     }
 
     // ── 4. Prompt assembly ────────────────────────────────────────
-    // When we have real nearby results for a location query, suppress
-    // knowledge passages — low-score passages (e.g. fire evacuation
-    // matching "now") mislead the model into ignoring the location data.
-    final passagesForPrompt =
-        (nearby.isNotEmpty && _isLocationQuery(normalized)) ? <ScoredPassage>[] : scored;
     final prompt = PromptBuilder.build(
       query,
-      passagesForPrompt,
+      scored,
       nearby: nearby,
       locationAvailable: lat != null && lng != null,
     );
