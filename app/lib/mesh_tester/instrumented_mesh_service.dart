@@ -218,6 +218,9 @@ class InstrumentedMeshService {
   List<PeerInfo> get peers => _meshService.peers;
   String get deviceId => _meshService.deviceId;
   String get displayName => _meshService.displayName;
+  Stream<MeshMessage> get onNewMessage => _meshService.onNewMessage;
+  Stream<EmergencyReport> get onNewReport => _meshService.onNewReport;
+  List<MeshMessage> get messages => _meshService.messages;
 
   Future<bool> sendDirectMessage(
     String targetDeviceId,
